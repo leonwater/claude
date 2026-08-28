@@ -1,0 +1,14 @@
+# StatsBomb 원본 데이터 (약 540MB) — 스크립트가 최초 실행 시 내려받는다
+/data
+/data/
+
+# 파이프라인 산출물 — 스크립트로 재생성 가능
+/outputs
+/outputs/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
