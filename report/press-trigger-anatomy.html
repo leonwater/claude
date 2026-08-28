@@ -1,0 +1,857 @@
+<title>압박 트리거 해부도</title>
+<style>
+  :root{
+    color-scheme: light;
+    --surface-1:#fcfcfb; --plane:#f9f9f7;
+    --ink-1:#0b0b0b; --ink-2:#52514e; --ink-3:#898781;
+    --grid:#e1e0d9; --axis:#c3c2b7; --hair:rgba(11,11,11,0.10);
+    --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a;
+    --dim:#b6b4ad;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:where(:not([data-theme="light"])){
+      color-scheme: dark;
+      --surface-1:#1a1a19; --plane:#0d0d0d;
+      --ink-1:#ffffff; --ink-2:#c3c2b7; --ink-3:#898781;
+      --grid:#2c2c2a; --axis:#383835; --hair:rgba(255,255,255,0.10);
+      --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+      --dim:#5a5954;
+    }
+  }
+  :root[data-theme="dark"]{
+    color-scheme: dark;
+    --surface-1:#1a1a19; --plane:#0d0d0d;
+    --ink-1:#ffffff; --ink-2:#c3c2b7; --ink-3:#898781;
+    --grid:#2c2c2a; --axis:#383835; --hair:rgba(255,255,255,0.10);
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70;
+    --dim:#5a5954;
+  }
+
+  body{
+    background:var(--plane); color:var(--ink-1);
+    font-family: system-ui,-apple-system,"Segoe UI","Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+    line-height:1.75; margin:0; padding:0 20px 100px;
+    -webkit-font-smoothing:antialiased; word-break:keep-all;
+  }
+  .wrap{max-width:900px;margin:0 auto}
+
+  header.hd{padding:64px 0 36px;border-bottom:1px solid var(--hair)}
+  .eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);font-weight:600;margin:0 0 14px}
+  h1{font-size:clamp(30px,5.2vw,46px);line-height:1.2;letter-spacing:-.02em;margin:0 0 16px;font-weight:700}
+  .lede{font-size:clamp(16px,2.1vw,18.5px);color:var(--ink-2);margin:0 0 24px;max-width:64ch}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{font-size:12.5px;color:var(--ink-2);border:1px solid var(--hair);border-radius:999px;padding:5px 12px;background:var(--surface-1)}
+
+  h2{font-size:clamp(21px,3vw,26px);letter-spacing:-.015em;margin:62px 0 6px;font-weight:700}
+  h2 .num{color:var(--ink-3);font-weight:600;margin-right:10px;font-variant-numeric:tabular-nums}
+  h3{font-size:16.5px;margin:34px 0 8px;font-weight:700;letter-spacing:-.01em}
+  p{margin:0 0 16px;color:var(--ink-2)}
+  p strong,li strong,dd strong{color:var(--ink-1);font-weight:650}
+  .sub{color:var(--ink-3);font-size:14px;margin:0 0 26px}
+
+  .def{background:var(--surface-1);border:1px solid var(--hair);border-left:2px solid var(--dim);
+       border-radius:0 8px 8px 0;padding:10px 14px;margin:0 0 18px;font-size:13.5px;color:var(--ink-2);line-height:1.6}
+  .def b{color:var(--ink-1);font-weight:700}
+  .def .en{color:var(--ink-3);font-weight:500;font-size:12px;margin-left:5px}
+
+  .kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(158px,1fr));gap:14px;margin:30px 0 8px}
+  .tile{background:var(--surface-1);border:1px solid var(--hair);border-radius:12px;padding:18px 18px 16px}
+  .tile .v{font-size:34px;font-weight:700;letter-spacing:-.03em;line-height:1.1;color:var(--ink-1)}
+  .tile .k{font-size:12.5px;color:var(--ink-3);margin-top:7px;line-height:1.45}
+
+  figure{margin:26px 0 8px;background:var(--surface-1);border:1px solid var(--hair);border-radius:14px;padding:22px 20px 16px;overflow-x:auto}
+  figure svg{display:block;width:100%;height:auto;min-width:520px}
+  figcaption{font-size:13px;color:var(--ink-3);margin-top:14px;padding-top:13px;border-top:1px solid var(--hair);line-height:1.6}
+  .fig-t{font-size:15.5px;font-weight:700;color:var(--ink-1);margin:0 0 3px}
+  .fig-s{font-size:13px;color:var(--ink-3);margin:0 0 18px}
+
+  table{width:100%;border-collapse:collapse;font-size:13.5px;margin:8px 0 6px;font-variant-numeric:tabular-nums}
+  th,td{text-align:right;padding:9px 10px;border-bottom:1px solid var(--hair)}
+  th:first-child,td:first-child{text-align:left;font-variant-numeric:normal}
+  thead th{color:var(--ink-3);font-weight:600;font-size:12px;letter-spacing:.02em;border-bottom:1px solid var(--axis)}
+  tbody tr:hover{background:var(--plane)}
+  td.hi{color:var(--ink-1);font-weight:650}
+  .tw{overflow-x:auto;margin:18px 0 8px}
+
+  .key{background:var(--surface-1);border:1px solid var(--hair);border-left:3px solid var(--s1);
+       border-radius:0 12px 12px 0;padding:18px 20px;margin:22px 0 30px}
+  .key p:last-child{margin-bottom:0}
+  .key .lbl{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--s1);font-weight:700;margin:0 0 8px}
+  .note{background:var(--surface-1);border:1px solid var(--hair);border-left:3px solid var(--dim);
+        border-radius:0 12px 12px 0;padding:18px 20px;margin:24px 0}
+  .note p:last-child{margin-bottom:0}
+  .note .lbl{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);font-weight:700;margin:0 0 8px}
+
+  ul,ol{margin:0 0 18px;padding-left:22px;color:var(--ink-2)}
+  li{margin-bottom:9px}
+
+  .legend{display:flex;flex-wrap:wrap;gap:16px;font-size:12.5px;color:var(--ink-2);margin:0 0 16px;padding-left:4px}
+  .legend span{display:inline-flex;align-items:center;gap:7px}
+  .swl{width:16px;height:2.5px;border-radius:2px;display:inline-block}
+  .swd{width:11px;height:11px;border-radius:50%;display:inline-block}
+  .sw{width:11px;height:11px;border-radius:3px;display:inline-block}
+
+  .foot{margin-top:64px;padding-top:22px;border-top:1px solid var(--hair);font-size:13px;color:var(--ink-3)}
+  rect.z:hover,circle.pt:hover{opacity:.82;cursor:default}
+</style>
+
+<div class="wrap">
+
+<header class="hd">
+  <p class="eyebrow">Football Data Analysis</p>
+  <h1>압박 트리거 해부도</h1>
+  <p class="lede">스페인은 유로 2024에서 <strong>언제</strong> 압박 스위치를 켰고, 그 압박은 <strong>값이 나갔는가</strong>.
+     StatsBomb 이벤트·360 데이터로 687회의 압박 개시를 트리거 단위로 분해하고, 대회 24개국과 대조했다.</p>
+  <div class="chips">
+    <span class="chip">StatsBomb Open Data</span>
+    <span class="chip">UEFA Euro 2024 · 51경기 전수</span>
+    <span class="chip">스페인 심층 7경기 + 24개국 대조</span>
+    <span class="chip">Python · 자체 파이프라인</span>
+  </div>
+</header>
+
+<h2><span class="num">01</span>왜 이 질문인가</h2>
+<p>압박을 다루는 분석은 대부분 PPDA 한 숫자와 압박 위치 밀도 히트맵에서 멈춘다.
+   두 지표는 "얼마나 자주" "어디서" 눌렀는지는 말해주지만, 현장에서 실제로 필요한 질문에는 답하지 못한다 —
+   <strong>무엇에 반응해서 눌렀는가</strong>, 그리고 <strong>그 반응은 공을 되찾아 줬는가</strong>.</p>
+
+<p class="def"><b>PPDA</b><span class="en">Passes Per Defensive Action</span> — 상대가 수비 액션 1회를 당하기까지 허용한 패스 수.
+   낮을수록 압박이 촘촘하다. 다만 <em>수비 액션의 성공 여부를 구분하지 않는다</em>.</p>
+
+<p>전력분석 미팅에서 코치가 쓰는 언어는 지표가 아니라 상황이다. "백패스 나오면 간다", "터치라인으로 몰면 간다",
+   "골킥은 놓아주고 세컨볼만 잡는다". 이 분석은 그 언어를 데이터 구조로 옮기고, 각 트리거가 실제로 몇 퍼센트를 회수했는지 값을 매긴다.</p>
+
+<p class="def"><b>트리거</b><span class="en">Pressing Trigger</span> — 수비 팀이 압박 스위치를 켜게 만드는 <em>상대 측의 신호</em>.
+   백패스, 터치라인 방향 전개, 나쁜 첫 터치, 뜬 공 등 코칭 현장에서 실제로 가르치는 단위다.</p>
+
+<div class="note">
+  <p class="lbl">분석 프레임 · Press Chain</p>
+  <p>압박을 점(點) 사건이 아니라 <strong>4단계 연쇄</strong>로 정의했다.
+     ① <strong>트리거</strong> — 상대가 취약해지는 순간이 발생한다 →
+     ② <strong>수렴</strong> — 압박 팀이 볼 주변으로 좁혀 들어간다 →
+     ③ <strong>회수</strong> — 소유권을 되찾는다 →
+     ④ <strong>전진</strong> — 되찾은 위치가 득점 기회로 이어진다.
+     각 단계에서 얼마가 새는지를 측정하면 "압박이 강했다"가 아니라 "어느 연결고리가 끊겼다"로 말할 수 있다.</p>
+</div>
+
+<div class="kpi">
+  <div class="tile"><div class="v">687</div><div class="k">스페인 압박 온셋<br>7경기 · 90분당 89.2회</div></div>
+  <div class="tile"><div class="v">26.2%</div><div class="k">8초 내 회수율<br>대회 평균 22.4% · 3위</div></div>
+  <div class="tile"><div class="v">63.7</div><div class="k">수비 액션 높이<br>24개국 중 1위</div></div>
+  <div class="tile"><div class="v">2.41</div><div class="k">평균 수렴 지수<br>대회 평균 2.37 · 9위</div></div>
+</div>
+
+<h2><span class="num">02</span>데이터를 신뢰하기 위해 한 일</h2>
+<p>공개 데이터를 그대로 집계하면 조용히 틀린 답이 나오는 지점이 세 군데 있었다. 코드는 정상 실행되고 차트도 그럴듯하게 나오지만 결론이 뒤집히는 종류의 오류다.</p>
+
+<h3>압박 온셋과 트리거를 분리한다</h3>
+<p>StatsBomb의 <code>Pressure</code> 이벤트는 한 번의 압박 국면에서 여러 건이 연달아 찍힌다. 그대로 세면 "압박 횟수"가 부풀려진다.
+   <strong>직전 5초 내 동일 팀 Pressure가 없는 첫 건만</strong> 온셋으로 채택해 국면 단위로 압축했고, 온셋 직전 6초 내
+   <strong>상대의 마지막 온볼 이벤트</strong>를 트리거로 역추적했다. 이 한 번의 정의 변경으로 분석 단위가
+   "우리 수비 행위"에서 <strong>"상대의 취약 순간"</strong>으로 이동한다 — 코치가 실제로 지시하는 단위와 같아진다.</p>
+
+<p class="def"><b>압박 온셋</b><span class="en">Press Onset</span> — 연속 기록되는 Pressure 이벤트 군집의 첫 건.
+   스페인 7경기의 Pressure 1,126건이 687건의 온셋으로 압축됐다.</p>
+
+<h3>play_pattern의 지속성을 보정한다</h3>
+<p><code>play_pattern</code>은 재개 상황 이후 <strong>포제션 전체에 계속 붙어 있다</strong>. 스로인 20초 뒤의 패스도 여전히
+   <code>From Throw In</code>이다. 1차 집계에서 스로인·골킥이 전체 트리거의 39%를 차지한 것은 이 때문이었다.
+   재개 라벨을 <strong>포제션 선두 2~3개 이벤트로 게이팅</strong>하자 스로인 139→33건, GK 132→69건으로 정상화됐고
+   미분류 비중도 47.6%→22.0%로 떨어졌다.</p>
+
+<h3>360의 가시성 편향을 보정한다</h3>
+<p>360 프리즈프레임은 <strong>방송 카메라에 잡힌 선수만</strong> 기록한다(프레임당 평균 16.5명 / 22명).
+   볼 주변 압박자를 그냥 세면 카메라가 넓게 잡은 장면일수록 압박이 약해 보이는 <strong>방향이 정해진 오차</strong>가 생기고,
+   이런 편향은 표본을 늘려도 사라지지 않는다. 각 프레임의 <code>visible_area</code> 폴리곤 대비
+   <strong>반경 10.4m 원판의 커버리지 비율</strong>을 몬테카를로로 추정해 원시 카운트를 정규화했다.
+   평균 커버리지 86.3%, 신뢰 프레임 97.9%이며, 같은 표본에서 보정 전후를 비교하면
+   수렴 지수가 <strong>2.16 → 2.41 (+11.4%)</strong>로 상향된다.</p>
+
+<p class="def"><b>가시성 보정</b><span class="en">Visibility Correction</span> — 카메라 화각 밖 선수 누락을 커버리지 비율로 나눠 정규화하는 절차.
+   커버리지 35% 미만 프레임은 신뢰 불가로 제외했다.</p>
+
+<div class="note">
+  <p class="lbl">좌표계 함정</p>
+  <p>StatsBomb은 <strong>행위 팀이 항상 좌→우로 공격하는 팀별 미러 좌표계</strong>를 쓴다.
+     같은 물리적 지점이 스페인 이벤트에서 x=30, 상대 이벤트에서 x=90으로 기록된다.
+     Pressure와 그 <code>related_events</code>의 좌표를 대조해 실증한 뒤(미러 변환 시 오차 0.1~4.7 vs 미변환 8.3~78.3)
+     모든 좌표를 압박 팀 기준으로 정규화했다. 좌우 채널도 <code>y≈0이 좌측</code>임을 쿠쿠렐라(평균 y 11.6)·
+     카르바할(69.5)과 코너킥 좌표로 교차검증했다 — 초기 집계에서는 이 라벨이 뒤집혀 있어
+     "우측이 생산성 축"이라는 정반대 결론이 나올 뻔했다.</p>
+</div>
+
+<h2><span class="num">03</span>트리거별 프로파일</h2>
+<p class="sub">빈도와 효율을 <strong>같은 행 순서로 나란히</strong> 배치했다. 두 지표를 한 좌표평면에 겹치지 않은 이유는
+   서로 다른 단위의 축을 맞추는 순간 데이터에 없는 상관이 만들어지기 때문이다.</p>
+
+<figure>
+  <p class="fig-t">트리거 유형별 압박 온셋과 회수율</p>
+  <p class="fig-s">스페인 7경기 · 687회 온셋 · 회수는 온셋 후 8초 내 소유권 탈환 기준</p>
+  <svg viewBox="0 0 760 312" role="img" aria-label="트리거 유형별 압박 온셋 건수와 회수율 비교">
+    <text x="150" y="26" font-size="12" font-weight="600" fill="var(--ink-3)">압박 온셋 건수</text>
+    <text x="470" y="26" font-size="12" font-weight="600" fill="var(--ink-3)">8초 내 회수율</text>
+    <line x1="150" y1="38" x2="400" y2="38" stroke="var(--axis)" stroke-width="1"/>
+    <line x1="470" y1="38" x2="720" y2="38" stroke="var(--axis)" stroke-width="1"/>
+    <g font-size="10.5" fill="var(--ink-3)" font-variant-numeric="tabular-nums" text-anchor="middle">
+      <text x="470" y="300">0%</text><text x="595" y="300">25%</text><text x="720" y="300">50%</text>
+    </g>
+    <line x1="470" y1="284" x2="720" y2="284" stroke="var(--axis)" stroke-width="1"/>
+    <line x1="601" y1="44" x2="601" y2="284" stroke="var(--ink-3)" stroke-width="1" stroke-dasharray="3 3"/>
+    <text x="606" y="52" font-size="10.5" fill="var(--ink-3)">스페인 평균 26.2%</text>
+
+    <g font-size="13" fill="var(--ink-1)">
+      <text x="140" y="75" text-anchor="end">터치라인 압착</text>
+      <text x="140" y="107" text-anchor="end">자기진영 횡전개</text>
+      <text x="140" y="139" text-anchor="end">기타 전개</text>
+      <text x="140" y="171" text-anchor="end">GK 소유</text>
+      <text x="140" y="203" text-anchor="end">스로인 재개</text>
+      <text x="140" y="235" text-anchor="end">공중볼 경합</text>
+      <text x="140" y="267" text-anchor="end">백패스 수신</text>
+    </g>
+    <g fill="var(--s1)">
+      <rect class="z" x="150" y="63"  width="250"   height="15" rx="4"><title>터치라인 압착 · 206회 (30.0%)</title></rect>
+      <rect class="z" x="150" y="95"  width="214.8" height="15" rx="4"><title>자기진영 횡전개 · 177회 (25.8%)</title></rect>
+      <rect class="z" x="150" y="127" width="183.3" height="15" rx="4"><title>기타 전개 · 151회 (22.0%)</title></rect>
+      <rect class="z" x="150" y="159" width="83.7"  height="15" rx="4"><title>GK 소유 · 69회 (10.0%)</title></rect>
+      <rect class="z" x="150" y="191" width="40.0"  height="15" rx="4"><title>스로인 재개 · 33회 (4.8%)</title></rect>
+      <rect class="z" x="150" y="223" width="34.0"  height="15" rx="4"><title>공중볼 경합 · 28회 (4.1%)</title></rect>
+      <rect class="z" x="150" y="255" width="27.9"  height="15" rx="4"><title>백패스 수신 · 23회 (3.3%)</title></rect>
+    </g>
+    <g font-size="11.5" fill="var(--ink-2)" font-variant-numeric="tabular-nums">
+      <text x="408" y="75">206</text><text x="373" y="107">177</text><text x="342" y="139">151</text>
+      <text x="242" y="171">69</text><text x="198" y="203">33</text><text x="192" y="235">28</text><text x="186" y="267">23</text>
+    </g>
+    <g>
+      <line x1="470" y1="70"  x2="589" y2="70"  stroke="var(--grid)" stroke-width="1.5"/>
+      <line x1="470" y1="102" x2="611" y2="102" stroke="var(--grid)" stroke-width="1.5"/>
+      <line x1="470" y1="134" x2="589" y2="134" stroke="var(--grid)" stroke-width="1.5"/>
+      <line x1="470" y1="166" x2="578" y2="166" stroke="var(--grid)" stroke-width="1.5"/>
+      <line x1="470" y1="198" x2="636" y2="198" stroke="var(--grid)" stroke-width="1.5"/>
+      <line x1="470" y1="230" x2="702" y2="230" stroke="var(--grid)" stroke-width="1.5"/>
+      <line x1="470" y1="262" x2="600" y2="262" stroke="var(--grid)" stroke-width="1.5"/>
+      <circle class="pt" cx="589" cy="70"  r="6.5" fill="var(--s1)"><title>터치라인 압착 · 23.8%</title></circle>
+      <circle class="pt" cx="611" cy="102" r="6.5" fill="var(--s1)"><title>자기진영 횡전개 · 28.2%</title></circle>
+      <circle class="pt" cx="589" cy="134" r="6.5" fill="var(--s1)"><title>기타 전개 · 23.8%</title></circle>
+      <circle class="pt" cx="578" cy="166" r="6.5" fill="var(--s1)"><title>GK 소유 · 21.7%</title></circle>
+      <circle class="pt" cx="636" cy="198" r="6.5" fill="var(--s1)"><title>스로인 재개 · 33.3%</title></circle>
+      <circle class="pt" cx="702" cy="230" r="7.5" fill="var(--s2)" stroke="var(--surface-1)" stroke-width="2"><title>공중볼 경합 · 46.4% (최고)</title></circle>
+      <circle class="pt" cx="600" cy="262" r="6.5" fill="var(--s1)"><title>백패스 수신 · 26.1%</title></circle>
+    </g>
+    <g font-size="11.5" font-variant-numeric="tabular-nums">
+      <text x="602" y="74"  fill="var(--ink-2)">23.8%</text>
+      <text x="624" y="106" fill="var(--ink-2)">28.2%</text>
+      <text x="602" y="138" fill="var(--ink-2)">23.8%</text>
+      <text x="591" y="170" fill="var(--ink-2)">21.7%</text>
+      <text x="649" y="202" fill="var(--ink-2)">33.3%</text>
+      <text x="666" y="234" fill="var(--s2)" font-weight="700" text-anchor="end">46.4%</text>
+      <text x="613" y="266" fill="var(--ink-2)">26.1%</text>
+    </g>
+  </svg>
+  <figcaption>막대는 명목 범주이므로 전 항목 단색이다 — 길이가 이미 크기를 인코딩하고 있어 색까지 값에 쓰면 같은 정보를 두 번 칠하게 된다.
+     오른쪽 점도표는 최고치 하나만 강조색으로 분리했고, 나머지는 평균선과의 거리로 읽힌다.</figcaption>
+</figure>
+
+<div class="tw">
+<table>
+  <thead><tr><th>트리거</th><th>온셋</th><th>비중</th><th>회수율</th><th>회수 중앙시간</th><th>파이널서드 회수</th><th>수렴 지수</th></tr></thead>
+  <tbody>
+    <tr><td>터치라인 압착</td><td>206</td><td>30.0%</td><td>23.8%</td><td>2.68s</td><td>1.9%</td><td>2.27</td></tr>
+    <tr><td>자기진영 횡전개</td><td>177</td><td>25.8%</td><td>28.2%</td><td>2.96s</td><td>9.0%</td><td>2.39</td></tr>
+    <tr><td>기타 전개</td><td>151</td><td>22.0%</td><td>23.8%</td><td>2.49s</td><td>0.7%</td><td>3.14</td></tr>
+    <tr><td>GK 소유</td><td>69</td><td>10.0%</td><td>21.7%</td><td class="hi">3.44s</td><td>7.2%</td><td class="hi">0.91</td></tr>
+    <tr><td>스로인 재개</td><td>33</td><td>4.8%</td><td>33.3%</td><td>2.15s</td><td>3.0%</td><td>2.60</td></tr>
+    <tr><td>공중볼 경합</td><td>28</td><td>4.1%</td><td class="hi">46.4%</td><td class="hi">1.85s</td><td class="hi">21.4%</td><td>2.82</td></tr>
+    <tr><td>백패스 수신</td><td>23</td><td>3.3%</td><td>26.1%</td><td>6.09s</td><td>4.3%</td><td>2.45</td></tr>
+  </tbody>
+</table>
+</div>
+
+<p class="def"><b>파이널서드 회수</b><span class="en">Final-Third Regain</span> — 되찾은 볼의 위치가 상대 진영 3분의 1(x≥80)인 경우.
+   같은 회수라도 어디서 되찾았는지가 공격 가치를 결정하므로 회수율과 분리해 측정했다.</p>
+
+<div class="key">
+  <p class="lbl">이 그래프가 말하는 것</p>
+  <p><strong>물량이 가장 많은 트리거가 효율은 가장 낮다.</strong>
+     전체 압박의 30.0%가 터치라인 압착에서 나왔지만 회수율은 23.8%로 평균 이하였고, 파이널서드 회수는 1.9%에 그쳤다.
+     사이드라인을 열두 번째 수비수로 쓰는 교과서적 유도는 <em>공을 빼앗는 수단</em>이 아니라 <em>전진을 지연시키는 수단</em>으로 기능했다.
+     반대로 공중볼 경합은 전체의 4.1%뿐인데 회수율 46.4%, 파이널서드 회수 21.4%, 회수 중앙시간 1.85초로 모든 지표에서 1위였다 —
+     <strong>볼이 공중에 뜬 2초 남짓이 스페인에게 가장 값비싼 순간이었다.</strong>
+     다만 공중볼 28회·백패스 23회는 표본이 작아 비율의 신뢰구간이 넓다는 점을 함께 읽어야 한다.</p>
+</div>
+
+<h2><span class="num">04</span>수렴 곡선 — 압박의 동역학</h2>
+<p class="sub">앞의 표가 압박의 <strong>결과</strong>를 요약한다면, 이 곡선은 <strong>과정</strong>을 본다.
+   단일 숫자로 압축된 지표에서는 압박이 얼마나 빨리 형성되고 얼마나 오래 유지되는지가 통째로 사라지기 때문에,
+   360 프리즈프레임을 시간축으로 샘플링해 궤적을 복원했다.</p>
+
+<p class="def"><b>수렴 지수</b><span class="en">Convergence Index</span> — 볼 반경 12 SB유닛(≈10.4m) 안의 압박 팀 필드플레이어 수.
+   <b>수렴 곡선</b>은 그 값이 트리거 이후 시간에 따라 어떻게 변하는지의 궤적이다.</p>
+
+<div class="legend">
+  <span><i class="swl" style="background:var(--s1)"></i>스로인 재개</span>
+  <span><i class="swl" style="background:var(--s2)"></i>공중볼 경합</span>
+  <span><i class="swl" style="background:var(--s3)"></i>GK 소유</span>
+  <span><i class="swl" style="background:var(--dim)"></i>그 외 4개 트리거 (맥락)</span>
+</div>
+
+<figure>
+  <p class="fig-t">트리거 이후 볼 주변 압박자 수의 시간 변화</p>
+  <p class="fig-s">가시성 보정 적용 · 반경 12 SB유닛(≈10.4m) · 구간당 표본 8건 이상만 표시</p>
+  <svg viewBox="0 0 700 300" role="img" aria-label="트리거 유형별 수렴 곡선">
+    <g stroke="var(--grid)" stroke-width="1">
+      <line x1="70" y1="260" x2="640" y2="260"/><line x1="70" y1="205" x2="640" y2="205"/>
+      <line x1="70" y1="150" x2="640" y2="150"/><line x1="70" y1="95"  x2="640" y2="95"/>
+      <line x1="70" y1="40"  x2="640" y2="40"/>
+    </g>
+    <g font-size="10.5" fill="var(--ink-3)" font-variant-numeric="tabular-nums" text-anchor="end">
+      <text x="60" y="264">0</text><text x="60" y="209">1.0</text><text x="60" y="154">2.0</text>
+      <text x="60" y="99">3.0</text><text x="60" y="44">4.0</text>
+    </g>
+    <text x="20" y="150" font-size="11" fill="var(--ink-3)" transform="rotate(-90 20 150)" text-anchor="middle">압박자 수 (명)</text>
+    <g font-size="10.5" fill="var(--ink-3)" font-variant-numeric="tabular-nums" text-anchor="middle">
+      <text x="70" y="280">0s</text><text x="184" y="280">1s</text><text x="298" y="280">2s</text>
+      <text x="412" y="280">3s</text><text x="526" y="280">4s</text><text x="640" y="280">5s</text>
+    </g>
+    <line x1="70" y1="260" x2="70" y2="40" stroke="var(--axis)" stroke-width="1"/>
+    <g fill="none" stroke="var(--dim)" stroke-width="1.6" opacity="0.75">
+      <polyline points="70,124.2 184,119.2 298,159.9 412,145.6 526,127.5 640,139.6"/>
+      <polyline points="70,137.9 184,131.3 298,125.8 412,114.8 526,112.6 640,115.4"/>
+      <polyline points="70,131.9 184,133.5 298,134.6 412,141.2 526,131.9 640,142.9"/>
+      <polyline points="70,85.1  184,70.3  298,89.5  412,78.5  526,89.0  640,109.9"/>
+    </g>
+    <polyline fill="none" stroke="var(--s1)" stroke-width="2.5" points="70,95.6 184,52.1 298,55.4 412,81.3 526,87.9 640,154.4"/>
+    <polyline fill="none" stroke="var(--s2)" stroke-width="2.5" points="70,113.7 184,48.8 298,106.0 412,107.7 526,126.4 640,106.6"/>
+    <polyline fill="none" stroke="var(--s3)" stroke-width="2.5" points="70,214.9 184,170.9 298,186.9 412,168.2 526,159.9 640,162.7"/>
+    <g stroke="var(--surface-1)" stroke-width="2">
+      <circle cx="70" cy="95.6" r="4.5" fill="var(--s1)"/><circle cx="184" cy="52.1" r="4.5" fill="var(--s1)"/>
+      <circle cx="298" cy="55.4" r="4.5" fill="var(--s1)"/><circle cx="412" cy="81.3" r="4.5" fill="var(--s1)"/>
+      <circle cx="526" cy="87.9" r="4.5" fill="var(--s1)"/><circle cx="640" cy="154.4" r="4.5" fill="var(--s1)"/>
+      <circle cx="70" cy="113.7" r="4.5" fill="var(--s2)"/><circle cx="184" cy="48.8" r="4.5" fill="var(--s2)"/>
+      <circle cx="298" cy="106.0" r="4.5" fill="var(--s2)"/><circle cx="412" cy="107.7" r="4.5" fill="var(--s2)"/>
+      <circle cx="526" cy="126.4" r="4.5" fill="var(--s2)"/><circle cx="640" cy="106.6" r="4.5" fill="var(--s2)"/>
+      <circle cx="70" cy="214.9" r="4.5" fill="var(--s3)"/><circle cx="184" cy="170.9" r="4.5" fill="var(--s3)"/>
+      <circle cx="298" cy="186.9" r="4.5" fill="var(--s3)"/><circle cx="412" cy="168.2" r="4.5" fill="var(--s3)"/>
+      <circle cx="526" cy="159.9" r="4.5" fill="var(--s3)"/><circle cx="640" cy="162.7" r="4.5" fill="var(--s3)"/>
+    </g>
+    <text x="650" y="158" font-size="12" fill="var(--s1)" font-weight="650">스로인</text>
+    <text x="650" y="110" font-size="12" fill="var(--s2)" font-weight="650">공중볼</text>
+    <text x="650" y="180" font-size="12" fill="var(--s3)" font-weight="650">GK 소유</text>
+    <text x="192" y="38" font-size="11" fill="var(--ink-3)">1초 시점 피크</text>
+  </svg>
+  <figcaption>7개 계열을 모두 같은 채도로 그리면 선이 서로를 지워 이야기가 사라진다 — 대비가 뚜렷한 3개만 강조하고 나머지는 회색 맥락으로 눌렀다.
+     스로인 5초 구간의 급락(3.13→1.92)은 국면이 끝나 표본 성격이 바뀐 결과이므로 추세로 해석하지 않는다.</figcaption>
+</figure>
+
+<div class="key">
+  <p class="lbl">이 그래프가 말하는 것</p>
+  <p><strong>스페인의 압박은 전면적이 아니라 선택적이었다.</strong>
+     GK 소유 상황의 수렴 지수는 시작 시점 0.82명으로 다른 트리거의 3분의 1 수준이고, 5초가 지나도 1.77명에 그친다.
+     회수까지 걸린 시간도 3.44초로 가장 느렸다. 스페인은 상대 골킥을 <strong>의도적으로 놓아주고</strong> 중원에서 대형을 세운 뒤 세컨볼을 노렸다.
+     반대로 스로인(2.99→3.78)과 공중볼(2.66→3.84)에서는 1초 만에 3.8명을 볼 주변에 투입한다.
+     <strong>볼의 낙하 지점이 예측 가능해지는 순간에만 스위치를 켜는 압박</strong> — 단일 지표로는 보이지 않고 시간축을 넣어야 드러나는 서명이다.</p>
+</div>
+
+<h2><span class="num">05</span>압박 생산성 지도</h2>
+<p class="sub">통상의 압박 히트맵은 <strong>빈도 밀도</strong>를 색으로 칠한다. 그러면 "많이 눌렀다"와 "잘 눌렀다"가 섞이고,
+   표본이 13건인 구역과 62건인 구역이 같은 진하기로 보인다. 여기서는 색을 <strong>회수율</strong>에 할당하고
+   <strong>표본 수를 셀 안에 그대로 적었다</strong> — 의사결정에 필요한 것은 압박의 위치가 아니라 위치별 기대 수익이기 때문이다.</p>
+
+<figure>
+  <p class="fig-t">구역별 압박 회수율 (스페인 공격 방향 →)</p>
+  <p class="fig-s">색 = 8초 내 회수율 · 셀 안 숫자 = 회수율과 온셋 건수 · 6×3 구역 분할</p>
+  <svg viewBox="0 0 700 510" role="img" aria-label="피치 구역별 압박 회수율 지도">
+    <rect x="40" y="50" width="600" height="400" fill="none" stroke="var(--axis)" stroke-width="1.5"/>
+    <g stroke="var(--surface-1)" stroke-width="2">
+      <rect class="z" x="40"  y="50" width="100" height="133.3" fill="#6da7ec"><title>좌측 · 자기진영 깊은 구역 · 18회 · 27.8%</title></rect>
+      <rect class="z" x="140" y="50" width="100" height="133.3" fill="#9ec5f4"><title>좌측 · 자기진영 · 27회 · 18.5%</title></rect>
+      <rect class="z" x="240" y="50" width="100" height="133.3" fill="#86b6ef"><title>좌측 · 중앙선 이전 · 42회 · 21.4%</title></rect>
+      <rect class="z" x="340" y="50" width="100" height="133.3" fill="#3987e5"><title>좌측 · 중앙선 이후 · 61회 · 31.1%</title></rect>
+      <rect class="z" x="440" y="50" width="100" height="133.3" fill="#2a78d6"><title>좌측 · 상대진영 · 49회 · 36.7%</title></rect>
+      <rect class="z" x="540" y="50" width="100" height="133.3" fill="#1c5cab"><title>좌측 · 상대 깊은 구역 · 23회 · 47.8%</title></rect>
+      <rect class="z" x="40"  y="183.3" width="100" height="133.3" fill="#86b6ef"><title>중앙 · 자기진영 깊은 구역 · 13회 · 23.1%</title></rect>
+      <rect class="z" x="140" y="183.3" width="100" height="133.3" fill="#3987e5"><title>중앙 · 자기진영 · 44회 · 31.8%</title></rect>
+      <rect class="z" x="240" y="183.3" width="100" height="133.3" fill="#86b6ef"><title>중앙 · 중앙선 이전 · 39회 · 23.1%</title></rect>
+      <rect class="z" x="340" y="183.3" width="100" height="133.3" fill="#cde2fb"><title>중앙 · 중앙선 이후 · 50회 · 14.0%</title></rect>
+      <rect class="z" x="440" y="183.3" width="100" height="133.3" fill="#9ec5f4"><title>중앙 · 상대진영 · 39회 · 17.9%</title></rect>
+      <rect class="z" x="540" y="183.3" width="100" height="133.3" fill="#3987e5"><title>중앙 · 상대 깊은 구역 · 50회 · 30.0%</title></rect>
+      <rect class="z" x="40"  y="316.7" width="100" height="133.3" fill="#1c5cab"><title>우측 · 자기진영 깊은 구역 · 26회 · 46.2%</title></rect>
+      <rect class="z" x="140" y="316.7" width="100" height="133.3" fill="#cde2fb"><title>우측 · 자기진영 · 30회 · 13.3%</title></rect>
+      <rect class="z" x="240" y="316.7" width="100" height="133.3" fill="#cde2fb"><title>우측 · 중앙선 이전 · 48회 · 14.6%</title></rect>
+      <rect class="z" x="340" y="316.7" width="100" height="133.3" fill="#6da7ec"><title>우측 · 중앙선 이후 · 62회 · 25.8%</title></rect>
+      <rect class="z" x="440" y="316.7" width="100" height="133.3" fill="#6da7ec"><title>우측 · 상대진영 · 45회 · 26.7%</title></rect>
+      <rect class="z" x="540" y="316.7" width="100" height="133.3" fill="#3987e5"><title>우측 · 상대 깊은 구역 · 21회 · 33.3%</title></rect>
+    </g>
+    <g font-size="15" font-weight="700" text-anchor="middle" font-variant-numeric="tabular-nums">
+      <text x="90"  y="112" fill="#0b0b0b">27.8%</text><text x="190" y="112" fill="#0b0b0b">18.5%</text>
+      <text x="290" y="112" fill="#0b0b0b">21.4%</text><text x="390" y="112" fill="#ffffff">31.1%</text>
+      <text x="490" y="112" fill="#ffffff">36.7%</text><text x="590" y="112" fill="#ffffff">47.8%</text>
+      <text x="90"  y="245" fill="#0b0b0b">23.1%</text><text x="190" y="245" fill="#ffffff">31.8%</text>
+      <text x="290" y="245" fill="#0b0b0b">23.1%</text><text x="390" y="245" fill="#0b0b0b">14.0%</text>
+      <text x="490" y="245" fill="#0b0b0b">17.9%</text><text x="590" y="245" fill="#ffffff">30.0%</text>
+      <text x="90"  y="378" fill="#ffffff">46.2%</text><text x="190" y="378" fill="#0b0b0b">13.3%</text>
+      <text x="290" y="378" fill="#0b0b0b">14.6%</text><text x="390" y="378" fill="#0b0b0b">25.8%</text>
+      <text x="490" y="378" fill="#0b0b0b">26.7%</text><text x="590" y="378" fill="#ffffff">33.3%</text>
+    </g>
+    <g font-size="12" text-anchor="middle" font-variant-numeric="tabular-nums" opacity="0.72">
+      <text x="90"  y="133" fill="#0b0b0b">n=18</text><text x="190" y="133" fill="#0b0b0b">n=27</text>
+      <text x="290" y="133" fill="#0b0b0b">n=42</text><text x="390" y="133" fill="#ffffff">n=61</text>
+      <text x="490" y="133" fill="#ffffff">n=49</text><text x="590" y="133" fill="#ffffff">n=23</text>
+      <text x="90"  y="266" fill="#0b0b0b">n=13</text><text x="190" y="266" fill="#ffffff">n=44</text>
+      <text x="290" y="266" fill="#0b0b0b">n=39</text><text x="390" y="266" fill="#0b0b0b">n=50</text>
+      <text x="490" y="266" fill="#0b0b0b">n=39</text><text x="590" y="266" fill="#ffffff">n=50</text>
+      <text x="90"  y="399" fill="#ffffff">n=26</text><text x="190" y="399" fill="#0b0b0b">n=30</text>
+      <text x="290" y="399" fill="#0b0b0b">n=48</text><text x="390" y="399" fill="#0b0b0b">n=62</text>
+      <text x="490" y="399" fill="#0b0b0b">n=45</text><text x="590" y="399" fill="#ffffff">n=21</text>
+    </g>
+    <g font-size="12.5" fill="var(--ink-3)" text-anchor="end">
+      <text x="32" y="122">좌측</text><text x="32" y="255">중앙</text><text x="32" y="388">우측</text>
+    </g>
+    <g font-size="12" fill="var(--ink-3)" text-anchor="middle">
+      <text x="140" y="472">자기 진영</text><text x="340" y="472">하프라인</text><text x="540" y="472">상대 진영</text>
+    </g>
+    <line x1="40" y1="484" x2="640" y2="484" stroke="var(--axis)" stroke-width="1"/>
+    <polygon points="640,484 632,480 632,488" fill="var(--axis)"/>
+    <text x="340" y="30" font-size="12" fill="var(--ink-3)" text-anchor="middle">스페인 공격 방향 →</text>
+    <g transform="translate(40,496)">
+      <text x="0" y="4" font-size="10.5" fill="var(--ink-3)">낮음</text>
+      <rect x="30"  y="-6" width="26" height="10" fill="#cde2fb"/><rect x="56" y="-6" width="26" height="10" fill="#9ec5f4"/>
+      <rect x="82"  y="-6" width="26" height="10" fill="#86b6ef"/><rect x="108" y="-6" width="26" height="10" fill="#6da7ec"/>
+      <rect x="134" y="-6" width="26" height="10" fill="#3987e5"/><rect x="160" y="-6" width="26" height="10" fill="#2a78d6"/>
+      <rect x="186" y="-6" width="26" height="10" fill="#1c5cab"/>
+      <text x="218" y="4" font-size="10.5" fill="var(--ink-3)">높음 (회수율)</text>
+    </g>
+  </svg>
+  <figcaption>모든 값이 셀 안에 적혀 있어 색을 구분하지 못해도 같은 정보를 얻는다. 부드러운 그라데이션 대신 격자를 택한 것도 같은 이유다 —
+     경계가 흐릿하면 숫자를 어느 구역에 붙일지가 애매해진다.</figcaption>
+</figure>
+
+<div class="key">
+  <p class="lbl">이 그래프가 말하는 것</p>
+  <p><strong>왼쪽으로 갈수록, 높이 갈수록 값이 나온다.</strong>
+     좌측 채널은 하프라인을 넘는 순간부터 회수율이 31.1% → 36.7% → 47.8%로 단조 증가한다.
+     쿠쿠렐라와 니코 윌리엄스가 형성한 좌측 듀오가 상대 오른쪽 빌드업을 사이드라인으로 몰아 가두는 구조가 그대로 남았다.
+     반대로 <strong>중앙 전진 구역은 14.0%(n=50)로 전체 최저치</strong>다 — 표본이 많은데도 거의 회수로 이어지지 않았다.
+     상대 입장의 함의는 명확하다: <strong>스페인의 압박을 벗어나려면 중앙으로 나가야 한다.</strong>
+     단, 우측 자기진영 깊은 구역의 46.2%(n=26)는 역습을 끊어낸 소수 사례가 섞여 있어 고압박 성과와는 구분해 읽어야 한다.</p>
+</div>
+
+<h2><span class="num">06</span>경기별 압박 프로파일</h2>
+<p class="sub">세 지표는 단위가 다르므로 <strong>각각의 축을 가진 세 패널로 분리</strong>했다.
+   하나의 좌표평면에 두 축을 겹치면 두 스케일을 맞추는 방식이 임의적이어서 없는 상관이 생겨난다.</p>
+
+<figure>
+  <p class="fig-t">스페인 7경기의 압박 강도 · 수비 라인 높이 · 회수율</p>
+  <p class="fig-s">조별리그 → 결승 순 · PPDA는 낮을수록 압박이 촘촘함</p>
+  <svg viewBox="0 0 760 230" role="img" aria-label="경기별 압박 프로파일 3패널">
+    <g font-size="12" font-weight="650" fill="var(--ink-1)">
+      <text x="45" y="30">PPDA <tspan font-size="10.5" font-weight="400" fill="var(--ink-3)">(낮을수록 강함)</tspan></text>
+      <text x="290" y="30">수비 액션 높이 <tspan font-size="10.5" font-weight="400" fill="var(--ink-3)">(SB유닛)</tspan></text>
+      <text x="535" y="30">8초 내 회수율</text>
+    </g>
+    <g stroke="var(--grid)" stroke-width="1">
+      <line x1="45" y1="170" x2="225" y2="170"/><line x1="45" y1="115" x2="225" y2="115"/><line x1="45" y1="60" x2="225" y2="60"/>
+      <line x1="290" y1="170" x2="470" y2="170"/><line x1="290" y1="115" x2="470" y2="115"/><line x1="290" y1="60" x2="470" y2="60"/>
+      <line x1="535" y1="170" x2="715" y2="170"/><line x1="535" y1="115" x2="715" y2="115"/><line x1="535" y1="60" x2="715" y2="60"/>
+    </g>
+    <g font-size="10" fill="var(--ink-3)" text-anchor="end" font-variant-numeric="tabular-nums">
+      <text x="40" y="174">1.6</text><text x="40" y="119">2.3</text><text x="40" y="64">3.0</text>
+      <text x="285" y="174">55</text><text x="285" y="119">67</text><text x="285" y="64">80</text>
+      <text x="530" y="174">15%</text><text x="530" y="119">32%</text><text x="530" y="64">50%</text>
+    </g>
+    <polyline fill="none" stroke="var(--s1)" stroke-width="2.5" points="45,107.1 75,104.8 105,129.1 135,149.6 165,71.0 195,98.5 225,162.9"/>
+    <polyline fill="none" stroke="var(--s1)" stroke-width="2.5" points="290,129.5 320,104.4 350,144.0 380,80.2 410,158.6 440,149.8 470,141.0"/>
+    <polyline fill="none" stroke="var(--s1)" stroke-width="2.5" points="535,157.1 565,150.8 595,143.3 625,72.9 655,126.7 685,134.5 715,137.6"/>
+    <g stroke="var(--surface-1)" stroke-width="1.8" fill="var(--s1)">
+      <circle cx="45" cy="107.1" r="4"/><circle cx="75" cy="104.8" r="4"/><circle cx="105" cy="129.1" r="4"/>
+      <circle cx="135" cy="149.6" r="4"/><circle cx="165" cy="71.0" r="4"/><circle cx="195" cy="98.5" r="4"/>
+      <circle cx="225" cy="162.9" r="5.5" fill="var(--s2)"/>
+      <circle cx="290" cy="129.5" r="4"/><circle cx="320" cy="104.4" r="4"/><circle cx="350" cy="144.0" r="4"/>
+      <circle cx="380" cy="80.2" r="5.5" fill="var(--s2)"/><circle cx="410" cy="158.6" r="4"/>
+      <circle cx="440" cy="149.8" r="4"/><circle cx="470" cy="141.0" r="4"/>
+      <circle cx="535" cy="157.1" r="4"/><circle cx="565" cy="150.8" r="4"/><circle cx="595" cy="143.3" r="4"/>
+      <circle cx="625" cy="72.9" r="5.5" fill="var(--s2)"/><circle cx="655" cy="126.7" r="4"/>
+      <circle cx="685" cy="134.5" r="4"/><circle cx="715" cy="137.6" r="4"/>
+    </g>
+    <g font-size="10.5" font-weight="650" fill="var(--s2)" text-anchor="middle">
+      <text x="225" y="178">1.69</text><text x="380" y="72">75.4</text><text x="625" y="65">45.9%</text>
+    </g>
+    <g font-size="9.5" fill="var(--ink-3)" text-anchor="middle">
+      <text x="45" y="192">CRO</text><text x="75" y="192">ITA</text><text x="105" y="192">ALB</text>
+      <text x="135" y="192">GEO</text><text x="165" y="192">GER</text><text x="195" y="192">FRA</text>
+      <text x="225" y="192" fill="var(--ink-1)" font-weight="650">ENG</text>
+      <text x="290" y="192">CRO</text><text x="320" y="192">ITA</text><text x="350" y="192">ALB</text>
+      <text x="380" y="192" fill="var(--ink-1)" font-weight="650">GEO</text><text x="410" y="192">GER</text>
+      <text x="440" y="192">FRA</text><text x="470" y="192">ENG</text>
+      <text x="535" y="192">CRO</text><text x="565" y="192">ITA</text><text x="595" y="192">ALB</text>
+      <text x="625" y="192" fill="var(--ink-1)" font-weight="650">GEO</text><text x="655" y="192">GER</text>
+      <text x="685" y="192">FRA</text><text x="715" y="192">ENG</text>
+    </g>
+    <g font-size="10" fill="var(--ink-3)">
+      <text x="45" y="212">조별리그 ──────── 결승</text>
+      <text x="290" y="212">조별리그 ──────── 결승</text>
+      <text x="535" y="212">조별리그 ──────── 결승</text>
+    </g>
+  </svg>
+  <figcaption>각 패널의 극값 하나만 강조했다. 축 범위가 서로 다르므로 패널 간 기울기 비교는 유효하지 않다 — 각 패널은 독립적으로 읽는다.</figcaption>
+</figure>
+
+<div class="key">
+  <p class="lbl">이 그래프가 말하는 것</p>
+  <p><strong>강도와 성과는 같은 것이 아니다.</strong>
+     결승 잉글랜드전의 PPDA 1.69는 대회 최고 강도였지만 회수율은 25.3%로 평균 수준에 그쳤다.
+     반대로 독일전은 PPDA 2.86(최저 강도)에 수비 액션 높이 57.6(최저)으로 명백히 물러서서 블록을 세운 경기였음에도 회수율 28.8%로 결승보다 높았다.
+     조지아전(45.9%, 높이 75.4)은 상대 수준이 만든 이상치다. <strong>7경기 안에서는 압박 강도와 회수율 사이에 일관된 관계가 보이지 않는다</strong> —
+     이 관찰이 다음 절에서 24개국으로 범위를 넓힌 이유다.</p>
+</div>
+
+<h2><span class="num">07</span>다른 팀과 비교하면</h2>
+<p>스페인 7경기만으로는 "강도가 성과를 만들지 않는다"가 이 팀의 특성인지 축구 전반의 성질인지 알 수 없다.
+   그래서 같은 파이프라인을 <strong>대회 51경기 전체·24개국</strong>에 그대로 돌렸다. 총 9,267회의 압박 온셋이다.</p>
+<p class="sub">24개 팀을 전부 라벨링하면 읽을 수 없는 그래프가 된다. 그래서 모든 팀을 점으로 두되
+   <strong>대비가 뚜렷한 6개 팀에만 이름을 붙였다</strong> — 나머지는 분포의 모양을 보여주는 맥락으로 남는다.</p>
+
+<figure>
+  <p class="fig-t">수비 라인 높이와 압박 회수율의 관계</p>
+  <p class="fig-s">유로 2024 24개국 · 회귀선 R²=0.599 · 점선은 대회 중앙값</p>
+  <svg viewBox="0 0 760 440" role="img" aria-label="24개국 수비 액션 높이 대 회수율 산점도">
+    <g stroke="var(--grid)" stroke-width="1">
+      <line x1="80" y1="380" x2="660" y2="380"/><line x1="80" y1="304" x2="660" y2="304"/>
+      <line x1="80" y1="228" x2="660" y2="228"/><line x1="80" y1="152" x2="660" y2="152"/><line x1="80" y1="76" x2="660" y2="76"/>
+    </g>
+    <g font-size="10.5" fill="var(--ink-3)" text-anchor="end" font-variant-numeric="tabular-nums">
+      <text x="72" y="384">12%</text><text x="72" y="308">17%</text><text x="72" y="232">22%</text>
+      <text x="72" y="156">27%</text><text x="72" y="80">32%</text>
+    </g>
+    <g font-size="10.5" fill="var(--ink-3)" text-anchor="middle" font-variant-numeric="tabular-nums">
+      <text x="80" y="402">40</text><text x="196" y="402">45</text><text x="312" y="402">50</text>
+      <text x="428" y="402">55</text><text x="544" y="402">60</text><text x="660" y="402">65</text>
+    </g>
+    <text x="370" y="424" font-size="11.5" fill="var(--ink-3)" text-anchor="middle">수비 액션 높이 (SB유닛 · 높을수록 라인을 올림)</text>
+    <text x="24" y="228" font-size="11.5" fill="var(--ink-3)" transform="rotate(-90 24 228)" text-anchor="middle">8초 내 회수율</text>
+    <line x1="80" y1="380" x2="80" y2="60" stroke="var(--axis)" stroke-width="1"/>
+    <line x1="80" y1="380" x2="660" y2="380" stroke="var(--axis)" stroke-width="1"/>
+
+    <line x1="448.9" y1="60" x2="448.9" y2="380" stroke="var(--dim)" stroke-width="1" stroke-dasharray="3 3"/>
+    <line x1="80" y1="213.9" x2="660" y2="213.9" stroke="var(--dim)" stroke-width="1" stroke-dasharray="3 3"/>
+    <text x="453" y="72" font-size="10" fill="var(--ink-3)">중앙값 55.9</text>
+    <text x="86" y="209" font-size="10" fill="var(--ink-3)">중앙값 22.9%</text>
+    <line x1="80" y1="356.2" x2="660" y2="131.9" stroke="var(--s3)" stroke-width="2"/>
+    <text x="600" y="128" font-size="11" fill="var(--s3)" font-weight="650" text-anchor="end">회귀선 · R²=0.599</text>
+
+    <g fill="var(--dim)">
+      <circle class="pt" cx="240.1" cy="279.4" r="6"><title>Albania · 높이 46.9 · 18.6%</title></circle>
+      <circle class="pt" cx="265.6" cy="259.6" r="6"><title>Poland · 높이 48.0 · 19.9%</title></circle>
+      <circle class="pt" cx="295.8" cy="273.3" r="6"><title>Romania · 높이 49.3 · 19.0%</title></circle>
+      <circle class="pt" cx="349.1" cy="204.8" r="6"><title>Turkey · 높이 51.6 · 23.5%</title></circle>
+      <circle class="pt" cx="374.6" cy="244.4" r="6"><title>Hungary · 높이 52.7 · 20.9%</title></circle>
+      <circle class="pt" cx="374.6" cy="282.5" r="6"><title>Ukraine · 높이 52.7 · 18.4%</title></circle>
+      <circle class="pt" cx="400.2" cy="223.1" r="6"><title>Italy · 높이 53.8 · 22.3%</title></circle>
+      <circle class="pt" cx="425.7" cy="201.7" r="6"><title>Netherlands · 높이 54.9 · 23.7%</title></circle>
+      <circle class="pt" cx="430.3" cy="223.1" r="6"><title>Slovakia · 높이 55.1 · 22.3%</title></circle>
+      <circle class="pt" cx="432.6" cy="273.3" r="6"><title>Czech Republic · 높이 55.2 · 19.0%</title></circle>
+      <circle class="pt" cx="462.8" cy="198.7" r="6"><title>Belgium · 높이 56.5 · 23.9%</title></circle>
+      <circle class="pt" cx="476.7" cy="229.2" r="6"><title>Switzerland · 높이 57.1 · 21.9%</title></circle>
+      <circle class="pt" cx="486.0" cy="183.4" r="6"><title>France · 높이 57.5 · 24.9%</title></circle>
+      <circle class="pt" cx="495.3" cy="255.0" r="6"><title>Scotland · 높이 57.9 · 20.2%</title></circle>
+      <circle class="pt" cx="520.8" cy="191.0" r="6"><title>England · 높이 59.0 · 24.4%</title></circle>
+      <circle class="pt" cx="534.7" cy="198.7" r="6"><title>Croatia · 높이 59.6 · 23.9%</title></circle>
+      <circle class="pt" cx="537.0" cy="200.0" r="6"><title>Serbia · 높이 59.7 · 23.8%</title></circle>
+      <circle class="pt" cx="564.9" cy="195.4" r="6"><title>Denmark · 높이 60.9 · 24.1%</title></circle>
+    </g>
+    <g stroke="var(--surface-1)" stroke-width="2.5">
+      <circle class="pt" cx="124.1" cy="325.1" r="8" fill="var(--s2)"><title>Georgia · 높이 41.9 · 15.6%</title></circle>
+      <circle class="pt" cx="242.4" cy="352.6" r="8" fill="var(--s2)"><title>Slovenia · 높이 47.0 · 13.8%</title></circle>
+      <circle class="pt" cx="544.0" cy="183.4" r="8" fill="var(--s2)"><title>Austria · 높이 60.0 · 24.9%</title></circle>
+      <circle class="pt" cx="511.5" cy="92.0"  r="8" fill="var(--s1)"><title>Portugal · 높이 58.6 · 30.9%</title></circle>
+      <circle class="pt" cx="553.3" cy="82.9"  r="8" fill="var(--s1)"><title>Germany · 높이 60.4 · 31.5%</title></circle>
+      <circle class="pt" cx="629.4" cy="163.4" r="9.5" fill="var(--s1)"><title>Spain · 높이 63.7 (1위) · 26.2%</title></circle>
+    </g>
+    <g font-size="12" font-weight="650">
+      <text x="629.4" y="148" fill="var(--s1)" text-anchor="middle">스페인</text>
+      <text x="553.3" y="68"  fill="var(--s1)" text-anchor="middle">독일</text>
+      <text x="499"   y="88"  fill="var(--s1)" text-anchor="end">포르투갈</text>
+      <text x="556"   y="188" fill="var(--s2)">오스트리아</text>
+      <text x="242.4" y="372" fill="var(--s2)" text-anchor="middle">슬로베니아</text>
+      <text x="124.1" y="345" fill="var(--s2)" text-anchor="middle">조지아</text>
+    </g>
+  </svg>
+  <figcaption>24개 점 전부에 대해 팀명과 값은 마우스를 올리면 확인할 수 있고, 아래 표에도 그대로 실려 있다.
+     회귀선은 관계의 방향과 크기를 보여주기 위한 것이며 인과를 뜻하지 않는다.</figcaption>
+</figure>
+
+<div class="key">
+  <p class="lbl">이 그래프가 말하는 것</p>
+  <p><strong>압박의 성과를 가르는 것은 강도가 아니라 높이였다.</strong>
+     수비 액션 높이와 회수율의 상관은 <strong>r = +0.774 (R²=0.599)</strong> — 팀 간 회수율 분산의 약 60%가 라인 높이 하나로 설명된다.
+     같은 방식으로 계산한 PPDA와의 상관은 r = −0.662, <strong>90분당 압박 횟수와의 상관은 r = −0.534로 오히려 음(−)</strong>이다.
+     더 자주 누르는 팀이 더 잘 뺏는 것이 아니라, 오히려 덜 뺏었다.
+     스페인은 <strong>수비 액션 높이 63.7로 24개국 중 1위</strong>이며, 회수율 26.2%는 회귀선이 예측하는 값(약 27.5%)과 거의 일치한다 —
+     스페인의 성과는 특별한 압박 기술이 아니라 <em>라인을 가장 높게 올렸다는 사실</em>로 대부분 설명된다.</p>
+</div>
+
+<h3>대비가 가장 뚜렷한 네 팀</h3>
+<p>회귀선에서 멀리 떨어진 팀들이 이야기를 만든다. 최상단(독일)·최고 라인(스페인)과, 물량과 수렴이 성과로 이어지지 않은 두 팀(슬로베니아·조지아)을 나란히 놓았다.</p>
+
+<div class="legend">
+  <span><i class="sw" style="background:var(--s1)"></i>회수율 상위권 (독일 1위 · 스페인 3위)</span>
+  <span><i class="sw" style="background:var(--s2)"></i>회수율 하위권 (조지아 23위 · 슬로베니아 24위)</span>
+</div>
+
+<figure>
+  <p class="fig-t">네 팀의 압박 프로파일 대비</p>
+  <p class="fig-s">각 지표는 단위가 달라 패널을 분리했다 · 팀 순서는 네 패널에서 동일</p>
+  <svg viewBox="0 0 760 252" role="img" aria-label="스페인 독일 슬로베니아 조지아 네 팀의 압박 프로파일 비교">
+    <g font-size="11.5" font-weight="650" fill="var(--ink-1)">
+      <text x="110" y="34">회수율</text>
+      <text x="275" y="34">수비 라인 높이</text>
+      <text x="440" y="34">PPDA <tspan font-size="9.5" font-weight="400" fill="var(--ink-3)">(짧을수록 강함)</tspan></text>
+      <text x="605" y="34">90분당 압박 온셋</text>
+    </g>
+    <g stroke="var(--axis)" stroke-width="1">
+      <line x1="110" y1="46" x2="250" y2="46"/><line x1="275" y1="46" x2="415" y2="46"/>
+      <line x1="440" y1="46" x2="580" y2="46"/><line x1="605" y1="46" x2="745" y2="46"/>
+    </g>
+    <g font-size="13" fill="var(--ink-1)" text-anchor="end">
+      <text x="100" y="79">독일</text><text x="100" y="116">스페인</text>
+      <text x="100" y="153">조지아</text><text x="100" y="190">슬로베니아</text>
+    </g>
+    <g>
+      <rect class="z" x="110" y="66"  width="94.5" height="17" rx="4" fill="var(--s1)"><title>독일 회수율 31.5% (1위)</title></rect>
+      <rect class="z" x="110" y="103" width="78.6" height="17" rx="4" fill="var(--s1)"><title>스페인 회수율 26.2% (3위)</title></rect>
+      <rect class="z" x="110" y="140" width="46.8" height="17" rx="4" fill="var(--s2)"><title>조지아 회수율 15.6% (23위)</title></rect>
+      <rect class="z" x="110" y="177" width="41.4" height="17" rx="4" fill="var(--s2)"><title>슬로베니아 회수율 13.8% (24위)</title></rect>
+
+      <rect class="z" x="275" y="66"  width="90.6" height="17" rx="4" fill="var(--s1)"><title>독일 수비 높이 60.4 (3위)</title></rect>
+      <rect class="z" x="275" y="103" width="95.6" height="17" rx="4" fill="var(--s1)"><title>스페인 수비 높이 63.7 (1위)</title></rect>
+      <rect class="z" x="275" y="140" width="62.9" height="17" rx="4" fill="var(--s2)"><title>조지아 수비 높이 41.9 (24위)</title></rect>
+      <rect class="z" x="275" y="177" width="70.5" height="17" rx="4" fill="var(--s2)"><title>슬로베니아 수비 높이 47.0 (22위)</title></rect>
+
+      <rect class="z" x="440" y="66"  width="50.8" height="17" rx="4" fill="var(--s1)"><title>독일 PPDA 2.42 (4위)</title></rect>
+      <rect class="z" x="440" y="103" width="47.7" height="17" rx="4" fill="var(--s1)"><title>스페인 PPDA 2.27 (3위)</title></rect>
+      <rect class="z" x="440" y="140" width="100.0" height="17" rx="4" fill="var(--s2)"><title>조지아 PPDA 4.76 (24위)</title></rect>
+      <rect class="z" x="440" y="177" width="90.3" height="17" rx="4" fill="var(--s2)"><title>슬로베니아 PPDA 4.30 (22위)</title></rect>
+
+      <rect class="z" x="605" y="66"  width="71.3" height="17" rx="4" fill="var(--s1)"><title>독일 90분당 74.7회 (20위)</title></rect>
+      <rect class="z" x="605" y="103" width="85.1" height="17" rx="4" fill="var(--s1)"><title>스페인 90분당 89.2회 (8위)</title></rect>
+      <rect class="z" x="605" y="140" width="78.5" height="17" rx="4" fill="var(--s2)"><title>조지아 90분당 82.2회 (15위)</title></rect>
+      <rect class="z" x="605" y="177" width="102.3" height="17" rx="4" fill="var(--s2)"><title>슬로베니아 90분당 107.2회 (1위)</title></rect>
+    </g>
+    <g font-size="11" fill="var(--ink-2)" font-variant-numeric="tabular-nums">
+      <text x="210.5" y="79">31.5%</text><text x="194.6" y="116">26.2%</text><text x="162.8" y="153">15.6%</text><text x="157.4" y="190">13.8%</text>
+      <text x="371.6" y="79">60.4</text><text x="376.6" y="116">63.7</text><text x="343.9" y="153">41.9</text><text x="351.5" y="190">47.0</text>
+      <text x="496.8" y="79">2.42</text><text x="493.7" y="116">2.27</text><text x="546.0" y="153">4.76</text><text x="536.3" y="190">4.30</text>
+      <text x="682.3" y="79">74.7</text><text x="696.1" y="116">89.2</text><text x="689.5" y="153">82.2</text><text x="713.3" y="190">107.2</text>
+    </g>
+    <text x="110" y="230" font-size="11" fill="var(--ink-3)">슬로베니아는 90분당 압박 횟수 1위(107.2회)이면서 회수율은 24위(13.8%)다 — 물량은 성과의 대리 지표가 아니다.</text>
+  </svg>
+  <figcaption>PPDA는 낮을수록 좋은 지표라 막대가 짧을수록 강한 압박을 뜻한다 — 다른 세 패널과 방향이 반대이므로 패널 제목에 명시했다.
+     팀 순서를 네 패널에서 고정해 같은 행이 항상 같은 팀을 가리키도록 했다.</figcaption>
+</figure>
+
+<div class="key">
+  <p class="lbl">이 그래프가 말하는 것</p>
+  <p><strong>물량과 수렴은 성과의 대리 지표가 아니다.</strong>
+     슬로베니아는 90분당 107.2회로 <strong>대회에서 가장 많이 압박했지만 회수율은 24개국 중 꼴찌</strong>(13.8%)였다.
+     조지아는 <strong>수렴 지수 2.69로 24개국 중 1위</strong>였는데도 회수율은 23위(15.6%)다 — 볼 주변에 사람은 가장 많이 모았지만
+     그 지점이 자기 진영 깊은 곳(높이 41.9, 최하위)이었기 때문이다.
+     반대로 독일은 스페인보다 덜 자주(74.7회, 20위), 덜 촘촘하게(PPDA 2.42) 눌렀는데 회수율은 1위였다.
+     실제로 <strong>수렴 지수는 24개국이 2.05~2.69에 몰려 있어 변동계수가 5.1%에 불과</strong>한 반면 회수율은 18.3%로 흩어져 있다 —
+     "얼마나 모이는가"는 팀을 구분하지 못하고, <em>어디서·언제 모이는가</em>가 구분한다.</p>
+</div>
+
+<h3>스페인은 무엇에 반응했는가 — 대회 평균과의 차이</h3>
+<p>절대 비중만 보면 모든 팀이 비슷해 보인다(터치라인 압착이 어디서나 가장 많다).
+   그래서 <strong>대회 평균을 0으로 놓고 편차만</strong> 그렸다. 기준선에서 벗어난 방향과 거리가 곧 그 팀의 선택이다.</p>
+
+<figure>
+  <p class="fig-t">트리거 구성비 · 스페인 − 대회 24개국 평균</p>
+  <p class="fig-s">양(+)은 스페인이 해당 상황에서 더 자주 압박을 걸었다는 뜻 · 단위: 퍼센트포인트</p>
+  <svg viewBox="0 0 760 300" role="img" aria-label="스페인과 대회 평균의 트리거 구성비 편차">
+    <g font-size="10.5" fill="var(--ink-3)" text-anchor="middle" font-variant-numeric="tabular-nums">
+      <text x="200" y="284">−6p</text><text x="290" y="284">−3p</text><text x="380" y="284">0</text>
+      <text x="470" y="284">+3p</text><text x="560" y="284">+6p</text>
+      <text x="650" y="284">+9p</text>
+    </g>
+    <g stroke="var(--grid)" stroke-width="1">
+      <line x1="200" y1="50" x2="200" y2="268"/><line x1="290" y1="50" x2="290" y2="268"/>
+      <line x1="470" y1="50" x2="470" y2="268"/><line x1="560" y1="50" x2="560" y2="268"/>
+      <line x1="650" y1="50" x2="650" y2="268"/>
+    </g>
+    <line x1="380" y1="46" x2="380" y2="268" stroke="var(--axis)" stroke-width="1.5"/>
+    <text x="380" y="38" font-size="11" fill="var(--ink-3)" text-anchor="middle">대회 평균</text>
+
+    <g font-size="13" fill="var(--ink-1)" text-anchor="end">
+      <text x="180" y="75">자기진영 횡전개</text><text x="180" y="107">GK 소유</text>
+      <text x="180" y="139">공중볼 경합</text><text x="180" y="171">백패스 수신</text>
+      <text x="180" y="203">스로인 재개</text><text x="180" y="235">터치라인 압착</text>
+      <text x="180" y="267">기타 전개</text>
+    </g>
+    <g>
+      <rect class="z" x="380" y="63"  width="222" height="15" rx="4" fill="var(--s1)"><title>자기진영 횡전개 · 스페인 25.8% vs 평균 18.4% (+7.4p)</title></rect>
+      <rect class="z" x="380" y="95"  width="90"  height="15" rx="4" fill="var(--s1)"><title>GK 소유 · 스페인 10.0% vs 평균 7.0% (+3.0p)</title></rect>
+      <rect class="z" x="380" y="127" width="3"   height="15" rx="1.5" fill="var(--s1)"><title>공중볼 경합 · 스페인 4.1% vs 평균 4.0% (+0.1p)</title></rect>
+      <rect class="z" x="379" y="159" width="2"   height="15" fill="var(--dim)"><title>백패스 수신 · 스페인 3.3% vs 평균 3.3% (±0.0p)</title></rect>
+      <rect class="z" x="374" y="191" width="6"   height="15" rx="1.5" fill="var(--s2)"><title>스로인 재개 · 스페인 4.8% vs 평균 5.0% (−0.2p)</title></rect>
+      <rect class="z" x="233" y="223" width="147" height="15" rx="4" fill="var(--s2)"><title>터치라인 압착 · 스페인 30.0% vs 평균 34.9% (−4.9p)</title></rect>
+      <rect class="z" x="218" y="255" width="162" height="15" rx="4" fill="var(--s2)"><title>기타 전개 · 스페인 22.0% vs 평균 27.4% (−5.4p)</title></rect>
+    </g>
+    <g font-size="11.5" font-variant-numeric="tabular-nums" font-weight="650">
+      <text x="610" y="75"  fill="var(--s1)">+7.4p</text>
+      <text x="478" y="107" fill="var(--s1)">+3.0p</text>
+      <text x="391" y="139" fill="var(--ink-3)" font-weight="400">+0.1p</text>
+      <text x="391" y="171" fill="var(--ink-3)" font-weight="400">±0.0p</text>
+      <text x="366" y="203" fill="var(--ink-3)" font-weight="400" text-anchor="end">−0.2p</text>
+      <text x="225" y="235" fill="var(--s2)" text-anchor="end">−4.9p</text>
+      <text x="210" y="267" fill="var(--s2)" text-anchor="end">−5.4p</text>
+    </g>
+  </svg>
+  <figcaption>기준선 양쪽에 서로 반대되는 성질의 색을 쓰고 중앙은 중립으로 두었다 — 편차 그래프에서 중앙이 색을 가지면 "0"이 값처럼 읽힌다.
+     편차가 0.2p 이하인 세 항목은 강조 없이 회색 수치로만 남겨 눈이 큰 편차로 먼저 가도록 했다.</figcaption>
+</figure>
+
+<div class="key">
+  <p class="lbl">이 그래프가 말하는 것</p>
+  <p><strong>스페인은 남들이 누르는 곳에서 덜 누르고, 남들이 놓아주는 곳에서 더 눌렀다.</strong>
+     대회 전체에서 가장 흔한 트리거인 터치라인 압착을 스페인은 평균보다 4.9p 적게 사용했고,
+     대신 상대가 <strong>자기 진영에서 옆으로 공을 돌리는 순간</strong>에 평균보다 7.4p 더 많이 반응했다.
+     이는 앞서 본 수비 라인 높이 1위와 같은 이야기의 다른 면이다 — 라인을 올려두면 상대의 자기진영 횡패스가 사정권에 들어온다.
+     GK 소유 상황도 평균보다 3.0p 자주 압박을 개시했지만, 수렴 곡선에서 봤듯 그 순간 투입한 인원은 0.82명뿐이었다.
+     <strong>스위치를 켜는 빈도와 실제로 투입하는 인원은 별개의 결정</strong>이며, 두 지표를 함께 봐야 "압박했다"의 실체가 드러난다.</p>
+</div>
+
+<div class="tw">
+<table>
+  <thead><tr><th>팀</th><th>경기</th><th>온셋</th><th>온셋/90</th><th>회수율</th><th>수비 높이</th><th>PPDA</th><th>수렴 지수</th></tr></thead>
+  <tbody>
+    <tr><td>독일</td><td>5</td><td>416</td><td>74.7</td><td class="hi">31.5%</td><td>60.4</td><td>2.42</td><td>2.39</td></tr>
+    <tr><td>포르투갈</td><td>5</td><td>398</td><td>67.0</td><td>30.9%</td><td>58.6</td><td>2.57</td><td>2.44</td></tr>
+    <tr><td>스페인</td><td>7</td><td>687</td><td>89.2</td><td>26.2%</td><td class="hi">63.7</td><td>2.27</td><td>2.41</td></tr>
+    <tr><td>프랑스</td><td>6</td><td>526</td><td>78.4</td><td>24.9%</td><td>57.5</td><td>3.84</td><td>2.37</td></tr>
+    <tr><td>오스트리아</td><td>4</td><td>410</td><td>95.8</td><td>24.9%</td><td>60.0</td><td class="hi">2.12</td><td>2.22</td></tr>
+    <tr><td>잉글랜드</td><td>7</td><td>590</td><td>74.0</td><td>24.4%</td><td>59.0</td><td>3.29</td><td>2.28</td></tr>
+    <tr><td colspan="8" style="text-align:center;color:var(--ink-3);font-size:12px;padding:6px">⋯ 24개국 중 상위 6개국 및 대비 사례만 표시 ⋯</td></tr>
+    <tr><td>조지아</td><td>4</td><td>346</td><td>82.2</td><td>15.6%</td><td>41.9</td><td>4.76</td><td class="hi">2.69</td></tr>
+    <tr><td>슬로베니아</td><td>4</td><td>486</td><td class="hi">107.2</td><td>13.8%</td><td>47.0</td><td>4.30</td><td>2.43</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2><span class="num">08</span>사례 · 프리즈프레임으로 본 압박 순간</h2>
+<p class="sub">지표는 국면을 요약하지만 코치를 설득하는 것은 장면이다. 수렴이 회수로 직결된 사례 하나를 좌표 그대로 복원했다.</p>
+
+<div class="note">
+  <p class="lbl">선수 이름은 어떻게 붙였나</p>
+  <p>StatsBomb 360 프리즈프레임에는 <strong>선수 신원이 들어 있지 않다</strong> — 좌표와 아군/적군/골키퍼 플래그뿐이다.
+     그래서 같은 시점(±5초) 이벤트의 <strong>선수별 위치와 프리즈프레임 좌표를 공간 매칭</strong>해 이름을 복원했다.
+     한 선수가 두 점에 배정되는 것을 막기 위해 독립 최근접이 아니라 <strong>1:1 상호배타 배정</strong>으로 풀었고
+     (초기 구현에서는 그리즈만과 오야르사발이 각각 두 곳에 중복 배정됐다), 매칭 오차 4 SB유닛을 넘으면 미식별로 남겼다.
+     아래 장면은 <strong>볼에서 가장 가까운 5명 전원이 식별</strong>된 사례다.</p>
+</div>
+
+<figure>
+  <p class="fig-t">프랑스전 후반 추가시간 95분 · 우파메카노를 코너에 가둔 순간</p>
+  <p class="fig-s">트리거: 터치라인 압착 · 수렴 지수 4.29 · 1.79초 후 x=110 지점에서 회수</p>
+  <svg viewBox="0 0 700 660" role="img" aria-label="프랑스전 95분 프리즈프레임 재현 · 선수 식별">
+    <text x="350" y="24" font-size="12" fill="var(--ink-3)" text-anchor="middle">프랑스 진영 우측 코너 부근 · 프랑스 공격 방향 →</text>
+    <rect x="140" y="45" width="390" height="520" fill="none" stroke="var(--axis)" stroke-width="1.5"/>
+    <g fill="none" stroke="var(--axis)" stroke-width="1.2" opacity="0.8">
+      <path d="M140 331 H374 V45"/>
+      <path d="M140 175 H218 V45"/>
+    </g>
+    <line x1="140" y1="45" x2="140" y2="97" stroke="var(--ink-2)" stroke-width="4"/>
+    <text x="148" y="60" font-size="10.5" fill="var(--ink-3)">골</text>
+    <text x="386" y="323" font-size="10.5" fill="var(--ink-3)">페널티 박스</text>
+    <text x="522" y="557" font-size="10.5" fill="var(--ink-3)" text-anchor="end">우측 터치라인 ↓</text>
+
+    <circle cx="260.9" cy="418.1" r="156" fill="var(--s1)" opacity="0.08"/>
+    <circle cx="260.9" cy="418.1" r="156" fill="none" stroke="var(--s1)" stroke-width="1.3" stroke-dasharray="5 4" opacity="0.6"/>
+    <text x="150" y="590" font-size="11" fill="var(--s1)" font-weight="650">점선 = 수렴 반경 10.4m</text>
+
+    <g stroke="var(--surface-1)" stroke-width="2.5">
+      <circle cx="155.6" cy="124.3" r="10" fill="var(--s2)"/>
+      <circle cx="276.5" cy="171.1" r="10" fill="var(--s2)"/>
+      <circle cx="353.2" cy="73.6"  r="10" fill="var(--s2)"/>
+      <circle cx="406.5" cy="271.2" r="10" fill="var(--s1)"/>
+      <circle cx="236.2" cy="347.9" r="10" fill="var(--s2)"/>
+      <circle cx="351.9" cy="405.1" r="10" fill="var(--s2)"/>
+      <circle cx="376.6" cy="440.2" r="10" fill="var(--s1)"/>
+      <circle cx="453.3" cy="509.1" r="10" fill="var(--s1)"/>
+      <circle cx="327.2" cy="432.4" r="10" fill="var(--s2)"/>
+      <circle cx="266.1" cy="463.6" r="10" fill="var(--s2)"/>
+      <circle cx="325.9" cy="541.6" r="10" fill="var(--s1)"/>
+      <circle cx="275.2" cy="401.2" r="10" fill="var(--s1)"/>
+      <circle cx="286.9" cy="437.6" r="10" fill="var(--s1)"/>
+      <circle cx="260.9" cy="418.1" r="11.5" fill="var(--s2)"/>
+    </g>
+    <circle cx="260.9" cy="418.1" r="4" fill="var(--ink-1)"/>
+
+    <line x1="415" y1="408" x2="339" y2="428" stroke="var(--s2)" stroke-width="1" opacity="0.7"/>
+    <g font-size="11.5" font-weight="700">
+      <text x="247" y="401" fill="var(--ink-1)" text-anchor="end">우파메카노</text>
+      <text x="288" y="384" fill="var(--s1)">페란 토레스</text>
+      <text x="303" y="454" fill="var(--s1)">오야르사발</text>
+      <text x="252" y="486" fill="var(--s2)" text-anchor="end">쿤데</text>
+      <text x="420" y="412" fill="var(--s2)">그리즈만</text>
+      <text x="338" y="562" fill="var(--s1)">파비안 루이스</text>
+    </g>
+    <g font-size="11" font-weight="700" fill="#ffffff" text-anchor="middle">
+      <text x="155.6" y="128.3">?</text><text x="276.5" y="175.1">?</text><text x="353.2" y="77.6">?</text>
+      <text x="406.5" y="275.2">?</text><text x="236.2" y="351.9">?</text><text x="351.9" y="409.1">?</text>
+      <text x="376.6" y="444.2">?</text><text x="453.3" y="513.1">?</text>
+    </g>
+
+    <g transform="translate(140,620)" font-size="12.5">
+      <circle cx="8" cy="-4" r="8" fill="var(--s1)"/><text x="24" y="0" fill="var(--ink-2)">스페인 (압박)</text>
+      <circle cx="147" cy="-4" r="8" fill="var(--s2)"/><text x="163" y="0" fill="var(--ink-2)">프랑스 (소유)</text>
+      <circle cx="283" cy="-4" r="9" fill="var(--s2)"/><circle cx="283" cy="-4" r="3.5" fill="var(--ink-1)"/>
+      <text x="299" y="0" fill="var(--ink-2)">볼 소유자</text>
+      <text x="385" y="0" fill="var(--ink-2)"><tspan font-weight="700">?</tspan> = 식별되지 않은 선수</text>
+    </g>
+    <text x="140" y="648" font-size="11.5" fill="var(--ink-3)">등축척 · 1 SB유닛 = 13px · 점선 원의 반지름이 실제 10.4m에 해당</text>
+  </svg>
+  <figcaption>볼에서 가까운 순으로 페란 토레스(1.5m), 오야르사발(2.2m)이 우파메카노를 골라인·터치라인 사이에 가뒀고,
+     쿤데와 그리즈만이 지원하러 왔지만 이미 전방·중앙 선택지가 닫힌 뒤였다. 결과는 1.79초 뒤 x=110 지점 회수 —
+     프랑스 골문에서 10 SB유닛 떨어진 위치다. 축척은 x·y 동일이라 점선 원이 실제 거리를 나타낸다.
+     14명 중 6명이 식별됐고, 볼에서 먼 미식별 선수들은 이 국면의 판단에 영향을 주지 않는다.</figcaption>
+</figure>
+
+<div class="key">
+  <p class="lbl">이 장면이 말하는 것</p>
+  <p><strong>터치라인 압착은 평균적으로는 값이 낮지만, 골라인과 만나는 코너에서는 성격이 달라진다.</strong>
+     앞서 터치라인 압착 전체의 파이널서드 회수율은 1.9%에 불과했다. 그러나 이 장면처럼
+     <strong>터치라인과 골라인이 동시에 수비수 역할을 하는 코너</strong>에서는 상대의 탈출 각도가 2사분면으로 줄어들어
+     2명만으로도 가둘 수 있다. 같은 트리거 안에서도 <em>발생 위치에 따라 기대 수익이 갈린다</em>는 뜻이며,
+     05절의 구역 지도가 트리거 분류와 함께 읽혀야 하는 이유이기도 하다.</p>
+</div>
+
+<h2><span class="num">09</span>결론</h2>
+<p><strong>스페인의 압박은 강도의 압박이 아니라 조건과 위치의 압박이었다.</strong>
+   대회 24개국을 놓고 보면 압박 성과를 가르는 가장 큰 변수는 라인 높이였고(R²=0.599), 스페인은 그 높이가 1위였다.
+   그 위에서 스페인은 상대의 자기진영 횡전개에 평균보다 7.4p 더 반응했고, 볼이 공중에 뜬 순간에만 1초 안에 3.8명을 투입했으며,
+   골킥은 개시 빈도를 늘리면서도 인원은 0.82명만 붙이는 방식으로 처리했다.</p>
+
+<h3>상대 팀 관점의 활용</h3>
+<ul>
+  <li><strong>중앙으로 나가라.</strong> 스페인의 중앙 전진 구역 압박은 회수율 14.0%(n=50)로 전체 최저다. 측면 전개는 최대 47.8%까지 회수율이 오르는 구역으로 스스로 걸어 들어가는 것과 같다.</li>
+  <li><strong>롱볼로 압박을 회피하지 마라.</strong> 공중볼 경합은 스페인이 가장 값을 뽑아낸 트리거(회수율 46.4%, 파이널서드 회수 21.4%)다. 탈출 수단으로 쓰면 오히려 고지대 탈취를 헌납한다.</li>
+  <li><strong>골킥은 짧게 가져가도 된다.</strong> 스페인은 골킥 상황에서 압박 개시 빈도는 평균 이상이지만 실제 투입 인원은 0.82명으로 압도적으로 낮았다.</li>
+  <li><strong>단, 코너 부근에서 등지고 받지 마라.</strong> 터치라인과 골라인이 겹치는 구역에서는 2명만으로도 갇힌다.</li>
+</ul>
+
+<h3>한계</h3>
+<ul>
+  <li><strong>표본.</strong> 공중볼 28건·백패스 23건은 비율의 신뢰구간이 넓다. 조별리그 3경기만 치른 팀(조지아·슬로베니아 등)의 팀 지표도 마찬가지다.</li>
+  <li><strong>관측자 정의.</strong> <code>Pressure</code>는 StatsBomb 수집자의 판단이 개입한 이벤트이며 물리적 거리 임계값이 아니다. 팀 간 수집 일관성을 가정했다.</li>
+  <li><strong>상대 수준 미보정.</strong> 조지아전 이상치가 보여주듯 회수율은 상대 빌드업 역량에 좌우된다. 라인 높이 역시 상대가 물러서 준 결과일 수 있어, R²=0.599는 상관이지 인과가 아니다. 상대 조정 모델이 다음 단계 과제다.</li>
+  <li><strong>가시성.</strong> 커버리지 보정은 <em>보이지 않는 구역의 선수 밀도가 보이는 구역과 같다</em>는 가정에 기반한다. 완전한 트래킹 데이터로는 이 가정 자체를 검증할 수 있다.</li>
+  <li><strong>선수 식별.</strong> 프리즈프레임의 이름은 근접 이벤트 기반 추정이며 원본 데이터가 아니다. 볼에서 먼 선수일수록 신뢰도가 떨어져 미식별로 남겼다.</li>
+</ul>
+
+<div class="foot">
+  <p><strong>데이터 출처</strong> · StatsBomb Open Data (UEFA Euro 2024, competition_id 55 / season_id 282).
+     오픈데이터 라이선스에 따라 데이터 제공처를 명시합니다.</p>
+  <p><strong>범위</strong> · 51경기 전수 · 24개국 · 압박 온셋 9,267회 (스페인 심층 분석 687회) ·
+     스페인 7경기 이벤트 26,596건 / 360 프레임 23,369건. Python 3.11 표준 라이브러리 기반 자체 파이프라인, 시각화는 SVG 직접 구현.</p>
+</div>
+
+</div>
