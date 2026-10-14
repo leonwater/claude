@@ -25,11 +25,18 @@ npm test           # 단위 테스트
 npm run build      # dist/ 폴더에 정적 파일 생성
 ```
 
-### 출퇴근길에 쓰려면
+### 휴대폰에 설치하기 (Netlify)
 
-`npm run dev`는 PC가 켜져 있고 같은 Wi-Fi에 있을 때만 쓸 수 있습니다. 오프라인 기능은 HTTPS에서만 동작합니다.
-밖에서도 쓰려면 `dist/` 폴더를 개인용 정적 호스팅(예: Netlify Drop, Cloudflare Pages)에 올리고,
-휴대폰 브라우저에서 **홈 화면에 추가**하세요. 스토어 배포가 아니라 나만 아는 주소에 올리는 방식이고, API 키는 빌드에 들어가지 않습니다.
+저장소 루트의 `netlify.toml`에 빌드 설정이 들어 있어, 저장소만 연결하면 됩니다.
+
+1. netlify.com에 GitHub 계정으로 가입 → **Add new project → Import an existing project → GitHub** → 이 저장소 선택
+2. **Branch to deploy**에서 앱 코드가 있는 브랜치 선택 → **Deploy**
+3. 발급된 `https://….netlify.app` 주소를 휴대폰에서 열고 홈 화면에 추가
+   - iPhone: Safari → 공유 → 홈 화면에 추가
+   - Android: Chrome → ⋮ → 앱 설치(홈 화면에 추가)
+4. **홈 화면 아이콘으로 연 앱에서** API 키를 입력합니다(iPhone은 Safari 탭과 홈 화면 앱의 저장소가 따로입니다)
+
+API 키는 빌드에 들어가지 않고, 자료는 각 기기에만 저장됩니다. 브랜치에 푸시하면 자동으로 다시 배포됩니다.
 
 ## Claude API
 

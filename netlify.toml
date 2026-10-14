@@ -1,0 +1,14 @@
+# 자료 퀴즈 앱(study-quiz-app) 배포 설정 — Netlify가 저장소를 연결하면 자동으로 읽는다
+[build]
+  base = "study-quiz-app"
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# 서비스 워커는 항상 최신본을 받아야 앱 업데이트가 반영된다
+[[headers]]
+  for = "/sw.js"
+  [headers.values]
+    Cache-Control = "no-cache"
