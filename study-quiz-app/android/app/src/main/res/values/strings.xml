@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">자료퀴즈</string>
+    <string name="title_activity_main">자료퀴즈</string>
+    <string name="package_name">com.studyquiz.app</string>
+    <string name="custom_url_scheme">com.studyquiz.app</string>
+</resources>

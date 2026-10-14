@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { db } from "../lib/db";
 import { defaultBankTarget } from "../lib/generate";
-import { ACCEPT, MAX_FILE_BYTES, MAX_FILES_PER_SET, parseFile, sha256, type ParsedFile } from "../lib/parse";
+import { isNative } from "../lib/native";
+import { ACCEPT, NATIVE_ACCEPT, MAX_FILE_BYTES, MAX_FILES_PER_SET, parseFile, sha256, type ParsedFile } from "../lib/parse";
 import { buildSections, sectionText, type SectionDraft } from "../lib/sections";
 
 import { formatBytes, Screen } from "../ui";
@@ -73,7 +74,7 @@ export function NewSet({ back, replaceWithSet }: { back: () => void; replaceWith
         <input value={title} onChange={(e) => setTitle(e.target.value)} placeholder="예: 정보처리기사 1과목" />
       </label>
       <label className="file-drop">
-        <input type="file" multiple accept={ACCEPT} onChange={(e) => addFiles(e.target.files)} />
+        <input type="file" multiple accept={isNative ? NATIVE_ACCEPT : ACCEPT} onChange={(e) => addFiles(e.target.files)} />
         <span>파일 선택 (여러 개 가능)</span>
         <small>PDF · DOCX · TXT · MD, 파일당 {formatBytes(MAX_FILE_BYTES)}까지</small>
       </label>

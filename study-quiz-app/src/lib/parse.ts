@@ -1,6 +1,14 @@
 import type { Paragraph } from "./types";
 
 export const ACCEPT = ".pdf,.docx,.txt,.md,.markdown";
+export const NATIVE_ACCEPT = [
+  "application/pdf",
+  "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+  "text/plain",
+  "text/markdown",
+  "text/x-markdown",
+  "application/octet-stream",
+].join(",");
 /** 개인용 안전장치: 파일 하나 100MB, 한 세트 20개 */
 export const MAX_FILE_BYTES = 100 * 1024 * 1024;
 export const MAX_FILES_PER_SET = 20;

@@ -1,6 +1,7 @@
 import { useLiveQuery } from "dexie-react-hooks";
 import { useState } from "react";
 import { db, exportAll, importAll } from "../lib/db";
+import { isNative, saveTextFile } from "../lib/native";
 import { MODELS, settings, type ModelId } from "../lib/settings";
 import { formatUsd, Screen } from "../ui";
 
@@ -19,12 +20,11 @@ export function Settings({ back }: { back: () => void }) {
   };
 
   const download = async () => {
-    const blob = new Blob([await exportAll()], { type: "application/json" });
-    const a = document.createElement("a");
-    a.href = URL.createObjectURL(blob);
-    a.download = `study-quiz-backup-${new Date().toISOString().slice(0, 10)}.json`;
-    a.click();
-    URL.revokeObjectURL(a.href);
+    try {
+      await saveTextFile(`study-quiz-backup-${new Date().toISOString().slice(0, 10)}.json`, await exportAll());
+    } catch (e) {
+      setMsg(e instanceof Error ? e.message : String(e));
+    }
   };
 
   const restore = async (file: File | undefined) => {
@@ -46,7 +46,7 @@ export function Settings({ back }: { back: () => void }) {
           <input type="password" value={key} onChange={(e) => setKey(e.target.value)} placeholder="sk-ant-..." autoComplete="off" />
         </label>
         <p className="muted small">
-          키는 이 기기의 브라우저에만 저장되고 Anthropic API로만 전송됩니다. Claude Console에서 월 사용 한도를 걸어 두세요.
+          키는 이 {isNative ? "앱" : "기기의 브라우저"}에만 저장되고 Anthropic API로만 전송됩니다. Claude Console에서 월 사용 한도를 걸어 두세요.
         </p>
         <label className="field">
           <span>출제 모델</span>
@@ -66,9 +66,11 @@ export function Settings({ back }: { back: () => void }) {
 
       <section className="panel">
         <h2>백업</h2>
-        <p className="muted small">자료와 기록은 이 기기의 브라우저에만 있습니다. 가끔 백업해 두세요.</p>
+        <p className="muted small">
+          자료와 기록은 이 {isNative ? "앱" : "기기의 브라우저"}에만 있습니다. {isNative ? "앱을 지우면 함께 지워지니" : ""} 가끔 백업해 두세요.
+        </p>
         <button className="block" onClick={download}>
-          백업 파일 내려받기
+          {isNative ? "백업 파일 내보내기" : "백업 파일 내려받기"}
         </button>
         <label className="file-drop compact">
           <input type="file" accept="application/json,.json" onChange={(e) => restore(e.target.files?.[0])} />

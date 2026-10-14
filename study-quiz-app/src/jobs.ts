@@ -1,5 +1,6 @@
 import { useSyncExternalStore } from "react";
 import { fillBank, type Progress } from "./lib/generate";
+import { keepScreenOn } from "./lib/native";
 
 export interface Job {
   running: boolean;
@@ -36,19 +37,14 @@ export async function startJob(setId: number): Promise<void> {
   if (jobs.get(setId)?.running) return;
   const controller = new AbortController();
   set(setId, { running: true, errors: [], controller });
-  let wakeLock: WakeLockSentinel | undefined;
-  try {
-    wakeLock = await navigator.wakeLock?.request("screen");
-  } catch {
-    /* 화면 꺼짐 방지를 지원하지 않는 브라우저 */
-  }
+  const releaseScreen = await keepScreenOn();
   try {
     const { errors } = await fillBank(setId, (progress) => set(setId, { ...jobs.get(setId)!, progress }), controller.signal);
     set(setId, { ...jobs.get(setId)!, running: false, errors, controller: undefined });
   } catch (e) {
     set(setId, { ...jobs.get(setId)!, running: false, fatal: e instanceof Error ? e.message : String(e), controller: undefined });
   } finally {
-    await wakeLock?.release().catch(() => {});
+    await releaseScreen();
   }
 }
 
