@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { recordAnswer } from "../lib/answers";
 import { db } from "../lib/db";
 import { shuffle } from "../lib/verify";
@@ -32,6 +32,7 @@ export function Quiz({
   const [index, setIndex] = useState(0);
   const [chosen, setChosen] = useState<number | null>(null);
   const [results, setResults] = useState<Result[]>([]);
+  const saving = useRef(false);
 
   useEffect(() => {
     db.questions.bulkGet(questionIds).then((qs) => setQuestions(qs.filter((q): q is Question => !!q)));
@@ -84,12 +85,18 @@ export function Quiz({
   const isCorrect = answered && order[chosen] === q.answerIndex;
 
   const choose = async (displayIdx: number) => {
-    if (answered) return;
-    setChosen(displayIdx);
+    // 기록이 끝난 뒤에 채점 화면을 보여 줘야 빠르게 넘겨도 결과·오답노트가 어긋나지 않는다
+    if (answered || saving.current) return;
+    saving.current = true;
     const correct = order[displayIdx] === q.answerIndex;
-    await recordAnswer(q, correct, mode);
-    const noteAfter = await db.wrongNotes.get(q.id!);
-    setResults((r) => [...r, { question: q, correct, noteAfter }]);
+    try {
+      await recordAnswer(q, correct, mode);
+      const noteAfter = await db.wrongNotes.get(q.id!);
+      setResults((r) => [...r, { question: q, correct, noteAfter }]);
+      setChosen(displayIdx);
+    } finally {
+      saving.current = false;
+    }
   };
 
   const next = () => {
