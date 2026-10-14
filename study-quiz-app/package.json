@@ -10,7 +10,9 @@
     "build:android": "tsc --noEmit && CAP_BUILD=1 vite build && cap sync android",
     "preview": "vite preview --host",
     "typecheck": "tsc --noEmit",
-    "test": "vitest run"
+    "test": "vitest run",
+    "e2e": "npm run build && node e2e/builtin.mjs && node e2e/upload.mjs",
+    "bank": "python3 tools/adsp-bank/make_bank.py"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.133.0",
@@ -32,6 +34,7 @@
     "@types/react-dom": "^19.3.0",
     "@vitejs/plugin-react": "^6.1.2",
     "fake-indexeddb": "^6.2.5",
+    "playwright-core": "^1.56.1",
     "typescript": "^7.0.2",
     "vite": "^8.3.4",
     "vite-plugin-pwa": "^2.0.0",
