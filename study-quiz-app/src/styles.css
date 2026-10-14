@@ -130,3 +130,23 @@ cite { color: var(--muted); font-style: normal; }
 .review-list .answer { color: var(--good); font-size: 14px; margin-top: 4px; }
 .note-list li { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 14px; display: flex; flex-direction: column; gap: 8px; }
 .note-stem { font-weight: 600; word-break: keep-all; }
+
+.splash { min-height: 100dvh; display: grid; place-items: center; font-weight: 800; font-size: 22px; color: var(--accent); }
+.text-btn { border: 0; background: none; color: var(--bad); font-weight: 700; padding: 10px 8px; min-height: 44px; }
+.notice .resume { margin-top: 10px; }
+
+.subject-tabs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
+.subject-tabs button {
+  min-height: 56px; border: 1.5px solid var(--line); border-radius: 12px; background: var(--surface);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; font-weight: 700;
+}
+.subject-tabs button small { font-size: 11px; color: var(--muted); font-weight: 500; }
+.subject-tabs button.on { border-color: var(--accent); background: var(--accent-soft); color: var(--accent); }
+
+.figure { display: block; width: 100%; padding: 8px; border: 1px solid var(--line); border-radius: 12px; background: #fff; cursor: zoom-in; }
+.figure img { display: block; max-width: 100%; max-height: 42vh; margin: 0 auto; object-fit: contain; }
+.zoom { position: fixed; inset: 0; z-index: 10; background: rgba(0, 0, 0, 0.85); display: grid; place-items: center; padding: 12px; }
+.zoom img { max-width: 100%; max-height: 100%; background: #fff; border-radius: 8px; }
+
+.right-answer { font-weight: 700; color: var(--good); }
+.label { display: inline-block; font-size: 12px; font-weight: 700; padding: 1px 6px; border-radius: 6px; background: var(--accent-soft); color: var(--accent); margin-right: 4px; }

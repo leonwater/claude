@@ -63,3 +63,15 @@ export function formatUsd(n: number): string {
 export function pct(x: number): string {
   return `${Math.round(x * 100)}%`;
 }
+
+/** 끝내지 않은 퀴즈가 있으면 이어 풀기 안내를 보여 준다. 새 퀴즈 시작 버튼은 이 값으로 막는다 */
+export function ActiveQuizNotice({ onResume }: { onResume: () => void }) {
+  return (
+    <div className="notice">
+      <div>진행 중인 퀴즈가 있습니다. 끝내기를 눌러야 새 퀴즈를 시작할 수 있어요.</div>
+      <button className="primary block resume" onClick={onResume}>
+        이어 풀기
+      </button>
+    </div>
+  );
+}

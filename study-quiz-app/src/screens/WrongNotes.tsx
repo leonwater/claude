@@ -1,9 +1,11 @@
 import { useLiveQuery } from "dexie-react-hooks";
 import { useState } from "react";
 import { db } from "../lib/db";
+import { startSession } from "../lib/sessions";
+import { useActiveSession } from "../lib/useActive";
 import { accuracy, correctsToGraduate, GRADUATION_THRESHOLD, reviewOrder } from "../lib/wrongNote";
 import type { Navigate } from "../App";
-import { pct, ProgressBar, Screen, SizePicker } from "../ui";
+import { ActiveQuizNotice, pct, ProgressBar, Screen, SizePicker } from "../ui";
 
 const ALL = 0;
 
@@ -15,14 +17,20 @@ export function WrongNotes({ setId, go, back }: { setId: number; go: Navigate; b
     return { items: notes.map((n, i) => ({ note: n, question: questions[i] })).filter((x) => x.question), graduated };
   }, [setId]);
   const [size, setSize] = useState(ALL);
+  const active = useActiveSession();
 
   if (!data) return <Screen title="오답노트" onBack={back}>{null}</Screen>;
   const { items, graduated } = data;
   const options = [10, 20, 30, 40].filter((n) => n < items.length);
 
-  const start = () => {
-    const ids = items.slice(0, size === ALL ? items.length : size).map((x) => x.note.questionId);
-    go({ name: "quiz", setId, mode: "review", questionIds: ids });
+  const start = async () => {
+    const picked = items.slice(0, size === ALL ? items.length : size).map((x) => x.question!);
+    try {
+      const sessionId = await startSession(setId, "review", null, picked);
+      go({ name: "quiz", sessionId });
+    } catch (e) {
+      alert(e instanceof Error ? e.message : String(e));
+    }
   };
 
   return (
@@ -35,12 +43,13 @@ export function WrongNotes({ setId, go, back }: { setId: number; go: Navigate; b
         <p className="center muted">오답노트가 비어 있습니다 👏</p>
       ) : (
         <>
+          {active && <ActiveQuizNotice onResume={() => go({ name: "quiz", sessionId: active.id! })} />}
           <section className="panel">
             <h2>복습하기</h2>
             {options.length > 0 && (
               <SizePicker value={size} options={[...options, ALL]} onChange={setSize} label={(n) => (n === ALL ? "전체" : String(n))} />
             )}
-            <button className="primary block" onClick={start}>
+            <button className="primary block" onClick={start} disabled={!!active}>
               {size === ALL || size >= items.length ? `전체 ${items.length}문항` : `${size}문항`} 복습
             </button>
           </section>

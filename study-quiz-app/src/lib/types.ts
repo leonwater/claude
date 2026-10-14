@@ -13,6 +13,9 @@ export interface StudySet {
   createdAt: number;
   /** 문제은행 목표 문항 수 */
   bankTarget: number;
+  /** 앱에 내장된 문제은행이면 그 이름(예: "adsp"). 사용자가 올린 세트는 없음 */
+  builtin?: string;
+  bankVersion?: number;
 }
 
 export interface StoredFile {
@@ -52,6 +55,12 @@ export interface Question {
   createdAt: number;
   timesSeen: number;
   lastSeenAt: number;
+  /** 내장 문제은행의 고정 ID(업데이트 시 같은 문제를 찾는 데 사용) */
+  key?: string;
+  /** 내장 문제은행의 과목 번호(1·2·3) */
+  subject?: number;
+  /** 문제에 딸린 그림 파일 이름 */
+  image?: string | null;
 }
 
 export type AnswerMode = "quiz" | "review";
@@ -74,6 +83,31 @@ export interface WrongNote {
   lastSeenAt: number;
   /** 정답률 70% 초과로 졸업한 시각. null이면 오답노트에 남아 있음 */
   graduatedAt: number | null;
+}
+
+export interface SessionAnswer {
+  questionId: number;
+  /** 화면에 보인 보기 번호(0~3) */
+  chosen: number;
+  correct: boolean;
+}
+
+/** 진행 중이거나 끝난 퀴즈. 앱을 꺼도 이어서 풀 수 있도록 저장한다 */
+export interface QuizSession {
+  id?: number;
+  setId: number;
+  mode: AnswerMode;
+  /** 0 = 종합, 1·2·3 = 과목. 과목 구분이 없는 세트는 null */
+  subject: number | null;
+  questionIds: number[];
+  /** 문제별 보기 표시 순서(원래 보기 번호의 배열) */
+  choiceOrders: number[][];
+  /** 지금 보고 있는 문제 번호 */
+  index: number;
+  answers: SessionAnswer[];
+  startedAt: number;
+  /** 끝내기를 누른 시각. null이면 진행 중 */
+  finishedAt: number | null;
 }
 
 export interface UsageRecord {

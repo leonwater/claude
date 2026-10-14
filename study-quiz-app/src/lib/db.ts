@@ -1,6 +1,7 @@
 import Dexie, { type EntityTable } from "dexie";
 import type {
   Attempt,
+  QuizSession,
   Question,
   Section,
   StoredFile,
@@ -17,6 +18,7 @@ export const db = new Dexie("study-quiz") as Dexie & {
   attempts: EntityTable<Attempt, "id">;
   wrongNotes: EntityTable<WrongNote, "questionId">;
   usage: EntityTable<UsageRecord, "id">;
+  sessions: EntityTable<QuizSession, "id">;
 };
 
 db.version(1).stores({
@@ -29,10 +31,16 @@ db.version(1).stores({
   usage: "++id, at",
 });
 
-const TABLES = ["sets", "files", "sections", "questions", "attempts", "wrongNotes", "usage"] as const;
+db.version(2).stores({
+  questions: "++id, setId, sectionId, key",
+  sessions: "++id, setId, startedAt",
+});
+
+const TABLES = ["sets", "files", "sections", "questions", "attempts", "wrongNotes", "usage", "sessions"] as const;
 
 export async function deleteSet(setId: number): Promise<void> {
-  await db.transaction("rw", [db.sets, db.files, db.sections, db.questions, db.attempts, db.wrongNotes], async () => {
+  await db.transaction("rw", [db.sets, db.files, db.sections, db.questions, db.attempts, db.wrongNotes, db.sessions], async () => {
+    await db.sessions.where({ setId }).delete();
     await db.files.where({ setId }).delete();
     await db.sections.where({ setId }).delete();
     await db.questions.where({ setId }).delete();

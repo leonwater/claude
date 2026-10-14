@@ -1,0 +1,7164 @@
+{
+ "title": "ADsP 1·2·3과목 핵심 정리",
+ "source": "ADsP_1-3 핵심정리 PDF (33쪽)",
+ "subjects": {
+  "1": "1과목 데이터 이해",
+  "2": "2과목 데이터분석 기획",
+  "3": "3과목 데이터분석"
+ },
+ "chapters": {
+  "1-1": "데이터의 이해",
+  "1-2": "데이터의 가치와 미래",
+  "1-3": "데이터 사이언스와 전략 인사이트",
+  "2-1": "데이터분석 기획의 이해",
+  "2-2": "분석 마스터플랜",
+  "3-1": "R기초와 데이터 마트",
+  "3-2": "통계학 개론과 기초 통계",
+  "3-3": "확률분포·추정·가설검정",
+  "3-4": "회귀분석",
+  "3-5": "다변량 분석·시계열",
+  "3-6": "정형 데이터 마이닝"
+ },
+ "questions": [
+  {
+   "id": "adsp-001",
+   "subject": 1,
+   "chapter": "1-1",
+   "concept": "데이터 정의",
+   "stem": "'있는 그대로의 객관적 사실, 가공되지 않은 상태'를 뜻하는 것은?",
+   "choices": [
+    "지혜",
+    "데이터",
+    "지식",
+    "정보"
+   ],
+   "answerIndex": 1,
+   "explanation": "데이터는 가공되지 않은 객관적 사실이고, 정보는 데이터로부터 가공된 자료입니다.",
+   "sourceQuote": "데이터 : 있는 그대로의 객관적 사실, 가공되지 않은 상태 (주문수량)",
+   "image": null
+  },
+  {
+   "id": "adsp-002",
+   "subject": 1,
+   "chapter": "1-1",
+   "concept": "정보 예시",
+   "stem": "PDF의 예시 중 '정보'에 해당하는 것은?",
+   "choices": [
+    "베스트셀러",
+    "주문수량",
+    "관계형DB",
+    "온도"
+   ],
+   "answerIndex": 0,
+   "explanation": "정보는 데이터로부터 가공된 자료이며 예시로 베스트셀러가 제시됩니다. 주문수량은 데이터의 예시입니다.",
+   "sourceQuote": "정보 : 데이터로부터 가공된 자료 (베스트셀러)",
+   "image": null
+  },
+  {
+   "id": "adsp-003",
+   "subject": 1,
+   "chapter": "1-1",
+   "concept": "존재적 특성",
+   "stem": "데이터가 '현실을 그대로 반영하는' 특성을 무엇이라 하는가?",
+   "choices": [
+    "존재적 특성",
+    "정성적 특성",
+    "당위적 특성",
+    "정량적 특성"
+   ],
+   "answerIndex": 0,
+   "explanation": "데이터는 현실을 그대로 반영하는 존재적 특성과, 맥락 속에서 의미부여가 가능한 당위적 특성을 가집니다.",
+   "sourceQuote": "데이터는 현실을 그대로 반영하는 존재적 특성과 맥락 속 의미부여 가능한 당위적 특성을 가짐",
+   "image": null
+  },
+  {
+   "id": "adsp-004",
+   "subject": 1,
+   "chapter": "1-1",
+   "concept": "DIKW 지식",
+   "stem": "DIKW 피라미드에서 '패턴을 통해 의사결정에 활용'하는 단계는?",
+   "choices": [
+    "지식(Knowledge)",
+    "데이터(Data)",
+    "지혜(Wisdom)",
+    "정보(Information)"
+   ],
+   "answerIndex": 0,
+   "explanation": "지식은 패턴을 통해 의사결정에 활용하는 단계입니다(예: A에서 핸드폰을 사면 이득을 보겠다).",
+   "sourceQuote": "3. 지식(Knowledge) : 패턴을 통해 의사결정 활용 (A에서 핸드폰을 사면 이득을 보겠다)",
+   "image": null
+  },
+  {
+   "id": "adsp-005",
+   "subject": 1,
+   "chapter": "1-1",
+   "concept": "DIKW 지혜",
+   "stem": "'A대리점의 다른 기기들도 B대리점보다 저렴할 것이다'는 DIKW 중 어느 단계의 예시인가?",
+   "choices": [
+    "지혜(Wisdom)",
+    "데이터(Data)",
+    "지식(Knowledge)",
+    "정보(Information)"
+   ],
+   "answerIndex": 0,
+   "explanation": "지혜는 창의적인 전략 단계이며, 다른 기기들까지 저렴할 것이라 추론하는 것이 예시입니다.",
+   "sourceQuote": "4. 지혜(Wisdom) : 창의적인 전략 (A대리점의 다른 기기들도 B대리점보다 저렴할 것이다)",
+   "image": null
+  },
+  {
+   "id": "adsp-006",
+   "subject": 1,
+   "chapter": "1-1",
+   "concept": "DIKW 순서",
+   "stem": "DIKW 피라미드의 순서로 옳은 것은?",
+   "choices": [
+    "정보 → 데이터 → 지식 → 지혜",
+    "데이터 → 정보 → 지혜 → 지식",
+    "데이터 → 정보 → 지식 → 지혜",
+    "데이터 → 지식 → 정보 → 지혜"
+   ],
+   "answerIndex": 2,
+   "explanation": "DIKW는 Data → Information → Knowledge → Wisdom 순서입니다.",
+   "sourceQuote": "2. 정보(Information) : 데이터를 통해 패턴 인식 (A대리점이 핸드폰이 싸다)",
+   "image": null
+  },
+  {
+   "id": "adsp-007",
+   "subject": 1,
+   "chapter": "1-1",
+   "concept": "정형 데이터",
+   "stem": "행과 열로 구성된 구조화된 데이터로, CSV가 예시인 유형은?",
+   "choices": [
+    "정형 데이터",
+    "반정형 데이터",
+    "비정형 데이터",
+    "정성적 데이터"
+   ],
+   "answerIndex": 0,
+   "explanation": "정형 데이터는 행과 열로 구성된 구조화 데이터입니다(관계형DB, 엑셀-스프레드시트, CSV).",
+   "sourceQuote": "정형 데이터 : 행과 열로 구성된 구조화 (관계형DB, 엑셀-스프레드시트, CSV)",
+   "image": null
+  },
+  {
+   "id": "adsp-008",
+   "subject": 1,
+   "chapter": "1-1",
+   "concept": "반정형 데이터",
+   "stem": "데이터를 설명하는 메타데이터를 포함하며 JSON, XML이 예시인 데이터 유형은?",
+   "choices": [
+    "반정형 데이터",
+    "비정형 데이터",
+    "정형 데이터",
+    "정량적 데이터"
+   ],
+   "answerIndex": 0,
+   "explanation": "반정형 데이터는 메타데이터를 포함하는 형태로 HTML, XML, JSON, RDF가 예시입니다.",
+   "sourceQuote": "반정형 데이터 : 데이터를 설명하는 메타데이터를 포함 (HTML, XML, JSON, RDF)",
+   "image": null
+  },
+  {
+   "id": "adsp-009",
+   "subject": 1,
+   "chapter": "1-1",
+   "concept": "비정형 데이터",
+   "stem": "다음 중 비정형 데이터의 예시로 제시된 것은?",
+   "choices": [
+    "CSV",
+    "음원",
+    "JSON",
+    "관계형DB"
+   ],
+   "answerIndex": 1,
+   "explanation": "비정형 데이터는 구조화되지 않은 자유로운 형태로 SNS, 유튜브, 음원이 예시입니다.",
+   "sourceQuote": "비정형 데이터 : 구조화되지 않은 자유로운 형태 (SNS, 유튜브, 음원)",
+   "image": null
+  },
+  {
+   "id": "adsp-010",
+   "subject": 1,
+   "chapter": "1-1",
+   "concept": "정성적 데이터",
+   "stem": "'기상특보'는 표현 방식에 따른 분류에서 어떤 데이터인가?",
+   "choices": [
+    "정형 데이터",
+    "정량적 데이터",
+    "수치형 데이터",
+    "정성적 데이터"
+   ],
+   "answerIndex": 3,
+   "explanation": "정성적 데이터는 자료의 특징을 언어·문자로 풀어 설명하며 기상특보, 주관식 설문 응답이 예시입니다.",
+   "sourceQuote": "정성적 데이터 : 자료의 특징을 풀어 설명 - 언어, 문자 (기상특보, 주관식 설문 응답)",
+   "image": null
+  },
+  {
+   "id": "adsp-011",
+   "subject": 1,
+   "chapter": "1-1",
+   "concept": "이산형",
+   "stem": "분석 목적에 따른 분류에서 '고객 수, 판매 건수'는 어디에 속하는가?",
+   "choices": [
+    "범주형 - 명목형",
+    "범주형 - 순서형",
+    "수치형 - 이산형",
+    "수치형 - 연속형"
+   ],
+   "answerIndex": 2,
+   "explanation": "수치형은 연속형(키, 온도)과 이산형(고객 수, 판매 건수)으로 나뉩니다.",
+   "sourceQuote": "수치형 : 연속형(키, 온도), 이산형(고객 수, 판매 건수)",
+   "image": null
+  },
+  {
+   "id": "adsp-012",
+   "subject": 1,
+   "chapter": "1-1",
+   "concept": "순서형",
+   "stem": "분석 목적에 따른 분류에서 '학점, 만족도 등급'은 어디에 속하는가?",
+   "choices": [
+    "범주형 - 명목형",
+    "수치형 - 이산형",
+    "수치형 - 연속형",
+    "범주형 - 순서형"
+   ],
+   "answerIndex": 3,
+   "explanation": "범주형은 명목형(성별, 혈액형)과 순서형(학점, 만족도 등급)으로 나뉩니다.",
+   "sourceQuote": "범주형 : 명목형(성별, 혈액형), 순서형(학점, 만족도 등급)",
+   "image": null
+  },
+  {
+   "id": "adsp-013",
+   "subject": 1,
+   "chapter": "1-1",
+   "concept": "암묵지",
+   "stem": "개인에게 습득되고 겉으로 드러나지 않는 지식은?",
+   "choices": [
+    "암묵지",
+    "데이터 사전",
+    "형식지",
+    "메타데이터"
+   ],
+   "answerIndex": 0,
+   "explanation": "암묵지는 개인에게 습득되어 드러나지 않는 지식, 형식지는 문서·매뉴얼 등으로 형상화된 지식입니다.",
+   "sourceQuote": "암묵지 : 개인에게 습득되고 겉으로 드러나지 않음",
+   "image": null
+  },
+  {
+   "id": "adsp-014",
+   "subject": 1,
+   "chapter": "1-1",
+   "concept": "표출화",
+   "stem": "암묵지 지식을 매뉴얼이나 문서로 전환하는 과정은?",
+   "choices": [
+    "내면화",
+    "연결화",
+    "공통화",
+    "표출화"
+   ],
+   "answerIndex": 3,
+   "explanation": "표출화는 암묵지를 매뉴얼·문서(형식지)로 전환하는 단계입니다.",
+   "sourceQuote": "2. 표출화 : 암묵지 지식을 매뉴얼이나 문서로 전환",
+   "image": null
+  },
+  {
+   "id": "adsp-015",
+   "subject": 1,
+   "chapter": "1-1",
+   "concept": "연결화",
+   "stem": "교재, 매뉴얼에 새로운 지식을 추가하는 과정은?",
+   "choices": [
+    "표출화",
+    "내면화",
+    "공통화",
+    "연결화"
+   ],
+   "answerIndex": 3,
+   "explanation": "연결화는 형식지(교재, 매뉴얼)에 새로운 지식을 추가하는 단계입니다.",
+   "sourceQuote": "3. 연결화 : 교재, 매뉴얼에 새로운 지식 추가",
+   "image": null
+  },
+  {
+   "id": "adsp-016",
+   "subject": 1,
+   "chapter": "1-1",
+   "concept": "내면화",
+   "stem": "만들어진 교재·매뉴얼에서 다른 사람의 암묵지를 터득하는 과정은?",
+   "choices": [
+    "표출화",
+    "내면화",
+    "연결화",
+    "공통화"
+   ],
+   "answerIndex": 1,
+   "explanation": "내면화는 형식지로부터 다른 사람의 암묵지를 터득하는 단계입니다.",
+   "sourceQuote": "4. 내면화 : 만들어진 교재, 매뉴얼에서 다른 사람의 암묵지를 터득",
+   "image": null
+  },
+  {
+   "id": "adsp-017",
+   "subject": 1,
+   "chapter": "1-1",
+   "concept": "지식 상호작용 순서",
+   "stem": "암묵지와 형식지 간 상호작용 과정의 순서로 옳은 것은? (암기: '공표연내')",
+   "choices": [
+    "표출화 → 공통화 → 내면화 → 연결화",
+    "공통화 → 표출화 → 연결화 → 내면화",
+    "내면화 → 연결화 → 표출화 → 공통화",
+    "공통화 → 연결화 → 표출화 → 내면화"
+   ],
+   "answerIndex": 1,
+   "explanation": "공통화 → 표출화 → 연결화 → 내면화 순서이며 '공표연내'로 암기합니다.",
+   "sourceQuote": "1. 공통화 : 암묵지 지식을 다른 사람에게 알려줌",
+   "image": null
+  },
+  {
+   "id": "adsp-018",
+   "subject": 1,
+   "chapter": "1-1",
+   "concept": "통합된 데이터",
+   "stem": "데이터베이스의 특징 중 '동일한 데이터가 중복되어 있지 않음'을 뜻하는 것은?",
+   "choices": [
+    "공용 데이터",
+    "저장된 데이터",
+    "변화되는 데이터",
+    "통합된 데이터"
+   ],
+   "answerIndex": 3,
+   "explanation": "통합된 데이터는 동일한 데이터가 중복되지 않는 특징입니다.",
+   "sourceQuote": "통합된 데이터 : 동일한 데이터 중복되어 있지 않음",
+   "image": null
+  },
+  {
+   "id": "adsp-019",
+   "subject": 1,
+   "chapter": "1-1",
+   "concept": "변화되는 데이터",
+   "stem": "새로운 데이터의 추가·수정·삭제에도 현재의 정확한 데이터를 유지(무결성)하는 데이터베이스 특징은?",
+   "choices": [
+    "통합된 데이터",
+    "변화되는 데이터",
+    "저장된 데이터",
+    "공용 데이터"
+   ],
+   "answerIndex": 1,
+   "explanation": "변화되는 데이터는 추가·수정·삭제에도 현재의 정확한 데이터를 유지하는(무결성) 특징입니다.",
+   "sourceQuote": "변화되는 데이터 : 새로운 데이터 추가, 수정, 삭제에도 현재의 정확한 데이터 유지 (무결성)",
+   "image": null
+  },
+  {
+   "id": "adsp-020",
+   "subject": 1,
+   "chapter": "1-1",
+   "concept": "공용 데이터",
+   "stem": "여러 사용자가 다른 목적으로 데이터를 공동 이용하는 데이터베이스 특징은?",
+   "choices": [
+    "통합된 데이터",
+    "변화되는 데이터",
+    "저장된 데이터",
+    "공용 데이터"
+   ],
+   "answerIndex": 3,
+   "explanation": "공용 데이터는 여러 사용자가 서로 다른 목적으로 데이터를 공동 이용하는 특징입니다.",
+   "sourceQuote": "공용 데이터 : 여러 사용자가 다른 목적으로 데이터 공동 이용",
+   "image": null
+  },
+  {
+   "id": "adsp-021",
+   "subject": 1,
+   "chapter": "1-1",
+   "concept": "DB 가치 측면",
+   "stem": "데이터베이스의 가치 중 '기계가독성, 검색가독성, 원격조작성'이 포함되는 측면은?",
+   "choices": [
+    "정보 축적 및 전달 측면",
+    "정보 이용 측면",
+    "정보기술 발전 측면",
+    "경제/산업 측면"
+   ],
+   "answerIndex": 0,
+   "explanation": "기계가독성, 검색가독성, 원격조작성은 정보 축적 및 전달 측면의 가치입니다.",
+   "sourceQuote": "정보 축적 및 전달 측면(기계가독성, 검색가독성, 원격조작성), 정보 이용 측면, 정보 관리 측면, 정보기술 발전 측면, 경제/산업 측면",
+   "image": null
+  },
+  {
+   "id": "adsp-022",
+   "subject": 1,
+   "chapter": "1-1",
+   "concept": "DB 설계 절차",
+   "stem": "데이터베이스 설계 절차의 순서로 옳은 것은? (암기: '개논물')",
+   "choices": [
+    "개념적 설계 → 요구조건 분석 → 물리적 설계 → 논리적 설계",
+    "요구조건 분석 → 물리적 설계 → 논리적 설계 → 개념적 설계",
+    "요구조건 분석 → 논리적 설계 → 개념적 설계 → 물리적 설계",
+    "요구조건 분석 → 개념적 설계 → 논리적 설계 → 물리적 설계"
+   ],
+   "answerIndex": 3,
+   "explanation": "요구조건 분석 후 개념적 → 논리적 → 물리적 설계 순서로 진행합니다.",
+   "sourceQuote": "2. 개념적 설계 : 개념적 스키마 생성",
+   "image": null
+  },
+  {
+   "id": "adsp-023",
+   "subject": 1,
+   "chapter": "1-1",
+   "concept": "논리적 설계",
+   "stem": "개념적 ERD를 활용해 논리적 모델링을 하는 DB 설계 단계는?",
+   "choices": [
+    "개념적 설계",
+    "요구조건 분석",
+    "논리적 설계",
+    "물리적 설계"
+   ],
+   "answerIndex": 2,
+   "explanation": "논리적 설계는 개념적 ERD를 활용한 논리적 모델링 단계이고, 물리적 설계는 저장 구조를 설계합니다.",
+   "sourceQuote": "3. 논리적 설계 : 개념적 ERD를 활용한 논리적 모델링",
+   "image": null
+  },
+  {
+   "id": "adsp-024",
+   "subject": 1,
+   "chapter": "1-1",
+   "concept": "NoSQL",
+   "stem": "다음 중 NoSQL DBMS의 예시로 제시된 것은?",
+   "choices": [
+    "MySQL",
+    "MongoDB",
+    "MariaDB",
+    "Oracle"
+   ],
+   "answerIndex": 1,
+   "explanation": "NoSQL DBMS는 비정형 데이터를 저장·처리하며 HBase, MongoDB, CouchDB, Redis, Cassandra가 예시입니다. MySQL, MariaDB, Oracle은 관계형 DBMS입니다.",
+   "sourceQuote": "NoSQL DBMS : 비정형 데이터를 저장 및 처리 (HBase, MongoDB, CouchDB, Redis, Cassandra)",
+   "image": null
+  },
+  {
+   "id": "adsp-025",
+   "subject": 1,
+   "chapter": "1-1",
+   "concept": "메타데이터",
+   "stem": "'데이터를 설명하는 데이터'로, 데이터 구조를 설명하고 검색하는 데 활용되는 것은?",
+   "choices": [
+    "인덱스",
+    "인스턴스",
+    "메타데이터",
+    "데이터 사전"
+   ],
+   "answerIndex": 2,
+   "explanation": "메타데이터는 데이터를 설명하는 데이터입니다.",
+   "sourceQuote": "메타데이터 : 데이터를 설명하는 데이터, 데이터 구조를 설명하고 검색하는데 활용",
+   "image": null
+  },
+  {
+   "id": "adsp-026",
+   "subject": 1,
+   "chapter": "1-1",
+   "concept": "데이터 사전",
+   "stem": "메타데이터와 데이터 구조 정보를 포함하는 시스템 내 저장소는?",
+   "choices": [
+    "데이터 사전",
+    "ODS",
+    "데이터 마트",
+    "인덱스"
+   ],
+   "answerIndex": 0,
+   "explanation": "데이터 사전은 메타데이터와 데이터 구조 정보를 포함하는 시스템 내 저장소입니다.",
+   "sourceQuote": "데이터 사전 : 메타데이터와 데이터 구조 정보를 포함하는 시스템 내 저장소",
+   "image": null
+  },
+  {
+   "id": "adsp-027",
+   "subject": 1,
+   "chapter": "1-1",
+   "concept": "인덱스",
+   "stem": "정렬, 탐색을 위한 보조 도구는?",
+   "choices": [
+    "인덱스",
+    "스키마",
+    "데이터 사전",
+    "인스턴스"
+   ],
+   "answerIndex": 0,
+   "explanation": "인덱스는 정렬과 탐색을 위한 보조 도구입니다.",
+   "sourceQuote": "인덱스 : 정렬, 탐색을 위한 보조 도구",
+   "image": null
+  },
+  {
+   "id": "adsp-028",
+   "subject": 1,
+   "chapter": "1-1",
+   "concept": "DDL",
+   "stem": "SQL 명령어 ALTER는 어느 언어에 속하는가?",
+   "choices": [
+    "조작언어(DML)",
+    "제어언어(DCL)",
+    "TCL",
+    "정의언어(DDL)"
+   ],
+   "answerIndex": 3,
+   "explanation": "정의언어(DDL)는 CREATE, ALTER, DROP입니다.",
+   "sourceQuote": "정의언어(DDL) : CREATE, ALTER, DROP",
+   "image": null
+  },
+  {
+   "id": "adsp-029",
+   "subject": 1,
+   "chapter": "1-1",
+   "concept": "DCL",
+   "stem": "GRANT, REVOKE가 속하는 SQL 언어는?",
+   "choices": [
+    "정의언어(DDL)",
+    "질의언어(QL)",
+    "조작언어(DML)",
+    "제어언어(DCL)"
+   ],
+   "answerIndex": 3,
+   "explanation": "제어언어(DCL)는 GRANT, REVOKE입니다.",
+   "sourceQuote": "제어언어(DCL) : GRANT, REVOKE",
+   "image": null
+  },
+  {
+   "id": "adsp-030",
+   "subject": 1,
+   "chapter": "1-1",
+   "concept": "DML",
+   "stem": "다음 중 조작언어(DML)에 해당하는 명령어는?",
+   "choices": [
+    "GRANT",
+    "DROP",
+    "UPDATE",
+    "CREATE"
+   ],
+   "answerIndex": 2,
+   "explanation": "조작언어(DML)는 SELECT, INSERT, DELETE, UPDATE입니다.",
+   "sourceQuote": "조작언어(DML) : SELECT, INSERT, DELETE, UPDATE",
+   "image": null
+  },
+  {
+   "id": "adsp-031",
+   "subject": 1,
+   "chapter": "1-1",
+   "concept": "OLTP",
+   "stem": "다량의 단기 거래를 실시간으로 처리하는 기업 내부 활용 데이터베이스는?",
+   "choices": [
+    "OLTP",
+    "OLAP",
+    "KMS",
+    "BI"
+   ],
+   "answerIndex": 0,
+   "explanation": "OLTP는 다량의 단기 거래를 실시간 처리합니다. OLAP는 다차원 데이터를 대화식으로 분석합니다.",
+   "sourceQuote": "OLTP : 다량의 단기 거래를 실시간 처리",
+   "image": null
+  },
+  {
+   "id": "adsp-032",
+   "subject": 1,
+   "chapter": "1-1",
+   "concept": "OLAP",
+   "stem": "다차원 데이터를 대화식으로 분석하는 시스템은?",
+   "choices": [
+    "RTE",
+    "OLAP",
+    "SCM",
+    "OLTP"
+   ],
+   "answerIndex": 1,
+   "explanation": "OLAP는 다차원 데이터를 대화식으로 분석합니다.",
+   "sourceQuote": "OLAP : 다차원 데이터를 대화식으로 분석",
+   "image": null
+  },
+  {
+   "id": "adsp-033",
+   "subject": 1,
+   "chapter": "1-1",
+   "concept": "CRM",
+   "stem": "고객과 관련된 자료를 분석하여 마케팅에 활용하는 시스템은?",
+   "choices": [
+    "KMS",
+    "ERP",
+    "CRM",
+    "SCM"
+   ],
+   "answerIndex": 2,
+   "explanation": "CRM은 고객 관련 자료를 분석해 마케팅에 활용합니다.",
+   "sourceQuote": "CRM : 고객과 관련 자료 분석하여 마케팅에 활용",
+   "image": null
+  },
+  {
+   "id": "adsp-034",
+   "subject": 1,
+   "chapter": "1-1",
+   "concept": "SCM",
+   "stem": "공급망 연결을 최적화하는 시스템은?",
+   "choices": [
+    "SCM",
+    "CRM",
+    "ERP",
+    "BA"
+   ],
+   "answerIndex": 0,
+   "explanation": "SCM은 공급망 연결 최적화 시스템입니다.",
+   "sourceQuote": "SCM : 공급망 연결 최적화",
+   "image": null
+  },
+  {
+   "id": "adsp-035",
+   "subject": 1,
+   "chapter": "1-1",
+   "concept": "RTE",
+   "stem": "최신 정보로 신속한 의사결정을 지원하는 것은?",
+   "choices": [
+    "RTE",
+    "OLTP",
+    "KMS",
+    "Block Chain"
+   ],
+   "answerIndex": 0,
+   "explanation": "RTE는 최신 정보로 신속한 의사결정을 지원합니다.",
+   "sourceQuote": "RTE : 최신 정보로 신속한 의사결정 지원",
+   "image": null
+  },
+  {
+   "id": "adsp-036",
+   "subject": 1,
+   "chapter": "1-1",
+   "concept": "BI",
+   "stem": "기업 보유 데이터를 정리·분석하는 '리포트 중심' 도구는?",
+   "choices": [
+    "OLTP",
+    "ERP",
+    "BA",
+    "BI"
+   ],
+   "answerIndex": 3,
+   "explanation": "BI는 리포트 중심 도구이고, BA는 통계 기반 비즈니스 통찰력입니다.",
+   "sourceQuote": "BI : 기업 보유 데이터 정리, 분석하는 리포트 중심 도구",
+   "image": null
+  },
+  {
+   "id": "adsp-037",
+   "subject": 1,
+   "chapter": "1-1",
+   "concept": "BA",
+   "stem": "통계 기반의 비즈니스 통찰력을 의미하는 것은?",
+   "choices": [
+    "RTE",
+    "BA",
+    "BI",
+    "CRM"
+   ],
+   "answerIndex": 1,
+   "explanation": "BA는 통계 기반 비즈니스 통찰력입니다.",
+   "sourceQuote": "BA : 통계 기반 비즈니스 통찰력",
+   "image": null
+  },
+  {
+   "id": "adsp-038",
+   "subject": 1,
+   "chapter": "1-1",
+   "concept": "블록체인",
+   "stem": "네트워크에 참여한 모든 사용자가 정보를 분산·저장하는 것은?",
+   "choices": [
+    "데이터레이크",
+    "KMS",
+    "Block Chain",
+    "ERP"
+   ],
+   "answerIndex": 2,
+   "explanation": "Block Chain은 네트워크 참여자 모두가 정보를 분산·저장합니다.",
+   "sourceQuote": "Block Chain : 네트워크에 참여한 모든 사용자가 정보를 분산, 저장",
+   "image": null
+  },
+  {
+   "id": "adsp-039",
+   "subject": 1,
+   "chapter": "1-1",
+   "concept": "DW 흐름",
+   "stem": "데이터웨어하우스로 데이터가 들어가는 흐름으로 옳은 것은?",
+   "choices": [
+    "Data → ETL → ODS → DW",
+    "Data → DW → ETL → ODS",
+    "Data → ODS → ETL → DW",
+    "ETL → Data → DW → ODS"
+   ],
+   "answerIndex": 0,
+   "explanation": "DW는 기업 내외부 데이터를 한 곳에 저장한 중앙 저장소이며 흐름은 Data → ETL → ODS → DW입니다.",
+   "sourceQuote": "기업 내외부 다양한 데이터를 한 곳에 저장한 중앙 저장소 (Data → ETL → ODS → DW)",
+   "image": null
+  },
+  {
+   "id": "adsp-040",
+   "subject": 1,
+   "chapter": "1-1",
+   "concept": "ETL",
+   "stem": "다양한 소스 데이터를 추출, 정제, 적재하는 DW 구성요소는?",
+   "choices": [
+    "ETL",
+    "OLAP",
+    "HDFS",
+    "ODS"
+   ],
+   "answerIndex": 0,
+   "explanation": "ETL(Extraction, Transform, Load)은 소스 데이터를 추출·정제·적재합니다.",
+   "sourceQuote": "ETL(Extraction, Transform, Load) : 다양한 소스 데이터 추출, 정제, 적재",
+   "image": null
+  },
+  {
+   "id": "adsp-041",
+   "subject": 1,
+   "chapter": "1-1",
+   "concept": "ODS",
+   "stem": "다양한 DBMS에서 추출한 데이터를 '임시 저장'하는 DW 구성요소는?",
+   "choices": [
+    "ODS",
+    "데이터 마트",
+    "ETL",
+    "데이터 사전"
+   ],
+   "answerIndex": 0,
+   "explanation": "ODS(Operational Data Store)는 추출한 데이터를 임시 저장합니다.",
+   "sourceQuote": "ODS(Operational Data Store) : 다양한 DBMS에서 추출한 데이터를 임시 저장",
+   "image": null
+  },
+  {
+   "id": "adsp-042",
+   "subject": 1,
+   "chapter": "1-1",
+   "concept": "DW 주제지향성",
+   "stem": "데이터웨어하우스의 특징 중 '분석목적 설정이 중요'한 것은?",
+   "choices": [
+    "시계열성",
+    "주제지향성",
+    "데이터 통합",
+    "비휘발성"
+   ],
+   "answerIndex": 1,
+   "explanation": "주제지향성은 분석목적 설정이 중요하다는 특징입니다.",
+   "sourceQuote": "주제지향성 : 분석목적 설정이 중요",
+   "image": null
+  },
+  {
+   "id": "adsp-043",
+   "subject": 1,
+   "chapter": "1-1",
+   "concept": "DW 시계열성",
+   "stem": "데이터웨어하우스의 특징 중 '히스토리를 가진 데이터'에 해당하는 것은?",
+   "choices": [
+    "시계열성",
+    "주제지향성",
+    "비휘발성",
+    "데이터 통합"
+   ],
+   "answerIndex": 0,
+   "explanation": "시계열성은 히스토리를 가진 데이터라는 특징입니다.",
+   "sourceQuote": "시계열성 : 히스토리를 가진 데이터",
+   "image": null
+  },
+  {
+   "id": "adsp-044",
+   "subject": 1,
+   "chapter": "1-1",
+   "concept": "DW 비휘발성",
+   "stem": "데이터웨어하우스의 특징 중 '읽기전용으로 수시로 변하지 않음'에 해당하는 것은?",
+   "choices": [
+    "주제지향성",
+    "비휘발성",
+    "시계열성",
+    "데이터 통합"
+   ],
+   "answerIndex": 1,
+   "explanation": "비휘발성은 읽기전용이라 수시로 변하지 않는다는 특징입니다.",
+   "sourceQuote": "비휘발성 : 읽기전용 - 수시로 변하지 않음",
+   "image": null
+  },
+  {
+   "id": "adsp-045",
+   "subject": 1,
+   "chapter": "1-1",
+   "concept": "데이터레이크",
+   "stem": "비정형 데이터를 저장하며 하둡과 연계하여 처리하는 저장소는?",
+   "choices": [
+    "데이터 마트",
+    "데이터레이크",
+    "ODS",
+    "데이터웨어하우스"
+   ],
+   "answerIndex": 1,
+   "explanation": "데이터레이크는 비정형 데이터를 저장하며 하둡과 연계하여 처리합니다.",
+   "sourceQuote": "비정형 데이터를 저장하며 하둡과 연계하여 처리",
+   "image": null
+  },
+  {
+   "id": "adsp-046",
+   "subject": 1,
+   "chapter": "1-1",
+   "concept": "하둡",
+   "stem": "여러 컴퓨터를 하나로 묶어 대용량 데이터를 처리하는 오픈 소스 빅데이터 솔루션은?",
+   "choices": [
+    "OLAP",
+    "하둡",
+    "ERP",
+    "MongoDB"
+   ],
+   "answerIndex": 1,
+   "explanation": "하둡은 여러 컴퓨터를 하나로 묶어 대용량 데이터를 처리하는 오픈 소스 솔루션입니다.",
+   "sourceQuote": "하둡 : 여러 컴퓨터를 하나로 묶어 대용량 데이터를 처리하는 오픈 소스 빅데이터 솔루션",
+   "image": null
+  },
+  {
+   "id": "adsp-047",
+   "subject": 1,
+   "chapter": "1-1",
+   "concept": "HDFS",
+   "stem": "하둡에서 HDFS의 역할은?",
+   "choices": [
+    "분산형 파일 저장 시스템",
+    "다차원 데이터 대화식 분석",
+    "데이터 임시 저장",
+    "분산된 데이터를 병렬로 처리"
+   ],
+   "answerIndex": 0,
+   "explanation": "HDFS는 분산형 파일 저장 시스템이고, MapReduce가 분산된 데이터를 병렬로 처리합니다.",
+   "sourceQuote": "HDFS : 분산형 파일 저장 시스템",
+   "image": null
+  },
+  {
+   "id": "adsp-048",
+   "subject": 1,
+   "chapter": "1-1",
+   "concept": "MapReduce",
+   "stem": "하둡에서 분산된 데이터를 병렬로 처리하는 것은?",
+   "choices": [
+    "ODS",
+    "MapReduce",
+    "HDFS",
+    "ETL"
+   ],
+   "answerIndex": 1,
+   "explanation": "MapReduce는 분산된 데이터를 병렬로 처리합니다.",
+   "sourceQuote": "MapReduce : 분산된 데이터를 병렬로 처리",
+   "image": null
+  },
+  {
+   "id": "adsp-049",
+   "subject": 1,
+   "chapter": "1-2",
+   "concept": "출현 배경 온디맨드",
+   "stem": "빅데이터 출현 배경 중 '온디맨드'와 함께 제시된 기술은?",
+   "choices": [
+    "IoT 발달",
+    "클라우드 컴퓨팅",
+    "분산 처리 기술",
+    "디지털화"
+   ],
+   "answerIndex": 1,
+   "explanation": "출현 배경으로 클라우드 컴퓨팅(온디맨드), 분산 처리 기술(하둡 기반) 등이 제시됩니다.",
+   "sourceQuote": "클라우드 컴퓨팅(온디맨드), 분산 처리 기술(하둡 기반), 비정형 데이터 확산, 디지털화, 인터넷 및 모바일 기기 보급, IoT 발달",
+   "image": null
+  },
+  {
+   "id": "adsp-050",
+   "subject": 1,
+   "chapter": "1-2",
+   "concept": "데이터 단위",
+   "stem": "데이터 단위에서 2^70에 해당하는 것은?",
+   "choices": [
+    "EB",
+    "ZB",
+    "YB",
+    "PB"
+   ],
+   "answerIndex": 1,
+   "explanation": "PB(2^50) < EB(2^60) < ZB(2^70) < YB(2^80) 입니다.",
+   "sourceQuote": "KB < MB < GB < TB < PB(2^50) < EB(2^60) < ZB(2^70) < YB(2^80) (Peta < Exa < Zetta < Yotta)",
+   "image": null
+  },
+  {
+   "id": "adsp-051",
+   "subject": 1,
+   "chapter": "1-2",
+   "concept": "3V Variety",
+   "stem": "가트너의 빅데이터 3V 중 '데이터 유형 증가'를 뜻하는 것은?",
+   "choices": [
+    "Volume(규모)",
+    "Variety(다양성)",
+    "Velocity(속도)",
+    "Value(가치)"
+   ],
+   "answerIndex": 1,
+   "explanation": "Variety(다양성)는 데이터 유형의 증가를 뜻합니다.",
+   "sourceQuote": "2. Variety(다양성) : 데이터 유형 증가",
+   "image": null
+  },
+  {
+   "id": "adsp-052",
+   "subject": 1,
+   "chapter": "1-2",
+   "concept": "3V Velocity",
+   "stem": "가트너의 빅데이터 3V 중 '데이터 생성, 처리 속도 증가'를 뜻하는 것은?",
+   "choices": [
+    "Variety(다양성)",
+    "Volatility(휘발성)",
+    "Veracity(신뢰성)",
+    "Velocity(속도)"
+   ],
+   "answerIndex": 3,
+   "explanation": "Velocity(속도)는 데이터 생성·처리 속도의 증가입니다.",
+   "sourceQuote": "3. Velocity(속도) : 데이터 생성, 처리 속도 증가",
+   "image": null
+  },
+  {
+   "id": "adsp-053",
+   "subject": 1,
+   "chapter": "1-2",
+   "concept": "3V 아닌 것",
+   "stem": "가트너가 정의한 빅데이터 3V에 포함되지 않는 것은?",
+   "choices": [
+    "Value(가치)",
+    "Variety(다양성)",
+    "Volume(규모)",
+    "Velocity(속도)"
+   ],
+   "answerIndex": 0,
+   "explanation": "가트너 3V는 Volume, Variety, Velocity이며 Value는 5V/7V에 포함되는 요소입니다.",
+   "sourceQuote": "1. Volume(규모) : 데이터 양 증가",
+   "image": null
+  },
+  {
+   "id": "adsp-054",
+   "subject": 1,
+   "chapter": "1-2",
+   "concept": "Veracity",
+   "stem": "5V/7V 요소 중 '고품질 데이터'를 의미하는 것은?",
+   "choices": [
+    "Veracity(신뢰성)",
+    "Volatility(휘발성)",
+    "Value(가치)",
+    "Validity(정확성)"
+   ],
+   "answerIndex": 0,
+   "explanation": "Veracity(신뢰성)는 고품질 데이터를 의미합니다.",
+   "sourceQuote": "Veracity(신뢰성) : 고품질 데이터",
+   "image": null
+  },
+  {
+   "id": "adsp-055",
+   "subject": 1,
+   "chapter": "1-2",
+   "concept": "Volatility",
+   "stem": "5V/7V 요소 중 '데이터의 의미 있는 기간'을 뜻하는 것은?",
+   "choices": [
+    "Validity(정확성)",
+    "Volatility(휘발성)",
+    "Velocity(속도)",
+    "Veracity(신뢰성)"
+   ],
+   "answerIndex": 1,
+   "explanation": "Volatility(휘발성)는 데이터의 의미 있는 기간입니다.",
+   "sourceQuote": "Volatility(휘발성) : 데이터의 의미 있는 기간",
+   "image": null
+  },
+  {
+   "id": "adsp-056",
+   "subject": 1,
+   "chapter": "1-2",
+   "concept": "Validity",
+   "stem": "5V/7V 요소 중 '데이터의 유효성 보장'을 뜻하는 것은?",
+   "choices": [
+    "Volume(규모)",
+    "Veracity(신뢰성)",
+    "Validity(정확성)",
+    "Value(가치)"
+   ],
+   "answerIndex": 2,
+   "explanation": "Validity(정확성)는 데이터의 유효성 보장을 뜻합니다.",
+   "sourceQuote": "Validity(정확성) : 데이터의 유효성 보장",
+   "image": null
+  },
+  {
+   "id": "adsp-057",
+   "subject": 1,
+   "chapter": "1-2",
+   "concept": "비유 렌즈",
+   "stem": "빅데이터 비유 중 '구글 Ngram Viewer'가 예시로 제시된 것은?",
+   "choices": [
+    "원유",
+    "산업혁명의 석탄, 철",
+    "렌즈",
+    "플랫폼"
+   ],
+   "answerIndex": 2,
+   "explanation": "렌즈 비유는 현미경이 생물학 발전에 영향을 준 것처럼 산업 전반에 영향을 준다는 뜻이며 구글 Ngram Viewer가 예시입니다.",
+   "sourceQuote": "렌즈 : 현미경이 생물학 발전 영향, 산업 전반에 영향 (구글 Ngram Viewer)",
+   "image": null
+  },
+  {
+   "id": "adsp-058",
+   "subject": 1,
+   "chapter": "1-2",
+   "concept": "비유 플랫폼",
+   "stem": "공동 활용 목적으로 구축된 구조물로, 써드파티 비즈니스에 활용된다는 빅데이터 비유는?",
+   "choices": [
+    "원유",
+    "플랫폼",
+    "산업혁명의 석탄, 철",
+    "렌즈"
+   ],
+   "answerIndex": 1,
+   "explanation": "플랫폼 비유의 예로 메타, 카카오톡 등이 제시됩니다.",
+   "sourceQuote": "플랫폼 : 공동 활용 목적으로 구축된 구조물, 써드파티 비즈니스에 활용 (메타, 카카오톡 등)",
+   "image": null
+  },
+  {
+   "id": "adsp-059",
+   "subject": 1,
+   "chapter": "1-2",
+   "concept": "비유 원유",
+   "stem": "'정보제공으로 생산성 향상'에 해당하는 빅데이터 비유는?",
+   "choices": [
+    "렌즈",
+    "산업혁명의 석탄, 철",
+    "플랫폼",
+    "원유"
+   ],
+   "answerIndex": 3,
+   "explanation": "원유 비유는 정보제공으로 생산성을 향상시킨다는 의미입니다.",
+   "sourceQuote": "원유 : 정보제공으로 생산성 향상",
+   "image": null
+  },
+  {
+   "id": "adsp-060",
+   "subject": 1,
+   "chapter": "1-2",
+   "concept": "빅데이터 변화",
+   "stem": "빅데이터가 만들어내는 변화로 옳은 것은?",
+   "choices": [
+    "전수조사 → 표본조사",
+    "사후처리 → 사전처리",
+    "인과관계 → 상관관계",
+    "양 → 질"
+   ],
+   "answerIndex": 2,
+   "explanation": "빅데이터는 표본조사→전수조사, 사전처리→사후처리, 질→양, 인과관계→상관관계로 변화를 만듭니다('전후양상').",
+   "sourceQuote": "인과관계 → 상관관계",
+   "image": null
+  },
+  {
+   "id": "adsp-061",
+   "subject": 1,
+   "chapter": "1-2",
+   "concept": "가치 산정 어려움",
+   "stem": "빅데이터 가치 산정이 어려운 이유로 제시된 것은?",
+   "choices": [
+    "기존에 가치 없는 데이터도 새로운 분석기법으로 가치를 창출",
+    "데이터 단위가 YB를 넘어서기 때문",
+    "정형 데이터만 분석할 수 있어서",
+    "데이터 3법으로 활용이 금지되어서"
+   ],
+   "answerIndex": 0,
+   "explanation": "특정 데이터를 언제, 어디서, 누가 활용할지 알 수 없고, 가치 없던 데이터도 새 기법으로 가치를 창출하기 때문입니다.",
+   "sourceQuote": "기존에 가치 없는 데이터도 새로운 분석기법으로 가치를 창출",
+   "image": null
+  },
+  {
+   "id": "adsp-062",
+   "subject": 1,
+   "chapter": "1-2",
+   "concept": "연관규칙 예시",
+   "stem": "'마트에서 치킨과 맥주를 같이 사는 관계'를 찾는 분석기법은?",
+   "choices": [
+    "분류분석",
+    "연관규칙",
+    "감정분석",
+    "회귀분석"
+   ],
+   "answerIndex": 1,
+   "explanation": "연관규칙은 여러 요소들 간의 규칙 상관관계를 찾습니다.",
+   "sourceQuote": "연관규칙 : 여러 요소들 간의 규칙 상관관계 존재 (마트에서 치킨과 맥주를 같이 사는 관계)",
+   "image": null
+  },
+  {
+   "id": "adsp-063",
+   "subject": 1,
+   "chapter": "1-2",
+   "concept": "유전자 알고리즘",
+   "stem": "'택배차량을 어떻게 배치할까'처럼 최적화가 필요한 문제의 해결책을 찾는 기법은?",
+   "choices": [
+    "소셜 네트워크 분석",
+    "기계학습",
+    "유전자 알고리즘",
+    "텍스트 마이닝"
+   ],
+   "answerIndex": 2,
+   "explanation": "유전자 알고리즘은 최적화가 필요한 문제의 해결책을 찾습니다.",
+   "sourceQuote": "유전자 알고리즘 : 최적화 필요한 문제의 해결책 (택배차량 어떻게 배치, 최대 시청률을 얻으려면 어떤 프로그램을 어떤 시간대에 방송?)",
+   "image": null
+  },
+  {
+   "id": "adsp-064",
+   "subject": 1,
+   "chapter": "1-2",
+   "concept": "소셜 네트워크 분석",
+   "stem": "SNS상 사용자들의 관계 속에서 영향력 높은 사람을 찾는 기법은?",
+   "choices": [
+    "감정분석",
+    "연관규칙",
+    "분류분석",
+    "소셜 네트워크 분석"
+   ],
+   "answerIndex": 3,
+   "explanation": "소셜 네트워크 분석은 사람 간의 관계를 분석합니다.",
+   "sourceQuote": "소셜 네트워크 분석 : 사람간의 관계 (SNS상 사용자들 관계 속 영향력 높은 사람 찾기)",
+   "image": null
+  },
+  {
+   "id": "adsp-065",
+   "subject": 1,
+   "chapter": "1-2",
+   "concept": "분류분석 예시",
+   "stem": "'스팸메일 구분'은 어떤 분석기법의 예시인가?",
+   "choices": [
+    "연관규칙",
+    "분류분석",
+    "회귀분석",
+    "유전자 알고리즘"
+   ],
+   "answerIndex": 1,
+   "explanation": "분류분석은 데이터가 어떤 그룹에 속하는지 판별합니다.",
+   "sourceQuote": "분류분석 : 데이터가 어떤 그룹에 속하는지 판별 (스팸메일 구분)",
+   "image": null
+  },
+  {
+   "id": "adsp-066",
+   "subject": 1,
+   "chapter": "1-2",
+   "concept": "기계학습 예시",
+   "stem": "'넷플릭스 영화 추천 시스템'은 어떤 분석기법의 예시인가?",
+   "choices": [
+    "회귀분석",
+    "기계학습",
+    "감정분석",
+    "소셜 네트워크 분석"
+   ],
+   "answerIndex": 1,
+   "explanation": "기계학습은 훈련 데이터로부터 학습하고 미래를 예측합니다.",
+   "sourceQuote": "기계학습 : 훈련 데이터로부터 컴퓨터가 학습하고 미래를 예측 (넷플릭스 영화 추천 시스템)",
+   "image": null
+  },
+  {
+   "id": "adsp-067",
+   "subject": 1,
+   "chapter": "1-2",
+   "concept": "회귀분석 예시",
+   "stem": "'나이가 매출에 어떤 영향을 미치는지'를 분석하는 기법은?",
+   "choices": [
+    "분류분석",
+    "기계학습",
+    "연관규칙",
+    "회귀분석"
+   ],
+   "answerIndex": 3,
+   "explanation": "회귀분석은 독립변수와 종속변수 간의 관계를 분석합니다.",
+   "sourceQuote": "회귀분석 : 독립변수와 종속변수 간의 관계 분석 (나이가 매출에 어떤 영향을 미치는지)",
+   "image": null
+  },
+  {
+   "id": "adsp-068",
+   "subject": 1,
+   "chapter": "1-2",
+   "concept": "텍스트 마이닝",
+   "stem": "자연어처리(NLP)를 통해 텍스트의 숨겨진 의미를 발견하는 기법(문서요약, 키워드추출)은?",
+   "choices": [
+    "감정분석",
+    "소셜 네트워크 분석",
+    "텍스트 마이닝",
+    "유전자 알고리즘"
+   ],
+   "answerIndex": 2,
+   "explanation": "텍스트 마이닝은 NLP로 숨겨진 의미를 발견합니다. 감정분석은 긍정/부정 감정을 분석합니다.",
+   "sourceQuote": "텍스트 마이닝 : 텍스트로부터 자연어처리(NLP)를 통한 숨겨진 의미 발견 (문서요약, 키워드추출)",
+   "image": null
+  },
+  {
+   "id": "adsp-069",
+   "subject": 1,
+   "chapter": "1-2",
+   "concept": "사생활 침해 통제",
+   "stem": "위기 요인 '사생활 침해'에 대한 통제방안은?",
+   "choices": [
+    "제공자 동의에서 사용자 책임으로 전환",
+    "결과 기반 책임 원칙 고수",
+    "알고리즈미스트 필요",
+    "데이터 3법 폐지"
+   ],
+   "answerIndex": 0,
+   "explanation": "사생활 침해 → 제공자 동의에서 사용자 책임으로 전환입니다.",
+   "sourceQuote": "→ 제공자 동의에서 사용자 책임으로 전환",
+   "image": null
+  },
+  {
+   "id": "adsp-070",
+   "subject": 1,
+   "chapter": "1-2",
+   "concept": "책임 원칙 훼손 통제",
+   "stem": "범죄 예측 프로그램으로 예측하여 체포하는 '책임 원칙 훼손'의 통제방안은?",
+   "choices": [
+    "제공자 동의에서 사용자 책임으로 전환",
+    "결과 기반 책임 원칙 고수",
+    "가명정보 활용",
+    "알고리즘 접근 허용"
+   ],
+   "answerIndex": 1,
+   "explanation": "책임 원칙 훼손 → 결과 기반 책임 원칙 고수입니다.",
+   "sourceQuote": "→ 결과 기반 책임 원칙 고수",
+   "image": null
+  },
+  {
+   "id": "adsp-071",
+   "subject": 1,
+   "chapter": "1-2",
+   "concept": "알고리즈미스트",
+   "stem": "부당하게 피해가 발생한 사람들을 구제하는 전문인력은?",
+   "choices": [
+    "DSCoE",
+    "데이터 사이언티스트",
+    "써드파티",
+    "알고리즈미스트"
+   ],
+   "answerIndex": 3,
+   "explanation": "데이터 오용의 통제방안으로 알고리즘 해석이 가능한 알고리즈미스트가 필요합니다.",
+   "sourceQuote": "알고리즈미스트 : 부당하게 피해가 발생한 사람들을 구제하는 전문인력",
+   "image": null
+  },
+  {
+   "id": "adsp-072",
+   "subject": 1,
+   "chapter": "1-2",
+   "concept": "데이터 3법 가명정보",
+   "stem": "데이터 3법 개정으로 도입되어 통계 작성, 연구, 공익적 기록보존 목적으로 동의 없이 활용 가능한 정보는?",
+   "choices": [
+    "메타데이터",
+    "익명정보",
+    "개인정보",
+    "가명정보"
+   ],
+   "answerIndex": 3,
+   "explanation": "데이터 3법(개인정보보호법, 정보통신망법, 신용정보법)으로 가명정보 개념이 도입되었습니다.",
+   "sourceQuote": "가명정보의 개념 도입 (통계 작성, 연구, 공익적 기록보존 목적 하에 동의 없이 활용 가능)",
+   "image": null
+  },
+  {
+   "id": "adsp-073",
+   "subject": 1,
+   "chapter": "1-2",
+   "concept": "데이터 3법 구성",
+   "stem": "데이터 3법에 해당하는 법률의 조합으로 옳은 것은?",
+   "choices": [
+    "정보통신망법, 저작권법, 개인정보보호법",
+    "개인정보보호법, 전자정부법, 신용정보법",
+    "개인정보보호법, 정보통신망법, 신용정보법",
+    "신용정보법, 정보공개법, 전자정부법"
+   ],
+   "answerIndex": 2,
+   "explanation": "데이터 3법은 개인정보보호법, 정보통신망법, 신용정보법이며 '개정신'으로 암기합니다.",
+   "sourceQuote": "개인정보보호법, 정보통신망법, 신용정보법",
+   "image": null
+  },
+  {
+   "id": "adsp-074",
+   "subject": 1,
+   "chapter": "1-2",
+   "concept": "익명정보",
+   "stem": "더 이상 개인을 알아볼 수 없어 제한 없이 자유롭게 활용할 수 있는 정보는?",
+   "choices": [
+    "가명정보",
+    "메타데이터",
+    "익명정보",
+    "개인정보"
+   ],
+   "answerIndex": 2,
+   "explanation": "익명정보는 더 이상 개인을 알아볼 수 없는 정보로 제한 없이 활용할 수 있습니다.",
+   "sourceQuote": "3. 익명정보 : 더 이상 개인을 알아볼 수 없는 정보, 제한 없이 자유롭게 활용 (OOO, 30대)",
+   "image": null
+  },
+  {
+   "id": "adsp-075",
+   "subject": 1,
+   "chapter": "1-2",
+   "concept": "총계처리",
+   "stem": "'홍길동 170cm, 임꺽정 180cm → 평균 키 175cm'에 해당하는 비식별화 기법은?",
+   "choices": [
+    "데이터 마스킹",
+    "총계처리",
+    "데이터 범주화",
+    "가명처리"
+   ],
+   "answerIndex": 1,
+   "explanation": "총계처리는 개별 값을 평균 등 총계로 바꾸는 기법입니다.",
+   "sourceQuote": "2. 총계처리 (홍길동 170cm, 임꺽정 180cm → 평균 키 175cm)",
+   "image": null
+  },
+  {
+   "id": "adsp-076",
+   "subject": 1,
+   "chapter": "1-2",
+   "concept": "데이터 범주화",
+   "stem": "'홍길동, 35세 → 홍길동, 30~40세'에 해당하는 비식별화 기법은?",
+   "choices": [
+    "데이터 마스킹",
+    "총계처리",
+    "데이터 삭제",
+    "데이터 범주화"
+   ],
+   "answerIndex": 3,
+   "explanation": "데이터 범주화는 값을 범위(구간)로 바꾸는 기법입니다.",
+   "sourceQuote": "4. 데이터 범주화 (홍길동, 35세 → 홍길동, 30~40세)",
+   "image": null
+  },
+  {
+   "id": "adsp-077",
+   "subject": 1,
+   "chapter": "1-2",
+   "concept": "데이터 마스킹",
+   "stem": "'홍길동, 35세 → 홍OO, 35세'에 해당하는 비식별화 기법은?",
+   "choices": [
+    "데이터 마스킹",
+    "총계처리",
+    "가명처리",
+    "데이터 범주화"
+   ],
+   "answerIndex": 0,
+   "explanation": "데이터 마스킹은 일부 값을 가리는 기법입니다.",
+   "sourceQuote": "5. 데이터 마스킹 (홍길동, 35세 → 홍OO, 35세)",
+   "image": null
+  },
+  {
+   "id": "adsp-078",
+   "subject": 1,
+   "chapter": "1-2",
+   "concept": "데이터 삭제",
+   "stem": "'주민등록번호 901111-1234567 → 90년대 생, 남자'에 해당하는 비식별화 기법은?",
+   "choices": [
+    "데이터 삭제",
+    "가명처리",
+    "데이터 마스킹",
+    "총계처리"
+   ],
+   "answerIndex": 0,
+   "explanation": "PDF에서는 이 예시를 데이터 삭제로 분류합니다.",
+   "sourceQuote": "3. 데이터 삭제 (주민등록번호 901111-1234567 → 90년대 생, 남자)",
+   "image": null
+  },
+  {
+   "id": "adsp-079",
+   "subject": 1,
+   "chapter": "1-2",
+   "concept": "가명처리",
+   "stem": "'홍길동, 35세 → 임꺽정, 30세'에 해당하는 비식별화 기법은?",
+   "choices": [
+    "데이터 마스킹",
+    "데이터 삭제",
+    "데이터 범주화",
+    "가명처리"
+   ],
+   "answerIndex": 3,
+   "explanation": "가명처리는 다른 이름 등으로 바꾸는 기법입니다.",
+   "sourceQuote": "1. 가명처리 (홍길동, 35세 → 임꺽정, 30세)",
+   "image": null
+  },
+  {
+   "id": "adsp-080",
+   "subject": 1,
+   "chapter": "1-2",
+   "concept": "빅데이터 3대 요소",
+   "stem": "빅데이터 활용을 위한 3대 요소는? (암기: '인자기')",
+   "choices": [
+    "인력, 자본, 기술",
+    "인력, 자원(데이터), 기술",
+    "인프라, 자원, 거버넌스",
+    "인력, 조직, 프로세스"
+   ],
+   "answerIndex": 1,
+   "explanation": "빅데이터 활용 3대 요소는 인력, 자원(데이터), 기술입니다.",
+   "sourceQuote": "인력, 자원(데이터), 기술",
+   "image": null
+  },
+  {
+   "id": "adsp-081",
+   "subject": 1,
+   "chapter": "1-3",
+   "concept": "Big에 초점 X",
+   "stem": "전략 인사이트 확보 방향 중 '분석 목적에 맞는 데이터 구성과 기법이 중요'하다는 것은?",
+   "choices": [
+    "가치 기반 분석 수행",
+    "총체적 접근법",
+    "Big에 초점을 맞추지 마라",
+    "전략적 인사이트 확보"
+   ],
+   "answerIndex": 2,
+   "explanation": "데이터의 크기보다 분석 목적에 맞는 데이터 구성과 기법이 중요하다는 뜻입니다.",
+   "sourceQuote": "Big에 초점을 맞추지 마라 : 분석 목적에 맞는 데이터 구성과 기법이 중요",
+   "image": null
+  },
+  {
+   "id": "adsp-082",
+   "subject": 1,
+   "chapter": "1-3",
+   "concept": "가치 기반 분석",
+   "stem": "일차원적 분석을 넘어 가치를 창출하는 다범위 분석을 요구하는 방향은?",
+   "choices": [
+    "가치 기반 분석 수행",
+    "전략적 인사이트 확보",
+    "과제 중심적 접근",
+    "Big에 초점을 맞추지 마라"
+   ],
+   "answerIndex": 0,
+   "explanation": "가치 기반 분석 수행은 일차원적 분석을 넘어선 다범위 분석을 요구합니다.",
+   "sourceQuote": "가치 기반 분석 수행 : 일차원적 분석을 넘어 가치를 창출하는 다범위 분석 요구",
+   "image": null
+  },
+  {
+   "id": "adsp-083",
+   "subject": 1,
+   "chapter": "1-3",
+   "concept": "데이터 사이언스 정의",
+   "stem": "정형/비정형 데이터를 막론하고 데이터를 분석하는 데이터 사이언스의 접근 방식은?",
+   "choices": [
+    "하향식 접근법",
+    "총체적 접근법",
+    "상향식 접근법",
+    "과제 중심적 접근법"
+   ],
+   "answerIndex": 1,
+   "explanation": "데이터 사이언스는 정형/비정형을 막론하고 분석하는 총체적 접근법입니다.",
+   "sourceQuote": "정형/비정형 데이터를 막론하고 데이터를 분석 (총체적 접근법)",
+   "image": null
+  },
+  {
+   "id": "adsp-084",
+   "subject": 1,
+   "chapter": "1-3",
+   "concept": "데이터 사이언스 IT",
+   "stem": "데이터 사이언스 핵심 구성요소 중 '프로그래밍, 데이터 엔지니어링, 컴퓨팅'에 해당하는 것은?",
+   "choices": [
+    "Soft Skill",
+    "비즈니스 분석",
+    "IT",
+    "분석(Analytics)"
+   ],
+   "answerIndex": 2,
+   "explanation": "핵심 구성요소는 분석(Analytics), IT, 비즈니스 분석이며('AI비'), 프로그래밍·데이터 엔지니어링은 IT입니다.",
+   "sourceQuote": "2. IT : 프로그래밍, 데이터 엔지니어링, 컴퓨팅 등",
+   "image": null
+  },
+  {
+   "id": "adsp-085",
+   "subject": 1,
+   "chapter": "1-3",
+   "concept": "데이터 사이언스 비즈니스",
+   "stem": "데이터 사이언스 핵심 구성요소 중 '커뮤니케이션, 스토리텔링, 시각화'에 해당하는 것은?",
+   "choices": [
+    "Hard Skill",
+    "IT",
+    "분석(Analytics)",
+    "비즈니스 분석"
+   ],
+   "answerIndex": 3,
+   "explanation": "비즈니스 분석에는 커뮤니케이션, 스토리텔링, 시각화가 포함됩니다.",
+   "sourceQuote": "3. 비즈니스 분석 : 커뮤니케이션, 스토리텔링, 시각화 등",
+   "image": null
+  },
+  {
+   "id": "adsp-086",
+   "subject": 1,
+   "chapter": "1-3",
+   "concept": "Soft Skill",
+   "stem": "데이터 사이언티스트 역량 중 '통찰력, 설득력, 협력'이 포함되는 것은?",
+   "choices": [
+    "IT",
+    "Soft Skill",
+    "Hard Skill",
+    "분석(Analytics)"
+   ],
+   "answerIndex": 1,
+   "explanation": "Soft Skill은 통찰력(창의적 사고, 호기심, 비판), 설득력(스토리텔링, 시각화), 협력(커뮤니케이션)입니다.",
+   "sourceQuote": "2. Soft Skill : 통찰력(창의적 사고, 호기심, 비판), 설득력(스토리텔링, 시각화), 협력(커뮤니케이션)",
+   "image": null
+  },
+  {
+   "id": "adsp-087",
+   "subject": 1,
+   "chapter": "1-3",
+   "concept": "Hard Skill",
+   "stem": "데이터 사이언티스트 역량 중 '이론적 지식(수학, 통계학, 가설검정)과 분석 기술 숙련'에 해당하는 것은?",
+   "choices": [
+    "Hard Skill",
+    "KMS",
+    "비즈니스 분석",
+    "Soft Skill"
+   ],
+   "answerIndex": 0,
+   "explanation": "Hard Skill은 이론적 지식과 분석 기술에 대한 숙련입니다.",
+   "sourceQuote": "1. Hard Skill : 이론적 지식(수학, 통계학, 가설검정 등), 분석 기술에 대한 숙련",
+   "image": null
+  },
+  {
+   "id": "adsp-088",
+   "subject": 1,
+   "chapter": "1-3",
+   "concept": "가트너 역량",
+   "stem": "가트너가 제시한 데이터 사이언티스트 역량에 포함되지 않는 것은?",
+   "choices": [
+    "비즈니스 분석",
+    "분석 모델링",
+    "하드웨어 설계",
+    "데이터 관리"
+   ],
+   "answerIndex": 2,
+   "explanation": "가트너가 제시한 역량은 데이터 관리, 분석 모델링, 비즈니스 분석, 소프트 스킬입니다.",
+   "sourceQuote": "※ 가트너가 제시한 역량 : 데이터 관리, 분석 모델링, 비즈니스 분석, 소프트 스킬",
+   "image": null
+  },
+  {
+   "id": "adsp-089",
+   "subject": 1,
+   "chapter": "1-3",
+   "concept": "가치 패러다임",
+   "stem": "빅데이터 가치 패러다임의 변화 순서로 옳은 것은?",
+   "choices": [
+    "Connection → Digitalization → Agency",
+    "Digitalization → Agency → Connection",
+    "Digitalization → Connection → Agency",
+    "Agency → Connection → Digitalization"
+   ],
+   "answerIndex": 2,
+   "explanation": "Digitalization → Connection → Agency 순서이며 'DigitalCA메라'로 암기합니다.",
+   "sourceQuote": "Digitalization → Connection → Agency",
+   "image": null
+  },
+  {
+   "id": "adsp-090",
+   "subject": 1,
+   "chapter": "1-3",
+   "concept": "Agency",
+   "stem": "가치 패러다임에서 '연결된 정보가 스스로 행동하는 주체'가 되는 단계는?",
+   "choices": [
+    "Connection",
+    "Platform",
+    "Digitalization",
+    "Agency"
+   ],
+   "answerIndex": 3,
+   "explanation": "Agency는 연결된 정보가 스스로 행동하는 주체가 되는 단계입니다.",
+   "sourceQuote": "3. Agency : 연결된 정보가 스스로 행동하는 주체",
+   "image": null
+  },
+  {
+   "id": "adsp-091",
+   "subject": 1,
+   "chapter": "1-3",
+   "concept": "Connection",
+   "stem": "가치 패러다임에서 '디지털화된 정보들의 연결' 단계는?",
+   "choices": [
+    "Integration",
+    "Digitalization",
+    "Connection",
+    "Agency"
+   ],
+   "answerIndex": 2,
+   "explanation": "Connection은 디지털화된 정보들을 연결하는 단계입니다.",
+   "sourceQuote": "2. Connection : 디지털화된 정보들의 연결",
+   "image": null
+  },
+  {
+   "id": "adsp-092",
+   "subject": 2,
+   "chapter": "2-1",
+   "concept": "분석유형 통찰",
+   "stem": "그림은 분석대상(What)과 방법(How)에 따른 분석 유형이다. '?'에 들어갈 유형은?",
+   "choices": [
+    "발견(Discovery)",
+    "통찰(Insight)",
+    "최적화(Optimization)",
+    "솔루션(Solution)"
+   ],
+   "answerIndex": 1,
+   "explanation": "방법은 알고(Known) 대상은 모를(Unknown) 때의 유형은 통찰(Insight)입니다.",
+   "sourceQuote": "분석대상(What)과 방법(How)이 알려져 있는지에 따라 분류",
+   "image": "analysis_matrix.png"
+  },
+  {
+   "id": "adsp-093",
+   "subject": 2,
+   "chapter": "2-1",
+   "concept": "분석유형 솔루션",
+   "stem": "분석 대상은 알려져 있지만(Known) 방법을 모를(Unknown) 때의 분석 유형은?",
+   "choices": [
+    "통찰(Insight)",
+    "발견(Discovery)",
+    "최적화(Optimization)",
+    "솔루션(Solution)"
+   ],
+   "answerIndex": 3,
+   "explanation": "대상 Known + 방법 Un-Known은 솔루션, 대상·방법 모두 Known은 최적화, 모두 Unknown은 발견입니다.",
+   "sourceQuote": "솔루션 (Solution)",
+   "image": null
+  },
+  {
+   "id": "adsp-094",
+   "subject": 2,
+   "chapter": "2-1",
+   "concept": "과제중심 1차목표",
+   "stem": "과제 중심적 접근 방식의 1차 목표는?",
+   "choices": [
+    "Long Term View",
+    "Accuracy & Deploy",
+    "Speed & Test",
+    "Problem Definition"
+   ],
+   "answerIndex": 2,
+   "explanation": "과제 중심적 접근은 빠르게 해결하는 것이 목적이며 1차 목표는 Speed & Test, 과제유형은 Quick & Win입니다.",
+   "sourceQuote": "Speed & Test",
+   "image": null
+  },
+  {
+   "id": "adsp-095",
+   "subject": 2,
+   "chapter": "2-1",
+   "concept": "마스터플랜 접근방식",
+   "stem": "장기적 마스터 플랜 방식의 접근방식은?",
+   "choices": [
+    "Problem Solving",
+    "Speed & Test",
+    "Quick & Win",
+    "Problem Definition"
+   ],
+   "answerIndex": 3,
+   "explanation": "장기적 마스터 플랜은 지속적 분석 원인 해결이 목적이며 Accuracy & Deploy, Long Term View, Problem Definition으로 특징지어집니다.",
+   "sourceQuote": "Problem Definition",
+   "image": null
+  },
+  {
+   "id": "adsp-096",
+   "subject": 2,
+   "chapter": "2-1",
+   "concept": "과제중심 과제유형",
+   "stem": "과제 중심적 접근 방식의 과제유형은?",
+   "choices": [
+    "Quick & Win",
+    "Problem Definition",
+    "Long Term View",
+    "Accuracy & Deploy"
+   ],
+   "answerIndex": 0,
+   "explanation": "과제 중심적 접근의 과제유형은 Quick & Win, 장기적 마스터 플랜은 Long Term View입니다.",
+   "sourceQuote": "Quick & Win",
+   "image": null
+  },
+  {
+   "id": "adsp-097",
+   "subject": 2,
+   "chapter": "2-1",
+   "concept": "유스케이스 탐색",
+   "stem": "분석 기획시 고려사항 중 '기존에 잘 구현되어 있는 유사 시나리오 활용'에 해당하는 것은?",
+   "choices": [
+    "타당성 검토",
+    "적절한 유스케이스 탐색",
+    "가용 데이터 파악",
+    "장애요소에 대한 사전계획 수립"
+   ],
+   "answerIndex": 1,
+   "explanation": "분석 기획시 고려사항은 가용 데이터 파악, 적절한 유스케이스 탐색, 장애요소에 대한 사전계획 수립입니다.",
+   "sourceQuote": "2. 적절한 유스케이스 탐색 : 기존에 잘 구현 되어있는 유사 시나리오 활용",
+   "image": null
+  },
+  {
+   "id": "adsp-098",
+   "subject": 2,
+   "chapter": "2-1",
+   "concept": "방법론 구성요소",
+   "stem": "분석 방법론의 구성요소로 제시된 것은?",
+   "choices": [
+    "절차, 방법, 도구와 기법, 템플릿과 산출물",
+    "원칙, 조직, 프로세스",
+    "조직, 프로세스, 시스템, 데이터",
+    "인력, 자원, 기술"
+   ],
+   "answerIndex": 0,
+   "explanation": "분석 방법론의 구성요소는 절차, 방법, 도구와 기법, 템플릿과 산출물입니다.",
+   "sourceQuote": "절차, 방법, 도구와 기법, 템플릿과 산출물",
+   "image": null
+  },
+  {
+   "id": "adsp-099",
+   "subject": 2,
+   "chapter": "2-1",
+   "concept": "계층적 프로세스 스텝",
+   "stem": "계층적 프로세스 모델에서 '단기간 수행 WorkPackage'에 해당하는 계층은?",
+   "choices": [
+    "Baseline",
+    "단계",
+    "태스크",
+    "스텝"
+   ],
+   "answerIndex": 3,
+   "explanation": "계층적 프로세스 모델은 단계(Baseline으로 관리) → 태스크 → 스텝(단기간 수행 WorkPackage)입니다.",
+   "sourceQuote": "1. 계층적 프로세스 모델 : 단계(Baseline으로 관리) → 태스크 → 스텝(단기간 수행 WorkPackage)",
+   "image": null
+  },
+  {
+   "id": "adsp-100",
+   "subject": 2,
+   "chapter": "2-1",
+   "concept": "폭포수 모델",
+   "stem": "이전 단계가 완료되어야 다음 단계를 진행하는(Top-Down) 분석 모델은?",
+   "choices": [
+    "나선형 모델",
+    "폭포수 모델",
+    "애자일",
+    "프로토타입 모델"
+   ],
+   "answerIndex": 1,
+   "explanation": "폭포수 모델은 이전 단계 완료 후 다음 단계를 진행하는 Top-Down 방식입니다.",
+   "sourceQuote": "2. 폭포수 모델 : 이전 단계 완료되어야 다음 단계 진행 (Top-Down)",
+   "image": null
+  },
+  {
+   "id": "adsp-101",
+   "subject": 2,
+   "chapter": "2-1",
+   "concept": "프로토타입 모델",
+   "stem": "일부분(프로토타입)을 우선 개발하고 보완하는 분석 모델은?",
+   "choices": [
+    "폭포수 모델",
+    "프로토타입 모델",
+    "계층적 프로세스 모델",
+    "나선형 모델"
+   ],
+   "answerIndex": 1,
+   "explanation": "프로토타입 모델은 일부분을 우선 개발하고 보완합니다.",
+   "sourceQuote": "3. 프로토타입 모델 : 일부분(프로토타입)을 우선 개발하고 보완",
+   "image": null
+  },
+  {
+   "id": "adsp-102",
+   "subject": 2,
+   "chapter": "2-1",
+   "concept": "나선형 모델",
+   "stem": "여러 개발과정을 거쳐 점진적으로 완성하며 '위험요소 제거'에 초점을 둔 모델은?",
+   "choices": [
+    "나선형 모델",
+    "프로토타입 모델",
+    "애자일",
+    "폭포수 모델"
+   ],
+   "answerIndex": 0,
+   "explanation": "나선형 모델은 점진적으로 완성하며 위험요소 제거에 초점을 둡니다.",
+   "sourceQuote": "4. 나선형 모델 : 여러 개발과정 거쳐 점진적으로 완성, 위험요소 제거 초점",
+   "image": null
+  },
+  {
+   "id": "adsp-103",
+   "subject": 2,
+   "chapter": "2-1",
+   "concept": "애자일",
+   "stem": "짧은 개발 주기를 가지고 고객 피드백을 지속적으로 반영하여 반복 개발하는 방식은?",
+   "choices": [
+    "폭포수 모델",
+    "나선형 모델",
+    "KDD",
+    "애자일"
+   ],
+   "answerIndex": 3,
+   "explanation": "애자일은 짧은 주기로 고객 피드백을 반영하여 반복 개발합니다.",
+   "sourceQuote": "5. 애자일 : 짧은 개발 주기를 가지고 고객 피드백을 지속적으로 반영하여 반복적인 개발",
+   "image": null
+  },
+  {
+   "id": "adsp-104",
+   "subject": 2,
+   "chapter": "2-1",
+   "concept": "빅데이터 방법론 기반",
+   "stem": "빅데이터 분석 방법론의 기반이 되는 모델은?",
+   "choices": [
+    "계층적 프로세스 모델",
+    "나선형 모델",
+    "애자일",
+    "폭포수 모델"
+   ],
+   "answerIndex": 0,
+   "explanation": "계층적 프로세스 모델은 빅데이터 분석 방법론의 기반입니다.",
+   "sourceQuote": "☞ 계층적 프로세스 모델은 빅데이터 분석 방법론의 기반",
+   "image": null
+  },
+  {
+   "id": "adsp-105",
+   "subject": 2,
+   "chapter": "2-1",
+   "concept": "KDD 순서",
+   "stem": "KDD 분석 방법론의 절차로 옳은 것은?",
+   "choices": [
+    "전처리 → 데이터 선택 → 마이닝 → 변환 → 평가",
+    "데이터 선택 → 변환 → 전처리 → 마이닝 → 평가",
+    "업무 이해 → 데이터 이해 → 데이터 준비 → 모델링 → 평가",
+    "데이터 선택 → 전처리 → 변환 → 마이닝 → 평가"
+   ],
+   "answerIndex": 3,
+   "explanation": "KDD는 데이터 선택 → 전처리 → 변환 → 마이닝 → 평가 순서입니다.",
+   "sourceQuote": "데이터 선택 → 전처리 → 변환 → 마이닝 → 평가",
+   "image": null
+  },
+  {
+   "id": "adsp-106",
+   "subject": 2,
+   "chapter": "2-1",
+   "concept": "KDD 변환",
+   "stem": "KDD에서 '변수 선택 및 차원축소'를 수행하는 단계는?",
+   "choices": [
+    "전처리",
+    "변환",
+    "데이터 선택",
+    "마이닝"
+   ],
+   "answerIndex": 1,
+   "explanation": "변환 단계에서 변수 선택 및 차원축소를 합니다. 전처리는 이상값·잡음 식별 및 가공입니다.",
+   "sourceQuote": "3. 변환 : 변수 선택 및 차원축소",
+   "image": null
+  },
+  {
+   "id": "adsp-107",
+   "subject": 2,
+   "chapter": "2-1",
+   "concept": "KDD 전처리",
+   "stem": "KDD에서 '이상값, 잡음 식별 및 데이터 가공'을 수행하는 단계는?",
+   "choices": [
+    "변환",
+    "전처리",
+    "데이터 선택",
+    "평가"
+   ],
+   "answerIndex": 1,
+   "explanation": "전처리 단계는 이상값, 잡음 식별 및 데이터 가공을 합니다.",
+   "sourceQuote": "2. 전처리 : 이상값, 잡음 식별 및 데이터 가공",
+   "image": null
+  },
+  {
+   "id": "adsp-108",
+   "subject": 2,
+   "chapter": "2-1",
+   "concept": "CRISP-DM 순서",
+   "stem": "CRISP-DM 분석 방법론의 절차로 옳은 것은?",
+   "choices": [
+    "업무 이해 → 데이터 준비 → 데이터 이해 → 모델링 → 전개 → 평가",
+    "업무 이해 → 데이터 이해 → 데이터 준비 → 모델링 → 평가 → 전개",
+    "데이터 선택 → 전처리 → 변환 → 마이닝 → 평가 → 전개",
+    "데이터 이해 → 업무 이해 → 데이터 준비 → 모델링 → 평가 → 전개"
+   ],
+   "answerIndex": 1,
+   "explanation": "CRISP-DM은 업무 이해 → 데이터 이해 → 데이터 준비 → 모델링 → 평가 → 전개입니다('업데데이트모델평가전').",
+   "sourceQuote": "업무 이해 → 데이터 이해 → 데이터 준비 → 모델링 → 평가 → 전개",
+   "image": null
+  },
+  {
+   "id": "adsp-109",
+   "subject": 2,
+   "chapter": "2-1",
+   "concept": "CRISP-DM 데이터 이해",
+   "stem": "CRISP-DM에서 '초기 데이터 수집, 기술 분석, EDA, 데이터 품질 확인'을 하는 단계는?",
+   "choices": [
+    "데이터 준비",
+    "모델링",
+    "업무 이해",
+    "데이터 이해"
+   ],
+   "answerIndex": 3,
+   "explanation": "데이터 이해 단계에서 초기 수집, 기술 분석, EDA, 품질 확인을 합니다.",
+   "sourceQuote": "2. 데이터 이해 : 초기 데이터 수집, 기술 분석, EDA, 데이터 품질 확인",
+   "image": null
+  },
+  {
+   "id": "adsp-110",
+   "subject": 2,
+   "chapter": "2-1",
+   "concept": "CRISP-DM 평가",
+   "stem": "CRISP-DM에서 '분석결과 평가, 모델링 과정 평가, 모델 적용성 평가'를 하는 단계는?",
+   "choices": [
+    "평가",
+    "데이터 준비",
+    "모델링",
+    "전개"
+   ],
+   "answerIndex": 0,
+   "explanation": "평가 단계에서 분석결과, 모델링 과정, 모델 적용성을 평가합니다.",
+   "sourceQuote": "5. 평가 : 분석결과 평가, 모델링 과정 평가, 모델 적용성 평가",
+   "image": null
+  },
+  {
+   "id": "adsp-111",
+   "subject": 2,
+   "chapter": "2-1",
+   "concept": "CRISP-DM 전개",
+   "stem": "CRISP-DM에서 '프로젝트 종료 보고서 작성, 프로젝트 리뷰'를 하는 단계는?",
+   "choices": [
+    "평가",
+    "업무 이해",
+    "전개",
+    "모델링"
+   ],
+   "answerIndex": 2,
+   "explanation": "전개 단계는 전개 계획, 모니터링 및 유지보수 계획, 종료 보고서 작성, 프로젝트 리뷰를 합니다.",
+   "sourceQuote": "6. 전개 : 전개 계획, 모니터링 및 유지보수 계획 수립, 프로젝트 종료 보고서 작성, 프로젝트 리뷰",
+   "image": null
+  },
+  {
+   "id": "adsp-112",
+   "subject": 2,
+   "chapter": "2-1",
+   "concept": "위대한 실패",
+   "stem": "CRISP-DM에서 평가 → 전개 과정 중 업무 이해로 다시 돌아가는 것을 무엇이라 하는가?",
+   "choices": [
+    "위대한 실패",
+    "가지치기",
+    "피드백 루프",
+    "Quick & Win"
+   ],
+   "answerIndex": 0,
+   "explanation": "평가에서 전개로 가는 과정에서 업무 이해로 돌아가는 '위대한 실패'가 발생할 수 있습니다.",
+   "sourceQuote": "* 평가 → 전개에서 위대한 실패(업무 이해로 다시 돌아감) 발생 가능",
+   "image": null
+  },
+  {
+   "id": "adsp-113",
+   "subject": 2,
+   "chapter": "2-1",
+   "concept": "빅데이터 방법론 분석단계",
+   "stem": "그림은 빅데이터 분석 방법론의 단계와 태스크이다. '탐색적 분석, 모델링' 태스크가 속한 '?' 단계는?",
+   "choices": [
+    "Deploying(평가 및 전개)",
+    "Preparing(데이터 준비)",
+    "Analyzing(데이터 분석)",
+    "Developing(시스템 구현)"
+   ],
+   "answerIndex": 2,
+   "explanation": "데이터 분석(Analyzing) 단계에서 탐색적 데이터 분석(EDA)과 모델링(분류, 회귀, 군집 등)을 수행합니다.",
+   "sourceQuote": "탐색적 데이터 분석(EDA) : 기초 통계량 및 시각화를 통해 데이터 특성 파악",
+   "image": "bigdata_method.png"
+  },
+  {
+   "id": "adsp-114",
+   "subject": 2,
+   "chapter": "2-1",
+   "concept": "SOW",
+   "stem": "빅데이터 분석 방법론의 분석 기획 단계에서 '비즈니스 이해 및 범위 설정'의 산출물인 구조화된 프로젝트 정의서는?",
+   "choices": [
+    "분석과제 정의서",
+    "ISP",
+    "SOW(Statement of Works)",
+    "분석 활용 시나리오"
+   ],
+   "answerIndex": 2,
+   "explanation": "비즈니스 이해 및 범위 설정에서는 SOW(구조화된 프로젝트 정의서)를 작성합니다.",
+   "sourceQuote": "비즈니스 이해 및 범위 설정 : SOW(Statement of Works) - 구조화된 프로젝트 정의서",
+   "image": null
+  },
+  {
+   "id": "adsp-115",
+   "subject": 2,
+   "chapter": "2-1",
+   "concept": "위험 대응",
+   "stem": "프로젝트 위험계획 수립의 대응 방법으로 제시되지 않은 것은?",
+   "choices": [
+    "회피",
+    "완화",
+    "무시",
+    "전이"
+   ],
+   "answerIndex": 2,
+   "explanation": "프로젝트 위험 대응은 회피, 전이, 완화, 수용입니다('회전완수').",
+   "sourceQuote": "프로젝트 위험계획 수립 : 회피, 전이, 완화, 수용",
+   "image": null
+  },
+  {
+   "id": "adsp-116",
+   "subject": 2,
+   "chapter": "2-1",
+   "concept": "데이터 스토어 설계",
+   "stem": "정형, 비정형, 반정형 데이터에 따른 효율적 저장소를 설계하는 태스크가 속한 단계는?",
+   "choices": [
+    "데이터 분석",
+    "데이터 준비",
+    "분석 기획",
+    "평가 및 전개"
+   ],
+   "answerIndex": 1,
+   "explanation": "데이터 스토어 설계는 데이터 준비(Preparing) 단계의 태스크입니다.",
+   "sourceQuote": "데이터 스토어 설계 : 정형, 비정형, 반정형 데이터에 따른 효율적 저장소를 설계",
+   "image": null
+  },
+  {
+   "id": "adsp-117",
+   "subject": 2,
+   "chapter": "2-1",
+   "concept": "시스템 구현 태스크",
+   "stem": "빅데이터 분석 방법론에서 Developing(시스템 구현) 단계의 태스크는?",
+   "choices": [
+    "모델 발전계획 수립, 프로젝트 평가 및 보고",
+    "필요 데이터 정의, 데이터 스토어 설계",
+    "텍스트 분석, 모델 평가 및 검증",
+    "설계 및 구현, 시스템 테스트 및 운영"
+   ],
+   "answerIndex": 3,
+   "explanation": "Developing 단계는 설계 및 구현, 시스템 테스트 및 운영 태스크로 구성됩니다.",
+   "sourceQuote": "시스템 테스트 및 운영",
+   "image": null
+  },
+  {
+   "id": "adsp-118",
+   "subject": 2,
+   "chapter": "2-1",
+   "concept": "분석과제 정의서",
+   "stem": "분석 계획서 수립을 위한 핵심 입력 자료는?",
+   "choices": [
+    "데이터 사전",
+    "분석과제 정의서",
+    "분석 활용 시나리오",
+    "SOW"
+   ],
+   "answerIndex": 1,
+   "explanation": "분석과제 정의서는 분석 계획서 수립의 핵심 입력 자료이고, 분석 활용 시나리오는 실행 중심 문서입니다.",
+   "sourceQuote": "분석과제 정의서 : 분석 계획서 수립을 위한 핵심 입력 자료",
+   "image": null
+  },
+  {
+   "id": "adsp-119",
+   "subject": 2,
+   "chapter": "2-1",
+   "concept": "분석 활용 시나리오",
+   "stem": "분석 결과를 어떻게 적용할지 구체적으로 정의한 실행 중심 문서는?",
+   "choices": [
+    "분석 활용 시나리오",
+    "분석과제 정의서",
+    "SOW",
+    "분석 로드맵"
+   ],
+   "answerIndex": 0,
+   "explanation": "분석 활용 시나리오는 분석 결과의 적용 방법을 구체적으로 정의한 실행 중심 문서입니다.",
+   "sourceQuote": "분석 활용 시나리오 : 분석 결과를 어떻게 적용할지 구체적으로 정의한 실행 중심 문서",
+   "image": null
+  },
+  {
+   "id": "adsp-120",
+   "subject": 2,
+   "chapter": "2-1",
+   "concept": "하향식 순서",
+   "stem": "하향식 접근 방법의 절차로 옳은 것은?",
+   "choices": [
+    "프로세스 분류 → 프로세스 흐름 분석 → 분석요건 식별 → 분석요건 정의",
+    "문제탐색 → 문제정의 → 해결방안탐색 → 타당성 검토",
+    "문제정의 → 문제탐색 → 타당성 검토 → 해결방안탐색",
+    "문제탐색 → 해결방안탐색 → 문제정의 → 타당성 검토"
+   ],
+   "answerIndex": 1,
+   "explanation": "하향식 접근은 문제가 주어지고 해답을 찾는 방식이며 문제탐색 → 문제정의 → 해결방안탐색 → 타당성 검토 순서입니다.",
+   "sourceQuote": "문제탐색 → 문제정의 → 해결방안탐색 → 타당성 검토",
+   "image": null
+  },
+  {
+   "id": "adsp-121",
+   "subject": 2,
+   "chapter": "2-1",
+   "concept": "비즈니스 모델 기반 탐색",
+   "stem": "하향식 문제탐색 중 비즈니스 모델 기반 탐색의 영역이 아닌 것은?",
+   "choices": [
+    "규제와 감사",
+    "채널",
+    "업무",
+    "고객"
+   ],
+   "answerIndex": 1,
+   "explanation": "비즈니스 모델 기반 탐색은 업무, 제품, 고객, 규제와 감사, 지원인프라입니다. 채널은 시장의 니즈 탐색 관점입니다.",
+   "sourceQuote": "비즈니스 모델 기반 탐색 : 업무, 제품, 고객, 규제와 감사, 지원인프라",
+   "image": null
+  },
+  {
+   "id": "adsp-122",
+   "subject": 2,
+   "chapter": "2-1",
+   "concept": "STEEP",
+   "stem": "발굴 범위 확장 중 STEEP(사회, 기술, 경제, 환경, 정치)을 활용하는 관점은?",
+   "choices": [
+    "역량의 재해석",
+    "경쟁자 확대 관점",
+    "시장의 니즈 탐색 관점",
+    "거시적 관점"
+   ],
+   "answerIndex": 3,
+   "explanation": "STEEP은 거시적 관점에서 발굴 범위를 확장할 때 사용합니다.",
+   "sourceQuote": "거시적 관점 : STEEP(사회, 기술, 경제, 환경, 정치)",
+   "image": null
+  },
+  {
+   "id": "adsp-123",
+   "subject": 2,
+   "chapter": "2-1",
+   "concept": "경쟁자 확대",
+   "stem": "'대체자, 경쟁자, 신규 진입자'를 살펴보는 발굴 범위 확장 관점은?",
+   "choices": [
+    "역량의 재해석",
+    "시장의 니즈 탐색 관점",
+    "경쟁자 확대 관점",
+    "거시적 관점"
+   ],
+   "answerIndex": 2,
+   "explanation": "경쟁자 확대 관점은 대체자, 경쟁자, 신규 진입자를 봅니다.",
+   "sourceQuote": "경쟁자 확대 관점 : 대체자, 경쟁자, 신규 진입자",
+   "image": null
+  },
+  {
+   "id": "adsp-124",
+   "subject": 2,
+   "chapter": "2-1",
+   "concept": "시장 니즈",
+   "stem": "'고객, 채널, 영향자'를 살펴보는 발굴 범위 확장 관점은?",
+   "choices": [
+    "거시적 관점",
+    "내/외부 사례 참조",
+    "시장의 니즈 탐색 관점",
+    "경쟁자 확대 관점"
+   ],
+   "answerIndex": 2,
+   "explanation": "시장의 니즈 탐색 관점은 고객, 채널, 영향자를 봅니다.",
+   "sourceQuote": "시장의 니즈 탐색 관점 : 고객, 채널, 영향자",
+   "image": null
+  },
+  {
+   "id": "adsp-125",
+   "subject": 2,
+   "chapter": "2-1",
+   "concept": "역량 재해석",
+   "stem": "'내부 역량, 파트너 네트워크'를 살펴보는 발굴 범위 확장 관점은?",
+   "choices": [
+    "시장의 니즈 탐색 관점",
+    "역량의 재해석",
+    "경쟁자 확대 관점",
+    "거시적 관점"
+   ],
+   "answerIndex": 1,
+   "explanation": "역량의 재해석은 내부 역량과 파트너 네트워크를 봅니다.",
+   "sourceQuote": "역량의 재해석 : 내부 역량, 파트너 네트워크",
+   "image": null
+  },
+  {
+   "id": "adsp-126",
+   "subject": 2,
+   "chapter": "2-1",
+   "concept": "문제 정의",
+   "stem": "하향식 접근에서 '비즈니스 문제를 데이터 문제로 변환하여 정의'하는 단계는?",
+   "choices": [
+    "타당성 검토",
+    "해결방안 탐색",
+    "문제 정의",
+    "문제탐색"
+   ],
+   "answerIndex": 2,
+   "explanation": "문제 정의 단계에서 비즈니스 문제를 데이터 문제로 변환합니다.",
+   "sourceQuote": "2. 문제 정의 : 비즈니스 문제를 데이터 문제로 변환하여 정의",
+   "image": null
+  },
+  {
+   "id": "adsp-127",
+   "subject": 2,
+   "chapter": "2-1",
+   "concept": "타당성 검토",
+   "stem": "하향식 접근의 타당성 검토 항목이 아닌 것은?",
+   "choices": [
+    "경제적 타당성",
+    "시급성 타당성",
+    "데이터 타당성",
+    "기술적 타당성"
+   ],
+   "answerIndex": 1,
+   "explanation": "타당성 검토는 경제적 타당성, 데이터 타당성, 기술적 타당성입니다.",
+   "sourceQuote": "4. 타당성 검토 : 경제적 타당성, 데이터 타당성, 기술적 타당성",
+   "image": null
+  },
+  {
+   "id": "adsp-128",
+   "subject": 2,
+   "chapter": "2-1",
+   "concept": "해결방안 탐색",
+   "stem": "하향식 접근에서 '기존 시스템 활용, 시스템 고도화, 인적 자원 확보, 아웃소싱'을 검토하는 단계는?",
+   "choices": [
+    "문제 정의",
+    "해결방안 탐색",
+    "타당성 검토",
+    "문제탐색"
+   ],
+   "answerIndex": 1,
+   "explanation": "해결방안 탐색 단계에서 기존 시스템 활용, 고도화, 인적 자원 확보, 아웃소싱 등을 검토합니다.",
+   "sourceQuote": "3. 해결방안 탐색 : 기존 시스템 활용, 시스템 고도화, 인적 자원 확보, 아웃소싱 등",
+   "image": null
+  },
+  {
+   "id": "adsp-129",
+   "subject": 2,
+   "chapter": "2-1",
+   "concept": "상향식 순서",
+   "stem": "상향식 접근 방법의 절차로 옳은 것은?",
+   "choices": [
+    "프로세스 분류 → 프로세스 흐름 분석 → 분석요건 식별 → 분석요건 정의",
+    "프로세스 흐름 분석 → 프로세스 분류 → 분석요건 정의 → 분석요건 식별",
+    "문제탐색 → 문제정의 → 해결방안탐색 → 타당성 검토",
+    "분석요건 식별 → 프로세스 분류 → 프로세스 흐름 분석 → 분석요건 정의"
+   ],
+   "answerIndex": 0,
+   "explanation": "상향식 접근은 문제 정의 자체가 어려울 때 사용하며 프로세스 분류 → 흐름 분석 → 분석요건 식별 → 분석요건 정의 순서입니다.",
+   "sourceQuote": "프로세스 분류 → 프로세스 흐름 분석 → 분석요건 식별 → 분석요건 정의",
+   "image": null
+  },
+  {
+   "id": "adsp-130",
+   "subject": 2,
+   "chapter": "2-1",
+   "concept": "상향식 적용",
+   "stem": "상향식 접근법의 적용 방법으로 제시된 것은?",
+   "choices": [
+    "STEEP, 벤치마킹",
+    "ISP, ROI 분석",
+    "비지도학습, 프로토타이핑 접근법",
+    "지도학습, 폭포수 모델"
+   ],
+   "answerIndex": 2,
+   "explanation": "상향식 접근법은 비지도학습과 프로토타이핑 접근법으로 적용합니다.",
+   "sourceQuote": "상향식 접근법의 적용 방법 : 비지도학습, 프로토타이핑 접근법",
+   "image": null
+  },
+  {
+   "id": "adsp-131",
+   "subject": 2,
+   "chapter": "2-1",
+   "concept": "혼합 접근 발산",
+   "stem": "혼합 접근 방법에서 '발산 단계'에 사용하는 접근은?",
+   "choices": [
+    "과제 중심적 접근",
+    "상향식 접근 방법",
+    "장기적 마스터 플랜",
+    "하향식 접근 방법"
+   ],
+   "answerIndex": 1,
+   "explanation": "발산 단계는 상향식으로 가능한 방안을 도출하고, 수렴 단계는 하향식으로 도출된 방안을 분석합니다.",
+   "sourceQuote": "1. 발산 단계 : 상향식 접근 방법으로서, 가능한 방안들을 도출",
+   "image": null
+  },
+  {
+   "id": "adsp-132",
+   "subject": 2,
+   "chapter": "2-1",
+   "concept": "디자인 싱킹",
+   "stem": "디자인 싱킹의 진행 순서로 옳은 것은?",
+   "choices": [
+    "공감하기 → 아이디어 도출 → 문제정의 → 테스트 → 프로토타입",
+    "문제정의 → 공감하기 → 아이디어 도출 → 테스트 → 프로토타입",
+    "공감하기 → 문제정의 → 아이디어 도출 → 프로토타입 → 테스트",
+    "아이디어 도출 → 공감하기 → 문제정의 → 프로토타입 → 테스트"
+   ],
+   "answerIndex": 2,
+   "explanation": "디자인 싱킹은 사용자 공감으로 시작해 아이디어 발산/수렴을 거칩니다.",
+   "sourceQuote": "공감하기 → 문제정의 → 아이디어 도출 → 프로토타입 → 테스트",
+   "image": null
+  },
+  {
+   "id": "adsp-133",
+   "subject": 2,
+   "chapter": "2-1",
+   "concept": "분석과제 5요소",
+   "stem": "분석 과제에서 고려해야 할 5가지 요소가 아닌 것은?",
+   "choices": [
+    "데이터 양",
+    "분석 비용",
+    "정확도/정밀도",
+    "분석 복잡성"
+   ],
+   "answerIndex": 1,
+   "explanation": "5가지 요소는 데이터 양, 속도, 데이터 복잡성, 분석 복잡성, 정확도/정밀도입니다.",
+   "sourceQuote": "데이터 양, 속도, 데이터 복잡성, 분석 복잡성, 정확도/정밀도",
+   "image": null
+  },
+  {
+   "id": "adsp-134",
+   "subject": 2,
+   "chapter": "2-1",
+   "concept": "정확도 정밀도 관계",
+   "stem": "분석 과제의 고려 요소에서 정확도(Accuracy)와 정밀도(Precision)의 관계는?",
+   "choices": [
+    "항상 비례 관계",
+    "서로 독립",
+    "같은 개념",
+    "Trade-Off 관계"
+   ],
+   "answerIndex": 3,
+   "explanation": "정확도와 정밀도는 Trade-Off 관계이며, 여기서의 개념은 3과목 오분류표의 평가지표와 다릅니다.",
+   "sourceQuote": "* 정확도(Accuracy)와 정밀도(Precision)는 Trade-Off 관계",
+   "image": null
+  },
+  {
+   "id": "adsp-135",
+   "subject": 2,
+   "chapter": "2-1",
+   "concept": "PMBOK 10영역",
+   "stem": "프로젝트 관리 지식 체계 10가지 영역에 포함되지 않는 것은?",
+   "choices": [
+    "조달(아웃소싱)",
+    "분석 거버넌스",
+    "이해관계자",
+    "리스크(위험)"
+   ],
+   "answerIndex": 1,
+   "explanation": "10가지 영역은 통합, 범위, 시간(일정), 원가, 품질, 인적자원, 의사소통, 리스크(위험), 조달(아웃소싱), 이해관계자입니다.",
+   "sourceQuote": "통합, 범위, 시간(일정), 원가, 품질, 인적자원, 의사소통, 리스크(위험), 조달(아웃소싱), 이해관계자",
+   "image": null
+  },
+  {
+   "id": "adsp-136",
+   "subject": 2,
+   "chapter": "2-2",
+   "concept": "ISP",
+   "stem": "중장기 마스터 플랜을 수립하기 위해 활용하는 것은?",
+   "choices": [
+    "ISP",
+    "DSCoE",
+    "SOW",
+    "KDD"
+   ],
+   "answerIndex": 0,
+   "explanation": "중장기 마스터 플랜 수립을 위해 ISP를 활용합니다.",
+   "sourceQuote": "중장기 마스터 플랜을 수립 위하여 ISP를 활용",
+   "image": null
+  },
+  {
+   "id": "adsp-137",
+   "subject": 2,
+   "chapter": "2-2",
+   "concept": "IT 우선순위 전략적 중요도",
+   "stem": "IT 프로젝트 우선순위 선정 기준 중 '전략적 중요도'에 포함되는 것은?",
+   "choices": [
+    "투자 용이성, 기술 용이성",
+    "Volume, Variety, Velocity",
+    "경제적 타당성, 기술적 타당성",
+    "전략적 필요성, 시급성"
+   ],
+   "answerIndex": 3,
+   "explanation": "전략적 중요도는 전략적 필요성(비전, KPI)과 시급성(해결 지연 시 Risk)이고, 실행 용이성은 투자·기술 용이성입니다.",
+   "sourceQuote": "1. 전략적 중요도 : 전략적 필요성(조직의 비전, KPI), 시급성(해결 지연 시 Risk)",
+   "image": null
+  },
+  {
+   "id": "adsp-138",
+   "subject": 2,
+   "chapter": "2-2",
+   "concept": "IT 우선순위 실행 용이성",
+   "stem": "IT 프로젝트 우선순위 선정 기준 중 '실행 용이성'에 포함되는 것은?",
+   "choices": [
+    "비즈니스 효과(Return)",
+    "투자 용이성(예산 확보, ROI), 기술 용이성",
+    "전략적 필요성, 시급성",
+    "데이터 양, 속도"
+   ],
+   "answerIndex": 1,
+   "explanation": "실행 용이성은 투자 용이성(예산 확보, ROI)과 기술 용이성(기술 구현 난이도)입니다.",
+   "sourceQuote": "2. 실행 용이성 : 투자 용이성(예산 확보, ROI), 기술 용이성(기술 구현 난이도)",
+   "image": null
+  },
+  {
+   "id": "adsp-139",
+   "subject": 2,
+   "chapter": "2-2",
+   "concept": "시급성 관점 Value",
+   "stem": "데이터 분석 프로젝트 우선순위에서 '시급성' 관점과 관련된 것은?",
+   "choices": [
+    "비즈니스 효과(Return) - Value",
+    "데이터 복잡성",
+    "기술 용이성",
+    "투자비용 요소(Investment) - 3V"
+   ],
+   "answerIndex": 0,
+   "explanation": "시급성 관점은 비즈니스 효과(Return), 즉 Value와 관련됩니다.",
+   "sourceQuote": "1. 시급성 관점 : 비즈니스 효과(Return) - Value",
+   "image": null
+  },
+  {
+   "id": "adsp-140",
+   "subject": 2,
+   "chapter": "2-2",
+   "concept": "난이도 관점 3V",
+   "stem": "데이터 분석 프로젝트 우선순위에서 '난이도' 관점과 관련된 것은?",
+   "choices": [
+    "비즈니스 효과(Return) - Value",
+    "전략적 필요성",
+    "KPI",
+    "투자비용 요소(Investment) - Volume, Variety, Velocity"
+   ],
+   "answerIndex": 3,
+   "explanation": "난이도 관점은 투자비용 요소(Investment), 즉 3V(Volume, Variety, Velocity)와 관련됩니다.",
+   "sourceQuote": "2. 난이도 관점 : 투자비용 요소(Investment) - Volume, Variety, Velocity (3V)",
+   "image": null
+  },
+  {
+   "id": "adsp-141",
+   "subject": 2,
+   "chapter": "2-2",
+   "concept": "시급성 중심 전략",
+   "stem": "그림의 우선순위 평가 사분면에서 '시급성 중심 전략'의 순서는?",
+   "choices": [
+    "3 → 4 → 2",
+    "1 → 2 → 3",
+    "3 → 1 → 2",
+    "4 → 3 → 1"
+   ],
+   "answerIndex": 0,
+   "explanation": "시급성 중심 전략은 3 → 4 → 2, 난이도 중심 전략은 3 → 1 → 2입니다.",
+   "sourceQuote": "시급성 중심 전략 : 3 → 4 → 2",
+   "image": "priority_quad.png"
+  },
+  {
+   "id": "adsp-142",
+   "subject": 2,
+   "chapter": "2-2",
+   "concept": "난이도 중심 전략",
+   "stem": "우선순위 평가 사분면에서 '난이도 중심 전략'의 순서는?",
+   "choices": [
+    "3 → 1 → 2",
+    "1 → 3 → 4",
+    "3 → 4 → 2",
+    "2 → 1 → 3"
+   ],
+   "answerIndex": 0,
+   "explanation": "난이도 중심 전략은 3 → 1 → 2입니다.",
+   "sourceQuote": "난이도 중심 전략 : 3 → 1 → 2",
+   "image": null
+  },
+  {
+   "id": "adsp-143",
+   "subject": 2,
+   "chapter": "2-2",
+   "concept": "시급성 현재 의미",
+   "stem": "우선순위 평가 사분면에서 시급성이 '현재'에 해당한다는 것의 의미는?",
+   "choices": [
+    "시급성이 낮다",
+    "난이도가 쉽다",
+    "난이도가 높다",
+    "시급성이 높다"
+   ],
+   "answerIndex": 3,
+   "explanation": "시급성이 현재에 해당한다는 것은 시급성이 높다는 의미입니다.",
+   "sourceQuote": "☞ 시급성이 현재에 해당한다는 것은 시급성이 높다는 의미",
+   "image": null
+  },
+  {
+   "id": "adsp-144",
+   "subject": 2,
+   "chapter": "2-2",
+   "concept": "분석 로드맵",
+   "stem": "데이터 분석 로드맵의 단계 순서로 옳은 것은?",
+   "choices": [
+    "체계 도입 단계 → 확산 및 고도화 단계 → 유효성 검증 단계",
+    "체계 도입 단계 → 유효성 검증 단계 → 확산 및 고도화 단계",
+    "유효성 검증 단계 → 체계 도입 단계 → 확산 및 고도화 단계",
+    "확산 및 고도화 단계 → 체계 도입 단계 → 유효성 검증 단계"
+   ],
+   "answerIndex": 1,
+   "explanation": "체계 도입 → 유효성 검증(파일럿 프로젝트 수행) → 확산 및 고도화 순서입니다.",
+   "sourceQuote": "체계 도입 단계 → 유효성 검증 단계 (파일럿 프로젝트 수행) → 확산 및 고도화 단계",
+   "image": null
+  },
+  {
+   "id": "adsp-145",
+   "subject": 2,
+   "chapter": "2-2",
+   "concept": "파일럿 프로젝트",
+   "stem": "데이터 분석 로드맵에서 파일럿 프로젝트를 수행하는 단계는?",
+   "choices": [
+    "확산 및 고도화 단계",
+    "분석 기획 단계",
+    "유효성 검증 단계",
+    "체계 도입 단계"
+   ],
+   "answerIndex": 2,
+   "explanation": "유효성 검증 단계에서 파일럿 프로젝트를 수행합니다.",
+   "sourceQuote": "유효성 검증 단계 (파일럿 프로젝트 수행)",
+   "image": null
+  },
+  {
+   "id": "adsp-146",
+   "subject": 2,
+   "chapter": "2-2",
+   "concept": "분석 거버넌스 구성",
+   "stem": "분석 거버넌스 체계 구성요소가 아닌 것은?",
+   "choices": [
+    "조직",
+    "플랫폼 구조",
+    "분석관련 교육 및 마인드 육성체계",
+    "프로세스"
+   ],
+   "answerIndex": 1,
+   "explanation": "분석 거버넌스 체계 구성요소는 조직, 프로세스, 시스템, 데이터, 분석관련 교육 및 마인드 육성체계입니다('시조프로마인드데').",
+   "sourceQuote": "조직, 프로세스, 시스템, 데이터, 분석관련 교육 및 마인드 육성체계",
+   "image": null
+  },
+  {
+   "id": "adsp-147",
+   "subject": 2,
+   "chapter": "2-2",
+   "concept": "분석 준비도 분석데이터",
+   "stem": "그림은 분석 준비도의 6개 영역이다. '데이터 충분성·신뢰성·적시성, MDM' 등이 속한 '?' 영역은?",
+   "choices": [
+    "분석 데이터",
+    "분석 문화",
+    "분석기법",
+    "IT 인프라"
+   ],
+   "answerIndex": 0,
+   "explanation": "분석 데이터 영역에는 데이터 충분성·신뢰성·적시성, 비구조적 데이터 관리, 외부 데이터 활용 체계, MDM이 있습니다.",
+   "sourceQuote": "분석업무를 위한 데이터 충분성",
+   "image": "readiness.png"
+  },
+  {
+   "id": "adsp-148",
+   "subject": 2,
+   "chapter": "2-2",
+   "concept": "분석 준비도 문화",
+   "stem": "분석 준비도에서 '경영진의 직관보다 데이터', '회의 등에서 데이터 활용'이 속한 영역은?",
+   "choices": [
+    "분석 문화",
+    "분석 데이터",
+    "분석적 업무파악",
+    "인력 및 조직"
+   ],
+   "answerIndex": 0,
+   "explanation": "사실에 근거한 의사결정, 관리자의 데이터 중시 등은 분석 문화 영역입니다.",
+   "sourceQuote": "경영진의 직관보다 데이터",
+   "image": null
+  },
+  {
+   "id": "adsp-149",
+   "subject": 2,
+   "chapter": "2-2",
+   "concept": "분석 준비도 IT",
+   "stem": "분석 준비도에서 'EAI, ETL 등 데이터 유통체계'가 속한 영역은?",
+   "choices": [
+    "분석기법",
+    "분석 문화",
+    "IT 인프라",
+    "분석 데이터"
+   ],
+   "answerIndex": 2,
+   "explanation": "운영시스템 데이터 통합, EAI·ETL 유통체계, 분석전용 서버 등은 IT 인프라 영역입니다('IT문데기인파').",
+   "sourceQuote": "EAI, ETL 등 데이터 유통체계",
+   "image": null
+  },
+  {
+   "id": "adsp-150",
+   "subject": 2,
+   "chapter": "2-2",
+   "concept": "분석 준비도 기법",
+   "stem": "분석 준비도에서 '분석기법 라이브러리', '분석기법 효과성 평가'가 속한 영역은?",
+   "choices": [
+    "분석적 업무파악",
+    "분석기법",
+    "IT 인프라",
+    "인력 및 조직"
+   ],
+   "answerIndex": 1,
+   "explanation": "업무별 적합한 분석기법 사용, 분석기법 라이브러리 등은 분석기법 영역입니다.",
+   "sourceQuote": "분석기법 라이브러리",
+   "image": null
+  },
+  {
+   "id": "adsp-151",
+   "subject": 2,
+   "chapter": "2-2",
+   "concept": "성숙도 확산단계",
+   "stem": "그림은 분석 성숙도 단계별 특징이다. '?'에 들어갈 단계는?",
+   "choices": [
+    "활용",
+    "최적화",
+    "확산",
+    "도입"
+   ],
+   "answerIndex": 2,
+   "explanation": "확산 단계는 전사성과 실시간 분석, 전사 모든 부서 수행, 분석 COE 운영, 빅데이터 관리 환경이 특징입니다.",
+   "sourceQuote": "전사 모든 부서 수행",
+   "image": "maturity.png"
+  },
+  {
+   "id": "adsp-152",
+   "subject": 2,
+   "chapter": "2-2",
+   "concept": "성숙도 도입 IT",
+   "stem": "분석 성숙도 '도입' 단계의 IT 부문 특징으로 제시된 것은?",
+   "choices": [
+    "분석 협업 환경, 분석 SandBox",
+    "실시간 대시보드, 통계분석 환경",
+    "빅데이터 관리 환경, 비주얼 분석",
+    "데이터 웨어하우스, 데이터 마트, ETL/EAI, OLAP"
+   ],
+   "answerIndex": 3,
+   "explanation": "도입 단계 IT 부문은 데이터 웨어하우스, 데이터 마트, ETL/EAI, OLAP입니다.",
+   "sourceQuote": "데이터 웨어하우스 데이터 마트 ETL/EAI OLAP",
+   "image": null
+  },
+  {
+   "id": "adsp-153",
+   "subject": 2,
+   "chapter": "2-2",
+   "concept": "성숙도 최적화",
+   "stem": "분석 성숙도 '최적화' 단계의 IT 부문 특징은?",
+   "choices": [
+    "데이터 웨어하우스, OLAP",
+    "실시간 대시보드, 통계분석 환경",
+    "운영 데이터 기반",
+    "분석 협업 환경, 분석 SandBox, 프로세스 내재화"
+   ],
+   "answerIndex": 3,
+   "explanation": "최적화 단계 IT 부문은 분석 협업 환경, 분석 SandBox, 프로세스 내재화, 빅데이터 분석입니다.",
+   "sourceQuote": "분석 SandBox",
+   "image": null
+  },
+  {
+   "id": "adsp-154",
+   "subject": 2,
+   "chapter": "2-2",
+   "concept": "성숙도 활용",
+   "stem": "분석 성숙도 '활용' 단계의 특징으로 옳은 것은?",
+   "choices": [
+    "일부 부서에서 수행",
+    "데이터 사이언스 그룹",
+    "분석 COE 운영",
+    "실시간 대시보드, 관리자가 분석 수행"
+   ],
+   "answerIndex": 3,
+   "explanation": "활용 단계는 미래결과 예측, 전문담당부서 수행, 관리자가 분석 수행, 실시간 대시보드 등이 특징입니다.",
+   "sourceQuote": "관리자가 분석 수행",
+   "image": null
+  },
+  {
+   "id": "adsp-155",
+   "subject": 2,
+   "chapter": "2-2",
+   "concept": "분석수준 도입형",
+   "stem": "그림은 분석 수준 진단 결과(X축 준비도, Y축 성숙도)이다. '?'에 들어갈 유형은?",
+   "choices": [
+    "정착형",
+    "확산형",
+    "도입형",
+    "준비형"
+   ],
+   "answerIndex": 2,
+   "explanation": "준비도는 높고 성숙도는 낮은 4사분면은 도입형입니다('도준정확').",
+   "sourceQuote": "3. 도입형 : 조직 및 인력 등 준비도는 높으나, 분석업무 및 기법 부족",
+   "image": "level_quad.png"
+  },
+  {
+   "id": "adsp-156",
+   "subject": 2,
+   "chapter": "2-2",
+   "concept": "준비형",
+   "stem": "데이터, 인력, 조직, 분석업무, 분석기법이 적용되지 않아 사전 준비가 필요한 유형은?",
+   "choices": [
+    "준비형",
+    "도입형",
+    "확산형",
+    "정착형"
+   ],
+   "answerIndex": 0,
+   "explanation": "준비형은 준비도와 성숙도가 모두 낮아 사전 준비가 필요한 유형입니다.",
+   "sourceQuote": "1. 준비형 : 데이터, 인력, 조직, 분석업무, 분석기법 적용 안되어 사전 준비 필요",
+   "image": null
+  },
+  {
+   "id": "adsp-157",
+   "subject": 2,
+   "chapter": "2-2",
+   "concept": "확산형",
+   "stem": "6가지 분석 구성요소를 모두 갖추고 있으며 지속적 확산이 가능한 유형은?",
+   "choices": [
+    "도입형",
+    "준비형",
+    "확산형",
+    "정착형"
+   ],
+   "answerIndex": 2,
+   "explanation": "확산형은 6가지 분석 구성요소를 모두 갖춘 유형입니다.",
+   "sourceQuote": "4. 확산형 : 6가지 분석 구성요소가 모두 갖추고 있으며, 지속적 확산 가능",
+   "image": null
+  },
+  {
+   "id": "adsp-158",
+   "subject": 2,
+   "chapter": "2-2",
+   "concept": "정착형",
+   "stem": "인력, 조직, 분석업무, 분석기법 등을 '제한적으로' 사용하는 유형은?",
+   "choices": [
+    "준비형",
+    "도입형",
+    "확산형",
+    "정착형"
+   ],
+   "answerIndex": 3,
+   "explanation": "정착형은 분석 요소를 제한적으로 사용하는 유형입니다.",
+   "sourceQuote": "2. 정착형 : 인력, 조직, 분석업무, 분석기법 등을 제한적으로 사용",
+   "image": null
+  },
+  {
+   "id": "adsp-159",
+   "subject": 2,
+   "chapter": "2-2",
+   "concept": "데이터 거버넌스 정의",
+   "stem": "전사 차원에서 데이터에 대해 표준화된 관리 체계를 수립하는 것은?",
+   "choices": [
+    "데이터 마트",
+    "분석 거버넌스",
+    "ISP",
+    "데이터 거버넌스"
+   ],
+   "answerIndex": 3,
+   "explanation": "데이터 거버넌스는 전사 차원의 표준화된 데이터 관리 체계를 수립하는 것입니다.",
+   "sourceQuote": "- 데이터 거버넌스 : 전사 차원에서 데이터 대해 표준화된 관리 체계 수립",
+   "image": null
+  },
+  {
+   "id": "adsp-160",
+   "subject": 2,
+   "chapter": "2-2",
+   "concept": "데이터 거버넌스 구성요소",
+   "stem": "데이터 거버넌스의 구성요소로 옳은 것은?",
+   "choices": [
+    "마스터 데이터, 메타 데이터, 데이터 사전",
+    "인력, 자원, 기술",
+    "원칙, 조직, 프로세스",
+    "조직, 프로세스, 시스템, 데이터"
+   ],
+   "answerIndex": 2,
+   "explanation": "데이터 거버넌스 구성요소는 원칙, 조직, 프로세스이며, 주요 관리대상은 마스터 데이터, 메타 데이터, 데이터 사전입니다.",
+   "sourceQuote": "원칙 조직 프로세스",
+   "image": null
+  },
+  {
+   "id": "adsp-161",
+   "subject": 2,
+   "chapter": "2-2",
+   "concept": "마스터 데이터",
+   "stem": "데이터 거버넌스 주요 관리대상 중 '기준이 되는 자료'는?",
+   "choices": [
+    "마스터 데이터",
+    "데이터 사전",
+    "메타 데이터",
+    "인스턴스"
+   ],
+   "answerIndex": 0,
+   "explanation": "마스터 데이터는 기준이 되는 자료, 메타 데이터는 데이터에 대한 설명, 데이터 사전은 데이터에 대한 정보입니다.",
+   "sourceQuote": "마스터 데이터 기준이 되는 자료",
+   "image": null
+  },
+  {
+   "id": "adsp-162",
+   "subject": 2,
+   "chapter": "2-2",
+   "concept": "데이터 표준화",
+   "stem": "데이터 거버넌스 체계 중 '메타 데이터 및 사전 구축'에 해당하는 것은?",
+   "choices": [
+    "데이터 관리체계",
+    "표준화 활동",
+    "저장소 관리",
+    "데이터 표준화"
+   ],
+   "answerIndex": 3,
+   "explanation": "데이터 표준화는 메타 데이터 및 사전 구축, 데이터 관리체계는 그 관리원칙 구축, 표준화 활동은 모니터링 및 표준 개선입니다.",
+   "sourceQuote": "메타 데이터 및 사전 구축",
+   "image": null
+  },
+  {
+   "id": "adsp-163",
+   "subject": 2,
+   "chapter": "2-2",
+   "concept": "표준화 활동",
+   "stem": "데이터 거버넌스 체계 중 '모니터링 및 표준 개선 활동'에 해당하는 것은?",
+   "choices": [
+    "데이터 표준화",
+    "저장소 관리",
+    "표준화 활동",
+    "데이터 관리체계"
+   ],
+   "answerIndex": 2,
+   "explanation": "표준화 활동은 모니터링 및 표준 개선 활동입니다.",
+   "sourceQuote": "모니터링 및 표준 개선 활동",
+   "image": null
+  },
+  {
+   "id": "adsp-164",
+   "subject": 2,
+   "chapter": "2-2",
+   "concept": "협의 분석 플랫폼",
+   "stem": "협의의 분석 플랫폼에 해당하는 것은?",
+   "choices": [
+    "데이터 처리 프레임워크, 분석엔진, 분석 라이브러리",
+    "하드웨어",
+    "분석 서비스 제공엔진, 분석 어플리케이션, 분석 서비스 API",
+    "ETL/EAI, OLAP"
+   ],
+   "answerIndex": 0,
+   "explanation": "협의의 분석 플랫폼은 데이터 처리 프레임워크, 분석엔진, 분석 라이브러리입니다. 광의는 이를 포함합니다.",
+   "sourceQuote": "2. 협의의 분석 플랫폼 : 데이터 처리 프레임워크, 분석엔진, 분석 라이브러리",
+   "image": null
+  },
+  {
+   "id": "adsp-165",
+   "subject": 2,
+   "chapter": "2-2",
+   "concept": "광의 분석 플랫폼",
+   "stem": "광의의 분석 플랫폼과 협의의 분석 플랫폼의 관계로 옳은 것은?",
+   "choices": [
+    "광의의 분석 플랫폼은 하드웨어를 제외한다",
+    "광의의 분석 플랫폼은 협의의 분석 플랫폼 요소들을 포함한다",
+    "두 플랫폼은 서로 겹치지 않는다",
+    "협의의 분석 플랫폼이 광의의 요소를 포함한다"
+   ],
+   "answerIndex": 1,
+   "explanation": "광의의 분석 플랫폼은 협의의 분석 플랫폼 요소를 포함하는 개념입니다.",
+   "sourceQuote": "☞ 광의의 분석 플랫폼은 협의의 분석 플랫폼 요소들을 포함하는 개념",
+   "image": null
+  },
+  {
+   "id": "adsp-166",
+   "subject": 2,
+   "chapter": "2-2",
+   "concept": "플랫폼 구조",
+   "stem": "분석 지원 인프라 방안 수립 시 확장성을 고려한 플랫폼 구조의 관리 방식은?",
+   "choices": [
+    "분산 관리",
+    "중앙집중적 관리",
+    "외부 위탁 관리",
+    "부서별 독립 관리"
+   ],
+   "answerIndex": 1,
+   "explanation": "확장성을 고려한 플랫폼 구조를 적용하며 중앙집중적으로 관리합니다.",
+   "sourceQuote": "확장성을 고려한 플랫폼 구조 적용 (중앙집중적 관리)",
+   "image": null
+  },
+  {
+   "id": "adsp-167",
+   "subject": 2,
+   "chapter": "2-2",
+   "concept": "집중 구조",
+   "stem": "독립적인 전담 조직을 구성하며 '중복 업무 가능성'이 존재하는 분석조직 구조는?",
+   "choices": [
+    "기능 구조",
+    "매트릭스 구조",
+    "분산 구조",
+    "집중 구조"
+   ],
+   "answerIndex": 3,
+   "explanation": "집중 구조는 독립적인 전담 조직을 구성하며 중복 업무 가능성이 있습니다.",
+   "sourceQuote": "집중 구조 : 독립적인 전담 조직 구성 (중복 업무 가능성 존재)",
+   "image": null
+  },
+  {
+   "id": "adsp-168",
+   "subject": 2,
+   "chapter": "2-2",
+   "concept": "기능 구조",
+   "stem": "해당 부서에서 직접 분석하며 DSCoE가 없는 분석조직 구조는?",
+   "choices": [
+    "집중 구조",
+    "분산 구조",
+    "기능 구조",
+    "통합 구조"
+   ],
+   "answerIndex": 2,
+   "explanation": "기능 구조는 해당 부서에서 직접 분석하는 구조로 DSCoE가 없습니다.",
+   "sourceQuote": "기능 구조 : 해당 부서에서 직접 분석 (DSCoE가 없음)",
+   "image": null
+  },
+  {
+   "id": "adsp-169",
+   "subject": 2,
+   "chapter": "2-2",
+   "concept": "분산 구조",
+   "stem": "분석 조직 인력을 현업 부서에 배치하는 구조는?",
+   "choices": [
+    "집중 구조",
+    "분산 구조",
+    "기능 구조",
+    "계층 구조"
+   ],
+   "answerIndex": 1,
+   "explanation": "분산 구조는 분석 인력을 현업 부서에 배치합니다('집기분').",
+   "sourceQuote": "분산 구조 : 분석 조직 인력을 현업 부서에 배치",
+   "image": null
+  },
+  {
+   "id": "adsp-170",
+   "subject": 3,
+   "chapter": "3-1",
+   "concept": "데이터 마트 정의",
+   "stem": "특정 주제에 맞게 데이터를 모아 놓은 소규모 데이터 웨어하우스는?",
+   "choices": [
+    "데이터 사전",
+    "데이터 마트(DM)",
+    "ODS",
+    "데이터레이크"
+   ],
+   "answerIndex": 1,
+   "explanation": "데이터 마트는 특정 주제에 맞게 데이터를 모은 소규모 데이터 웨어하우스입니다.",
+   "sourceQuote": "특정 주제에 맞게 데이터를 모아 놓은 소규모 데이터 웨어하우스",
+   "image": null
+  },
+  {
+   "id": "adsp-171",
+   "subject": 3,
+   "chapter": "3-1",
+   "concept": "데이터 마트 흐름",
+   "stem": "데이터 마트가 만들어지는 흐름으로 옳은 것은?",
+   "choices": [
+    "데이터 웨어하우스 → 원천 데이터 수집 → 데이터 마트",
+    "원천 데이터 수집 → 데이터 웨어하우스 → 데이터 마트",
+    "원천 데이터 수집 → 데이터 마트 → 데이터 웨어하우스",
+    "데이터 마트 → 원천 데이터 수집 → 데이터 웨어하우스"
+   ],
+   "answerIndex": 1,
+   "explanation": "원천 데이터를 수집해 DW에 모은 뒤, 주제별로 데이터 마트를 만듭니다.",
+   "sourceQuote": "원천 데이터 수집 → 데이터 웨어하우스 → 데이터 마트",
+   "image": null
+  },
+  {
+   "id": "adsp-172",
+   "subject": 3,
+   "chapter": "3-1",
+   "concept": "요약변수",
+   "stem": "수집된 정보를 종합한 변수로 재활용성이 높은 변수(예: 1개월간 수입)는?",
+   "choices": [
+    "요약변수",
+    "독립변수",
+    "더미변수",
+    "파생변수"
+   ],
+   "answerIndex": 0,
+   "explanation": "요약변수는 재활용성이 높고, 파생변수는 의미를 부여한 변수로 논리적 타당성이 필요합니다.",
+   "sourceQuote": "1. 요약변수 : 수집된 정보를 종합한 변수로서 재활용성이 높음 (1개월간 수입)",
+   "image": null
+  },
+  {
+   "id": "adsp-173",
+   "subject": 3,
+   "chapter": "3-1",
+   "concept": "파생변수",
+   "stem": "의미를 부여한 변수로 논리적 타당성이 필요한 변수(예: 고객구매등급)는?",
+   "choices": [
+    "파생변수",
+    "범주형 변수",
+    "요약변수",
+    "종속변수"
+   ],
+   "answerIndex": 0,
+   "explanation": "파생변수는 의미를 부여한 변수이며 논리적 타당성이 필요합니다.",
+   "sourceQuote": "2. 파생변수 : 의미를 부여한 변수, 논리적 타당성 필요 (고객구매등급)",
+   "image": null
+  },
+  {
+   "id": "adsp-174",
+   "subject": 3,
+   "chapter": "3-1",
+   "concept": "EDA 정의",
+   "stem": "데이터의 의미를 찾기 위해 통계, 시각화를 통해 파악하는 분석은?",
+   "choices": [
+    "ANOVA",
+    "MDS(다차원 척도법)",
+    "PCA(주성분 분석)",
+    "EDA(탐색적 자료 분석)"
+   ],
+   "answerIndex": 3,
+   "explanation": "EDA는 통계와 시각화로 데이터의 의미를 파악합니다.",
+   "sourceQuote": "데이터의 의미를 찾기 위해 통계, 시각화를 통해 파악",
+   "image": null
+  },
+  {
+   "id": "adsp-175",
+   "subject": 3,
+   "chapter": "3-1",
+   "concept": "EDA 저항성",
+   "stem": "EDA의 4가지 주제 중 '자료 변동에 민감하지 않음'을 뜻하는 것은?",
+   "choices": [
+    "저항성의 강조",
+    "자료변수의 재표현",
+    "잔차 계산",
+    "그래프를 통한 현시성"
+   ],
+   "answerIndex": 0,
+   "explanation": "EDA 4주제는 저항성의 강조, 잔차 계산, 자료변수의 재표현, 그래프를 통한 현시성입니다('저잔재현').",
+   "sourceQuote": "1. 저항성의 강조 : 자료 변동에 민감하지 않음",
+   "image": null
+  },
+  {
+   "id": "adsp-176",
+   "subject": 3,
+   "chapter": "3-1",
+   "concept": "EDA 잔차",
+   "stem": "EDA 주제 중 '값들이 주경향으로부터 얼마나 벗어나 있는지 확인하는 척도'는?",
+   "choices": [
+    "저항성의 강조",
+    "그래프를 통한 현시성",
+    "자료변수의 재표현",
+    "잔차 계산"
+   ],
+   "answerIndex": 3,
+   "explanation": "잔차 계산은 값들이 주경향에서 벗어난 정도를 확인합니다.",
+   "sourceQuote": "2. 잔차 계산 : 값들이 주경향으로부터 얼마나 벗어나 있는지 확인하는 척도",
+   "image": null
+  },
+  {
+   "id": "adsp-177",
+   "subject": 3,
+   "chapter": "3-1",
+   "concept": "EDA 재표현",
+   "stem": "EDA 주제 중 '원래 변수를 적당한 척도로 변환'하는 것은?",
+   "choices": [
+    "그래프를 통한 현시성",
+    "잔차 계산",
+    "자료변수의 재표현",
+    "저항성의 강조"
+   ],
+   "answerIndex": 2,
+   "explanation": "자료변수의 재표현은 원래 변수를 적당한 척도로 변환하는 것입니다.",
+   "sourceQuote": "3. 자료변수의 재표현 : 원래 변수를 적당한 척도로 변환",
+   "image": null
+  },
+  {
+   "id": "adsp-178",
+   "subject": 3,
+   "chapter": "3-1",
+   "concept": "완전분석법",
+   "stem": "결측값 처리 중 '결측값을 가지는 데이터를 삭제'하는 방법은?",
+   "choices": [
+    "다중 대치법",
+    "완전분석법",
+    "평균 대치법",
+    "Hot-Deck"
+   ],
+   "answerIndex": 1,
+   "explanation": "완전분석법은 결측값이 있는 데이터를 삭제하는 단순대치법입니다.",
+   "sourceQuote": "완전분석법 : 결측값 가지는 데이터 삭제",
+   "image": null
+  },
+  {
+   "id": "adsp-179",
+   "subject": 3,
+   "chapter": "3-1",
+   "concept": "조건부 평균 대치",
+   "stem": "결측값을 회귀분석의 결과로 대치하는 방법은?",
+   "choices": [
+    "비조건부 평균 대치법",
+    "단순 확률 대치법",
+    "조건부 평균 대치법",
+    "완전분석법"
+   ],
+   "answerIndex": 2,
+   "explanation": "조건부 평균 대치법은 회귀분석 결과로, 비조건부 평균 대치법은 단순 평균으로 대치합니다.",
+   "sourceQuote": "조건부 평균 대치법 : 회귀분석의 결과로 대치",
+   "image": null
+  },
+  {
+   "id": "adsp-180",
+   "subject": 3,
+   "chapter": "3-1",
+   "concept": "Hot-Deck",
+   "stem": "현재 데이터 셋에서 비슷한 성향의 값으로 결측값을 대체하는 방법은?",
+   "choices": [
+    "비조건부 평균 대치법",
+    "Cold-Deck",
+    "Nearest Neighbor",
+    "Hot-Deck"
+   ],
+   "answerIndex": 3,
+   "explanation": "Hot-Deck은 현재 데이터 셋, Cold-Deck은 유사한 외부 출처에서 비슷한 성향으로 대체합니다.",
+   "sourceQuote": "Hot-Deck : 현재 데이터 셋에서 비슷한 성향으로 대체",
+   "image": null
+  },
+  {
+   "id": "adsp-181",
+   "subject": 3,
+   "chapter": "3-1",
+   "concept": "Cold-Deck",
+   "stem": "유사한 외부 출처에서 비슷한 성향의 값으로 결측값을 대체하는 방법은?",
+   "choices": [
+    "Hot-Deck",
+    "다중 대치법",
+    "Cold-Deck",
+    "Nearest Neighbor"
+   ],
+   "answerIndex": 2,
+   "explanation": "Cold-Deck은 외부 출처에서 비슷한 성향으로 대체합니다.",
+   "sourceQuote": "Cold-Deck : 유사한 외부 출처에서 비슷한 성향으로 대체",
+   "image": null
+  },
+  {
+   "id": "adsp-182",
+   "subject": 3,
+   "chapter": "3-1",
+   "concept": "다중 대치법",
+   "stem": "여러 번 대치하여 종합(대치 → 분석 → 결합)하며 분산 과소 추정 문제를 해결할 수 있는 방법은?",
+   "choices": [
+    "평균 대치법",
+    "다중 대치법",
+    "단순 확률 대치법",
+    "완전분석법"
+   ],
+   "answerIndex": 1,
+   "explanation": "다중 대치법은 대치 → 분석 → 결합 과정을 거치며 분산 과소 추정 문제를 해결할 수 있습니다.",
+   "sourceQuote": "2. 다중 대치법 : 여러 번 대치하여 종합 (대치 → 분석 → 결합)",
+   "image": null
+  },
+  {
+   "id": "adsp-183",
+   "subject": 3,
+   "chapter": "3-1",
+   "concept": "결측값 표시",
+   "stem": "존재하지 않는 데이터인 결측값의 표시 방법은?",
+   "choices": [
+    "NaN만 사용",
+    "0",
+    "NULL/NA",
+    "빈 문자열"
+   ],
+   "answerIndex": 2,
+   "explanation": "결측값은 존재하지 않는 데이터로 NULL/NA로 표시합니다.",
+   "sourceQuote": "존재하지 않는 데이터, NULL/NA로 표시",
+   "image": null
+  },
+  {
+   "id": "adsp-184",
+   "subject": 3,
+   "chapter": "3-1",
+   "concept": "이상값 제거",
+   "stem": "이상값에 대한 설명으로 옳은 것은?",
+   "choices": [
+    "이상값은 평균으로 대치해야 한다",
+    "이상값은 반드시 제거해야 한다",
+    "이상값은 의미 있는 데이터가 될 수 없다",
+    "이상값을 항상 제거하는 것은 아니다"
+   ],
+   "answerIndex": 3,
+   "explanation": "이상값은 극단적으로 크거나 작은 값이지만 의미 있는 데이터일 수도 있어 항상 제거하지는 않습니다.",
+   "sourceQuote": "이상값을 항상 제거하는 것은 아님",
+   "image": null
+  },
+  {
+   "id": "adsp-185",
+   "subject": 3,
+   "chapter": "3-1",
+   "concept": "ESD",
+   "stem": "평균으로부터 표준편차의 3배를 넘어가는 데이터를 이상값으로 판단하는 방법은?",
+   "choices": [
+    "DBScan",
+    "Z-Score",
+    "ESD",
+    "사분위수(IQR)"
+   ],
+   "answerIndex": 2,
+   "explanation": "ESD(Extreme Studentized Deviation)는 평균에서 표준편차 3배를 넘으면 이상값으로 판단합니다.",
+   "sourceQuote": "1. ESD(Extreme Studentized Deviation) : 평균으로부터 표준편차의 3배 넘어가는 데이터는 이상값으로 판단",
+   "image": null
+  },
+  {
+   "id": "adsp-186",
+   "subject": 3,
+   "chapter": "3-1",
+   "concept": "IQR 상한",
+   "stem": "그림에서 박스플롯의 우측 경계값(상한)을 구하는 식은?",
+   "choices": [
+    "Q3 + 1.5×IQR",
+    "Q2 + 1.5×IQR",
+    "Q3 + 3×IQR",
+    "평균 + 3σ"
+   ],
+   "answerIndex": 0,
+   "explanation": "사분위수 기준으로 Q1 - 1.5IQR보다 작거나 Q3 + 1.5IQR보다 크면 이상값으로 판단합니다.",
+   "sourceQuote": "2. 사분위수 : Q1 - 1.5IQR보다 작거나, Q3 + 1.5IQR보다 크면 이상값으로 판단",
+   "image": "outlier_dist.png"
+  },
+  {
+   "id": "adsp-187",
+   "subject": 3,
+   "chapter": "3-1",
+   "concept": "박스플롯 평균",
+   "stem": "박스플롯이 표현하지 않는 값은?",
+   "choices": [
+    "평균값",
+    "상한",
+    "3사분위값",
+    "최솟값"
+   ],
+   "answerIndex": 0,
+   "explanation": "박스플롯은 상한, 하한, 최솟값, 1~3사분위값, 최댓값 등을 표현하며 평균값은 표현하지 않습니다.",
+   "sourceQuote": "상한, 하한, 최솟값, 1~3사분위값, 최댓값 등을 표현하며, 평균값은 표현하지 않음",
+   "image": null
+  },
+  {
+   "id": "adsp-188",
+   "subject": 3,
+   "chapter": "3-1",
+   "concept": "박스플롯 AB 해석",
+   "stem": "그림의 A, B 박스플롯 해석으로 옳지 않은 것은?",
+   "choices": [
+    "A에는 이상치가 존재한다고 판단할 수 있다",
+    "B의 중앙값이 A보다 크다",
+    "A의 평균이 B의 평균보다 작다",
+    "B의 분산이 A보다 크다"
+   ],
+   "answerIndex": 2,
+   "explanation": "박스플롯은 평균을 표현하지 않으므로 A와 B의 평균은 알 수 없습니다.",
+   "sourceQuote": "A와 B의 평균은 알 수 없음",
+   "image": "boxplot_ab.png"
+  },
+  {
+   "id": "adsp-189",
+   "subject": 3,
+   "chapter": "3-1",
+   "concept": "박스플롯 AB 이상치",
+   "stem": "그림에서 상한을 벗어나는 데이터가 있어 이상치가 존재한다고 판단할 수 있는 것은?",
+   "choices": [
+    "A",
+    "판단할 수 없다",
+    "B",
+    "A와 B 모두"
+   ],
+   "answerIndex": 0,
+   "explanation": "A에는 상한을 벗어나는 데이터(점)가 있으므로 이상치가 존재한다고 판단할 수 있습니다.",
+   "sourceQuote": "A에는 상한을 벗어나는 데이터 존재 → A에는 이상치가 존재한다고 판단 가능",
+   "image": "boxplot_ab.png"
+  },
+  {
+   "id": "adsp-190",
+   "subject": 3,
+   "chapter": "3-1",
+   "concept": "Z-Score",
+   "stem": "데이터를 표준화(평균 0, 표준편차 1)한 후 일정 임계 값을 초과하면 이상값으로 판단하는 방법은?",
+   "choices": [
+    "Z-Score",
+    "ESD",
+    "사분위수",
+    "DBScan"
+   ],
+   "answerIndex": 0,
+   "explanation": "Z-Score는 표준화 후 임계 값을 넘는 데이터를 이상값으로 판단합니다.",
+   "sourceQuote": "3. Z-Score : 데이터를 표준화(평균 0, 표준편차 1) 후, 일정 임계 값을 초과할 경우 이상값으로 판단",
+   "image": null
+  },
+  {
+   "id": "adsp-191",
+   "subject": 3,
+   "chapter": "3-1",
+   "concept": "DBScan 이상값",
+   "stem": "밀도를 이용하여 밀도가 적은 부분의 데이터를 이상값으로 판단하는 방법은?",
+   "choices": [
+    "K-means",
+    "ESD",
+    "DBScan",
+    "Z-Score"
+   ],
+   "answerIndex": 2,
+   "explanation": "DBScan은 밀도가 적은 부분의 데이터를 이상값으로 판단합니다.",
+   "sourceQuote": "4. DBScan : 밀도를 이용하여 밀도가 적은 부분의 데이터를 이상값으로 판단",
+   "image": null
+  },
+  {
+   "id": "adsp-192",
+   "subject": 3,
+   "chapter": "3-2",
+   "concept": "명목척도",
+   "stem": "어느 집단에 속하는지 나타내는 자료(대학교, 성별)의 척도는?",
+   "choices": [
+    "등간척도",
+    "비율척도",
+    "순서척도",
+    "명목척도"
+   ],
+   "answerIndex": 3,
+   "explanation": "명목척도는 소속 집단을 나타내는 질적 척도입니다.",
+   "sourceQuote": "명목척도 : 어느 집단에 속하는지 나타내는 자료 (대학교, 성별)",
+   "image": null
+  },
+  {
+   "id": "adsp-193",
+   "subject": 3,
+   "chapter": "3-2",
+   "concept": "순서척도",
+   "stem": "서열관계가 존재하는 자료(학년, 순위)의 척도는?",
+   "choices": [
+    "비율척도",
+    "명목척도",
+    "순서척도(서열척도)",
+    "등간척도"
+   ],
+   "answerIndex": 2,
+   "explanation": "순서척도는 서열관계가 존재하는 질적 척도입니다.",
+   "sourceQuote": "순서척도(서열척도) : 서열관계가 존재하는 자료 (학년, 순위)",
+   "image": null
+  },
+  {
+   "id": "adsp-194",
+   "subject": 3,
+   "chapter": "3-2",
+   "concept": "등간척도",
+   "stem": "구간 사이 간격이 의미가 있으며 덧셈과 뺄셈만 가능한 척도(온도, 지수)는?",
+   "choices": [
+    "순서척도",
+    "등간척도(구간척도)",
+    "명목척도",
+    "비율척도"
+   ],
+   "answerIndex": 1,
+   "explanation": "등간척도는 간격이 의미 있고 덧셈·뺄셈만 가능합니다.",
+   "sourceQuote": "등간척도(구간척도) : 구간 사이 간격이 의미가 있으며 덧셈과 뺄셈만 가능 (온도, 지수 등)",
+   "image": null
+  },
+  {
+   "id": "adsp-195",
+   "subject": 3,
+   "chapter": "3-2",
+   "concept": "비율척도",
+   "stem": "절대적 기준 0이 존재하고 사칙연산이 가능한 척도(무게, 나이)는?",
+   "choices": [
+    "비율척도",
+    "명목척도",
+    "등간척도",
+    "순서척도"
+   ],
+   "answerIndex": 0,
+   "explanation": "비율척도는 절대 0이 있어 사칙연산이 가능하며 가장 많이 수집되는 자료입니다.",
+   "sourceQuote": "비율척도 : 절대적 기준 0이 존재하고 사칙연산 가능, 가장 많이 수집되는 자료 (무게, 나이 등)",
+   "image": null
+  },
+  {
+   "id": "adsp-196",
+   "subject": 3,
+   "chapter": "3-2",
+   "concept": "표본공간",
+   "stem": "통계적 실험에 의하여 일어날 수 있는 모든 가능한 결과의 집합은?",
+   "choices": [
+    "사건",
+    "확률변수",
+    "모집단",
+    "표본공간"
+   ],
+   "answerIndex": 3,
+   "explanation": "표본공간은 모든 가능한 결과이며, 동전 두 개를 던질 때 S = {(앞,앞), (앞,뒤), (뒤,앞), (뒤,뒤)}입니다.",
+   "sourceQuote": "2. 표본공간 : 통계적 실험에 의하여 일어날 수 있는 모든 가능한 결과",
+   "image": null
+  },
+  {
+   "id": "adsp-197",
+   "subject": 3,
+   "chapter": "3-2",
+   "concept": "확률 덧셈정리",
+   "stem": "두 사건 A, B 중 하나 이상 일어날 확률 P(A ∪ B)는?",
+   "choices": [
+    "P(A ∩ B) / P(B)",
+    "P(A) + P(B) − P(A ∩ B)",
+    "P(A) + P(B)",
+    "P(A)P(B)"
+   ],
+   "answerIndex": 1,
+   "explanation": "확률의 덧셈 정리: P(A ∪ B) = P(A) + P(B) − P(A ∩ B)",
+   "sourceQuote": "P(A ∪ B) = P(A) + P(B) − P(A ∩ B)",
+   "image": null
+  },
+  {
+   "id": "adsp-198",
+   "subject": 3,
+   "chapter": "3-2",
+   "concept": "조건부 확률",
+   "stem": "사건 B가 발생했을 때 A가 발생할 확률 P(A|B)는?",
+   "choices": [
+    "P(A)P(B)",
+    "P(A) + P(B)",
+    "P(A ∩ B) / P(B)",
+    "P(A ∩ B) / P(A)"
+   ],
+   "answerIndex": 2,
+   "explanation": "조건부 확률 P(A|B) = P(A ∩ B) / P(B) 입니다.",
+   "sourceQuote": "P(A|B) = P(A ∩ B) / P(B) (백신을 맞았을 때 감기에 걸릴 확률)",
+   "image": null
+  },
+  {
+   "id": "adsp-199",
+   "subject": 3,
+   "chapter": "3-2",
+   "concept": "독립사건",
+   "stem": "두 사건 A, B가 독립일 때 성립하는 식은?",
+   "choices": [
+    "P(A ∩ B) = P(A)P(B)",
+    "P(A ∪ B) = P(A) + P(B)",
+    "P(A ∩ B) = ∅",
+    "P(A|B) = P(B)"
+   ],
+   "answerIndex": 0,
+   "explanation": "독립사건은 서로 영향을 주지 않으며 P(A|B) = P(A), P(A ∩ B) = P(A)P(B)입니다.",
+   "sourceQuote": "P(A ∩ B) = P(A)P(B) (주사위 A가 3이 나왔을 때, 주사위 B가 3이 나올 확률)",
+   "image": null
+  },
+  {
+   "id": "adsp-200",
+   "subject": 3,
+   "chapter": "3-2",
+   "concept": "배반사건",
+   "stem": "동전을 던졌을 때 앞면과 뒷면이 동시에 나오는 경우처럼, A와 B가 동시에 일어나지 않는 사건은?",
+   "choices": [
+    "조건부 사건",
+    "독립사건",
+    "여사건",
+    "배반사건"
+   ],
+   "answerIndex": 3,
+   "explanation": "배반사건은 동시에 일어나지 않는 사건으로 P(A ∩ B) = ∅입니다.",
+   "sourceQuote": "7. 배반사건 : A, B가 서로 동시에 일어나지 않는 사건",
+   "image": null
+  },
+  {
+   "id": "adsp-201",
+   "subject": 3,
+   "chapter": "3-2",
+   "concept": "확률변수",
+   "stem": "표본공간의 각 원소에 해당하는 값(확률)을 대응하는 함수는?",
+   "choices": [
+    "확률변수",
+    "확률밀도함수",
+    "기댓값",
+    "표본공간"
+   ],
+   "answerIndex": 0,
+   "explanation": "확률변수는 표본공간의 각 원소에 값을 대응시키는 함수입니다(주사위 눈의 수 1~6).",
+   "sourceQuote": "1. 확률변수 : 표본공간의 각 원소에 해당하는 값(확률)을 대응하는 함수 (주사위 던지는 눈의 수는 1~6)",
+   "image": null
+  },
+  {
+   "id": "adsp-202",
+   "subject": 3,
+   "chapter": "3-2",
+   "concept": "기댓값 정의",
+   "stem": "장기적으로 기대하는 평균값으로, 확률분포의 무게중심인 것은?",
+   "choices": [
+    "최빈값",
+    "분산",
+    "기댓값",
+    "중앙값"
+   ],
+   "answerIndex": 2,
+   "explanation": "기댓값은 장기적으로 기대하는 평균값이자 확률분포의 무게중심입니다.",
+   "sourceQuote": "1. 기댓값 : 장기적으로 기대하는 평균값, 확률분포의 무게중심",
+   "image": null
+  },
+  {
+   "id": "adsp-203",
+   "subject": 3,
+   "chapter": "3-2",
+   "concept": "분산 공식",
+   "stem": "확률변수 X의 분산 V(X)를 구하는 식은?",
+   "choices": [
+    "[E(X)]² − E(X²)",
+    "E(X²) + [E(X)]²",
+    "E(X) / n",
+    "E(X²) − [E(X)]²"
+   ],
+   "answerIndex": 3,
+   "explanation": "분산은 V(X) = E(X²) − [E(X)]² 입니다.",
+   "sourceQuote": "2. 분산 : 각 값이 평균에서 얼마나 떨어져 있는지를 구한 값 (V(X) = E(X²) − [E(X)]²)",
+   "image": null
+  },
+  {
+   "id": "adsp-204",
+   "subject": 3,
+   "chapter": "3-2",
+   "concept": "이항분포 평균분산",
+   "stem": "이항분포의 평균과 분산은?",
+   "choices": [
+    "평균 p, 분산 p(1−p)",
+    "평균 n/p, 분산 np²",
+    "평균 np, 분산 np",
+    "평균 np, 분산 np(1−p)"
+   ],
+   "answerIndex": 3,
+   "explanation": "이항분포는 평균 μ = np, 분산 σ² = np(1−p)입니다.",
+   "sourceQuote": "평균 μ = np, 분산 σ² = np(1−p)",
+   "image": null
+  },
+  {
+   "id": "adsp-205",
+   "subject": 3,
+   "chapter": "3-2",
+   "concept": "표준정규분포",
+   "stem": "평균이 0, 표준편차가 1인 정규분포는?",
+   "choices": [
+    "균일분포",
+    "t분포",
+    "카이제곱분포",
+    "표준정규분포"
+   ],
+   "answerIndex": 3,
+   "explanation": "표준정규분포는 평균 0, 표준편차 1이며 Z = (X − μ) / σ ~ N(0, 1)로 변환합니다.",
+   "sourceQuote": "5. 표준정규분포 : 정규분포 중에서도 평균이 0, 표준편차가 1인 특별한 분포",
+   "image": null
+  },
+  {
+   "id": "adsp-206",
+   "subject": 3,
+   "chapter": "3-2",
+   "concept": "범위",
+   "stem": "최댓값에서 최솟값을 뺀 값으로 '이상치에 민감'한 통계량은?",
+   "choices": [
+    "변동계수",
+    "범위",
+    "중앙값",
+    "사분위수(IQR)"
+   ],
+   "answerIndex": 1,
+   "explanation": "범위는 최댓값 − 최솟값이며 이상치에 민감합니다.",
+   "sourceQuote": "범위 : 최댓값에서 최솟값을 뺀 값이며, 이상치에 민감",
+   "image": null
+  },
+  {
+   "id": "adsp-207",
+   "subject": 3,
+   "chapter": "3-2",
+   "concept": "표준편차",
+   "stem": "분산에 제곱근을 취한 값으로, 원래 단위와 같아 해석이 용이한 통계량은?",
+   "choices": [
+    "분산",
+    "변동계수",
+    "공분산",
+    "표준편차"
+   ],
+   "answerIndex": 3,
+   "explanation": "표준편차는 분산의 제곱근이며 원래 단위와 같아 해석이 쉽습니다.",
+   "sourceQuote": "표준편차 : 분산에 제곱근을 취한 값, 원래 단위와 같아 해석이 용이",
+   "image": null
+  },
+  {
+   "id": "adsp-208",
+   "subject": 3,
+   "chapter": "3-2",
+   "concept": "변동계수",
+   "stem": "단위가 다른 변수 간 상대적 비교에 유용한 통계량은?",
+   "choices": [
+    "표준편차",
+    "변동계수(CV)",
+    "범위",
+    "공분산"
+   ],
+   "answerIndex": 1,
+   "explanation": "변동계수는 표준편차를 평균으로 나눈 백분율로 단위가 다른 변수 비교에 유용합니다.",
+   "sourceQuote": "변동계수(CV) : 표준편차에서 평균을 나눈 백분율, 단위 다른 변수간 상대적 비교에 유용",
+   "image": null
+  },
+  {
+   "id": "adsp-209",
+   "subject": 3,
+   "chapter": "3-2",
+   "concept": "사분위수 IQR",
+   "stem": "사분위수 범위(IQR)에 대한 설명으로 옳은 것은?",
+   "choices": [
+    "데이터의 상위 75%와 하위 25%의 중간 범위",
+    "평균으로부터의 거리",
+    "최댓값과 최솟값의 차이",
+    "표준편차의 3배"
+   ],
+   "answerIndex": 0,
+   "explanation": "IQR은 상위 75%와 하위 25% 사이의 중간 범위입니다.",
+   "sourceQuote": "사분위수(IQR) : 데이터의 상위 75%와 하위 25%의 중간 범위",
+   "image": null
+  },
+  {
+   "id": "adsp-210",
+   "subject": 3,
+   "chapter": "3-2",
+   "concept": "중앙값",
+   "stem": "데이터를 크기 순서로 나열했을 때 중간에 위치한 값은?",
+   "choices": [
+    "최빈값",
+    "사분위수",
+    "중앙값",
+    "평균"
+   ],
+   "answerIndex": 2,
+   "explanation": "중앙값은 크기 순으로 나열했을 때 가운데 값입니다. 최빈값은 가장 자주 나타나는 값입니다.",
+   "sourceQuote": "중앙값 : 데이터를 크기 순서로 나열했을 때 중간에 위치한 값",
+   "image": null
+  },
+  {
+   "id": "adsp-211",
+   "subject": 3,
+   "chapter": "3-2",
+   "concept": "공분산 한계",
+   "stem": "공분산으로 상관의 '강약'을 판단할 수 없는 이유는?",
+   "choices": [
+    "항상 0이기 때문",
+    "단위가 없기 때문",
+    "범주형 변수에만 쓰기 때문",
+    "최소, 최댓값이 없기 때문"
+   ],
+   "answerIndex": 3,
+   "explanation": "공분산은 최소·최댓값이 없어 강약 판단이 불가하며, 상관계수가 이를 −1~1로 표준화합니다.",
+   "sourceQuote": "최소, 최댓값이 없어 강약 판단 불가",
+   "image": null
+  },
+  {
+   "id": "adsp-212",
+   "subject": 3,
+   "chapter": "3-2",
+   "concept": "상관계수 −1",
+   "stem": "상관계수가 −1일 때 두 변수의 관계는?",
+   "choices": [
+    "정비례 관계",
+    "판단 불가",
+    "반비례 관계",
+    "상관없음"
+   ],
+   "answerIndex": 2,
+   "explanation": "상관계수 = 1은 정비례, 0은 상관없음, −1은 반비례 관계입니다.",
+   "sourceQuote": "상관계수 = 1 : 정비례 관계 / = 0 : 상관없음 / = −1 : 반비례 관계",
+   "image": null
+  },
+  {
+   "id": "adsp-213",
+   "subject": 3,
+   "chapter": "3-2",
+   "concept": "공분산과 독립",
+   "stem": "공분산과 독립성의 관계로 옳은 것은?",
+   "choices": [
+    "독립인 두 변수의 공분산은 1이다",
+    "공분산과 독립성은 무관하다",
+    "두 변수가 독립이면 공분산은 0이지만, 공분산이 0이라고 독립이라 할 수는 없다",
+    "공분산이 0이면 두 변수는 반드시 독립이다"
+   ],
+   "answerIndex": 2,
+   "explanation": "독립이면 공분산은 0이지만, 그 역은 성립하지 않습니다.",
+   "sourceQuote": "두 변수가 독립이면 공분산은 0이지만, 공분산이 0이라고 두 변수가 독립이라고 할 수는 없음",
+   "image": null
+  },
+  {
+   "id": "adsp-214",
+   "subject": 3,
+   "chapter": "3-2",
+   "concept": "첨도 정규",
+   "stem": "그림은 첨도에 따른 분포 모양이다. 3을 빼서 0을 기준으로 판단할 때, 정규분포 형태에 해당하는 것은?",
+   "choices": [
+    "첨도 > 0",
+    "첨도 = 1",
+    "첨도 < 0",
+    "첨도 = 0"
+   ],
+   "answerIndex": 3,
+   "explanation": "첨도 = 3이 정규분포 형태이며, 3을 빼서 0을 기준으로 판단하기도 합니다. 값이 클수록 뾰족합니다.",
+   "sourceQuote": "☞ 3을 빼서 0을 기준으로 정규분포 형태를 판단하기도 함",
+   "image": "kurtosis.png"
+  },
+  {
+   "id": "adsp-215",
+   "subject": 3,
+   "chapter": "3-2",
+   "concept": "첨도 정의",
+   "stem": "자료의 분포가 얼마나 뾰족한지 나타내는 척도는?",
+   "choices": [
+    "왜도",
+    "분산",
+    "첨도",
+    "변동계수"
+   ],
+   "answerIndex": 2,
+   "explanation": "첨도는 뾰족한 정도, 왜도는 비대칭 정도를 나타냅니다.",
+   "sourceQuote": "1. 첨도 : 자료의 분포가 얼마나 뾰족한 지 나타내는 척도",
+   "image": null
+  },
+  {
+   "id": "adsp-216",
+   "subject": 3,
+   "chapter": "3-2",
+   "concept": "왜도 양수",
+   "stem": "그림처럼 '최빈값 < 중앙값 < 평균값'인 분포의 왜도는?",
+   "choices": [
+    "왜도 < 0",
+    "왜도 = 0",
+    "왜도 = 3",
+    "왜도 > 0"
+   ],
+   "answerIndex": 3,
+   "explanation": "왜도 > 0이면 최빈값 < 중앙값 < 평균값, 왜도 < 0이면 최빈값 > 중앙값 > 평균값입니다.",
+   "sourceQuote": "왜도 > 0 : 최빈값 < 중앙값 < 평균값",
+   "image": "skew_pos.png"
+  },
+  {
+   "id": "adsp-217",
+   "subject": 3,
+   "chapter": "3-2",
+   "concept": "평균은 꼬리",
+   "stem": "그림처럼 왼쪽으로 꼬리가 긴 분포에서 평균값이 가장 왼쪽에 위치하는 이유는?",
+   "choices": [
+    "중앙값이 항상 가장 크기 때문",
+    "분산이 0이기 때문",
+    "평균값은 꼬리를 따라가기 때문",
+    "최빈값이 꼬리를 따라가기 때문"
+   ],
+   "answerIndex": 2,
+   "explanation": "평균값은 꼬리를 따라갑니다. 그래서 왜도 < 0이면 최빈값 > 중앙값 > 평균값입니다.",
+   "sourceQuote": "☞ 평균값은 꼬리를 따라감",
+   "image": "skew_neg.png"
+  },
+  {
+   "id": "adsp-218",
+   "subject": 3,
+   "chapter": "3-2",
+   "concept": "왜도 정의",
+   "stem": "자료 분포의 비대칭 정도를 나타내며 0일 때 대칭인 척도는?",
+   "choices": [
+    "상관계수",
+    "첨도",
+    "왜도",
+    "표준편차"
+   ],
+   "answerIndex": 2,
+   "explanation": "왜도는 분포의 비대칭 정도이며 0이면 대칭입니다.",
+   "sourceQuote": "2. 왜도 : 자료 분포의 비대칭 정도 (0일 때 대칭)",
+   "image": null
+  },
+  {
+   "id": "adsp-219",
+   "subject": 3,
+   "chapter": "3-2",
+   "concept": "summary 결측치",
+   "stem": "그림의 summary 결과에서 Age 변수의 결측치(NA's) 개수는?",
+   "choices": [
+    "152개",
+    "86개",
+    "266개",
+    "30개"
+   ],
+   "answerIndex": 1,
+   "explanation": "NA's : 86이므로 결측치는 86개입니다.",
+   "sourceQuote": "- 결측치(NA's) 개수 : 86개",
+   "image": "summary_out.png"
+  },
+  {
+   "id": "adsp-220",
+   "subject": 3,
+   "chapter": "3-2",
+   "concept": "summary 범주형",
+   "stem": "그림의 summary 결과에서 Survived 변수에 대한 해석으로 옳은 것은?",
+   "choices": [
+    "왜도가 0보다 크다",
+    "결측치가 86개 있다",
+    "Mean이 표시되므로 수치형 변수이다",
+    "집단의 빈도 수가 표시되므로 범주형 변수이다"
+   ],
+   "answerIndex": 3,
+   "explanation": "Survived는 0:266, 1:152처럼 집단별 빈도 수가 나오므로 범주형 변수입니다.",
+   "sourceQuote": "- 집단의 빈도 수 → 범주형 변수",
+   "image": "summary_out.png"
+  },
+  {
+   "id": "adsp-221",
+   "subject": 3,
+   "chapter": "3-2",
+   "concept": "추론통계",
+   "stem": "일부 표본의 데이터를 바탕으로 모집단을 추정하거나 가설을 검정하는 통계 기법은?",
+   "choices": [
+    "데이터 마이닝",
+    "EDA",
+    "기술통계",
+    "추론통계"
+   ],
+   "answerIndex": 3,
+   "explanation": "추론통계는 표본으로 모집단을 추정하거나 가설을 검정합니다.",
+   "sourceQuote": "일부 표본의 데이터를 바탕으로 모집단을 추정하거나 가설을 검정하는 통계 기법",
+   "image": null
+  },
+  {
+   "id": "adsp-222",
+   "subject": 3,
+   "chapter": "3-2",
+   "concept": "계통 추출법",
+   "stem": "번호를 부여하여 일정 간격으로 표본을 추출하는 방법은?",
+   "choices": [
+    "층화 추출법",
+    "랜덤 추출법",
+    "집락 추출법",
+    "계통 추출법"
+   ],
+   "answerIndex": 3,
+   "explanation": "계통 추출법은 번호를 부여해 일정 간격으로 추출합니다.",
+   "sourceQuote": "2. 계통 추출법 : 번호 부여하여 일정 간격으로 추출",
+   "image": null
+  },
+  {
+   "id": "adsp-223",
+   "subject": 3,
+   "chapter": "3-2",
+   "concept": "집락 추출법",
+   "stem": "여러 군집으로 나눈 뒤 군집을 선택해 랜덤 추출하며 '군집 내 이질적, 군집 간 동질적'인 추출법은?",
+   "choices": [
+    "집락 추출법(군집 추출법)",
+    "층화 추출법",
+    "계통 추출법",
+    "복원 추출"
+   ],
+   "answerIndex": 0,
+   "explanation": "집락 추출법은 군집 내 이질적, 군집 간 동질적 특징을 가집니다.",
+   "sourceQuote": "3. 집락 추출법(=군집 추출법) : 여러 군집으로 나눈 뒤 군집을 선택하여 랜덤 추출",
+   "image": null
+  },
+  {
+   "id": "adsp-224",
+   "subject": 3,
+   "chapter": "3-2",
+   "concept": "층화 추출법",
+   "stem": "'군집 내 동질적, 군집 간 이질적' 특징을 가지는 표본추출 방법은?",
+   "choices": [
+    "층화 추출법",
+    "계통 추출법",
+    "랜덤 추출법",
+    "집락 추출법"
+   ],
+   "answerIndex": 0,
+   "explanation": "층화 추출법은 군집 내 동질적, 군집 간 이질적이며, 같은 비율로 추출하면 비례 층화 추출법입니다.",
+   "sourceQuote": "4. 층화 추출법 : 군집 내 동질적 특징, 군집 간 이질적 특징",
+   "image": null
+  },
+  {
+   "id": "adsp-225",
+   "subject": 3,
+   "chapter": "3-2",
+   "concept": "복원 추출",
+   "stem": "추출되었던 데이터를 다시 포함시켜 표본을 추출하는 방법은?",
+   "choices": [
+    "계통 추출",
+    "비복원 추출",
+    "복원 추출",
+    "층화 추출"
+   ],
+   "answerIndex": 2,
+   "explanation": "복원 추출은 뽑은 데이터를 다시 포함시켜 추출합니다.",
+   "sourceQuote": "복원 추출 : 추출되었던 데이터를 다시 포함시켜 표본 추출",
+   "image": null
+  },
+  {
+   "id": "adsp-226",
+   "subject": 3,
+   "chapter": "3-3",
+   "concept": "베르누이분포",
+   "stem": "결과가 두 가지 중 한 가지로 나타나는 시행(동전 던지기, 합격/불합격)의 분포는?",
+   "choices": [
+    "포아송분포",
+    "균일분포",
+    "이항분포",
+    "베르누이분포"
+   ],
+   "answerIndex": 3,
+   "explanation": "베르누이분포는 결과가 두 가지 중 하나인 베르누이시행의 분포입니다.",
+   "sourceQuote": "1. 베르누이분포 : 결과가 두 가지 중 한가지로 나타나는 베르누이시행으로 나타나는 분포 (동전 던지기, 시험의 합격/불합격)",
+   "image": null
+  },
+  {
+   "id": "adsp-227",
+   "subject": 3,
+   "chapter": "3-3",
+   "concept": "이항분포",
+   "stem": "'동전을 20번 던져 앞면이 나오는 횟수'를 나타내는 분포는?",
+   "choices": [
+    "이항분포",
+    "다항분포",
+    "음이항분포",
+    "기하분포"
+   ],
+   "answerIndex": 0,
+   "explanation": "이항분포는 N번의 베르누이시행 중 K번 성공할 확률의 분포입니다.",
+   "sourceQuote": "2. 이항분포 : N번의 베르누이시행 중 K번 성공할 확률의 분포 (동전을 20번 던져 앞면이 나오는 횟수)",
+   "image": null
+  },
+  {
+   "id": "adsp-228",
+   "subject": 3,
+   "chapter": "3-3",
+   "concept": "기하분포",
+   "stem": "성공확률이 p인 베르누이시행에서 '처음으로 성공할 때까지' 시행횟수의 분포는?",
+   "choices": [
+    "지수분포",
+    "음이항분포",
+    "기하분포",
+    "이항분포"
+   ],
+   "answerIndex": 2,
+   "explanation": "기하분포는 처음 성공까지의 시행횟수, 음이항분포는 r번 성공까지의 시행횟수 분포입니다.",
+   "sourceQuote": "3. 기하분포 : 성공확률이 p인 베르누이시행에서 처음으로 성공할 때까지 시행횟수의 분포",
+   "image": null
+  },
+  {
+   "id": "adsp-229",
+   "subject": 3,
+   "chapter": "3-3",
+   "concept": "음이항분포",
+   "stem": "'동전을 던져 앞면이 5번 나오기까지 던진 횟수'를 나타내는 분포는?",
+   "choices": [
+    "음이항분포",
+    "이항분포",
+    "기하분포",
+    "초기하분포"
+   ],
+   "answerIndex": 0,
+   "explanation": "음이항분포는 r번 성공할 때까지 반복 시행횟수의 분포입니다.",
+   "sourceQuote": "4. 음이항분포 : 성공확률이 p인 베르누이시행을 r번 성공할 때까지 반복 시행횟수의 분포",
+   "image": null
+  },
+  {
+   "id": "adsp-230",
+   "subject": 3,
+   "chapter": "3-3",
+   "concept": "초기하분포",
+   "stem": "N개 중 '비복원추출'로 n번 추출했을 때 원하는 결과가 k번 나올 확률의 분포는?",
+   "choices": [
+    "이항분포",
+    "포아송분포",
+    "다항분포",
+    "초기하분포"
+   ],
+   "answerIndex": 3,
+   "explanation": "초기하분포는 비복원추출에서의 성공 횟수 분포입니다.",
+   "sourceQuote": "5. 초기하분포 : N개 중 비복원추출로 n번 추출했을 때 원하는 결과가 k번 나올 확률의 분포",
+   "image": null
+  },
+  {
+   "id": "adsp-231",
+   "subject": 3,
+   "chapter": "3-3",
+   "concept": "다항분포",
+   "stem": "'주사위를 20번 던져 각 면이 나오는 횟수'처럼 각 시행이 여러 결과를 가질 수 있는 분포는?",
+   "choices": [
+    "이항분포",
+    "다항분포",
+    "균일분포",
+    "초기하분포"
+   ],
+   "answerIndex": 1,
+   "explanation": "다항분포는 각 시행이 여러 개의 결과를 가질 수 있는 확률 분포입니다.",
+   "sourceQuote": "6. 다항분포 : N번 시행에서 각 시행이 여러 개의 결과를 가질 수 있는 확률 분포 (주사위를 20번 던져 각 면이 나오는 횟수)",
+   "image": null
+  },
+  {
+   "id": "adsp-232",
+   "subject": 3,
+   "chapter": "3-3",
+   "concept": "포아송분포",
+   "stem": "'한 시간 동안 사무실에 걸려온 전화의 수'처럼 단위 시간 내 사건 발생 횟수의 분포는?",
+   "choices": [
+    "이항분포",
+    "지수분포",
+    "포아송분포",
+    "정규분포"
+   ],
+   "answerIndex": 2,
+   "explanation": "포아송분포는 단위 시간 내 사건의 발생 횟수에 대한 분포입니다. 지수분포는 사건 간 시간 간격 분포입니다.",
+   "sourceQuote": "7. 포아송분포 : 단위 시간 내 발생할 수 있는 사건의 발생 횟수에 대한 분포",
+   "image": null
+  },
+  {
+   "id": "adsp-233",
+   "subject": 3,
+   "chapter": "3-3",
+   "concept": "연속확률분포",
+   "stem": "값을 셀 수 없으며 확률밀도함수로 표현하는 분포는?",
+   "choices": [
+    "다항분포",
+    "연속 확률분포",
+    "베르누이분포",
+    "이산 확률분포"
+   ],
+   "answerIndex": 1,
+   "explanation": "연속 확률분포는 확률밀도함수, 이산 확률분포는 확률질량함수로 표현합니다.",
+   "sourceQuote": "2. 연속 확률분포 : 값을 셀 수 없는 분포, 확률밀도함수로 표현",
+   "image": null
+  },
+  {
+   "id": "adsp-234",
+   "subject": 3,
+   "chapter": "3-3",
+   "concept": "t분포",
+   "stem": "정규분포와 유사하지만 꼬리 부분이 더 두껍고 길며, 표본이 30개보다 작은 집단의 평균 검정에 쓰이는 분포는?",
+   "choices": [
+    "카이제곱분포",
+    "t분포",
+    "균일분포",
+    "F분포"
+   ],
+   "answerIndex": 1,
+   "explanation": "t분포는 꼬리가 더 두껍고 길며 소표본(30개 미만) 평균 검정에 활용됩니다.",
+   "sourceQuote": "3. t분포 : 정규분포와 유사하지만, 꼬리 부분이 더 두껍고 긴 분포",
+   "image": null
+  },
+  {
+   "id": "adsp-235",
+   "subject": 3,
+   "chapter": "3-3",
+   "concept": "카이제곱분포",
+   "stem": "독립적인 정규분포를 따르는 변수들의 제곱합으로 구성된 분포는?",
+   "choices": [
+    "카이제곱분포",
+    "t분포",
+    "감마분포",
+    "F분포"
+   ],
+   "answerIndex": 0,
+   "explanation": "카이제곱분포는 정규분포 변수들의 제곱합이며, 두 집단 동질성 검정과 단일 집단 모분산 검정에 쓰입니다.",
+   "sourceQuote": "4. 카이제곱분포 : 독립적인 정규분포를 따르는 변수들의 제곱합으로 구성된 분포",
+   "image": null
+  },
+  {
+   "id": "adsp-236",
+   "subject": 3,
+   "chapter": "3-3",
+   "concept": "F분포",
+   "stem": "두 개의 서로 다른 카이제곱 분포의 비율로, 두 집단의 분산 동질성 검정에 쓰이는 분포는?",
+   "choices": [
+    "베타분포",
+    "t분포",
+    "F분포",
+    "카이제곱분포"
+   ],
+   "answerIndex": 2,
+   "explanation": "F분포는 두 카이제곱 분포의 비율이며 F검정으로 분산 동질성을 검정합니다.",
+   "sourceQuote": "5. F분포 : 두 개의 서로 다른 카이제곱 분포의 비율",
+   "image": null
+  },
+  {
+   "id": "adsp-237",
+   "subject": 3,
+   "chapter": "3-3",
+   "concept": "지수분포",
+   "stem": "사건 간 시간 간격의 분포는?",
+   "choices": [
+    "감마분포",
+    "포아송분포",
+    "베타분포",
+    "지수분포"
+   ],
+   "answerIndex": 3,
+   "explanation": "지수분포는 사건 간 시간 간격 분포이며, 감마분포는 지수분포의 일반화입니다.",
+   "sourceQuote": "6. 지수분포 : 사건 간 시간 간격 분포",
+   "image": null
+  },
+  {
+   "id": "adsp-238",
+   "subject": 3,
+   "chapter": "3-3",
+   "concept": "감마분포",
+   "stem": "지수분포를 일반화한 분포는?",
+   "choices": [
+    "F분포",
+    "베타분포",
+    "포아송분포",
+    "감마분포"
+   ],
+   "answerIndex": 3,
+   "explanation": "감마분포는 지수분포의 일반화입니다.",
+   "sourceQuote": "7. 감마분포 : 지수분포의 일반화",
+   "image": null
+  },
+  {
+   "id": "adsp-239",
+   "subject": 3,
+   "chapter": "3-3",
+   "concept": "베타분포",
+   "stem": "두 모수 α, β에 대한 0~1 사이 비율 분포는?",
+   "choices": [
+    "균일분포",
+    "카이제곱분포",
+    "감마분포",
+    "베타분포"
+   ],
+   "answerIndex": 3,
+   "explanation": "베타분포는 두 모수 α, β에 대한 0~1 사이 비율 분포입니다.",
+   "sourceQuote": "8. 베타분포 : 두 모수 α, β에 대한 0~1사이 비율 분포",
+   "image": null
+  },
+  {
+   "id": "adsp-240",
+   "subject": 3,
+   "chapter": "3-3",
+   "concept": "이산 기댓값 식",
+   "stem": "이산적 확률변수의 기댓값 E(X)를 구하는 식은?",
+   "choices": [
+    "Σ x f(x)",
+    "∫ x f(x) dx",
+    "Σ f(x) / n",
+    "√(Σ x²)"
+   ],
+   "answerIndex": 0,
+   "explanation": "이산적 확률변수는 E(X) = Σ x f(x), 연속적 확률변수는 E(X) = ∫ x f(x) dx 입니다.",
+   "sourceQuote": "1. 이산적 확률변수 : E(X) = Σ x f(x)",
+   "image": null
+  },
+  {
+   "id": "adsp-241",
+   "subject": 3,
+   "chapter": "3-3",
+   "concept": "동전 3개 기댓값",
+   "stem": "동전을 3개 던질 때 확률변수 X(앞면의 개수)의 기댓값은?",
+   "choices": [
+    "1.5",
+    "3",
+    "2",
+    "1"
+   ],
+   "answerIndex": 0,
+   "explanation": "P(X=0)=1/8, P(X=1)=3/8, P(X=2)=3/8, P(X=3)=1/8이므로 E(X) = 0×1/8 + 1×3/8 + 2×3/8 + 3×1/8 = 1.5 입니다.",
+   "sourceQuote": "(1) 동전을 3개 던지는 확률실험을 할 때, 확률변수 X(앞면F의 개수)의 기댓값은?",
+   "image": null
+  },
+  {
+   "id": "adsp-242",
+   "subject": 3,
+   "chapter": "3-3",
+   "concept": "균일분포 기댓값",
+   "stem": "그림은 1~12 원형시계에서 바늘이 가리키는 시간 X의 확률분포(높이 1/12)이다. X의 기댓값은?",
+   "choices": [
+    "6.5",
+    "1/12",
+    "6",
+    "12"
+   ],
+   "answerIndex": 2,
+   "explanation": "E(X) = ∫₀¹² x·(1/12) dx = 6 입니다.",
+   "sourceQuote": "(2) 1~12의 숫자가 표시된 원형시계에서, 확률변수 X(시계 바늘이 가리키는 시간)의 기댓값은?",
+   "image": "uniform_ev.png"
+  },
+  {
+   "id": "adsp-243",
+   "subject": 3,
+   "chapter": "3-3",
+   "concept": "중심극한정리",
+   "stem": "모집단의 분포에 상관없이 표본크기가 충분히 크면(30개 이상) 표본평균분포가 정규분포를 이룬다는 정리는?",
+   "choices": [
+    "중심극한정리",
+    "대수의 법칙",
+    "베이즈 정리",
+    "덧셈 정리"
+   ],
+   "answerIndex": 0,
+   "explanation": "중심극한정리는 모집단 분포와 무관하게 표본평균분포가 정규분포를 이룬다는 정리입니다.",
+   "sourceQuote": "임의의 모집단으로부터 추출된 표본분포는 표본크기가 충분히 크면(30개 이상) 정규분포",
+   "image": null
+  },
+  {
+   "id": "adsp-244",
+   "subject": 3,
+   "chapter": "3-3",
+   "concept": "표본평균 분산",
+   "stem": "표본평균의 분산 V(X̄)는? (σ: 모표준편차, n: 표본크기)",
+   "choices": [
+    "σ²",
+    "nσ²",
+    "σ² / n",
+    "σ / √n"
+   ],
+   "answerIndex": 2,
+   "explanation": "표본평균의 분산은 σ² / n, 표본평균의 표준편차(표준오차)는 σ / √n 입니다.",
+   "sourceQuote": "2. 표본평균의 분산 : V(X̄) = σ² / n",
+   "image": null
+  },
+  {
+   "id": "adsp-245",
+   "subject": 3,
+   "chapter": "3-3",
+   "concept": "표준오차",
+   "stem": "표본평균의 표준편차를 무엇이라 하는가?",
+   "choices": [
+    "변동계수",
+    "표본분산",
+    "잔차",
+    "표준오차"
+   ],
+   "answerIndex": 3,
+   "explanation": "표본평균의 표준편차 σ / √n 을 표준오차라 합니다.",
+   "sourceQuote": "3. 표본평균의 표준편차 : σ / √n (= 표준오차)",
+   "image": null
+  },
+  {
+   "id": "adsp-246",
+   "subject": 3,
+   "chapter": "3-3",
+   "concept": "불편성",
+   "stem": "추정량의 기댓값이 실제 모수와 같은(편향이 0인) 추정량의 조건은?",
+   "choices": [
+    "불편성",
+    "충족성",
+    "효율성",
+    "일치성"
+   ],
+   "answerIndex": 0,
+   "explanation": "추정량의 조건은 불편성, 효율성, 일치성, 충족성입니다('불효일충').",
+   "sourceQuote": "불편성(Unbiasedness) : 추정량의 기댓값이 실제 모수와 같음 (편향이 0이 되는 경우)",
+   "image": null
+  },
+  {
+   "id": "adsp-247",
+   "subject": 3,
+   "chapter": "3-3",
+   "concept": "효율성",
+   "stem": "여러 추정량 중 분산이 작은 것이 더 좋다는 추정량의 조건은?",
+   "choices": [
+    "불편성",
+    "충족성",
+    "일치성",
+    "효율성"
+   ],
+   "answerIndex": 3,
+   "explanation": "효율성은 분산이 작은 추정량이 더 효율적이라는 조건입니다.",
+   "sourceQuote": "효율성(Efficiency) : 여러 추정량 중 분산이 작은 것이 더 효율적인 추정량",
+   "image": null
+  },
+  {
+   "id": "adsp-248",
+   "subject": 3,
+   "chapter": "3-3",
+   "concept": "일치성",
+   "stem": "표본 크기가 증가할수록 추정량이 모수에 가까워지는 조건은?",
+   "choices": [
+    "불편성",
+    "효율성",
+    "일치성",
+    "충족성"
+   ],
+   "answerIndex": 2,
+   "explanation": "일치성은 표본 크기가 커질수록 추정량이 모수에 가까워지는 성질입니다.",
+   "sourceQuote": "일치성(Consistency) : 표본 크기가 증가할수록 추정량이 모수에 가까워짐",
+   "image": null
+  },
+  {
+   "id": "adsp-249",
+   "subject": 3,
+   "chapter": "3-3",
+   "concept": "충족성",
+   "stem": "추정량이 모집단의 정보를 최대한 반영하는 조건은?",
+   "choices": [
+    "효율성",
+    "일치성",
+    "충족성",
+    "불편성"
+   ],
+   "answerIndex": 2,
+   "explanation": "충족성은 추정량이 모집단의 정보를 최대한 반영하는 성질입니다.",
+   "sourceQuote": "충족성(Sufficiency) : 추정량이 모집단의 정보를 최대한 반영",
+   "image": null
+  },
+  {
+   "id": "adsp-250",
+   "subject": 3,
+   "chapter": "3-3",
+   "concept": "표본분산 분모",
+   "stem": "모집단의 분산 σ²의 추정량인 표본분산 s²의 분모는?",
+   "choices": [
+    "√n",
+    "n + 1",
+    "n − 1",
+    "n"
+   ],
+   "answerIndex": 2,
+   "explanation": "표본분산 s² = (1/(n−1)) Σ (X − X̄)² 입니다.",
+   "sourceQuote": "모집단의 분산 σ² → 표본분산 s²",
+   "image": null
+  },
+  {
+   "id": "adsp-251",
+   "subject": 3,
+   "chapter": "3-3",
+   "concept": "점추정",
+   "stem": "모집단을 특정한 값으로 추정하며 추정량(Estimator)으로 모수를 추정하는 것은?",
+   "choices": [
+    "점추정",
+    "구간추정",
+    "가설검정",
+    "중심극한정리"
+   ],
+   "answerIndex": 0,
+   "explanation": "점추정은 특정한 값으로, 구간추정은 특정한 구간으로 모수를 추정합니다.",
+   "sourceQuote": "모집단이 특정한 값으로 추정하며, 추정량(Estimator)으로 모수를 추정",
+   "image": null
+  },
+  {
+   "id": "adsp-252",
+   "subject": 3,
+   "chapter": "3-3",
+   "concept": "신뢰수준 95",
+   "stem": "모분산을 알 때 신뢰수준 95% 구간추정에 쓰는 Z(α/2) 값은?",
+   "choices": [
+    "3.000",
+    "1.645",
+    "2.576",
+    "1.960"
+   ],
+   "answerIndex": 3,
+   "explanation": "신뢰수준 95%는 Z(α/2) = 1.960, 99%는 2.576 입니다.",
+   "sourceQuote": "신뢰수준 95% : Z(α/2) = 1.960",
+   "image": null
+  },
+  {
+   "id": "adsp-253",
+   "subject": 3,
+   "chapter": "3-3",
+   "concept": "신뢰수준 99",
+   "stem": "신뢰수준 99%에서의 Z(α/2) 값은?",
+   "choices": [
+    "2.326",
+    "1.645",
+    "2.576",
+    "1.960"
+   ],
+   "answerIndex": 2,
+   "explanation": "신뢰수준 99%는 Z(α/2) = 2.576 입니다.",
+   "sourceQuote": "신뢰수준 99% : Z(α/2) = 2.576",
+   "image": null
+  },
+  {
+   "id": "adsp-254",
+   "subject": 3,
+   "chapter": "3-3",
+   "concept": "분산 모를 때",
+   "stem": "모집단의 분산을 모를 때 신뢰구간 추정에 사용하는 분포는?",
+   "choices": [
+    "자유도가 n-1인 t분포",
+    "자유도가 n인 카이제곱분포",
+    "F분포",
+    "표준정규분포"
+   ],
+   "answerIndex": 0,
+   "explanation": "모분산을 모르면 자유도 n-1인 t분포와 표본표준편차 S를 이용합니다.",
+   "sourceQuote": "자유도가 n-1인 t분포를 이용하여 신뢰구간을 추정",
+   "image": null
+  },
+  {
+   "id": "adsp-255",
+   "subject": 3,
+   "chapter": "3-3",
+   "concept": "귀무가설",
+   "stem": "일반적으로 생각하는 가설로 '차이가 없다'를 나타내는 것은?",
+   "choices": [
+    "유의확률",
+    "귀무가설(H0)",
+    "대립가설(H1)",
+    "유의수준"
+   ],
+   "answerIndex": 1,
+   "explanation": "귀무가설은 '차이가 없다', 대립가설은 증명하고자 하는 '차이가 있다'입니다.",
+   "sourceQuote": "1. 귀무가설(H0) : 일반적으로 생각하는 가설 (차이가 없다)",
+   "image": null
+  },
+  {
+   "id": "adsp-256",
+   "subject": 3,
+   "chapter": "3-3",
+   "concept": "대립가설",
+   "stem": "귀무가설을 기각하는 가설로, 연구자가 증명하고자 하는 가설은?",
+   "choices": [
+    "귀무가설(H0)",
+    "유의수준(α)",
+    "대립가설(H1)",
+    "p-value"
+   ],
+   "answerIndex": 2,
+   "explanation": "대립가설은 귀무가설을 기각하는, 증명하고자 하는 가설입니다.",
+   "sourceQuote": "2. 대립가설(H1) : 귀무가설을 기각하는 가설, 증명하고자 하는 가설 (차이가 있다, 크다/작다)",
+   "image": null
+  },
+  {
+   "id": "adsp-257",
+   "subject": 3,
+   "chapter": "3-3",
+   "concept": "유의수준",
+   "stem": "귀무가설이 참일 때 기각하는 1종 오류를 범할 확률의 허용 한계(일반적으로 0.05)는?",
+   "choices": [
+    "검정력",
+    "유의수준(α)",
+    "유의확률(p-value)",
+    "신뢰수준"
+   ],
+   "answerIndex": 1,
+   "explanation": "유의수준은 1종 오류 확률의 허용 한계이며 보통 0.05입니다.",
+   "sourceQuote": "3. 유의수준(α) : 귀무가설이 참일 때 기각하는 1종 오류를 범할 확률의 허용 한계 (일반적 0.05)",
+   "image": null
+  },
+  {
+   "id": "adsp-258",
+   "subject": 3,
+   "chapter": "3-3",
+   "concept": "1종 오류 표",
+   "stem": "그림의 가설검정 오류표에서 '?'에 들어갈 것은?",
+   "choices": [
+    "1종 오류(α)",
+    "2종 오류(β)",
+    "옳은 결정",
+    "검정력"
+   ],
+   "answerIndex": 0,
+   "explanation": "H0가 사실인데 거짓이라고 판정(기각)하는 것이 1종 오류(α)입니다.",
+   "sourceQuote": "H0가 사실 옳은 결정 1종 오류(α)",
+   "image": "error_table.png"
+  },
+  {
+   "id": "adsp-259",
+   "subject": 3,
+   "chapter": "3-3",
+   "concept": "2종 오류",
+   "stem": "H0가 거짓인데 H0가 사실이라고 판정하는 오류는?",
+   "choices": [
+    "옳은 결정",
+    "유의확률",
+    "1종 오류(α)",
+    "2종 오류(β)"
+   ],
+   "answerIndex": 3,
+   "explanation": "실제 H0가 거짓인데 사실이라고 판정하면 2종 오류(β)입니다.",
+   "sourceQuote": "H0가 거짓 2종 오류(β)",
+   "image": null
+  },
+  {
+   "id": "adsp-260",
+   "subject": 3,
+   "chapter": "3-3",
+   "concept": "p-value 기각",
+   "stem": "가설검정에서 귀무가설을 기각하는 조건은?",
+   "choices": [
+    "p-value = 1",
+    "p-value < 유의수준(α)",
+    "p-value > 유의수준(α)",
+    "검정통계량 = 0"
+   ],
+   "answerIndex": 1,
+   "explanation": "p-value가 유의수준보다 작으면 귀무가설을 기각하고, 크면 채택합니다.",
+   "sourceQuote": "p-value < 유의수준(α) → 귀무가설 기각",
+   "image": null
+  },
+  {
+   "id": "adsp-261",
+   "subject": 3,
+   "chapter": "3-3",
+   "concept": "양측검정",
+   "stem": "대립가설의 값이 '같지 않다'일 때의 검정은?",
+   "choices": [
+    "양측검정",
+    "적합도검정",
+    "단측검정",
+    "대응표본검정"
+   ],
+   "answerIndex": 0,
+   "explanation": "'같지 않다'는 양측검정, '크다/작다'는 단측검정입니다.",
+   "sourceQuote": "2. 양측 혹은 단측검정 확인 : 대립가설의 값이 '같지 않다' → 양측검정 / '값이 크다', '값이 작다' → 단측검정",
+   "image": null
+  },
+  {
+   "id": "adsp-262",
+   "subject": 3,
+   "chapter": "3-3",
+   "concept": "대응표본",
+   "stem": "t검정에서 '동일 모집단에 대한 평균비교 검정'은?",
+   "choices": [
+    "대응표본",
+    "이표본 비모수",
+    "독립표본",
+    "단일표본"
+   ],
+   "answerIndex": 0,
+   "explanation": "모집단 평균검정은 단일표본, 동일 모집단 평균비교는 대응표본, 서로 다른 모집단 평균비교는 독립표본입니다.",
+   "sourceQuote": "동일 모집단에 대한 평균비교 검정 → 대응표본",
+   "image": null
+  },
+  {
+   "id": "adsp-263",
+   "subject": 3,
+   "chapter": "3-3",
+   "concept": "단일표본",
+   "stem": "t검정에서 '모집단에 대한 평균검정'은?",
+   "choices": [
+    "단일표본",
+    "대응표본",
+    "독립표본",
+    "이표본"
+   ],
+   "answerIndex": 0,
+   "explanation": "모집단에 대한 평균검정은 단일표본 t검정입니다.",
+   "sourceQuote": "모집단에 대한 평균검정 → 단일표본",
+   "image": null
+  },
+  {
+   "id": "adsp-264",
+   "subject": 3,
+   "chapter": "3-3",
+   "concept": "ttest 결론",
+   "stem": "그림은 두 학교 수학 점수의 t검정 결과이다. 유의수준 0.05에서의 결론은?",
+   "choices": [
+    "t = -0.59758 이므로 대립가설 채택",
+    "신뢰구간이 0을 포함하지 않으므로 귀무가설 기각",
+    "p-value(0.5515) > 0.05 이므로 귀무가설 채택",
+    "p-value(0.5515) > 0.05 이므로 귀무가설 기각"
+   ],
+   "answerIndex": 2,
+   "explanation": "p-value 0.5515가 유의수준 0.05보다 크므로 '두 학교의 성적은 동일하다'는 귀무가설을 채택합니다.",
+   "sourceQuote": "- p-value : 0.5515 > 유의수준(α) : 0.05 → 귀무가설 채택",
+   "image": "ttest_out.png"
+  },
+  {
+   "id": "adsp-265",
+   "subject": 3,
+   "chapter": "3-3",
+   "concept": "ttest 표본유형",
+   "stem": "그림의 t검정(서로 다른 두 학교 비교)은 단일·대응·독립표본 중 무엇인가?",
+   "choices": [
+    "대응표본",
+    "비모수 검정",
+    "독립표본",
+    "단일표본"
+   ],
+   "answerIndex": 2,
+   "explanation": "서로 다른 모집단에 대한 평균비교 검정이므로 독립표본이며, 두 모집단이라 이표본입니다.",
+   "sourceQuote": "- 서로 다른 모집단에 대한 평균비교 검정 → 독립표본",
+   "image": "ttest_out.png"
+  },
+  {
+   "id": "adsp-266",
+   "subject": 3,
+   "chapter": "3-3",
+   "concept": "Welch t검정",
+   "stem": "독립표본 t-검정에서 등분산을 가정하지 않는 경우 사용하는 검정은?",
+   "choices": [
+    "대응표본 t-검정",
+    "카이제곱 검정",
+    "F검정",
+    "Welch의 t-검정"
+   ],
+   "answerIndex": 3,
+   "explanation": "독립표본 t-검정은 등분산 가정이 전제이며, 등분산을 가정하지 않으면 Welch의 t-검정을 사용합니다.",
+   "sourceQuote": "☞ 독립표본 t-검정은 두 집단의 분산이 같다는 가정(등분산 가정)이 전제가 되며, 등분산을 가정하지 않는 경우 Welch의 t-검정을 사용",
+   "image": null
+  },
+  {
+   "id": "adsp-267",
+   "subject": 3,
+   "chapter": "3-3",
+   "concept": "모수 검정",
+   "stem": "모집단이 특정한 분포(보통 정규분포)를 따른다고 가정하고 수행하는 가설검정은?",
+   "choices": [
+    "모수 검정",
+    "비모수 검정",
+    "적합도 검정",
+    "순위합검정"
+   ],
+   "answerIndex": 0,
+   "explanation": "모수 검정은 모집단이 특정 분포를 따른다고 가정합니다.",
+   "sourceQuote": "- 모집단이 특정한 분포(보통 정규분포)를 따른다고 가정하고 수행하는 가설검정",
+   "image": null
+  },
+  {
+   "id": "adsp-268",
+   "subject": 3,
+   "chapter": "3-3",
+   "concept": "비모수 검정",
+   "stem": "다음 중 비모수 검정에 해당하지 않는 것은?",
+   "choices": [
+    "크루스칼-왈리스 검정",
+    "Welch Two Sample t-test",
+    "부호검정",
+    "맨-휘트니 U검정"
+   ],
+   "answerIndex": 1,
+   "explanation": "비모수 검정은 두 관측 값의 순위나 차이로 검정하며 부호검정, 순위합검정, 맨-휘트니 U검정, 크루스칼-왈리스 검정, 콜모고로프-스미르노프 검정, 카이제곱 검정이 있습니다. t검정은 모수 검정 예시입니다.",
+   "sourceQuote": "부호검정, 순위합검정, 맨-휘트니 U검정, 크루스칼-왈리스 검정, 콜모고로프-스미르노프 검정, 카이제곱 검정",
+   "image": null
+  },
+  {
+   "id": "adsp-269",
+   "subject": 3,
+   "chapter": "3-3",
+   "concept": "카이제곱 검정",
+   "stem": "범주형 변수 간의 검정에 주로 활용되며 적합도, 독립성, 동질성 검정에 쓰이는 것은?",
+   "choices": [
+    "ANOVA",
+    "카이제곱 검정",
+    "t검정",
+    "F검정"
+   ],
+   "answerIndex": 1,
+   "explanation": "카이제곱 검정은 범주형 변수 간 검정(적합도, 독립성, 동질성)에 활용됩니다.",
+   "sourceQuote": "☞ 카이제곱 검정은 범주형 변수간의 검정에 주로 활용되며, 적합도, 독립성, 동질성 검정에 활용",
+   "image": null
+  },
+  {
+   "id": "adsp-270",
+   "subject": 3,
+   "chapter": "3-4",
+   "concept": "회귀 인과",
+   "stem": "회귀분석에 대한 설명으로 옳은 것은?",
+   "choices": [
+    "인과관계를 항상 보장한다",
+    "종속변수는 원인을 나타낸다",
+    "독립변수와 종속변수 간의 상관관계를 분석하며 인과관계를 보장하지 않는다",
+    "독립변수는 결과를 나타낸다"
+   ],
+   "answerIndex": 2,
+   "explanation": "회귀분석은 상관관계를 분석하는 방법이며 인과관계를 보장하지 않습니다. 독립변수는 원인(x), 종속변수는 결과(y)입니다.",
+   "sourceQuote": "☞ 회귀분석은 독립변수와 종속변수간의 상관관계를 분석하는 방법이며, 인과관계를 보장하지 않음",
+   "image": null
+  },
+  {
+   "id": "adsp-271",
+   "subject": 3,
+   "chapter": "3-4",
+   "concept": "최소제곱법",
+   "stem": "잔차의 제곱합(SSE)이 최소가 되는 회귀계수와 절편을 구하는 방법은?",
+   "choices": [
+    "경사하강법",
+    "최소제곱법(최소자승법)",
+    "전진선택법",
+    "최대우도법"
+   ],
+   "answerIndex": 1,
+   "explanation": "최소제곱법은 SSE를 최소화하는 회귀계수 추정방법입니다.",
+   "sourceQuote": "최소제곱법(=최소자승법) : 잔차의 제곱합(SSE)이 최소가 되는 회귀계수와 절편을 구하는 방법",
+   "image": null
+  },
+  {
+   "id": "adsp-272",
+   "subject": 3,
+   "chapter": "3-4",
+   "concept": "SSR 그림",
+   "stem": "그림에서 회귀모형에 의해 '설명되는' 변동은?",
+   "choices": [
+    "SSE",
+    "SST",
+    "SSR",
+    "MSE"
+   ],
+   "answerIndex": 2,
+   "explanation": "SST는 전체 변동, SSR은 모형에 의해 설명되는 변동, SSE는 설명되지 않는 변동입니다.",
+   "sourceQuote": "3. SSR : 모형에 의해 설명되는 변동",
+   "image": "sst_reg.png"
+  },
+  {
+   "id": "adsp-273",
+   "subject": 3,
+   "chapter": "3-4",
+   "concept": "R제곱 식",
+   "stem": "결정계수 R²를 구하는 식으로 옳은 것은?",
+   "choices": [
+    "SST / SSR",
+    "1 − SSR / SST",
+    "SSE / SST",
+    "SSR / SST = 1 − SSE / SST"
+   ],
+   "answerIndex": 3,
+   "explanation": "R² = SSR / SST = 1 − SSE / SST 이며 0~1 사이 값입니다.",
+   "sourceQuote": "4. R² = SSR / SST = 1 − SSE / SST",
+   "image": null
+  },
+  {
+   "id": "adsp-274",
+   "subject": 3,
+   "chapter": "3-4",
+   "concept": "다항회귀",
+   "stem": "2개 이상의 독립변수와 종속변수가 2차 함수 이상의 관계인 회귀는?",
+   "choices": [
+    "다항회귀",
+    "다중회귀",
+    "단순회귀",
+    "릿지회귀"
+   ],
+   "answerIndex": 0,
+   "explanation": "다중회귀는 2개 이상 독립변수와의 선형관계, 다항회귀는 2차 함수 이상의 관계입니다.",
+   "sourceQuote": "3. 다항회귀 : 2개 이상의 독립변수와 종속변수가 2차 함수 이상의 관계",
+   "image": null
+  },
+  {
+   "id": "adsp-275",
+   "subject": 3,
+   "chapter": "3-4",
+   "concept": "릿지회귀",
+   "stem": "L2 규제항(Σ W²)을 포함하는 회귀는?",
+   "choices": [
+    "릿지회귀",
+    "다항회귀",
+    "엘라스틱넷",
+    "라쏘회귀"
+   ],
+   "answerIndex": 0,
+   "explanation": "릿지회귀는 L2(Σ W²), 라쏘회귀는 L1(Σ |W|), 엘라스틱넷은 L1과 L2를 동시에 규제합니다.",
+   "sourceQuote": "릿지회귀(L2 규제) : L2 규제항을 포함 - Σ W²",
+   "image": null
+  },
+  {
+   "id": "adsp-276",
+   "subject": 3,
+   "chapter": "3-4",
+   "concept": "라쏘회귀",
+   "stem": "L1 규제항(Σ |W|)을 포함하는 회귀는?",
+   "choices": [
+    "교호항 회귀",
+    "라쏘회귀",
+    "릿지회귀",
+    "엘라스틱넷"
+   ],
+   "answerIndex": 1,
+   "explanation": "라쏘회귀는 L1 규제항을 포함합니다.",
+   "sourceQuote": "라쏘회귀(L1 규제) : L1 규제항을 포함 - Σ |W|",
+   "image": null
+  },
+  {
+   "id": "adsp-277",
+   "subject": 3,
+   "chapter": "3-4",
+   "concept": "엘라스틱넷",
+   "stem": "L1과 L2를 동시에 규제하는 회귀는?",
+   "choices": [
+    "라쏘회귀",
+    "릿지회귀",
+    "엘라스틱넷",
+    "다중회귀"
+   ],
+   "answerIndex": 2,
+   "explanation": "엘라스틱넷은 L1과 L2를 동시에 규제합니다.",
+   "sourceQuote": "엘라스틱넷 : L1 과 L2 를 동시에 규제",
+   "image": null
+  },
+  {
+   "id": "adsp-278",
+   "subject": 3,
+   "chapter": "3-4",
+   "concept": "교호작용",
+   "stem": "두 개 이상의 독립변수가 상호작용을 하여 종속변수에 영향을 미치는 경우를 무엇이라 하는가?",
+   "choices": [
+    "다중공선성",
+    "교호작용",
+    "자기상관",
+    "과대적합"
+   ],
+   "answerIndex": 1,
+   "explanation": "교호작용이 포함된 회귀 모형을 교호항이 포함된 회귀라 합니다.",
+   "sourceQuote": "교호작용 : 두 개 이상의 독립변수가 상호작용을 하여, 종속변수에",
+   "image": null
+  },
+  {
+   "id": "adsp-279",
+   "subject": 3,
+   "chapter": "3-4",
+   "concept": "등분산성",
+   "stem": "선형회귀분석의 가정 중 '오차의 분산이 고르게 분포'하는 것은?",
+   "choices": [
+    "선형성",
+    "독립성",
+    "정규성",
+    "등분산성"
+   ],
+   "answerIndex": 3,
+   "explanation": "선형회귀의 가정은 선형성, 등분산성, 정규성, 독립성입니다('선분정독').",
+   "sourceQuote": "2. 등분산성 : 오차의 분산이 고르게 분포",
+   "image": null
+  },
+  {
+   "id": "adsp-280",
+   "subject": 3,
+   "chapter": "3-4",
+   "concept": "독립성 가정",
+   "stem": "선형회귀분석의 가정 중 '오차가 서로 독립'인 것은?",
+   "choices": [
+    "등분산성",
+    "정규성",
+    "선형성",
+    "독립성"
+   ],
+   "answerIndex": 3,
+   "explanation": "독립성은 오차가 서로 독립이라는 가정입니다.",
+   "sourceQuote": "4. 독립성 : 오차가 서로 독립",
+   "image": null
+  },
+  {
+   "id": "adsp-281",
+   "subject": 3,
+   "chapter": "3-4",
+   "concept": "정규성 가정",
+   "stem": "선형회귀분석의 가정 중 '오차가 정규분포의 특성을 지님'에 해당하는 것은?",
+   "choices": [
+    "선형성",
+    "등분산성",
+    "독립성",
+    "정규성"
+   ],
+   "answerIndex": 3,
+   "explanation": "정규성은 오차가 정규분포를 따른다는 가정입니다.",
+   "sourceQuote": "3. 정규성 : 오차가 정규분포의 특성을 지님",
+   "image": null
+  },
+  {
+   "id": "adsp-282",
+   "subject": 3,
+   "chapter": "3-4",
+   "concept": "다중공선성",
+   "stem": "독립변수들 간에 강한 상관관계가 나타나는 문제는?",
+   "choices": [
+    "이분산성",
+    "과소적합",
+    "다중공선성",
+    "자기상관"
+   ],
+   "answerIndex": 2,
+   "explanation": "다중공선성은 독립변수 간 강한 상관관계 문제입니다.",
+   "sourceQuote": "독립변수들간 강한 상관관계가 나타나는 문제",
+   "image": null
+  },
+  {
+   "id": "adsp-283",
+   "subject": 3,
+   "chapter": "3-4",
+   "concept": "VIF 기준",
+   "stem": "다중공선성이 존재한다고 판단하는 VIF(분산팽창인수) 기준은?",
+   "choices": [
+    "10 이상",
+    "0.8 이상",
+    "30 이상",
+    "1 이상"
+   ],
+   "answerIndex": 0,
+   "explanation": "VIF가 10 이상이면 다중공선성이 있다고 판단합니다. 상관계수 절댓값 0.8 이상, 조건수 30 이상이면 의심합니다.",
+   "sourceQuote": "VIF(분산팽창인수) 값이 10 이상이면 다중공선성 존재한다고 판단 (VIF = 1 / (1 − R²))",
+   "image": null
+  },
+  {
+   "id": "adsp-284",
+   "subject": 3,
+   "chapter": "3-4",
+   "concept": "조건수",
+   "stem": "다중공선성 진단에서 '조건수'가 얼마 이상이면 의심하는가?",
+   "choices": [
+    "10",
+    "0.8",
+    "3",
+    "30"
+   ],
+   "answerIndex": 3,
+   "explanation": "조건수가 30 이상이면 다중공선성을 의심합니다.",
+   "sourceQuote": "조건수가 30 이상이면 의심",
+   "image": null
+  },
+  {
+   "id": "adsp-285",
+   "subject": 3,
+   "chapter": "3-4",
+   "concept": "다중공선성 해결",
+   "stem": "다중공선성의 해결방안이 아닌 것은?",
+   "choices": [
+    "독립변수 제거",
+    "독립변수 추가",
+    "차원 축소",
+    "규제항이 포함된 회귀"
+   ],
+   "answerIndex": 1,
+   "explanation": "해결방안은 독립변수 제거, 차원 축소, 변수 선택, 규제항이 포함된 회귀입니다.",
+   "sourceQuote": "2. 해결방안 : 독립변수 제거, 차원 축소, 변수 선택, 규제항이 포함된 회귀",
+   "image": null
+  },
+  {
+   "id": "adsp-286",
+   "subject": 3,
+   "chapter": "3-4",
+   "concept": "전진선택법",
+   "stem": "변수를 하나씩 추가하면서 최적의 회귀방정식을 찾는 방법은?",
+   "choices": [
+    "전진선택법",
+    "후진제거법",
+    "단계별 선택법",
+    "최소제곱법"
+   ],
+   "answerIndex": 0,
+   "explanation": "전진선택법은 변수를 하나씩 추가, 후진제거법은 하나씩 제거, 단계별 선택법은 두 방법을 결합합니다.",
+   "sourceQuote": "1. 전진선택법 : 변수를 하나씩 추가하면서 최적의 회귀방정식을 찾아내는 방법",
+   "image": null
+  },
+  {
+   "id": "adsp-287",
+   "subject": 3,
+   "chapter": "3-4",
+   "concept": "후진제거법",
+   "stem": "변수를 하나씩 제거하면서 최적의 회귀방정식을 찾는 방법은?",
+   "choices": [
+    "후진제거법",
+    "전진선택법",
+    "가지치기",
+    "단계별 선택법"
+   ],
+   "answerIndex": 0,
+   "explanation": "후진제거법은 변수를 하나씩 제거합니다.",
+   "sourceQuote": "2. 후진제거법 : 변수를 하나씩 제거하면서 최적의 회귀방정식을 찾아내는 방법",
+   "image": null
+  },
+  {
+   "id": "adsp-288",
+   "subject": 3,
+   "chapter": "3-4",
+   "concept": "단계별 선택법",
+   "stem": "전진선택법과 후진제거법을 결합하고 변수를 추가할 때 벌점을 고려하는 방법은?",
+   "choices": [
+    "릿지회귀",
+    "단계별 선택법",
+    "전진선택법",
+    "후진제거법"
+   ],
+   "answerIndex": 1,
+   "explanation": "단계별 선택법은 전진선택법 + 후진제거법으로 벌점을 고려합니다.",
+   "sourceQuote": "3. 단계별 선택법 : 전진선택법 + 후진제거법으로 변수를 추가 할 때 벌점을 고려",
+   "image": null
+  },
+  {
+   "id": "adsp-289",
+   "subject": 3,
+   "chapter": "3-4",
+   "concept": "AIC BIC",
+   "stem": "AIC와 BIC에 대한 설명으로 옳은 것은?",
+   "choices": [
+    "BIC는 AIC보다 작은 패널티를 가진다",
+    "AIC는 클수록, BIC는 작을수록 좋다",
+    "둘 다 클수록 좋다",
+    "둘 다 작을수록 좋다"
+   ],
+   "answerIndex": 3,
+   "explanation": "AIC와 BIC는 모두 작을수록 좋으며, BIC는 AIC보다 큰 패널티를 가집니다.",
+   "sourceQuote": "☞ AIC와 BIC 모두 작을수록 좋음",
+   "image": null
+  },
+  {
+   "id": "adsp-290",
+   "subject": 3,
+   "chapter": "3-4",
+   "concept": "BIC 패널티",
+   "stem": "AIC를 보완했지만 AIC보다 큰 패널티를 가지는 기준은?",
+   "choices": [
+    "VIF",
+    "BIC",
+    "Mallow's Cp",
+    "R-square"
+   ],
+   "answerIndex": 1,
+   "explanation": "BIC(베이즈 정보 기준)는 AIC를 보완했지만 더 큰 패널티를 가집니다.",
+   "sourceQuote": "BIC(베이즈 정보 기준) : AIC를 보완했지만 AIC보다 큰 패널티를 가지는 단점",
+   "image": null
+  },
+  {
+   "id": "adsp-291",
+   "subject": 3,
+   "chapter": "3-4",
+   "concept": "Mallows Cp",
+   "stem": "SSE(잔차 제곱합)를 활용해 판단하는 변수 선택 기준은?",
+   "choices": [
+    "F 통계량",
+    "BIC",
+    "AIC",
+    "Mallow's Cp"
+   ],
+   "answerIndex": 3,
+   "explanation": "Mallow's Cp는 SSE를 활용한 판단 기준입니다.",
+   "sourceQuote": "Mallow's Cp : SSE(잔차 제곱합)을 활용한 판단",
+   "image": null
+  },
+  {
+   "id": "adsp-292",
+   "subject": 3,
+   "chapter": "3-4",
+   "concept": "ANOVA 검정",
+   "stem": "3개 이상 그룹의 평균을 비교하는 검정은?",
+   "choices": [
+    "ANOVA 검정",
+    "부호검정",
+    "t검정",
+    "카이제곱 검정"
+   ],
+   "answerIndex": 0,
+   "explanation": "ANOVA 검정은 3개 이상 그룹의 평균을 비교하며 회귀모형의 유의성 분석에도 활용됩니다.",
+   "sourceQuote": "ANOVA 검정 : 3개 이상의 그룹의 평균을 비교하는 검정 (회귀모형의 유의성 분석 시 활용)",
+   "image": null
+  },
+  {
+   "id": "adsp-293",
+   "subject": 3,
+   "chapter": "3-4",
+   "concept": "잔차 자유도",
+   "stem": "회귀분석 ANOVA표에서 잔차의 자유도는? (n: 전체 데이터 수, p: 회귀계수 수)",
+   "choices": [
+    "n − p − 1",
+    "n − p",
+    "n − 1",
+    "p"
+   ],
+   "answerIndex": 0,
+   "explanation": "회귀 자유도는 p, 잔차 자유도는 n − p − 1, 총 자유도는 n − 1입니다.",
+   "sourceQuote": "n(전체 데이터 수) − p − 1",
+   "image": null
+  },
+  {
+   "id": "adsp-294",
+   "subject": 3,
+   "chapter": "3-4",
+   "concept": "수정된 결정계수",
+   "stem": "다중 회귀에서 일반적으로 사용하는 결정계수는?",
+   "choices": [
+    "MSE",
+    "수정된 R-square",
+    "SST",
+    "R-square"
+   ],
+   "answerIndex": 1,
+   "explanation": "다중 회귀에서는 수정된 R-square 값을 일반적으로 사용합니다.",
+   "sourceQuote": "☞ 다중 회귀에서는 수정된 R-square 값을 일반적으로 사용",
+   "image": null
+  },
+  {
+   "id": "adsp-295",
+   "subject": 3,
+   "chapter": "3-4",
+   "concept": "모형 유의성 검정",
+   "stem": "회귀 모형이 통계적으로 유의미한지 확인할 때 사용하는 통계량은?",
+   "choices": [
+    "R-square",
+    "F 통계량과 p-value",
+    "VIF",
+    "t 통계량과 p-value"
+   ],
+   "answerIndex": 1,
+   "explanation": "모형의 유의성은 F 통계량, 개별 회귀계수의 유의성은 t 통계량으로 확인합니다.",
+   "sourceQuote": "3. 모형이 통계적으로 유의미한가 : 모형에 대한 F 통계량, p-value",
+   "image": null
+  },
+  {
+   "id": "adsp-296",
+   "subject": 3,
+   "chapter": "3-4",
+   "concept": "회귀계수 유의성",
+   "stem": "개별 회귀계수들이 유의미한지 확인할 때 사용하는 통계량은?",
+   "choices": [
+    "F 통계량과 p-value",
+    "AIC",
+    "결정계수",
+    "t 통계량과 p-value"
+   ],
+   "answerIndex": 3,
+   "explanation": "각 회귀계수의 귀무가설은 '회귀 계수는 0이다'이며 t 통계량으로 검정합니다.",
+   "sourceQuote": "4. 회귀계수들이 유의미한가 : 회귀계수들의 t 통계량, p-value",
+   "image": null
+  },
+  {
+   "id": "adsp-297",
+   "subject": 3,
+   "chapter": "3-4",
+   "concept": "lm no_siblings",
+   "stem": "그림의 회귀분석 결과에서 no_siblings 변수에 대한 해석으로 옳은 것은?",
+   "choices": [
+    "모형 전체가 유의하지 않다",
+    "다중공선성이 확인된다",
+    "p-value가 작아 회귀계수가 유의미하다",
+    "p-value(0.851)가 0.05보다 크므로 제외하고 재수행을 권장한다"
+   ],
+   "answerIndex": 3,
+   "explanation": "no_siblings의 p-value 0.851은 0.05보다 커서 유의하지 않으므로 제외 후 재수행을 권장합니다(최종 판단은 연구자).",
+   "sourceQuote": "- no_siblings의 p-value(0.851)가 0.05보다 크므로 제외하고 회귀분석 재수행을 권장",
+   "image": "lm_out.png"
+  },
+  {
+   "id": "adsp-298",
+   "subject": 3,
+   "chapter": "3-4",
+   "concept": "lm 데이터 수",
+   "stem": "그림의 회귀분석 결과(회귀 자유도 2, 잔차 자유도 9)에 사용된 데이터 수는?",
+   "choices": [
+    "12개",
+    "9개",
+    "2개",
+    "11개"
+   ],
+   "answerIndex": 0,
+   "explanation": "회귀 자유도 2 + 잔차 자유도 9 + 1 = 12개의 데이터를 활용했습니다.",
+   "sourceQuote": "- 회귀 자유도 : 2, 잔차의 자유도 : 9 → 총 2 + 9 + 1 = 12개의 데이터를 활용하여 분석",
+   "image": "lm_out.png"
+  },
+  {
+   "id": "adsp-299",
+   "subject": 3,
+   "chapter": "3-4",
+   "concept": "lm 모형 유의",
+   "stem": "그림의 회귀분석 결과에서 모형이 유의미하다고 판단하는 근거는?",
+   "choices": [
+    "F분포의 p-value(1.658e-09)가 0.05보다 작다",
+    "잔차 표준오차가 0.2693이다",
+    "절편이 64.95872이다",
+    "R-square가 0.5보다 크다"
+   ],
+   "answerIndex": 0,
+   "explanation": "회귀모형 F분포의 p-value(1.658e-09)가 0.05보다 작으므로 모형이 유의미합니다.",
+   "sourceQuote": "- 회귀모형 F분포의 p-value(1.658e-09)가 0.05보다 작으므로 모형이 유의미",
+   "image": "lm_out.png"
+  },
+  {
+   "id": "adsp-300",
+   "subject": 3,
+   "chapter": "3-5",
+   "concept": "피어슨 상관",
+   "stem": "양적 척도, 연속형 변수의 선형관계 크기를 측정하는 상관분석은?",
+   "choices": [
+    "스피어만 상관분석",
+    "피어슨 상관분석",
+    "카이제곱 검정",
+    "주성분 분석"
+   ],
+   "answerIndex": 1,
+   "explanation": "피어슨은 양적 척도·선형관계, 스피어만은 서열 척도·선형/비선형 관계를 다룹니다.",
+   "sourceQuote": "1. 피어슨 상관분석 : 양적 척도, 연속형 변수, 선형관계 크기 측정",
+   "image": null
+  },
+  {
+   "id": "adsp-301",
+   "subject": 3,
+   "chapter": "3-5",
+   "concept": "스피어만 상관",
+   "stem": "서열 척도, 순서형 변수에 쓰이며 선형/비선형적 관계를 나타내는 상관분석은?",
+   "choices": [
+    "피어슨 상관분석",
+    "다차원 척도법",
+    "회귀분석",
+    "스피어만 상관분석"
+   ],
+   "answerIndex": 3,
+   "explanation": "스피어만 상관분석은 서열 척도의 순서형 변수에 사용합니다.",
+   "sourceQuote": "2. 스피어만 상관분석 : 서열 척도, 순서형 변수, 선형/비선형적 관계 나타냄",
+   "image": null
+  },
+  {
+   "id": "adsp-302",
+   "subject": 3,
+   "chapter": "3-5",
+   "concept": "산점도 라",
+   "stem": "그림의 (라)처럼 비선형으로 감소하는 관계의 피어슨·스피어만 계수로 PDF에 제시된 값은?",
+   "choices": [
+    "피어슨 +0.8 / 스피어만 +1",
+    "피어슨 −1 / 스피어만 −1",
+    "피어슨 −0.8 / 스피어만 −0.8",
+    "피어슨 −0.8 / 스피어만 −1"
+   ],
+   "answerIndex": 3,
+   "explanation": "(라)는 피어슨 −0.8, 스피어만 −1입니다. 스피어만 계수는 선형 관계가 아니어도 ±1이 될 수 있습니다.",
+   "sourceQuote": "(라) 피어슨 계수 = −0.8 / 스피어만 계수 = −1",
+   "image": "scatter4.png"
+  },
+  {
+   "id": "adsp-303",
+   "subject": 3,
+   "chapter": "3-5",
+   "concept": "스피어만 ±1",
+   "stem": "그림의 (나)처럼 선형이 아니지만 단조 증가하는 관계에 대한 설명으로 옳은 것은?",
+   "choices": [
+    "스피어만 계수는 0이다",
+    "피어슨 계수가 반드시 +1이다",
+    "스피어만 계수는 선형 관계가 아니더라도 +1이 될 수 있다",
+    "두 계수는 항상 같다"
+   ],
+   "answerIndex": 2,
+   "explanation": "(나)는 피어슨 +0.8, 스피어만 +1입니다. 스피어만은 순위를 쓰므로 비선형이어도 ±1이 될 수 있습니다.",
+   "sourceQuote": "☞ 스피어만 계수는 X와 Y가 선형 관계가 아니더라도 +1혹은 −1이 될 수 있다.",
+   "image": "scatter4.png"
+  },
+  {
+   "id": "adsp-304",
+   "subject": 3,
+   "chapter": "3-5",
+   "concept": "PCA 정의",
+   "stem": "상관성 높은 변수들의 선형 결합으로 차원을 축소하여 새로운 변수를 생성하는 기법은?",
+   "choices": [
+    "군집분석",
+    "다차원 척도법(MDS)",
+    "판별분석",
+    "주성분 분석(PCA)"
+   ],
+   "answerIndex": 3,
+   "explanation": "PCA는 선형 결합으로 차원을 축소해 새 변수를 만듭니다.",
+   "sourceQuote": "상관성 높은 변수들의 선형 결합으로 차원을 축소하여 새로운 변수를 생성",
+   "image": null
+  },
+  {
+   "id": "adsp-305",
+   "subject": 3,
+   "chapter": "3-5",
+   "concept": "두번째 주성분",
+   "stem": "PCA에서 두 번째 주성분의 방향은?",
+   "choices": [
+    "평균이 가장 큰 방향",
+    "분산이 가장 작은 방향",
+    "첫 번째 주성분과 직교하면서 다음으로 분산이 큰 방향",
+    "첫 번째 주성분과 평행한 방향"
+   ],
+   "answerIndex": 2,
+   "explanation": "첫 번째 주성분은 분산이 가장 큰 축, 두 번째는 그와 직교하며 다음으로 분산이 큰 방향입니다.",
+   "sourceQuote": "두번째 주성분은 첫 번째 주성분과 직교하면서 다음으로 분산이 큰 방향",
+   "image": null
+  },
+  {
+   "id": "adsp-306",
+   "subject": 3,
+   "chapter": "3-5",
+   "concept": "주성분 개수 기준",
+   "stem": "주성분의 개수를 결정할 때 기준이 되는 설명력은?",
+   "choices": [
+    "100%",
+    "50% 미만",
+    "70 ~ 90%",
+    "30 ~ 50%"
+   ],
+   "answerIndex": 2,
+   "explanation": "70~90%의 설명력을 갖는 수로 주성분 개수를 결정합니다.",
+   "sourceQuote": "70 ~ 90%의 설명력을 갖는 수를 결정",
+   "image": null
+  },
+  {
+   "id": "adsp-307",
+   "subject": 3,
+   "chapter": "3-5",
+   "concept": "PCA 결과 80",
+   "stem": "그림의 PCA 결과에서 PC1, PC2 두 개의 주성분으로 설명되는 비율은 약 얼마인가?",
+   "choices": [
+    "약 80%",
+    "약 88%",
+    "약 64%",
+    "약 95%"
+   ],
+   "answerIndex": 0,
+   "explanation": "Cumulative Proportion이 PC2에서 0.8078이므로 약 80%를 설명합니다.",
+   "sourceQuote": "- 두 개의 주성분(PC1, PC2)을 적용하면 전체 데이터의 약 80%를 설명",
+   "image": "pca_out.png"
+  },
+  {
+   "id": "adsp-308",
+   "subject": 3,
+   "chapter": "3-5",
+   "concept": "prcomp scale",
+   "stem": "그림의 prcomp(data, center=T, scale.=T)에서 scale.=T의 의미는?",
+   "choices": [
+    "주성분 2개만 사용",
+    "데이터의 표준화 수행",
+    "결측치 제거",
+    "평균을 0으로 맞춤"
+   ],
+   "answerIndex": 1,
+   "explanation": "center=T는 평균을 0으로, scale.=T는 데이터 표준화를 수행합니다.",
+   "sourceQuote": "- center=T : 평균을 0, scale.=T : 데이터의 표준화 수행",
+   "image": "pca_out.png"
+  },
+  {
+   "id": "adsp-309",
+   "subject": 3,
+   "chapter": "3-5",
+   "concept": "스크리플롯",
+   "stem": "그림의 스크리플롯에서 기울기가 3-4 구간에서 완만해질 때 PDF가 선택한 주성분 개수는?",
+   "choices": [
+    "2개",
+    "7개",
+    "4개",
+    "3개"
+   ],
+   "answerIndex": 0,
+   "explanation": "수평을 이루기 바로 전 단계 개수로 선택하므로 2개를 선택합니다(연구자 판단에 따라 3개도 가능).",
+   "sourceQuote": "- 기울기가 3-4 구간에서 완만해지므로 주성분 개수는 2개로 선택",
+   "image": "scree.png"
+  },
+  {
+   "id": "adsp-310",
+   "subject": 3,
+   "chapter": "3-5",
+   "concept": "MDS",
+   "stem": "데이터 간 거리 정보의 근접성을 보존하는 방식으로 차원 축소하여 시각화하는 기법은?",
+   "choices": [
+    "다차원 척도법(MDS)",
+    "SOM",
+    "주성분 분석(PCA)",
+    "덴드로그램"
+   ],
+   "answerIndex": 0,
+   "explanation": "MDS는 거리 정보의 근접성을 보존하며 차원을 축소해 시각화합니다.",
+   "sourceQuote": "데이터 간 거리 정보의 근접성을 보존하는 방식으로 차원 축소하여 시각화",
+   "image": null
+  },
+  {
+   "id": "adsp-311",
+   "subject": 3,
+   "chapter": "3-5",
+   "concept": "MDS Stress",
+   "stem": "다차원 척도법(MDS)에서 Stress 값에 대한 설명으로 옳은 것은?",
+   "choices": [
+    "클수록 좋다",
+    "1에 가까울수록 좋다",
+    "0에 가까울수록 좋다",
+    "음수일수록 좋다"
+   ],
+   "answerIndex": 2,
+   "explanation": "MDS의 Stress 값은 0에 가까울수록 좋으며, 글로벌 최적점 도달은 어렵습니다.",
+   "sourceQuote": "1. 특징 : 데이터 축소 목적, Stress 값이 0에 가까울 수록 좋음, 글로벌 최적점 도달 어려움",
+   "image": null
+  },
+  {
+   "id": "adsp-312",
+   "subject": 3,
+   "chapter": "3-5",
+   "concept": "비계량적 MDS",
+   "stem": "순서척도를 활용하는 MDS는?",
+   "choices": [
+    "계량적 MDS",
+    "PCA",
+    "비계량적 MDS",
+    "K-means"
+   ],
+   "answerIndex": 2,
+   "explanation": "계량적 MDS는 양적척도, 비계량적 MDS는 순서척도를 활용합니다.",
+   "sourceQuote": "2. 종류 : 계량적 MDS(양적척도 활용), 비계량적 MDS(순서척도 활용)",
+   "image": null
+  },
+  {
+   "id": "adsp-313",
+   "subject": 3,
+   "chapter": "3-5",
+   "concept": "순환 요인",
+   "stem": "시계열 변동 요인 중 '알려지지 않은 주기를 갖고 변화'하는 것은?",
+   "choices": [
+    "추세 요인",
+    "계절 요인",
+    "순환 요인",
+    "불규칙 요인"
+   ],
+   "answerIndex": 2,
+   "explanation": "순환 요인은 알려지지 않은 주기(경제 전반, 특정 산업), 계절 요인은 고정된 주기에 따라 변화합니다.",
+   "sourceQuote": "3. 순환 요인 : 알려지지 않은 주기를 갖고 변화 (경제 전반, 특정 산업)",
+   "image": null
+  },
+  {
+   "id": "adsp-314",
+   "subject": 3,
+   "chapter": "3-5",
+   "concept": "계절 요인",
+   "stem": "시계열 변동 요인 중 '고정된 주기에 따라 변화'하는 것은?",
+   "choices": [
+    "순환 요인",
+    "불규칙 요인",
+    "추세 요인",
+    "계절 요인"
+   ],
+   "answerIndex": 3,
+   "explanation": "계절 요인은 계절과 같이 고정된 주기에 따라 변화합니다.",
+   "sourceQuote": "2. 계절 요인 : 계절과 같이 고정된 주기에 따라 변화",
+   "image": null
+  },
+  {
+   "id": "adsp-315",
+   "subject": 3,
+   "chapter": "3-5",
+   "concept": "추세 요인",
+   "stem": "시계열 변동 요인 중 '장기적으로 증가, 감소하는' 것은?",
+   "choices": [
+    "추세 요인",
+    "계절 요인",
+    "불규칙 요인",
+    "순환 요인"
+   ],
+   "answerIndex": 0,
+   "explanation": "추세 요인은 장기적인 증가·감소 경향입니다('추운 계절의 순환이 불규칙하다').",
+   "sourceQuote": "1. 추세 요인 : 장기적으로 증가, 감소하는 추세",
+   "image": null
+  },
+  {
+   "id": "adsp-316",
+   "subject": 3,
+   "chapter": "3-5",
+   "concept": "정상성",
+   "stem": "시계열 예측을 위해 만족해야 하는, 모든 시점에 일정한 평균과 분산을 가지는 성질은?",
+   "choices": [
+    "계절성",
+    "독립성",
+    "등분산성",
+    "정상성"
+   ],
+   "answerIndex": 3,
+   "explanation": "시계열 예측을 위해서는 정상성을 만족해야 합니다.",
+   "sourceQuote": "시계열 예측을 위해서는 모든 시점에 일정한 평균과 분산을 가지는 정상성을 만족해야 함",
+   "image": null
+  },
+  {
+   "id": "adsp-317",
+   "subject": 3,
+   "chapter": "3-5",
+   "concept": "차분",
+   "stem": "현 시점의 자료를 이전 값으로 빼서 평균을 일정하게 만드는 방법은?",
+   "choices": [
+    "차분",
+    "이동평균법",
+    "지수평활법",
+    "변환"
+   ],
+   "answerIndex": 0,
+   "explanation": "차분은 평균을, 변환(로그·제곱근·Box-Cox)은 분산을 안정화합니다.",
+   "sourceQuote": "차분 : 현 시점의 자료를 이전 값으로 빼서 평균을 일정하게 만드는 방법",
+   "image": null
+  },
+  {
+   "id": "adsp-318",
+   "subject": 3,
+   "chapter": "3-5",
+   "concept": "변환",
+   "stem": "로그변환, 제곱근변환, Box-Cox 변환 등으로 시계열의 무엇을 안정화하는가?",
+   "choices": [
+    "평균",
+    "분산",
+    "추세",
+    "주기"
+   ],
+   "answerIndex": 1,
+   "explanation": "변환은 분산을 안정화하는 방법입니다.",
+   "sourceQuote": "변환 : 로그변환, 제곱근변환, Box-Cox 변환 등으로 분산을 안정화",
+   "image": null
+  },
+  {
+   "id": "adsp-319",
+   "subject": 3,
+   "chapter": "3-5",
+   "concept": "지수평활법",
+   "stem": "최근 시간 데이터에 가중치를 부여하는 평활화 방법은?",
+   "choices": [
+    "차분",
+    "Box-Cox 변환",
+    "이동평균법",
+    "지수평활법"
+   ],
+   "answerIndex": 3,
+   "explanation": "이동평균법은 일정 기간의 평균, 지수평활법은 최근 데이터에 가중치를 둡니다.",
+   "sourceQuote": "지수평활법 : 최근 시간 데이터에 가중치를 부여",
+   "image": null
+  },
+  {
+   "id": "adsp-320",
+   "subject": 3,
+   "chapter": "3-5",
+   "concept": "백색잡음",
+   "stem": "시계열 모형의 오차항으로, 평균 및 분산이 일정하고 자기상관이 없는 것은?",
+   "choices": [
+    "추세",
+    "계절성",
+    "백색 잡음",
+    "차분"
+   ],
+   "answerIndex": 2,
+   "explanation": "백색 잡음은 시계열 모형의 오차항이며, 평균이 0이면 가우시안 백색잡음입니다.",
+   "sourceQuote": "시계열 모형의 오차항을 의미 (평균 및 분산 일정, 자기상관 없음, 정상성 만족)",
+   "image": null
+  },
+  {
+   "id": "adsp-321",
+   "subject": 3,
+   "chapter": "3-5",
+   "concept": "AR 모형",
+   "stem": "자기자신의 과거 값이 미래를 결정하며 PACF로 차수를 정하는 모형은?",
+   "choices": [
+    "이동평균(MA) 모형",
+    "자기회귀(AR) 모형",
+    "SARIMA 모형",
+    "ARIMA 모형"
+   ],
+   "answerIndex": 1,
+   "explanation": "AR 모형은 PACF가 p+1 시점부터 급격히 감소하면 AR(p)로 선정합니다.",
+   "sourceQuote": "부분자기상관함수(PACF)를 활용하여 p+1 시점부터 급격 감소하면 AR(p) 모형 선정",
+   "image": null
+  },
+  {
+   "id": "adsp-322",
+   "subject": 3,
+   "chapter": "3-5",
+   "concept": "MA 모형",
+   "stem": "이전 백색잡음들의 선형결합으로 표현되며 ACF로 차수를 정하는 모형은?",
+   "choices": [
+    "지수평활 모형",
+    "자기회귀(AR) 모형",
+    "이동평균(MA) 모형",
+    "ARIMA 모형"
+   ],
+   "answerIndex": 2,
+   "explanation": "MA 모형은 ACF가 q+1 시점부터 급격히 감소하면 MA(q)로 선정합니다.",
+   "sourceQuote": "자기상관함수(ACF)를 활용하여 q+1 시점부터 급격히 감소하면 MA(q) 모형 선정",
+   "image": null
+  },
+  {
+   "id": "adsp-323",
+   "subject": 3,
+   "chapter": "3-5",
+   "concept": "ARIMA d",
+   "stem": "ARIMA(p, d, q)에서 d의 의미는?",
+   "choices": [
+    "정상화 시에 차분을 몇 번 했는지",
+    "AR 모형의 차수",
+    "MA 모형의 차수",
+    "계절 주기"
+   ],
+   "answerIndex": 0,
+   "explanation": "p와 q는 AR·MA 차수이고, d는 정상화 시 차분 횟수입니다.",
+   "sourceQuote": "d는 정상화시에 차분 몇 번 했는지 의미",
+   "image": null
+  },
+  {
+   "id": "adsp-324",
+   "subject": 3,
+   "chapter": "3-5",
+   "concept": "ARIMA d0",
+   "stem": "ARIMA(p, d, q)에서 d = 0이면 어떤 모델이 되는가?",
+   "choices": [
+    "ARI 모델",
+    "SARIMA 모델",
+    "IMA 모델",
+    "ARMA 모델"
+   ],
+   "answerIndex": 3,
+   "explanation": "d = 0이면 ARMA, p = 0이면 IMA, q = 0이면 ARI 모델입니다.",
+   "sourceQuote": "d = 0 : ARMA 모델 / p = 0 : IMA 모델 / q = 0 : ARI 모델",
+   "image": null
+  },
+  {
+   "id": "adsp-325",
+   "subject": 3,
+   "chapter": "3-5",
+   "concept": "SARIMA",
+   "stem": "계절성이 있는 시계열에서 사용을 고려하는 모델은?",
+   "choices": [
+    "SARIMA",
+    "MA",
+    "AR",
+    "ARMA"
+   ],
+   "answerIndex": 0,
+   "explanation": "계절성이 있는 경우 SARIMA 사용을 고려합니다.",
+   "sourceQuote": "☞ 계절성이 있는 경우 SARIMA 사용을 고려",
+   "image": null
+  },
+  {
+   "id": "adsp-326",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "데이터 마이닝 정의",
+   "stem": "방대한 데이터 속에서 새로운 규칙, 패턴을 찾고 예측을 수행하는 분야는?",
+   "choices": [
+    "EDA",
+    "ETL",
+    "데이터 웨어하우스",
+    "데이터 마이닝"
+   ],
+   "answerIndex": 3,
+   "explanation": "데이터 마이닝은 새로운 규칙·패턴을 찾고 예측을 수행하는 분야입니다.",
+   "sourceQuote": "방대한 데이터 속에서 새로운 규칙, 패턴을 찾고 예측을 수행하는 분야",
+   "image": null
+  },
+  {
+   "id": "adsp-327",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "데이터 마이닝 절차",
+   "stem": "데이터 마이닝의 진행 절차로 옳은 것은?",
+   "choices": [
+    "목표 정의 → 데이터 수집 및 이해 → 데이터 전처리 → 기법 적용 → 평가 및 해석",
+    "목표 정의 → 기법 적용 → 데이터 수집 → 전처리 → 평가",
+    "데이터 전처리 → 목표 정의 → 데이터 수집 → 평가 → 기법 적용",
+    "데이터 수집 → 목표 정의 → 기법 적용 → 전처리 → 평가"
+   ],
+   "answerIndex": 0,
+   "explanation": "목표 정의 → 데이터 수집 및 이해 → 데이터 전처리 → 데이터 마이닝 기법 적용 → 평가 및 해석 순서입니다.",
+   "sourceQuote": "목표 정의 → 데이터 수집 및 이해 → 데이터 전처리 → 데이터 마이닝 기법 적용 → 평가 및 해석",
+   "image": null
+  },
+  {
+   "id": "adsp-328",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "비지도학습",
+   "stem": "다음 중 비지도학습에 해당하는 것은?",
+   "choices": [
+    "로지스틱 회귀분석",
+    "나이브베이즈",
+    "SVM",
+    "연관규칙분석"
+   ],
+   "answerIndex": 3,
+   "explanation": "비지도학습은 정답이 없는 데이터의 규칙을 파악하며 군집분석, 연관규칙분석, 차원축소가 있습니다.",
+   "sourceQuote": "군집분석, 연관규칙분석, 차원축소",
+   "image": null
+  },
+  {
+   "id": "adsp-329",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "지도학습 회귀",
+   "stem": "지도학습 중 '회귀'에 사용되는 기법으로 제시된 것은?",
+   "choices": [
+    "회귀트리",
+    "나이브베이즈",
+    "연관규칙분석",
+    "KNN"
+   ],
+   "answerIndex": 0,
+   "explanation": "회귀에는 인공신경망, 선형회귀분석, 회귀트리 등이 쓰입니다. 분류에는 KNN, 나이브베이즈 등이 쓰입니다.",
+   "sourceQuote": "회귀 : 인공신경망, 선형회귀분석, 회귀트리 등",
+   "image": null
+  },
+  {
+   "id": "adsp-330",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "과대적합",
+   "stem": "그림처럼 경계가 데이터를 지나치게 따라간 모델(과대적합)의 특징은?",
+   "choices": [
+    "높은 분산, 낮은 편향",
+    "낮은 분산, 높은 편향",
+    "높은 분산, 높은 편향",
+    "낮은 분산, 낮은 편향"
+   ],
+   "answerIndex": 0,
+   "explanation": "과대적합은 데이터를 지나치게 학습해 복잡해진 모델로 높은 분산, 낮은 편향을 가집니다.",
+   "sourceQuote": "1. 과대적합 : 모델이 지나치게 데이터를 학습하여 매우 복잡해진 모델 (높은 분산, 낮은 편향)",
+   "image": "overfit_panel.png"
+  },
+  {
+   "id": "adsp-331",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "과소적합",
+   "stem": "그림처럼 데이터를 충분히 설명하지 못하는 단순한 모델(과소적합)의 특징은?",
+   "choices": [
+    "높은 분산, 낮은 편향",
+    "낮은 분산, 낮은 편향",
+    "높은 분산, 높은 편향",
+    "낮은 분산, 높은 편향"
+   ],
+   "answerIndex": 3,
+   "explanation": "과소적합은 단순한 모델로 낮은 분산, 높은 편향을 가집니다. 분산과 편향은 Trade-Off 관계입니다.",
+   "sourceQuote": "2. 과소적합 : 데이터를 충분히 설명하지 못하는 단순한 모델 (낮은 분산, 높은 편향)",
+   "image": "underfit_panel.png"
+  },
+  {
+   "id": "adsp-332",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "검증용 데이터",
+   "stem": "분할된 데이터 셋 중 모델의 과대·과소 적합을 조정(튜닝)하는 데 활용하는 것은?",
+   "choices": [
+    "평가용(Test Set)",
+    "검증용(Validation Set)",
+    "훈련용(Training Set)",
+    "부트스트랩 샘플"
+   ],
+   "answerIndex": 1,
+   "explanation": "훈련용은 학습, 검증용은 튜닝, 평가용은 모델 평가에 활용합니다.",
+   "sourceQuote": "검증용(Validation Set) : 모델의 과대, 과소 적합을 조정(튜닝)하는데 활용",
+   "image": null
+  },
+  {
+   "id": "adsp-333",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "평가용 데이터",
+   "stem": "분할된 데이터 셋 중 모델을 평가하는 데 활용하는 것은?",
+   "choices": [
+    "평가용(Test Set)",
+    "OOB 데이터",
+    "검증용(Validation Set)",
+    "훈련용(Training Set)"
+   ],
+   "answerIndex": 0,
+   "explanation": "평가용(Test Set)은 모델을 평가하는 데 활용합니다.",
+   "sourceQuote": "평가용(Test Set) : 모델을 평가하는데 활용",
+   "image": null
+  },
+  {
+   "id": "adsp-334",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "홀드아웃",
+   "stem": "전체 데이터를 학습용과 검증용으로 한 번만 나누어 사용하는 방법은?",
+   "choices": [
+    "LOOCV",
+    "부트스트래핑",
+    "홀드아웃",
+    "K-fold 교차검증"
+   ],
+   "answerIndex": 2,
+   "explanation": "홀드아웃은 데이터를 한 번만 나누어 사용합니다.",
+   "sourceQuote": "홀드아웃 : 전체 데이터를 학습용과 검증용으로 한 번만 나누어 사용",
+   "image": null
+  },
+  {
+   "id": "adsp-335",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "K-fold",
+   "stem": "데이터를 k개 집단으로 나누어 k-1개로 학습하고 나머지 1개로 검증하는 방법은?",
+   "choices": [
+    "홀드아웃",
+    "LOOCV",
+    "K-fold 교차검증",
+    "부트스트래핑"
+   ],
+   "answerIndex": 2,
+   "explanation": "K-fold 교차검증은 k-1개 학습, 나머지 1개 검증을 반복합니다.",
+   "sourceQuote": "K-fold 교차검증 : 데이터를 k개의 집단으로 구분하여 k-1개 학습, 나머지 1개로 검증",
+   "image": null
+  },
+  {
+   "id": "adsp-336",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "LOOCV",
+   "stem": "1개의 데이터로만 검증하고 나머지로 학습하며, 신뢰도가 높지만 연산량이 많은 방법은?",
+   "choices": [
+    "배깅",
+    "K-fold 교차검증",
+    "홀드아웃",
+    "LOOCV"
+   ],
+   "answerIndex": 3,
+   "explanation": "LOOCV는 1개로 검증하고 나머지로 학습하므로 연산량이 많습니다.",
+   "sourceQuote": "LOOCV : 1개의 데이터로만 검증 나머지로 학습, 신뢰도가 높지만 연산량이 많음",
+   "image": null
+  },
+  {
+   "id": "adsp-337",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "부트스트래핑",
+   "stem": "복원추출을 활용해 데이터 셋을 생성하여 데이터 부족·불균형 문제를 해소하는 방법은?",
+   "choices": [
+    "LOOCV",
+    "부트스트래핑",
+    "층화 추출",
+    "홀드아웃"
+   ],
+   "answerIndex": 1,
+   "explanation": "부트스트래핑은 복원추출로 데이터 셋을 생성합니다.",
+   "sourceQuote": "부트스트래핑 : 복원추출을 활용하여 데이터 셋을 생성, 데이터 부족, 불균형 문제 해소",
+   "image": null
+  },
+  {
+   "id": "adsp-338",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "로지스틱 대상",
+   "stem": "로지스틱 회귀분석이 활용되는 종속변수의 유형은?",
+   "choices": [
+    "연속형 수치 데이터",
+    "비정형 텍스트",
+    "범주형 데이터(성공/실패 2개 집단)",
+    "시계열 데이터"
+   ],
+   "answerIndex": 2,
+   "explanation": "로지스틱 회귀는 종속변수가 범주형인 경우 성공·실패 2개 집단 분류에 활용됩니다(회귀 → 수치형).",
+   "sourceQuote": "종속변수가 범주형 데이터를 대상으로 성공과 실패 2개의 집단을 분류하는 문제에 활용 (회귀 → 수치형)",
+   "image": null
+  },
+  {
+   "id": "adsp-339",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "오즈",
+   "stem": "성공할 확률과 실패할 확률의 비인 오즈(Odds)의 식은?",
+   "choices": [
+    "P / (1 − P)",
+    "1 / (1 + e^−x)",
+    "(1 − P) / P",
+    "log(P)"
+   ],
+   "answerIndex": 0,
+   "explanation": "Odds = P / (1 − P) = 성공확률 / 실패확률 입니다.",
+   "sourceQuote": "Odds = P / (1 − P) = 성공확률 / 실패확률",
+   "image": null
+  },
+  {
+   "id": "adsp-340",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "로짓변환",
+   "stem": "오즈에 자연로그를 취하여 선형 관계로 변환하는 것은?",
+   "choices": [
+    "표준화",
+    "로짓(logit)변환",
+    "Box-Cox 변환",
+    "시그모이드 함수"
+   ],
+   "answerIndex": 1,
+   "explanation": "로짓변환은 오즈에 자연로그를 취해 선형 관계로 바꿉니다.",
+   "sourceQuote": "로짓(logit)변환 : 오즈에 자연로그(자연상수 e가 밑)를 취하여 선형 관계로 변환",
+   "image": null
+  },
+  {
+   "id": "adsp-341",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "시그모이드",
+   "stem": "로짓 함수의 역함수로 0~1 사이 확률을 도출하는 함수는?",
+   "choices": [
+    "Tanh 함수",
+    "소프트맥스 함수",
+    "ReLU 함수",
+    "시그모이드 함수"
+   ],
+   "answerIndex": 3,
+   "explanation": "시그모이드 함수는 로짓 함수의 역함수로 0~1 사이 확률을 도출합니다.",
+   "sourceQuote": "시그모이드 함수 : 로짓 함수의 역함수를 통하여, 0~1사이 확률을 도출하는 함수",
+   "image": null
+  },
+  {
+   "id": "adsp-342",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "최대우도법",
+   "stem": "로지스틱 회귀분석에서 회귀계수를 추정하는 방법은?",
+   "choices": [
+    "최소제곱법",
+    "경사하강법",
+    "전진선택법",
+    "최대우도법"
+   ],
+   "answerIndex": 3,
+   "explanation": "로지스틱 회귀의 회귀계수는 최대우도법으로 추정하고, 모형 전체는 우도비검정(카이제곱검정)으로 검정합니다.",
+   "sourceQuote": "회귀계수 추정 : 최대우도법",
+   "image": null
+  },
+  {
+   "id": "adsp-343",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "우도비검정",
+   "stem": "로지스틱 회귀분석의 모형 전체 검정 방법은?",
+   "choices": [
+    "Welch 검정",
+    "우도비검정(카이제곱검정)",
+    "t검정",
+    "F검정"
+   ],
+   "answerIndex": 1,
+   "explanation": "모형 전체 검정은 우도비검정(카이제곱검정)입니다.",
+   "sourceQuote": "모형전체 검정 : 우도비검정(카이제곱검정)",
+   "image": null
+  },
+  {
+   "id": "adsp-344",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "KNN Lazy",
+   "stem": "단순하고 효율적이며 훈련이 따로 필요 없는 Lazy Model로, K에 따라 결과가 달라지는 분류 기법은?",
+   "choices": [
+    "KNN",
+    "나이브베이즈",
+    "SVM",
+    "의사결정나무"
+   ],
+   "answerIndex": 0,
+   "explanation": "KNN은 거리 기반으로 이웃에 더 많은 데이터가 포함된 범주로 분류하는 Lazy Model입니다.",
+   "sourceQuote": "단순하고 효율적이며, 훈련이 따로 필요 없는 Lazy Model",
+   "image": null
+  },
+  {
+   "id": "adsp-345",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "베이즈 사후확률",
+   "stem": "베이즈 정리 P(A|B) = P(B|A)P(A) / P(B)에서 P(A|B)를 무엇이라 하는가?",
+   "choices": [
+    "우도",
+    "주변우도",
+    "사전확률",
+    "사후확률"
+   ],
+   "answerIndex": 3,
+   "explanation": "P(A|B)는 사후확률, P(B|A)는 우도, P(A)는 사전확률, P(B)는 주변우도입니다.",
+   "sourceQuote": "(P(A|B) : 사후확률, P(B|A) : 우도, P(A) : 사전확률, P(B) : 주변우도)",
+   "image": null
+  },
+  {
+   "id": "adsp-346",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "베이즈 예제",
+   "stem": "남학생 60%·여학생 40%가 응시하고 합격률이 각각 30%·50%일 때, 합격한 신입생 중 남학생을 고를 확률은?",
+   "choices": [
+    "약 0.47",
+    "0.30",
+    "0.60",
+    "0.18"
+   ],
+   "answerIndex": 0,
+   "explanation": "P(남|합격) = 0.18 / (0.18 + 0.20) ≈ 0.47 입니다.",
+   "sourceQuote": "A대학 입시에 응시한 남학생과 여학생의 비율이 60%와 40%이고 남학생의 합격률은 30%, 여학생의 합격률은 50%일 때",
+   "image": null
+  },
+  {
+   "id": "adsp-347",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "나이브 가정",
+   "stem": "나이브베이즈 분류에 필요한 가정은?",
+   "choices": [
+    "군집 수를 사전에 안다는 가정",
+    "변수들이 서로 독립적이라는 가정",
+    "데이터가 정규분포를 따른다는 가정",
+    "오차의 등분산성"
+   ],
+   "answerIndex": 1,
+   "explanation": "나이브베이즈는 나이브(독립) + 베이즈 정리로 계산을 단순화하며 서로 독립이라는 가정이 필요합니다.",
+   "sourceQuote": "서로 독립적이라는 가정이 필요",
+   "image": null
+  },
+  {
+   "id": "adsp-348",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "베이즈 귀납",
+   "stem": "베이즈 정리는 과거의 경험을 활용하는 어떤 추론 방법인가?",
+   "choices": [
+    "연역적인 추론 방법",
+    "귀납적인 추론 방법",
+    "직관적 추론",
+    "가설 연역법"
+   ],
+   "answerIndex": 1,
+   "explanation": "베이즈 정리는 과거의 경험을 활용하는 귀납적인 추론 방법입니다.",
+   "sourceQuote": "☞ 과거의 경험을 활용하는 귀납적인 추론 방법",
+   "image": null
+  },
+  {
+   "id": "adsp-349",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "의사결정나무 특징",
+   "stem": "의사결정나무의 특징으로 옳은 것은?",
+   "choices": [
+    "훈련이 필요 없는 Lazy Model이다",
+    "화이트 박스 모델이며 과적합 위험이 높다",
+    "블랙박스 모델이며 과적합에 강하다",
+    "거리 기반 비지도학습이다"
+   ],
+   "answerIndex": 1,
+   "explanation": "의사결정나무는 해석이 가능한 화이트 박스 모델이지만 과적합 위험이 높습니다.",
+   "sourceQuote": "화이트 박스 모델, 높은 과적합 위험",
+   "image": null
+  },
+  {
+   "id": "adsp-350",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "가지치기",
+   "stem": "의사결정나무의 과적합 방지 방안 중 '일부 가지를 제거'하는 것은?",
+   "choices": [
+    "가지치기",
+    "드롭아웃",
+    "배깅",
+    "정지규칙"
+   ],
+   "answerIndex": 0,
+   "explanation": "정지규칙은 나무의 성장을 멈추고, 가지치기는 일부 가지를 제거합니다.",
+   "sourceQuote": "가지치기 : 일부 가지를 제거하여 과적합을 방지",
+   "image": null
+  },
+  {
+   "id": "adsp-351",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "정지규칙",
+   "stem": "의사결정나무에서 분리를 더 이상 수행하지 않고 나무의 성장을 멈추는 것은?",
+   "choices": [
+    "가지치기",
+    "부스팅",
+    "정지규칙",
+    "스태킹"
+   ],
+   "answerIndex": 2,
+   "explanation": "정지규칙은 분리를 멈춰 나무의 성장을 중단시킵니다.",
+   "sourceQuote": "정지규칙 : 분리를 더 이상 수행하지 않고 나무의 성장을 멈춤",
+   "image": null
+  },
+  {
+   "id": "adsp-352",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "CART 분류",
+   "stem": "분류(범주형) 의사결정나무에서 지니지수를 활용하는 알고리즘은?",
+   "choices": [
+    "Apriori",
+    "CHAID",
+    "CART",
+    "C4.5/C5.0"
+   ],
+   "answerIndex": 2,
+   "explanation": "분류에서 CHAID는 카이제곱 통계량, CART는 지니지수, C4.5/C5.0은 엔트로피지수를 사용합니다.",
+   "sourceQuote": "CART 알고리즘 : 지니지수 활용 (1 − ΣP²)",
+   "image": null
+  },
+  {
+   "id": "adsp-353",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "C4.5 엔트로피",
+   "stem": "분류 의사결정나무에서 엔트로피지수를 활용하는 알고리즘은?",
+   "choices": [
+    "FP-Growth",
+    "CART",
+    "CHAID",
+    "C4.5/C5.0"
+   ],
+   "answerIndex": 3,
+   "explanation": "C4.5/C5.0은 엔트로피지수(−ΣP(log₂P))를 활용합니다.",
+   "sourceQuote": "C4.5/C5.0 알고리즘 : 엔트로피지수 활용",
+   "image": null
+  },
+  {
+   "id": "adsp-354",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "CHAID 분류",
+   "stem": "분류 의사결정나무에서 카이제곱 통계량을 사용하는 알고리즘은?",
+   "choices": [
+    "C4.5/C5.0",
+    "KNN",
+    "CHAID",
+    "CART"
+   ],
+   "answerIndex": 2,
+   "explanation": "CHAID는 분류에서 카이제곱 통계량, 회귀에서 ANOVA F-통계량을 사용합니다.",
+   "sourceQuote": "CHAID 알고리즘 : 카이제곱 통계량",
+   "image": null
+  },
+  {
+   "id": "adsp-355",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "CART 회귀",
+   "stem": "회귀(연속형) 의사결정나무에서 CART 알고리즘이 사용하는 분할 기준은?",
+   "choices": [
+    "엔트로피지수",
+    "지니지수",
+    "카이제곱 통계량",
+    "분산감소량"
+   ],
+   "answerIndex": 3,
+   "explanation": "회귀에서 CHAID는 ANOVA·F-통계량, CART는 분산감소량을 사용합니다.",
+   "sourceQuote": "CART 알고리즘 : 분산감소량",
+   "image": null
+  },
+  {
+   "id": "adsp-356",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "지니지수 계산",
+   "stem": "그림처럼 앞면 3개, 뒷면 2개인 동전 5개의 지니지수는?",
+   "choices": [
+    "1/2",
+    "12/25",
+    "13/25",
+    "6/25"
+   ],
+   "answerIndex": 1,
+   "explanation": "앞면 확률 3/5, 뒷면 확률 2/5이므로 지니지수 = 1 − (3/5)² − (2/5)² = 12/25 입니다.",
+   "sourceQuote": "- 지니지수와 엔트로피지수 계산",
+   "image": "coins.png"
+  },
+  {
+   "id": "adsp-357",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "SVM 정의",
+   "stem": "마진이 최대가 되는 초평면을 찾아 이진 분류와 회귀에 활용 가능한 다목적 모델은?",
+   "choices": [
+    "서포트벡터머신(SVM)",
+    "랜덤포레스트",
+    "KNN",
+    "로지스틱 회귀분석"
+   ],
+   "answerIndex": 0,
+   "explanation": "SVM은 마진이 최대가 되는 초평면을 찾는 모델입니다.",
+   "sourceQuote": "마진이 최대가 되는 초평면을 찾아 선형이나 비선형 이진 분류, 회귀에서 활용 가능한 다목적 모델",
+   "image": null
+  },
+  {
+   "id": "adsp-358",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "서포트벡터",
+   "stem": "SVM에서 클래스를 나누는 하이퍼플레인과 가까운 위치의 샘플은?",
+   "choices": [
+    "커널함수",
+    "하이퍼플레인",
+    "서포트벡터",
+    "마진"
+   ],
+   "answerIndex": 2,
+   "explanation": "서포트벡터는 하이퍼플레인과 가까운 샘플이고, 마진은 하이퍼플레인과 서포트벡터 사이의 거리입니다.",
+   "sourceQuote": "서포트벡터 : 클래스를 나누는 하이퍼플레인과 가까운 위치의 샘플",
+   "image": null
+  },
+  {
+   "id": "adsp-359",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "커널함수",
+   "stem": "SVM에서 저차원 데이터를 고차원 데이터로 변경하는 함수는?",
+   "choices": [
+    "시그모이드 함수",
+    "손실함수",
+    "활성함수",
+    "커널함수"
+   ],
+   "answerIndex": 3,
+   "explanation": "커널함수는 저차원 데이터를 고차원으로 변경합니다.",
+   "sourceQuote": "커널함수 : 저차원 데이터를 고차원 데이터로 변경하는 함수",
+   "image": null
+  },
+  {
+   "id": "adsp-360",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "소프트마진",
+   "stem": "SVM에서 마진 내 어느 정도 오류를 허용하는 분류는?",
+   "choices": [
+    "하드마진분류",
+    "소프트보팅",
+    "소프트마진분류",
+    "하드보팅"
+   ],
+   "answerIndex": 2,
+   "explanation": "하드마진분류는 오류를 허용하지 않고, 소프트마진분류는 어느 정도 허용합니다.",
+   "sourceQuote": "소프트마진분류 : 마진 내 어느 정도 오류 허용",
+   "image": null
+  },
+  {
+   "id": "adsp-361",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "하이퍼플레인",
+   "stem": "SVM의 하이퍼플레인(초평면)을 결정하는 것은?",
+   "choices": [
+    "가중치벡터와 편향",
+    "마진의 최솟값",
+    "서포트벡터의 개수",
+    "커널의 종류만"
+   ],
+   "answerIndex": 0,
+   "explanation": "하이퍼플레인은 데이터를 구분하는 경계이며 가중치벡터와 편향으로 결정됩니다.",
+   "sourceQuote": "하이퍼플레인(초평면) : 데이터를 구분하는 기준이 되는 경계, 가중치벡터와 편향으로 결정",
+   "image": null
+  },
+  {
+   "id": "adsp-362",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "소프트보팅",
+   "stem": "앙상블 보팅 중 각 확률값의 평균으로 최종결과를 사용하는 방식은?",
+   "choices": [
+    "배깅",
+    "하드보팅",
+    "소프트보팅",
+    "스태킹"
+   ],
+   "answerIndex": 2,
+   "explanation": "하드보팅은 예측값의 다수결, 소프트보팅은 확률값의 평균을 사용합니다.",
+   "sourceQuote": "소프트보팅 : 각 확률값의 평균으로 최종결과 사용",
+   "image": null
+  },
+  {
+   "id": "adsp-363",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "배깅",
+   "stem": "복원추출 기반 붓스트랩(Bootstrap)을 생성해 모델을 학습한 후 보팅으로 결합하는 앙상블 기법은?",
+   "choices": [
+    "스태킹(Stacking)",
+    "부스팅(Boosting)",
+    "보팅(Voting)",
+    "배깅(Bagging)"
+   ],
+   "answerIndex": 3,
+   "explanation": "배깅은 붓스트랩으로 여러 모델을 학습해 보팅으로 결합합니다.",
+   "sourceQuote": "복원추출에 기반을 둔 붓스트랩(Bootstrap)을 생성하여 모델을 학습 후에 보팅으로 결합",
+   "image": null
+  },
+  {
+   "id": "adsp-364",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "OOB 확률",
+   "stem": "복원추출을 무한히 반복할 때 특정 하나의 데이터가 선택되지 않을 확률은?",
+   "choices": [
+    "36.8%",
+    "50%",
+    "63.2%",
+    "10%"
+   ],
+   "answerIndex": 0,
+   "explanation": "lim(N→∞)(1 − 1/N)^N = 36.8%이며, 이 데이터를 OOB로 활용합니다.",
+   "sourceQuote": "복원추출을 무한히 반복할 때 특정 하나의 데이터가 선택되지 않을 확률 (OOB 활용)",
+   "image": null
+  },
+  {
+   "id": "adsp-365",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "랜덤포레스트",
+   "stem": "배깅에 의사결정나무를 추가한 기법으로, 분산이 감소해 과적합에 강한 블랙박스 모델은?",
+   "choices": [
+    "KNN",
+    "SVM",
+    "AdaBoost",
+    "랜덤포레스트"
+   ],
+   "answerIndex": 3,
+   "explanation": "랜덤포레스트는 배깅 + 의사결정나무이며 편향은 높지만 분산이 감소합니다.",
+   "sourceQuote": "※ 랜덤포레스트 : 배깅에 의사결정나무를 추가하는 기법",
+   "image": null
+  },
+  {
+   "id": "adsp-366",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "부스팅",
+   "stem": "잘못된 분류 데이터에 큰 가중치를 주는 방법으로 이상치에 민감한 앙상블 기법은?",
+   "choices": [
+    "소프트보팅",
+    "배깅(Bagging)",
+    "부스팅(Boosting)",
+    "랜덤포레스트"
+   ],
+   "answerIndex": 2,
+   "explanation": "부스팅은 잘못 분류된 데이터에 큰 가중치를 주며 이상치에 민감합니다.",
+   "sourceQuote": "잘못된 분류 데이터에 큰 가중치를 주는 방법, 이상치에 민감",
+   "image": null
+  },
+  {
+   "id": "adsp-367",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "XGBoost",
+   "stem": "부스팅 종류 중 'GBM보다 빠르고 규제를 포함'한 것은?",
+   "choices": [
+    "XGBoost",
+    "AdaBoost",
+    "랜덤포레스트",
+    "Light GBM"
+   ],
+   "answerIndex": 0,
+   "explanation": "XGBoost는 GBM보다 빠르고 규제를 포함하며, Light GBM은 학습속도를 개선했습니다.",
+   "sourceQuote": "종류 : AdaBoost, GBM, XGBoost(GBM보다 빠르고 규제 포함), Light GBM(학습속도 개선)",
+   "image": null
+  },
+  {
+   "id": "adsp-368",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "스태킹",
+   "stem": "각 모델의 예측 결과를 메타 학습기로 다시 학습하는 앙상블 기법은?",
+   "choices": [
+    "배깅(Bagging)",
+    "부스팅(Boosting)",
+    "보팅(Voting)",
+    "스태킹(Stacking)"
+   ],
+   "answerIndex": 3,
+   "explanation": "스태킹은 각 모델의 예측 결과를 메타 학습기로 다시 학습합니다.",
+   "sourceQuote": "각각의 모델에서 학습한 예측 결과를 메타 학습기를 활용하여 다시 학습",
+   "image": null
+  },
+  {
+   "id": "adsp-369",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "병렬처리 불가",
+   "stem": "다음 중 병렬처리가 불가능한 앙상블 기법은?",
+   "choices": [
+    "랜덤포레스트",
+    "부스팅",
+    "보팅",
+    "배깅"
+   ],
+   "answerIndex": 1,
+   "explanation": "보팅, 배깅, 랜덤포레스트는 병렬처리가 가능하지만 부스팅은 불가합니다.",
+   "sourceQuote": "☞ 보팅, 배깅, 랜덤포레스트는 병렬처리가 가능하며, 부스팅은 병렬처리가 불가",
+   "image": null
+  },
+  {
+   "id": "adsp-370",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "단층 퍼셉트론 한계",
+   "stem": "인간의 뉴런을 모방한 단층 퍼셉트론이 해결하지 못한 문제는?",
+   "choices": [
+    "다중공선성 문제",
+    "XOR 문제",
+    "선형 회귀 문제",
+    "AND 문제"
+   ],
+   "answerIndex": 1,
+   "explanation": "단층 퍼셉트론은 XOR 문제를 해결할 수 없어, 은닉층을 넣은 다층 퍼셉트론이 등장했습니다.",
+   "sourceQuote": "인간의 뉴런을 모방한 단층 퍼셉트론의 등장, XOR 문제 해결의 불가",
+   "image": null
+  },
+  {
+   "id": "adsp-371",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "퍼셉트론 출력",
+   "stem": "그림의 퍼셉트론에서 (가)의 출력 값(W₁X₁ + W₂X₂ + b)은?",
+   "choices": [
+    "0.7",
+    "1.0",
+    "-0.3",
+    "0.3"
+   ],
+   "answerIndex": 0,
+   "explanation": "(0.6)×(0.5) + (−2.0)×(0.3) + (1.0) = 0.3 − 0.6 + 1.0 = 0.7 입니다.",
+   "sourceQuote": "출력 값 계산 예 : 입력 0.5, 0.3 / 가중치 0.6, −2.0 / 편향 1.0",
+   "image": "perceptron.png"
+  },
+  {
+   "id": "adsp-372",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "가중치 의미",
+   "stem": "인공신경망에서 가중치가 의미하는 것은?",
+   "choices": [
+    "학습률",
+    "각 퍼셉트론 간의 연결 강도",
+    "은닉층의 수",
+    "출력층의 노드 수"
+   ],
+   "answerIndex": 1,
+   "explanation": "가중치는 각 퍼셉트론 간의 연결 강도를 의미합니다.",
+   "sourceQuote": "☞ 가중치는 각 퍼셉트론 간의 연결 강도를 의미",
+   "image": null
+  },
+  {
+   "id": "adsp-373",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "하이퍼파라미터",
+   "stem": "인공신경망에서 은닉층 수와 노드 수의 성격은?",
+   "choices": [
+    "항상 1로 고정",
+    "사용자가 직접 설정하는 하이퍼파라미터",
+    "데이터 수와 같아야 함",
+    "학습으로 자동 결정되는 가중치"
+   ],
+   "answerIndex": 1,
+   "explanation": "은닉층 수와 노드 수는 사용자가 직접 설정하는 하이퍼파라미터입니다.",
+   "sourceQuote": "은닉층 수와 노드 수는 사용자가 직접 설정하는 하이퍼파라미터",
+   "image": null
+  },
+  {
+   "id": "adsp-374",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "은닉층 과다",
+   "stem": "인공신경망에서 은닉층 수가 많아질 때의 영향은?",
+   "choices": [
+    "복잡한 문제 해결이 가능하지만 과적합 위험이 증가한다",
+    "기울기 소실이 사라진다",
+    "과소적합 가능성이 커진다",
+    "블랙박스 문제가 해결된다"
+   ],
+   "answerIndex": 0,
+   "explanation": "은닉층이 많으면 과적합 위험, 적으면 과소적합 가능성이 커집니다.",
+   "sourceQuote": "은닉층 수가 많아지면 복잡한 문제 해결 가능하지만, 과적합 위험 증가",
+   "image": null
+  },
+  {
+   "id": "adsp-375",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "역전파",
+   "stem": "가중치를 수정하여 손실함수의 값을 줄이며 합성함수의 곱을 활용하는 학습 방법은?",
+   "choices": [
+    "순전파",
+    "경사하강법",
+    "역전파 알고리즘",
+    "최대우도법"
+   ],
+   "answerIndex": 2,
+   "explanation": "역전파 알고리즘은 가중치를 수정해 손실함수 값을 줄입니다. 순전파는 정보를 전방으로 전달합니다.",
+   "sourceQuote": "역전파 알고리즘 : 가중치를 수정하여 손실함수의 값을 줄임 (합성함수의 곱 활용)",
+   "image": null
+  },
+  {
+   "id": "adsp-376",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "경사하강법",
+   "stem": "경사의 내리막길로 이동하여 오차가 최소가 되는 해를 찾는 기법(편미분 활용)은?",
+   "choices": [
+    "경사하강법",
+    "역전파 알고리즘",
+    "Elbow Method",
+    "최소제곱법"
+   ],
+   "answerIndex": 0,
+   "explanation": "경사하강법은 편미분을 활용해 오차가 최소가 되는 해를 찾습니다.",
+   "sourceQuote": "경사하강법 : 경사의 내리막길로 이동하여 오차가 최소가 되는 최적의 해를 찾는 기법 (편미분 활용)",
+   "image": null
+  },
+  {
+   "id": "adsp-377",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "기울기 소실",
+   "stem": "다수의 은닉층에서 시그모이드 함수 사용 시 학습이 제대로 되지 않는 문제는?",
+   "choices": [
+    "XOR 문제",
+    "과소적합 문제",
+    "기울기 소실 문제",
+    "다중공선성 문제"
+   ],
+   "answerIndex": 2,
+   "explanation": "기울기 소실 문제는 시그모이드를 여러 은닉층에서 쓸 때 발생합니다.",
+   "sourceQuote": "기울기 소실 문제 : 다수의 은닉층에서 시그모이드 함수 사용 시, 학습이 제대로 되지 않는 문제",
+   "image": null
+  },
+  {
+   "id": "adsp-378",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "ReLU",
+   "stem": "기울기 소실 문제를 극복한 활성함수 max(0, x)는?",
+   "choices": [
+    "소프트맥스 함수",
+    "시그모이드 함수",
+    "Tanh 함수",
+    "ReLU 함수"
+   ],
+   "answerIndex": 3,
+   "explanation": "ReLU는 기울기 소실을 극복하며, Tanh는 −1~1 값으로 기울기 소실을 지연시킵니다.",
+   "sourceQuote": "ReLU 함수 : 기울기 소실문제를 극복, max(0, x)",
+   "image": null
+  },
+  {
+   "id": "adsp-379",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "Tanh",
+   "stem": "−1 ~ 1 사이 값을 가지며 시그모이드 함수의 기울기 소실 문제를 '지연'시키는 활성함수는?",
+   "choices": [
+    "소프트맥스 함수",
+    "ReLU 함수",
+    "하이퍼볼릭 탄젠트(Tanh) 함수",
+    "시그모이드 함수"
+   ],
+   "answerIndex": 2,
+   "explanation": "Tanh 함수는 −1~1 사이 값으로 기울기 소실을 지연시킵니다.",
+   "sourceQuote": "하이퍼볼릭 탄젠트(Tanh) 함수 : −1 ~ 1 사이 값, 시그모이드 함수의 기울기 소실문제를 지연",
+   "image": null
+  },
+  {
+   "id": "adsp-380",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "소프트맥스",
+   "stem": "출력층에서 다중분류 모델에 쓰이며 확률의 총합이 1인 함수는?",
+   "choices": [
+    "소프트맥스 함수",
+    "ReLU 함수",
+    "Tanh 함수",
+    "시그모이드 함수"
+   ],
+   "answerIndex": 0,
+   "explanation": "출력층에서 이진분류는 시그모이드, 다중분류는 소프트맥스 함수를 씁니다.",
+   "sourceQuote": "소프트맥스 함수 : 다중분류 모델, 확률의 총합이 1",
+   "image": null
+  },
+  {
+   "id": "adsp-381",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "크로스 엔트로피",
+   "stem": "분류 모델에 사용하는 손실함수는?",
+   "choices": [
+    "MSE(Mean Square Error)",
+    "WCSS",
+    "크로스 엔트로피(Cross-Entropy)",
+    "지니지수"
+   ],
+   "answerIndex": 2,
+   "explanation": "MSE는 회귀 모델, 크로스 엔트로피는 분류 모델의 손실함수입니다.",
+   "sourceQuote": "크로스 엔트로피(Cross-Entropy) : 분류 모델",
+   "image": null
+  },
+  {
+   "id": "adsp-382",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "MSE 손실",
+   "stem": "회귀 모델에 사용하는 손실함수는?",
+   "choices": [
+    "실루엣 계수",
+    "소프트맥스",
+    "크로스 엔트로피",
+    "MSE(Mean Square Error)"
+   ],
+   "answerIndex": 3,
+   "explanation": "MSE는 회귀 모델의 손실함수입니다.",
+   "sourceQuote": "MSE(Mean Square Error) : 회귀 모델",
+   "image": null
+  },
+  {
+   "id": "adsp-383",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "혼동행렬 FP",
+   "stem": "그림의 오분류표에서 '예측은 TRUE인데 실제는 FALSE'인 칸은?",
+   "choices": [
+    "TRUE NEGATIVE (TN)",
+    "TRUE POSITIVE (TP)",
+    "FALSE POSITIVE (FP)",
+    "FALSE NEGATIVE (FN)"
+   ],
+   "answerIndex": 2,
+   "explanation": "예측과 실제가 같으면 TRUE, 예측이 TRUE면 POSITIVE입니다. 예측 TRUE·실제 FALSE는 FP입니다.",
+   "sourceQuote": "☞ 예측과 실제가 같으면 TRUE, 예측이 TRUE면 POSITIVE",
+   "image": "confusion.png"
+  },
+  {
+   "id": "adsp-384",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "정밀도 식",
+   "stem": "정밀도(Precision)의 계산식은?",
+   "choices": [
+    "TP / (TP + FN)",
+    "TN / (FP + TN)",
+    "(TP + TN) / 전체",
+    "TP / (TP + FP)"
+   ],
+   "answerIndex": 3,
+   "explanation": "정밀도 = TP / (TP + FP), 재현율 = TP / (TP + FN) 입니다.",
+   "sourceQuote": "정밀도(Precision) TP TP + FP",
+   "image": null
+  },
+  {
+   "id": "adsp-385",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "재현율 다른이름",
+   "stem": "재현율(Recall)을 부르는 다른 이름이 아닌 것은?",
+   "choices": [
+    "TP Rate",
+    "특이도(Specificity)",
+    "Hit Rate",
+    "민감도(Sensitivity)"
+   ],
+   "answerIndex": 1,
+   "explanation": "재현율은 민감도, TP Rate, Hit Rate라고도 합니다. 특이도는 TN / (FP + TN)으로 다른 지표입니다.",
+   "sourceQuote": "재현율(Recall)은 민감도(Sensitivity), TP Rate, Hit Rate라고도 함",
+   "image": null
+  },
+  {
+   "id": "adsp-386",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "특이도 식",
+   "stem": "특이도(Specificity)의 계산식은?",
+   "choices": [
+    "TP / (TP + FN)",
+    "TP / (TP + FP)",
+    "FP / (FP + TN)",
+    "TN / (FP + TN)"
+   ],
+   "answerIndex": 3,
+   "explanation": "특이도 = TN / (FP + TN), FP Rate = FP / (FP + TN) 입니다.",
+   "sourceQuote": "특이도(Specificity) TN FP + TN",
+   "image": null
+  },
+  {
+   "id": "adsp-387",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "F1 Score",
+   "stem": "Precision과 Recall의 조화평균인 지표는?",
+   "choices": [
+    "정확도(Accuracy)",
+    "F-1 Score",
+    "AUC",
+    "향상도"
+   ],
+   "answerIndex": 1,
+   "explanation": "F-1 Score는 Precision과 Recall의 조화평균입니다.",
+   "sourceQuote": "F-1 Score는 Precision과 Recall의 조화평균",
+   "image": null
+  },
+  {
+   "id": "adsp-388",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "F-beta",
+   "stem": "F-β Score에서 β > 1일 때 더 큰 비중을 두는 지표는?",
+   "choices": [
+    "정밀도(Precision)",
+    "특이도",
+    "정확도",
+    "재현율(Recall)"
+   ],
+   "answerIndex": 3,
+   "explanation": "β > 1이면 재현율, β < 1이면 정밀도에 큰 비중을 두며, β = 1이면 F-1 Score와 같습니다.",
+   "sourceQuote": "F-β Score : β > 1 → 재현율(Recall)에 큰 비중 / β < 1 → 정밀도(Precision)에 큰 비중 / β = 1 → F-1 Score와 동일",
+   "image": null
+  },
+  {
+   "id": "adsp-389",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "Precision Recall 관계",
+   "stem": "Precision과 Recall의 관계는?",
+   "choices": [
+    "Trade-Off 관계",
+    "항상 비례",
+    "항상 같은 값",
+    "서로 무관"
+   ],
+   "answerIndex": 0,
+   "explanation": "Precision과 Recall은 Trade-Off 관계입니다.",
+   "sourceQuote": "Precision과 Recall은 Trade-Off 관계",
+   "image": null
+  },
+  {
+   "id": "adsp-390",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "ROC 축",
+   "stem": "ROC 커브의 가로축과 세로축은?",
+   "choices": [
+    "가로축 정밀도, 세로축 재현율",
+    "가로축 민감도, 세로축 특이도",
+    "가로축 1-특이도(FPR), 세로축 민감도(TPR)",
+    "가로축 군집 수, 세로축 WCSS"
+   ],
+   "answerIndex": 2,
+   "explanation": "ROC 커브는 가로축 1-특이도(FPR), 세로축 민감도(TPR)로 그립니다.",
+   "sourceQuote": "가로축을 1-특이도(FPR), 세로축을 민감도(TPR)로 두어 시각화한 그래프",
+   "image": null
+  },
+  {
+   "id": "adsp-391",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "AUC",
+   "stem": "ROC 그래프 면적(AUC)에 대한 설명으로 옳은 것은?",
+   "choices": [
+    "−1~1 사이이며 0이 가장 좋다",
+    "클수록 과적합이다",
+    "0~0.5 사이이며 0에 가까울수록 좋다",
+    "0.5~1 사이이며 1에 가까울수록 성능이 좋다"
+   ],
+   "answerIndex": 3,
+   "explanation": "AUC는 0.5~1 사이이며 1에 가까울수록 모델 성능이 좋다고 평가합니다.",
+   "sourceQuote": "그래프 면적(AUC)은 0.5~1사이이며, 1에 가까울수록 모델의 성능이 좋다고 평가",
+   "image": null
+  },
+  {
+   "id": "adsp-392",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "이익도표",
+   "stem": "등급별로 반응검출율, 반응률, 리프트 등의 정보를 산출하여 나타내는 도표는?",
+   "choices": [
+    "이익도표(Lift chart)",
+    "덴드로그램",
+    "스크리플롯",
+    "ROC 커브"
+   ],
+   "answerIndex": 0,
+   "explanation": "이익도표는 등급별 반응검출율·반응률·리프트를 나타내며, 이를 시각화한 것이 향상도 곡선입니다.",
+   "sourceQuote": "임의로 나눈 각 등급별로 반응검출율, 반응률, 리프트 등의 정보를 산출하여 나타내는 도표",
+   "image": null
+  },
+  {
+   "id": "adsp-393",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "군집분석 정의",
+   "stem": "데이터 간 거리나 유사성을 기준으로 군집을 나누는 비지도 학습 분석은?",
+   "choices": [
+    "회귀분석",
+    "연관분석",
+    "군집분석",
+    "분류분석"
+   ],
+   "answerIndex": 2,
+   "explanation": "군집분석은 비지도 학습입니다(지도 - 분류, 회귀 / 비지도 - 군집).",
+   "sourceQuote": "비지도 학습으로 데이터들 간 거리나 유사성을 기준으로 군집을 나누는 분석",
+   "image": null
+  },
+  {
+   "id": "adsp-394",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "덴드로그램 15",
+   "stem": "그림의 덴드로그램에서 거리 15에서 나누면 몇 개의 클러스터가 되는가?",
+   "choices": [
+    "2개",
+    "6개",
+    "3개",
+    "4개"
+   ],
+   "answerIndex": 2,
+   "explanation": "거리 15에서 나누면 3개(AB, CD, EF), 25에서 나누면 2개의 클러스터가 됩니다.",
+   "sourceQuote": "- 거리를 15에서 나누면 3개의 클러스터, 25에서 나누면 2개의 클러스터로 나눌 수 있음",
+   "image": "dendrogram.png"
+  },
+  {
+   "id": "adsp-395",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "맨하튼 거리",
+   "stem": "그림에서 A(1,2), B(4,4) 사이의 맨하튼 거리는?",
+   "choices": [
+    "√13",
+    "7",
+    "3",
+    "5"
+   ],
+   "answerIndex": 3,
+   "explanation": "맨하튼 거리 = |4−1| + |4−2| = 5, 유클리디안 = √13, 체비셰프 = 3 입니다.",
+   "sourceQuote": "맨하튼 거리 : |4−1| + |4−2| = 5",
+   "image": "distance.png"
+  },
+  {
+   "id": "adsp-396",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "체비셰프 거리",
+   "stem": "변수 거리 차 중 최댓값을 거리로 사용하는 방식은?",
+   "choices": [
+    "민코우스키 거리",
+    "맨하튼 거리",
+    "유클리디안 거리",
+    "체비셰프 거리"
+   ],
+   "answerIndex": 3,
+   "explanation": "체비셰프 거리는 변수 거리 차 중 최댓값입니다. A(1,2), B(4,4)이면 max(3, 2) = 3입니다.",
+   "sourceQuote": "체비셰프 거리 : 변수 거리 차 중 최댓값",
+   "image": null
+  },
+  {
+   "id": "adsp-397",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "민코우스키",
+   "stem": "유클리드, 맨하튼 거리를 일반화한 거리는?",
+   "choices": [
+    "체비셰프 거리",
+    "마할라노비스 거리",
+    "민코우스키 거리",
+    "표준화 거리"
+   ],
+   "answerIndex": 2,
+   "explanation": "민코우스키 거리 d = [Σ|xi − yi|^p]^(1/p)는 유클리드·맨하튼을 일반화합니다.",
+   "sourceQuote": "민코우스키 거리 : 유클리드, 맨하튼 거리를 일반화한 거리",
+   "image": null
+  },
+  {
+   "id": "adsp-398",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "마할라노비스",
+   "stem": "표준화 거리에서 변수의 상관관계를 고려하는 거리는?",
+   "choices": [
+    "유클리디안 거리",
+    "자카드 유사도",
+    "표준화 거리",
+    "마할라노비스 거리"
+   ],
+   "answerIndex": 3,
+   "explanation": "마할라노비스 거리는 변수 간 상관관계를 고려합니다.",
+   "sourceQuote": "마할라노비스 : 표준화 거리에서 변수의 상관관계를 고려",
+   "image": null
+  },
+  {
+   "id": "adsp-399",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "자카드 유사도",
+   "stem": "범주형 변수의 유사도 중 J = |A∩B| / |A∪B|로 계산하는 것은?",
+   "choices": [
+    "마할라노비스 거리",
+    "코사인 유사도",
+    "자카드 유사도",
+    "맨하튼 거리"
+   ],
+   "answerIndex": 2,
+   "explanation": "범주형 변수에는 자카드 유사도와 코사인 유사도(cosθ = A·B / (|A||B|))를 씁니다.",
+   "sourceQuote": "자카드 유사도 : J = |A∩B| / |A∪B|",
+   "image": null
+  },
+  {
+   "id": "adsp-400",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "와드 연결법",
+   "stem": "두 군집의 편차 제곱합이 최소가 되는 위치를 기준으로 하는 연결법은?",
+   "choices": [
+    "중심 연결법",
+    "와드 연결법",
+    "단일 연결법",
+    "평균 연결법"
+   ],
+   "answerIndex": 1,
+   "explanation": "와드 연결법은 두 군집의 편차 제곱합이 최소가 되는 위치를 기준으로 합니다.",
+   "sourceQuote": "와드 연결법 : 두 군집의 편차 제곱합이 최소가 되는 위치",
+   "image": null
+  },
+  {
+   "id": "adsp-401",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "K-means 특징",
+   "stem": "K평균 군집화(K-means)의 특징으로 옳지 않은 것은?",
+   "choices": [
+    "군집의 수 K를 사전에 지정한다",
+    "군집의 수를 사전에 정하지 않아도 된다",
+    "이상치나 초기 중심점 설정에 민감하다",
+    "중심점이 변경되면 데이터의 군집이 변할 수 있다"
+   ],
+   "answerIndex": 1,
+   "explanation": "K-means는 K를 사전에 지정합니다. 군집 수를 사전에 정하지 않아도 되는 것은 DBSCAN입니다.",
+   "sourceQuote": "군집의 수 K를 사전에 지정",
+   "image": null
+  },
+  {
+   "id": "adsp-402",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "K-means 중심점",
+   "stem": "K-means 과정에서 데이터를 군집에 할당한 뒤 중심점을 재설정하는 기준은?",
+   "choices": [
+    "데이터의 중앙값",
+    "데이터의 최빈값",
+    "데이터의 평균",
+    "가장 먼 데이터"
+   ],
+   "answerIndex": 2,
+   "explanation": "데이터의 평균으로 중심점을 재설정하고, 중심점이 변하지 않을 때까지 반복합니다.",
+   "sourceQuote": "데이터의 평균으로 중심점 재설정",
+   "image": null
+  },
+  {
+   "id": "adsp-403",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "K-modes",
+   "stem": "범주형 데이터인 경우 최빈값(mode)을 활용하는 K-means의 변형은?",
+   "choices": [
+    "K-medoids",
+    "SOM",
+    "K-modes",
+    "DBSCAN"
+   ],
+   "answerIndex": 2,
+   "explanation": "K-modes는 최빈값, K-medoids는 실제 데이터의 대표 값을 중심점으로 사용합니다.",
+   "sourceQuote": "K-modes : 범주형 데이터인 경우 최빈값(mode) 활용",
+   "image": null
+  },
+  {
+   "id": "adsp-404",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "K-medoids",
+   "stem": "실제 데이터의 대표 값을 중심점으로 선정하여 이상치에 강건한 K-means 변형은?",
+   "choices": [
+    "K-medoids",
+    "EM알고리즘",
+    "퍼지군집화",
+    "K-modes"
+   ],
+   "answerIndex": 0,
+   "explanation": "K-medoids는 실제 데이터를 중심점으로 삼아 이상치에 강건합니다.",
+   "sourceQuote": "K-medoids : 실제 데이터의 대표 값을 중심점으로 선정하여 이상치에 강건",
+   "image": null
+  },
+  {
+   "id": "adsp-405",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "DBSCAN",
+   "stem": "밀도기반 비계층적 군집화로, 군집 수를 사전에 정하지 않아도 되며 Eps와 MinPts를 설정하는 방법은?",
+   "choices": [
+    "K-means",
+    "DBSCAN",
+    "계층적 군집",
+    "SOM"
+   ],
+   "answerIndex": 1,
+   "explanation": "DBSCAN은 밀도기반이며 노이즈와 이상치에 강합니다.",
+   "sourceQuote": "비계층적 군집화 방법으로 밀도기반",
+   "image": null
+  },
+  {
+   "id": "adsp-406",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "퍼지군집화",
+   "stem": "각 데이터가 특정 군집에 속할 확률을 계산해가며 군집화하는 확률 기반 방법은?",
+   "choices": [
+    "퍼지군집화",
+    "SOM",
+    "EM알고리즘",
+    "K-medoids"
+   ],
+   "answerIndex": 0,
+   "explanation": "퍼지군집화는 확률 기반, EM알고리즘은 분포 기반, SOM은 그래프 기반입니다.",
+   "sourceQuote": "1. 퍼지군집화 - 확률 기반 : 각 데이터가 특정 군집에 속할 확률을 각각 계산해가며 군집화",
+   "image": null
+  },
+  {
+   "id": "adsp-407",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "EM 알고리즘",
+   "stem": "Likelihood의 기댓값을 계산하는 단계와 이를 최대화하는 추정값을 계산하는 단계를 반복하는 분포 기반 방법은?",
+   "choices": [
+    "K-means",
+    "Apriori",
+    "EM알고리즘",
+    "퍼지군집화"
+   ],
+   "answerIndex": 2,
+   "explanation": "EM알고리즘은 E단계와 M단계를 반복합니다.",
+   "sourceQuote": "2. EM알고리즘 - 분포 기반 : Likelihood의 기댓값을 계산하는 E단계와 기댓값 최대화 추정값을 계산하는 M단계 반복",
+   "image": null
+  },
+  {
+   "id": "adsp-408",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "SOM",
+   "stem": "신경망을 활용해 차원축소로 지도 형태로 형상화하여 군집화하며, 경쟁 학습을 하는 방법은?",
+   "choices": [
+    "주성분 분석(PCA)",
+    "다차원 척도법(MDS)",
+    "자기조직화지도(SOM)",
+    "DBSCAN"
+   ],
+   "answerIndex": 2,
+   "explanation": "SOM은 그래프 기반이며 완전연결 형태, 순전파 방식만 사용하고 경쟁 학습을 합니다.",
+   "sourceQuote": "신경망을 활용하여 차원축소를 통해 지도로 형상화하여 군집화하는 방법",
+   "image": null
+  },
+  {
+   "id": "adsp-409",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "실루엣 a(i)",
+   "stem": "실루엣 계수에서 a(i)의 의미는?",
+   "choices": [
+    "군집 중심과의 거리 제곱합",
+    "i번째 데이터와 자신이 속한 군집 내 다른 데이터들과의 평균 거리",
+    "가장 가까운 다른 군집 데이터들과의 평균 거리",
+    "전체 데이터의 평균 거리"
+   ],
+   "answerIndex": 1,
+   "explanation": "a(i)는 같은 군집 내 평균 거리, b(i)는 가장 가까운 다른 군집과의 평균 거리이며 실루엣 계수는 −1~1입니다.",
+   "sourceQuote": "a(i) : i번째 데이터에서 자신이 속한 군집 내 다른 데이터 포인트 들과의 평균 거리",
+   "image": null
+  },
+  {
+   "id": "adsp-410",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "엘보우",
+   "stem": "그림은 Elbow Method 그래프이다. 경사가 완만해지는 지점을 기준으로 할 때 최적의 K 개수는?",
+   "choices": [
+    "6",
+    "9",
+    "2",
+    "4"
+   ],
+   "answerIndex": 3,
+   "explanation": "Elbow Method는 경사가 완만해지는 지점을 최적의 K로 선택하며, 그림에서는 K = 4입니다.",
+   "sourceQuote": "- 경사가 완만해지는 지점이 최적의 K 개수",
+   "image": "elbow.png"
+  },
+  {
+   "id": "adsp-411",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "WCSS",
+   "stem": "군집 내 중심 값과 클러스터 내 데이터의 거리 제곱합을 나타내는 군집 평가지표는?",
+   "choices": [
+    "AUC",
+    "향상도",
+    "실루엣 계수",
+    "WCSS"
+   ],
+   "answerIndex": 3,
+   "explanation": "WCSS(Within Clusters Sum of Squares)는 군집 내 거리 제곱합이며 Elbow Method에 활용됩니다.",
+   "sourceQuote": "2. WCSS (Within Clusters Sum of Squares) : 군집 내 중심 값(C)과 클러스터 내에 있는 데이터(d)의 거리 제곱합",
+   "image": null
+  },
+  {
+   "id": "adsp-412",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "좋은 군집",
+   "stem": "좋은 군집 모델의 조건으로 옳은 것은?",
+   "choices": [
+    "같은 군집 간 응집도가 낮다",
+    "같은 군집 간에는 응집도가 높고, 다른 군집 간에는 응집도가 낮다",
+    "군집 수가 많을수록 좋다",
+    "모든 군집의 크기가 같다"
+   ],
+   "answerIndex": 1,
+   "explanation": "같은 군집 간에는 응집도가 높고 다른 군집 간에는 낮아야 좋은 모델입니다.",
+   "sourceQuote": "☞ 같은 군집간에는 응집도가 높고, 다른 군집간에는 응집도가 낮아야 좋은 모델",
+   "image": null
+  },
+  {
+   "id": "adsp-413",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "연관분석 특징",
+   "stem": "연관분석(장바구니 분석)의 특징으로 옳지 않은 것은?",
+   "choices": [
+    "항목들 간 조건-결과 패턴을 발견한다",
+    "품목 수가 증가할수록 계산량이 기하급수적으로 증가한다",
+    "목적변수가 있는 목적성 분석기법이다",
+    "결과가 단순하고 분명하다(IF~THEN~)"
+   ],
+   "answerIndex": 2,
+   "explanation": "연관분석은 비목적성 분석기법입니다.",
+   "sourceQuote": "비목적성 분석기법",
+   "image": null
+  },
+  {
+   "id": "adsp-414",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "순차패턴",
+   "stem": "연관 분석에 시간 개념을 추가하여 수행하는 분석은?",
+   "choices": [
+    "순차패턴분석",
+    "생존분석",
+    "군집분석",
+    "시계열 분석"
+   ],
+   "answerIndex": 0,
+   "explanation": "연관 분석에 시간 개념을 추가하면 순차패턴분석입니다.",
+   "sourceQuote": "☞ 연관 분석에 시간 개념을 추가하여 순차패턴분석을 수행",
+   "image": null
+  },
+  {
+   "id": "adsp-415",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "신뢰도 정의",
+   "stem": "연관분석 지표 중 'A 품목이 거래될 때 B 품목도 거래될 확률(조건부 확률)'은?",
+   "choices": [
+    "신뢰도",
+    "향상도",
+    "정밀도",
+    "지지도"
+   ],
+   "answerIndex": 0,
+   "explanation": "지지도는 P(A∩B), 신뢰도는 P(A∩B)/P(A), 향상도는 P(A∩B)/(P(A)P(B))입니다('지신향').",
+   "sourceQuote": "A 품목이 거래 될 때 B품목도 거래될 확률 (조건부 확률)",
+   "image": null
+  },
+  {
+   "id": "adsp-416",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "향상도 해석",
+   "stem": "연관분석에서 향상도가 1보다 클 때의 의미는?",
+   "choices": [
+    "신뢰도가 1",
+    "음의 상관관계",
+    "상관없음",
+    "양의 상관관계"
+   ],
+   "answerIndex": 3,
+   "explanation": "향상도 > 1은 양의 상관관계, = 1은 상관없음, < 1은 음의 상관관계입니다.",
+   "sourceQuote": "A 품목과 B 품목의 상관성 (향상도 > 1 : 양의상관관계, 향상도 = 1 : 상관없음, 향상도 < 1 : 음의상관관계)",
+   "image": null
+  },
+  {
+   "id": "adsp-417",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "맥주치킨 신뢰도",
+   "stem": "그림의 거래 데이터(전체 200건)에서 맥주 → 치킨의 신뢰도는?",
+   "choices": [
+    "0.3",
+    "0.5",
+    "1.33",
+    "0.6"
+   ],
+   "answerIndex": 3,
+   "explanation": "맥주 구매 확률 0.5, 맥주와 치킨 지지도 (20 + 40)/200 = 0.3이므로 신뢰도 = 0.3 / 0.5 = 0.6 입니다.",
+   "sourceQuote": "(4) 맥주 → 치킨의 신뢰도 = 0.3 / 0.5 = 0.6",
+   "image": "assoc_table.png"
+  },
+  {
+   "id": "adsp-418",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "맥주치킨 향상도",
+   "stem": "그림의 거래 데이터에서 맥주와 치킨의 향상도는? (맥주 0.5, 치킨 0.45, 지지도 0.3)",
+   "choices": [
+    "약 1.33",
+    "0.6",
+    "0.45",
+    "0.3"
+   ],
+   "answerIndex": 0,
+   "explanation": "향상도 = 0.3 / (0.5 × 0.45) ≈ 1.33 으로 1보다 크므로 양의 상관관계입니다.",
+   "sourceQuote": "(5) 맥주와 치킨의 향상도 = 0.3 / (0.5 * 0.45) = 1.33",
+   "image": "assoc_table.png"
+  },
+  {
+   "id": "adsp-419",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "Apriori",
+   "stem": "최소 지지도를 만족하는 빈발 항목을 추출하여 연관규칙분석의 연산량을 줄이는 알고리즘은?",
+   "choices": [
+    "Apriori 알고리즘",
+    "FP-Growth 알고리즘",
+    "EM알고리즘",
+    "CART 알고리즘"
+   ],
+   "answerIndex": 0,
+   "explanation": "Apriori는 최소 지지도로 빈발 항목을 추출하고, FP-Growth는 이 반복 과정을 트리 기반으로 대체합니다.",
+   "sourceQuote": "최소 지지도를 만족하는 빈발 항목을 추출하여 연관규칙분석의 연산량을 줄이는 기법",
+   "image": null
+  },
+  {
+   "id": "adsp-420",
+   "subject": 3,
+   "chapter": "3-6",
+   "concept": "FP-Growth",
+   "stem": "Apriori 알고리즘의 반복 과정을 트리 기반으로 대체하여 연산 효율을 높인 알고리즘은?",
+   "choices": [
+    "C4.5 알고리즘",
+    "FP-Growth 알고리즘",
+    "Apriori 알고리즘",
+    "CHAID 알고리즘"
+   ],
+   "answerIndex": 1,
+   "explanation": "FP-Growth는 트리 기반으로 연산 효율을 향상시켰습니다.",
+   "sourceQuote": "Apriori 알고리즘의 반복 과정을 트리 기반으로 대체하여 연산 효율 향상",
+   "image": null
+  }
+ ]
+}
