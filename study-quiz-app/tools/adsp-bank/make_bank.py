@@ -20,6 +20,10 @@ from collections import Counter
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
+sys.path.insert(0, str(HERE))
+import glossary  # noqa: E402
+import glossary_extra  # noqa: E402
+from choice_notes import NOTES  # noqa: E402
 APP = HERE.parent.parent
 SOURCES = ["q1.py", "q2.py", "q3a.py", "q3b.py", "q3c.py"]
 OUT_JSON = APP / "src" / "data" / "adsp_bank.json"
@@ -122,6 +126,78 @@ def validate(qs: list[dict], source_text: str) -> int:
     return errors
 
 
+MAX_TERMS = 8
+MAX_CHOICE_TERMS = 3
+
+
+def annotate(qs: list[dict], source_text: str) -> tuple[list[dict], int]:
+    """문제마다 용어정리(glossary)와 오답 선지 설명(choiceInfo)을 만든다. 오류 수를 함께 돌려준다."""
+    src = compact(source_text)
+    errors = 0
+    entries = glossary.extract(source_text) + glossary_extra.EXTRA
+    glossary_extra.apply_aliases(entries)
+    for e in entries:
+        if compact(e["src"]) not in src:
+            print("용어집 설명이 PDF에 없음:", e["term"], "|", e["src"][:60])
+            errors += 1
+
+    keys = {(x["c"], c) for x in qs for c in x["o"][1:]}
+    used_notes = set()
+    out = []
+    for x in qs:
+        ctx = " ".join([x["q"], x["e"], x["src"], *x["o"]])
+        answer = x["o"][0]
+        # 용어정리: 정답 선지 → 다른 선지 → 문제 본문 순
+        picked, seen = [], set()
+        groups = [glossary.terms_in(answer, entries, True, ctx)]
+        groups += [glossary.terms_in(c, entries, True, ctx) for c in x["o"][1:]]
+        # 문제별로 직접 지정한 용어(보기에 없는 핵심어)
+        groups.append([glossary_extra.find(entries, name, ctx) for name in glossary_extra.QT.get(x["c"], [])])
+        groups.append(glossary.terms_in(x["q"], entries, False, ctx))
+        for g in groups:
+            for e in g:
+                if e["term"] not in seen and len(picked) < MAX_TERMS:
+                    seen.add(e["term"])
+                    picked.append({"term": e["term"], "def": e["def"]})
+        # 오답 선지 설명
+        info = [None]
+        for c in x["o"][1:]:
+            lines = []
+            note = NOTES.get((x["c"], c))
+            if note:
+                used_notes.add((x["c"], c))
+                text, quote = note
+                if quote is None:
+                    if len(compact(c)) >= 6 and compact(c) in src:
+                        print("PDF에 있는 선지를 '없음'으로 표시:", x["c"], "|", c)
+                        errors += 1
+                else:
+                    q = x["src"] if quote == "=" else quote
+                    if compact(q) not in src:
+                        print("선지 설명 근거가 PDF에 없음:", x["c"], "|", c, "|", q[:50])
+                        errors += 1
+                lines.append(text)
+            else:
+                for e in glossary.terms_in(c, entries, True, ctx)[:MAX_CHOICE_TERMS]:
+                    lines.append(f"{e['term']} — {e['def']}")
+                if not lines and "→" in c and "→" in answer:
+                    lines.append(f"PDF에 없는 순서입니다. PDF의 순서는 '{answer}'입니다.")
+                elif not lines and len(compact(c)) >= 4 and compact(c) not in src:
+                    lines.append("PDF에 없는 선지입니다.")
+            if not lines:
+                print("오답 선지 설명 없음:", x["c"], "|", c)
+                errors += 1
+            info.append(lines)
+        if not picked:
+            print("용어정리 없음:", x["c"])
+            errors += 1
+        out.append({"glossary": picked, "info": info})
+    for k in set(NOTES) - used_notes:
+        print("어느 문제에도 없는 선지 설명:", k)
+        errors += 1
+    return out, errors
+
+
 def crop_figures(pdf: Path, workdir: Path) -> None:
     from PIL import Image, ImageDraw
 
@@ -138,16 +214,19 @@ def crop_figures(pdf: Path, workdir: Path) -> None:
     print(f"그림 {len(FIGURES)}개 → {OUT_IMG}")
 
 
-def export(qs: list[dict]) -> None:
+def export(qs: list[dict], ann: list[dict]) -> None:
     rng = random.Random(SEED)
     out = []
-    for i, x in enumerate(qs, 1):
+    for i, (x, a) in enumerate(zip(qs, ann), 1):
         order = list(range(4))
         rng.shuffle(order)
         out.append({
             "id": f"adsp-{i:03d}", "subject": x["s"], "chapter": x["ch"], "concept": x["c"], "stem": x["q"],
             "choices": [x["o"][k] for k in order], "answerIndex": order.index(0), "explanation": x["e"],
             "sourceQuote": x["src"], "image": f"{x['img']}.png" if x["img"] else None,
+            "glossary": a["glossary"],
+            # 보기마다 '그 보기를 골랐을 때 보여 줄 설명'(정답 보기는 null)
+            "choiceInfo": [a["info"][k] for k in order],
         })
     bank = {"title": "ADsP 1·2·3과목 핵심 정리", "source": "ADsP_1-3 핵심정리 PDF (33쪽)",
             "subjects": SUBJECTS, "chapters": CHAPTERS, "questions": out}
@@ -163,12 +242,16 @@ def main() -> None:
         work = Path(tmp)
         subprocess.run(["pdftotext", str(pdf), str(work / "plain.txt")], check=True)
         qs = load_questions()
-        if validate(qs, (work / "plain.txt").read_text()):
-            sys.exit("검증 오류가 있어 중단합니다.")
+        text = (work / "plain.txt").read_text()
+        errors = validate(qs, text)
+        ann, ann_errors = annotate(qs, text)
+        if errors or ann_errors:
+            sys.exit(f"검증 오류가 있어 중단합니다 (문제 {errors}, 용어·선지 설명 {ann_errors}).")
+        print("용어정리·선지 설명 검증 통과")
         if "--check" in sys.argv:
             return
         crop_figures(pdf, work)
-        export(qs)
+        export(qs, ann)
     print("앱 문제은행을 바꿨다면 src/lib/builtin.ts의 ADSP_BANK_VERSION을 1 올리세요.")
 
 

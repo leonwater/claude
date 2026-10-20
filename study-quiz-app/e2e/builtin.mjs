@@ -34,10 +34,21 @@ await run("builtin", 4174, async ({ url, page, shot }) => {
       const q = await get("questions", s.questionIds[s.index]);
       return s.choiceOrders[s.index].indexOf(q.answerIndex);
     });
+    const pickedText = await page.locator(".choice").nth((answerIdx + 1) % 4).locator("span").last().textContent();
     await page.locator(".choice").nth((answerIdx + 1) % 4).click();
     await page.locator(".right-answer").waitFor();
     const fb = await page.locator(".feedback").textContent();
     check(fb.includes("틀렸습니다") && fb.includes("정답:") && fb.includes("해설"), "오답 시 정답과 해설 표시");
+    const picked = await page.locator(".picked").textContent();
+    check(picked.includes("내가 고른 선지") && picked.includes(pickedText), `오답 시 내가 고른 선지(${pickedText}) 정보 표시`);
+    check((await page.locator(".picked p").count()) >= 1, "내가 고른 선지에 대한 설명 문장 있음");
+    check((await page.locator(".glossary dt").count()) >= 1, "풀이에 용어정리 표시");
+    const inOrder = await page.evaluate(() => {
+      const f = document.querySelector(".feedback");
+      const parts = ["strong", ".picked", ".right-answer", "blockquote", ".glossary", ".next"].map((sel) => f.querySelector(sel));
+      return parts.every((el, i) => i === 0 || !!(parts[i - 1].compareDocumentPosition(el) & Node.DOCUMENT_POSITION_FOLLOWING));
+    });
+    check(inOrder, "풀이 순서: 결과 → 내가 고른 선지 → 정답 → 근거 → 용어정리(맨 밑) → 다음 버튼");
     await shot("3-wrong");
     await page.getByRole("button", { name: "다음 문제" }).click();
     await page.locator(".topbar h1", { hasText: "2 / 10" }).waitFor();

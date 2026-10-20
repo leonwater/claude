@@ -3,7 +3,7 @@ import { db } from "./db";
 import type { Question } from "./types";
 
 /** 문제은행 파일을 고치면 올린다. 앱이 켜질 때 기존 풀이 기록은 두고 문제 내용만 갱신한다 */
-export const ADSP_BANK_VERSION = 1;
+export const ADSP_BANK_VERSION = 2;
 export const ADSP_KEY = "adsp";
 
 export const SUBJECT_NAMES: Record<number, string> = {
@@ -23,6 +23,8 @@ interface BankQuestion {
   explanation: string;
   sourceQuote: string;
   image: string | null;
+  glossary: { term: string; def: string }[];
+  choiceInfo: (string[] | null)[];
 }
 
 /** 내장 ADsP 문제은행을 기기 DB에 넣는다(처음 실행 또는 문제은행 버전이 바뀐 경우) */
@@ -68,6 +70,8 @@ export async function ensureBuiltinBank(): Promise<void> {
         explanation: b.explanation,
         sourceQuote: b.sourceQuote,
         image: b.image,
+        glossary: b.glossary,
+        choiceInfo: b.choiceInfo,
       };
       const old = byKey.get(b.id);
       if (old) await db.questions.update(old.id!, content);

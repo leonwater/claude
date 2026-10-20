@@ -103,6 +103,8 @@ export function Quiz({ sessionId, back, home, go }: { sessionId: number; back: (
   const answer = session.answers.length > session.index ? session.answers[session.index] : undefined;
   const answered = answer !== undefined;
   const correctDisplay = order.indexOf(q.answerIndex);
+  // 내가 고른 보기(화면 번호)를 원래 보기 번호로 바꿔 그 보기의 설명을 찾는다
+  const pickedInfo = answered && !answer.correct ? q.choiceInfo?.[order[answer.chosen]] : undefined;
 
   const choose = async (displayIdx: number) => {
     if (answered || busy) return;
@@ -148,6 +150,18 @@ export function Quiz({ sessionId, back, home, go }: { sessionId: number; back: (
         <div className={`feedback ${answer.correct ? "good" : "bad"}`}>
           <strong>{answer.correct ? "정답입니다" : "틀렸습니다"}</strong>
           {!answer.correct && (
+            <div className="picked">
+              <div className="picked-title">
+                내가 고른 선지 · {NUMBERS[answer.chosen]} {q.choices[order[answer.chosen]]}
+              </div>
+              {pickedInfo?.length ? (
+                pickedInfo.map((line) => <p key={line}>{line}</p>)
+              ) : (
+                <p className="muted">이 선지에 대한 설명이 없습니다.</p>
+              )}
+            </div>
+          )}
+          {!answer.correct && (
             <p className="right-answer">
               정답: {NUMBERS[correctDisplay]} {q.choices[q.answerIndex]}
             </p>
@@ -168,7 +182,20 @@ export function Quiz({ sessionId, back, home, go }: { sessionId: number; back: (
                 : `오답노트 정답률 ${pct(accuracy(note))} (${note.corrects}/${note.attempts}) · 졸업까지 연속 ${correctsToGraduate(note)}번`}
             </p>
           )}
-          <button className="primary block" onClick={() => goNext(sessionId)}>
+          {!!q.glossary?.length && (
+            <section className="glossary" aria-label="용어정리">
+              <h3>용어정리</h3>
+              <dl>
+                {q.glossary.map((g) => (
+                  <div key={g.term}>
+                    <dt>{g.term}</dt>
+                    <dd>{g.def}</dd>
+                  </div>
+                ))}
+              </dl>
+            </section>
+          )}
+          <button className="primary block next" onClick={() => goNext(sessionId)}>
             {session.index + 1 < session.questionIds.length ? "다음 문제" : "결과 보기"}
           </button>
         </div>

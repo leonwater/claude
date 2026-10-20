@@ -61,6 +61,15 @@ export interface Question {
   subject?: number;
   /** 문제에 딸린 그림 파일 이름 */
   image?: string | null;
+  /** 풀이 맨 밑에 보여 줄 용어정리(문제와 보기에 나온 PDF 용어) */
+  glossary?: GlossaryTerm[];
+  /** 보기마다, 그 보기를 골랐을 때 보여 줄 설명(정답 보기는 null) */
+  choiceInfo?: (string[] | null)[];
+}
+
+export interface GlossaryTerm {
+  term: string;
+  def: string;
 }
 
 export type AnswerMode = "quiz" | "review";
