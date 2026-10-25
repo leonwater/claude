@@ -1,5 +1,5 @@
 import { useLiveQuery } from "dexie-react-hooks";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { SUBJECT_NAMES } from "../lib/builtin";
 import { db } from "../lib/db";
 import { answerCurrent, finishSession, goNext } from "../lib/sessions";
@@ -21,6 +21,22 @@ export function Quiz({ sessionId, back, home, go }: { sessionId: number; back: (
   }, [sessionId]);
   const [zoom, setZoom] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
+  const [sheet, setSheet] = useState(false);
+
+  // 풀이 팝업은 기록을 하나 쌓아, 휴대폰 뒤로 가기로 팝업만 닫히게 한다(화면 깊이는 그대로)
+  useEffect(() => {
+    if (!sheet) return;
+    const onPop = () => setSheet(false);
+    window.addEventListener("popstate", onPop);
+    return () => window.removeEventListener("popstate", onPop);
+  }, [sheet]);
+  const openSheet = () => {
+    history.pushState({ ...history.state }, "");
+    setSheet(true);
+  };
+  const closeSheet = () => {
+    if (sheet) history.back();
+  };
 
   if (data === undefined) return <Screen title="" onBack={back}>{null}</Screen>;
   if (data === null) return <Screen title="퀴즈 없음" onBack={back}>{null}</Screen>;
@@ -105,6 +121,7 @@ export function Quiz({ sessionId, back, home, go }: { sessionId: number; back: (
   const correctDisplay = order.indexOf(q.answerIndex);
   // 내가 고른 보기(화면 번호)를 원래 보기 번호로 바꿔 그 보기의 설명을 찾는다
   const pickedInfo = answered && !answer.correct ? q.choiceInfo?.[order[answer.chosen]] : undefined;
+  const nextLabel = session.index + 1 < session.questionIds.length ? "다음 문제" : "결과 보기";
 
   const choose = async (displayIdx: number) => {
     if (answered || busy) return;
@@ -147,57 +164,92 @@ export function Quiz({ sessionId, back, home, go }: { sessionId: number; back: (
         })}
       </ol>
       {answered && (
-        <div className={`feedback ${answer.correct ? "good" : "bad"}`}>
+        <div className={`result-bar ${answer.correct ? "good" : "bad"}`}>
           <strong>{answer.correct ? "정답입니다" : "틀렸습니다"}</strong>
-          {!answer.correct && (
-            <div className="picked">
-              <div className="picked-title">
-                내가 고른 선지 · {NUMBERS[answer.chosen]} {q.choices[order[answer.chosen]]}
-              </div>
-              {pickedInfo?.length ? (
-                pickedInfo.map((line) => <p key={line}>{line}</p>)
-              ) : (
-                <p className="muted">이 선지에 대한 설명이 없습니다.</p>
+          {!answer.correct && <span>정답 {NUMBERS[correctDisplay]}</span>}
+        </div>
+      )}
+      {answered && (
+        <div className="answer-actions">
+          <button className="block" onClick={openSheet}>
+            풀이 보기
+          </button>
+          <button className="primary block" onClick={() => goNext(sessionId)}>
+            {nextLabel}
+          </button>
+        </div>
+      )}
+      {answered && sheet && (
+        <div className="sheet-backdrop" onClick={closeSheet}>
+          <div className="sheet" role="dialog" aria-label="풀이" onClick={(e) => e.stopPropagation()}>
+            <div className="sheet-head">
+              <h2>풀이</h2>
+              <button className="icon-btn" onClick={closeSheet} aria-label="풀이 닫기">
+                ✕
+              </button>
+            </div>
+            <div className={`feedback sheet-body ${answer.correct ? "good" : "bad"}`}>
+              <strong>{answer.correct ? "정답입니다" : "틀렸습니다"}</strong>
+              {!answer.correct && (
+                <div className="picked">
+                  <div className="picked-title">
+                    내가 고른 선지 · {NUMBERS[answer.chosen]} {q.choices[order[answer.chosen]]}
+                  </div>
+                  {pickedInfo?.length ? (
+                    pickedInfo.map((line) => <p key={line}>{line}</p>)
+                  ) : (
+                    <p className="muted">이 선지에 대한 설명이 없습니다.</p>
+                  )}
+                </div>
+              )}
+              <p className="right-answer">
+                정답: {NUMBERS[correctDisplay]} {q.choices[q.answerIndex]}
+              </p>
+              {q.explanation && (
+                <p>
+                  <span className="label">해설</span> {q.explanation}
+                </p>
+              )}
+              <blockquote>
+                {q.sourceQuote}
+                {q.sourcePage && <cite> — p.{q.sourcePage}</cite>}
+              </blockquote>
+              {note && note.lastSeenAt >= session.startedAt && (
+                <p className="small">
+                  {note.graduatedAt
+                    ? `🎓 정답률 ${pct(accuracy(note))} (${note.corrects}/${note.attempts}) — 오답노트에서 졸업!`
+                    : `오답노트 정답률 ${pct(accuracy(note))} (${note.corrects}/${note.attempts}) · 졸업까지 연속 ${correctsToGraduate(note)}번`}
+                </p>
+              )}
+              {!!q.glossary?.length && (
+                <section className="glossary" aria-label="용어정리">
+                  <h3>용어정리</h3>
+                  <dl>
+                    {q.glossary.map((g) => (
+                      <div key={g.term}>
+                        <dt>{g.term}</dt>
+                        <dd>{g.def}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                </section>
               )}
             </div>
-          )}
-          {!answer.correct && (
-            <p className="right-answer">
-              정답: {NUMBERS[correctDisplay]} {q.choices[q.answerIndex]}
-            </p>
-          )}
-          {q.explanation && (
-            <p>
-              <span className="label">해설</span> {q.explanation}
-            </p>
-          )}
-          <blockquote>
-            {q.sourceQuote}
-            {q.sourcePage && <cite> — p.{q.sourcePage}</cite>}
-          </blockquote>
-          {note && note.lastSeenAt >= session.startedAt && (
-            <p className="small">
-              {note.graduatedAt
-                ? `🎓 정답률 ${pct(accuracy(note))} (${note.corrects}/${note.attempts}) — 오답노트에서 졸업!`
-                : `오답노트 정답률 ${pct(accuracy(note))} (${note.corrects}/${note.attempts}) · 졸업까지 연속 ${correctsToGraduate(note)}번`}
-            </p>
-          )}
-          {!!q.glossary?.length && (
-            <section className="glossary" aria-label="용어정리">
-              <h3>용어정리</h3>
-              <dl>
-                {q.glossary.map((g) => (
-                  <div key={g.term}>
-                    <dt>{g.term}</dt>
-                    <dd>{g.def}</dd>
-                  </div>
-                ))}
-              </dl>
-            </section>
-          )}
-          <button className="primary block next" onClick={() => goNext(sessionId)}>
-            {session.index + 1 < session.questionIds.length ? "다음 문제" : "결과 보기"}
-          </button>
+            <div className="sheet-foot">
+              <button className="block" onClick={closeSheet}>
+                닫기
+              </button>
+              <button
+                className="primary block"
+                onClick={() => {
+                  closeSheet();
+                  goNext(sessionId);
+                }}
+              >
+                {nextLabel}
+              </button>
+            </div>
+          </div>
         </div>
       )}
       {zoom && (

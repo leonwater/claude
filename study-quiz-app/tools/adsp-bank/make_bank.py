@@ -25,10 +25,12 @@ import glossary  # noqa: E402
 import glossary_extra  # noqa: E402
 from choice_notes import NOTES  # noqa: E402
 APP = HERE.parent.parent
-SOURCES = ["q1.py", "q2.py", "q3a.py", "q3b.py", "q3c.py"]
+# 새 문제는 맨 뒤 파일에 추가한다(앞 문제의 번호와 보기 순서가 바뀌지 않도록)
+SOURCES = ["q1.py", "q2.py", "q3a.py", "q3b.py", "q3c.py", "q_tf.py"]
 OUT_JSON = APP / "src" / "data" / "adsp_bank.json"
 OUT_IMG = APP / "public" / "adsp"
 SEED = 20261014
+FONT = "/usr/share/fonts/truetype/wqy/wqy-zenhei.ttc"
 
 SUBJECTS = {1: "1과목 데이터 이해", 2: "2과목 데이터분석 기획", 3: "3과목 데이터분석"}
 CHAPTERS = {
@@ -38,16 +40,18 @@ CHAPTERS = {
     "3-4": "회귀분석", "3-5": "다변량 분석·시계열", "3-6": "정형 데이터 마이닝",
 }
 
-# 그림: 이름 → (PDF 쪽, 150dpi 기준 자르기 영역, 정답이 보이지 않게 가릴 영역들)
+# 그림: 이름 → (PDF 쪽, 150dpi 기준 자르기 영역, 가릴 영역들)
+# 가릴 영역은 (x0, y0, x1, y1, 표시 글자). 다른 칸이 보이면 소거법으로 답이 나오므로 같은 종류의 칸은 모두 가린다.
+# 표시 글자가 ""이면 흰색으로 지우고, ("line", x0, y0, x1, y1)은 지운 자리에 선을 다시 그린다.
 FIGURES = {
-    "outlier_dist": (13, (310, 505, 930, 945), []),
+    "outlier_dist": (13, (310, 505, 930, 945), [(408, 764, 507, 789, "(가)"), (750, 764, 849, 789, "(나)")]),
     "boxplot_ab": (13, (176, 972, 566, 1284), []),
-    "kurtosis": (15, (440, 1055, 790, 1240), []),
+    "kurtosis": (15, (440, 1055, 790, 1240), [(641, 1066, 699, 1088, "(가)"), (667, 1168, 726, 1190, "(나)"), (722, 1204, 779, 1226, "(다)")]),
     "skew_pos": (15, (300, 1285, 500, 1472), []),
     "skew_neg": (15, (738, 1285, 935, 1472), []),
     "summary_out": (16, (145, 95, 580, 310), []),
     "uniform_ev": (17, (420, 1130, 800, 1265), []),
-    "error_table": (18, (400, 1340, 838, 1480), [(694, 1405, 835, 1440)]),
+    "error_table": (18, (400, 1340, 838, 1480), [(552, 1405, 691, 1440, "(가)"), (694, 1405, 835, 1440, "(나)"), (552, 1443, 691, 1478, "(다)"), (694, 1443, 835, 1478, "(라)")]),
     "ttest_out": (19, (148, 548, 1092, 842), []),
     "sst_reg": (20, (450, 680, 790, 945), []),
     "lm_out": (22, (148, 105, 1092, 478), []),
@@ -58,17 +62,17 @@ FIGURES = {
     "underfit_panel": (25, (713, 382, 862, 506), []),
     "coins": (27, (340, 165, 900, 275), []),
     "perceptron": (28, (440, 1365, 800, 1555), []),
-    "confusion": (29, (452, 175, 788, 407), []),
+    "confusion": (29, (452, 175, 788, 407), [(581, 242, 679, 316, "(가)"), (683, 242, 781, 316, "(나)"), (581, 320, 679, 394, "(다)"), (683, 320, 781, 394, "(라)")]),
     "dendrogram": (30, (460, 165, 805, 402), []),
     "distance": (30, (260, 1130, 520, 1305), []),
-    "elbow": (32, (380, 150, 880, 425), [(530, 245, 628, 308)]),
+    "elbow": (32, (380, 150, 880, 425), [(528, 243, 630, 312, ""), ("line", 525, 296, 569, 315)]),
     "assoc_table": (33, (160, 155, 475, 435), []),
-    "analysis_matrix": (6, (430, 1055, 810, 1235), [(691, 1113, 807, 1171)]),
+    "analysis_matrix": (6, (430, 1055, 810, 1235), [(549, 1113, 688, 1171, "(가)"), (691, 1113, 807, 1171, "(나)"), (549, 1174, 688, 1232, "(다)"), (691, 1174, 807, 1232, "(라)")]),
     "priority_quad": (9, (443, 1333, 796, 1456), []),
-    "level_quad": (11, (355, 95, 860, 385), [(668, 280, 756, 315)]),
-    "bigdata_method": (8, (155, 110, 1085, 388), [(603, 113, 775, 159)]),
-    "readiness": (10, (294, 474, 945, 808), [(296, 633, 515, 665)]),
-    "maturity": (10, (336, 912, 903, 1325), [(338, 1128, 401, 1224)]),
+    "level_quad": (11, (355, 95, 860, 385), [(484, 161, 571, 196, "(가)"), (668, 161, 756, 196, "(나)"), (484, 280, 571, 315, "(다)"), (668, 280, 756, 315, "(라)")]),
+    "bigdata_method": (8, (155, 110, 1085, 388), [(245, 113, 412, 159, "(가)"), (425, 113, 592, 159, "(나)"), (603, 113, 775, 159, "(다)"), (785, 113, 927, 159, "(라)"), (939, 113, 1081, 159, "(마)")]),
+    "readiness": (10, (294, 474, 945, 808), [(296, 478, 515, 512, "(가)"), (517, 478, 733, 512, "(나)"), (735, 478, 943, 512, "(다)"), (296, 633, 515, 665, "(라)"), (517, 633, 733, 665, "(마)"), (735, 633, 943, 665, "(바)")]),
+    "maturity": (10, (336, 912, 903, 1325), [(338, 955, 401, 1050, "(가)"), (338, 1053, 401, 1125, "(나)"), (338, 1128, 401, 1224, "(다)"), (338, 1227, 401, 1322, "(라)")]),
 }
 
 
@@ -199,17 +203,28 @@ def annotate(qs: list[dict], source_text: str) -> tuple[list[dict], int]:
 
 
 def crop_figures(pdf: Path, workdir: Path) -> None:
-    from PIL import Image, ImageDraw
+    from PIL import Image, ImageDraw, ImageFont
 
     subprocess.run(["pdftoppm", "-r", "150", "-png", str(pdf), str(workdir / "p")], check=True)
     OUT_IMG.mkdir(parents=True, exist_ok=True)
+    try:
+        font = ImageFont.truetype(FONT, 20)
+    except OSError:
+        sys.exit(f"한글 글꼴이 없습니다: {FONT} (fonts-wqy-zenhei 설치)")
     for name, (page, box, masks) in FIGURES.items():
         page_png = next(workdir.glob(f"p-*{page:02d}.png"))
         im = Image.open(page_png).convert("RGB")
         d = ImageDraw.Draw(im)
         for m in masks:
-            d.rectangle(m, fill="#fff3c4", outline="#c99a00", width=2)
-            d.text(((m[0] + m[2]) // 2 - 6, (m[1] + m[3]) // 2 - 7), "?", fill="#8a6500")
+            if m[0] == "line":  # 지운 자리에 그래프 선을 다시 그림
+                d.line(m[1:], fill="#8c8c8c", width=3)
+                continue
+            x0, y0, x1, y1, label = m
+            if not label:
+                d.rectangle((x0, y0, x1, y1), fill="white")
+                continue
+            d.rectangle((x0, y0, x1, y1), fill="#fff3c4", outline="#c99a00", width=2)
+            d.text(((x0 + x1) / 2, (y0 + y1) / 2), label, fill="#8a6500", font=font, anchor="mm")
         im.crop(box).save(OUT_IMG / f"{name}.png", optimize=True)
     print(f"그림 {len(FIGURES)}개 → {OUT_IMG}")
 

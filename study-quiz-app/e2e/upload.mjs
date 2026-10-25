@@ -85,7 +85,7 @@ await run("upload", 4173, async ({ url, ctx, page, shot }) => {
     const seenStems = [];
     for (let i = 0; i < 10; i++) {
       await page.locator(".topbar h1", { hasText: ` ${i + 1} / 10` }).waitFor();
-      await page.locator(".feedback").waitFor({ state: "detached" });
+      await page.locator(".result-bar").waitFor({ state: "detached" });
       seenStems.push(await page.locator(".question").textContent());
       const choices = page.locator(".choice");
       await choices.first().waitFor();
@@ -114,7 +114,7 @@ await run("upload", 4173, async ({ url, ctx, page, shot }) => {
       await page.getByRole("button", { name: /복습$/ }).click();
       for (let i = 0; i < 3; i++) {
         await page.locator(".topbar h1", { hasText: ` ${i + 1} / 3` }).waitFor();
-        await page.locator(".feedback").waitFor({ state: "detached" });
+        await page.locator(".result-bar").waitFor({ state: "detached" });
         const texts = await page.locator(".choice").allTextContents();
         await page.locator(".choice").nth(texts.findIndex((t) => t.includes("【O】"))).click();
         if (round === 3 && i === 0) await shot("9-graduate");

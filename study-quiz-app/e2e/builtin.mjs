@@ -1,17 +1,17 @@
-// 내장 ADsP 문제은행: 과목별 문항 수, 오답 해설, 이어 풀기, 새 퀴즈 잠금, 끝내기, 종합 비율, 그림
+// 내장 ADsP 문제은행: 과목별 문항 수, 풀이 팝업, 이어 풀기, 새 퀴즈 잠금, 끝내기, 종합 비율, 그림
 import { check, run } from "./harness.mjs";
 
 await run("builtin", 4174, async ({ url, page, shot }) => {
   const stem = () => page.locator(".question").textContent();
     await page.goto(url);
     await page.getByText("ADsP 1·2·3과목 핵심 정리").waitFor();
-    check((await page.textContent("main")).includes("내장 문제 420문항"), "내장 문제은행 420문항 탑재");
+    check((await page.textContent("main")).includes("내장 문제 518문항"), "내장 문제은행 518문항 탑재");
     await shot("1-home");
     await page.getByText("ADsP 1·2·3과목 핵심 정리").click();
 
     // 과목별 문항 수 선택지
     const sizesOf = async () => (await page.locator(".segmented button").allTextContents()).join(",");
-    const expect = { "1과목": "10,20,30", "2과목": "10,20,26", "3과목": "10,25,50", "종합": "10,25,50" };
+    const expect = { "1과목": "10,20,30", "2과목": "10,20,30", "3과목": "10,25,50", "종합": "10,25,50" };
     for (const [tab, sizes] of Object.entries(expect)) {
       await page.locator(".subject-tabs button", { hasText: tab }).click();
       check((await sizesOf()) === sizes, `${tab} 문항 수 선택지 ${sizes}`);
@@ -36,30 +36,43 @@ await run("builtin", 4174, async ({ url, page, shot }) => {
     });
     const pickedText = await page.locator(".choice").nth((answerIdx + 1) % 4).locator("span").last().textContent();
     await page.locator(".choice").nth((answerIdx + 1) % 4).click();
-    await page.locator(".right-answer").waitFor();
-    const fb = await page.locator(".feedback").textContent();
-    check(fb.includes("틀렸습니다") && fb.includes("정답:") && fb.includes("해설"), "오답 시 정답과 해설 표시");
-    const picked = await page.locator(".picked").textContent();
+    await page.locator(".result-bar").waitFor();
+    const bar = await page.locator(".result-bar").textContent();
+    check(bar.includes("틀렸습니다") && bar.includes("정답"), "오답이면 결과 줄에 틀렸습니다·정답 번호 표시");
+    check((await page.locator(".sheet").count()) === 0, "풀이는 버튼을 누르기 전에는 열리지 않음");
+    await shot("3-answered");
+    await page.getByRole("button", { name: "풀이 보기" }).click();
+    await page.locator(".sheet").waitFor();
+    const fb = await page.locator(".sheet .feedback").textContent();
+    check(fb.includes("틀렸습니다") && fb.includes("정답:") && fb.includes("해설"), "풀이 팝업에 정답과 해설 표시");
+    const picked = await page.locator(".sheet .picked").textContent();
     check(picked.includes("내가 고른 선지") && picked.includes(pickedText), `오답 시 내가 고른 선지(${pickedText}) 정보 표시`);
-    check((await page.locator(".picked p").count()) >= 1, "내가 고른 선지에 대한 설명 문장 있음");
-    check((await page.locator(".glossary dt").count()) >= 1, "풀이에 용어정리 표시");
+    check((await page.locator(".sheet .picked p").count()) >= 1, "내가 고른 선지에 대한 설명 문장 있음");
+    check((await page.locator(".sheet .glossary dt").count()) >= 1, "풀이에 용어정리 표시");
     const inOrder = await page.evaluate(() => {
-      const f = document.querySelector(".feedback");
-      const parts = ["strong", ".picked", ".right-answer", "blockquote", ".glossary", ".next"].map((sel) => f.querySelector(sel));
+      const f = document.querySelector(".sheet");
+      const parts = ["strong", ".picked", ".right-answer", "blockquote", ".glossary", ".sheet-foot .primary"].map((sel) => f.querySelector(sel));
       return parts.every((el, i) => i === 0 || !!(parts[i - 1].compareDocumentPosition(el) & Node.DOCUMENT_POSITION_FOLLOWING));
     });
     check(inOrder, "풀이 순서: 결과 → 내가 고른 선지 → 정답 → 근거 → 용어정리(맨 밑) → 다음 버튼");
-    await shot("3-wrong");
-    await page.getByRole("button", { name: "다음 문제" }).click();
+    await shot("4-sheet");
+    // 휴대폰 뒤로 가기는 팝업만 닫는다
+    await page.goBack();
+    await page.locator(".sheet").waitFor({ state: "detached" });
+    check((await page.locator(".topbar h1").textContent()).includes("1 / 10"), "뒤로 가기로 풀이 팝업만 닫히고 퀴즈 화면 유지");
+    await page.getByRole("button", { name: "풀이 보기" }).click();
+    await page.locator(".sheet").waitFor();
+    await page.locator(".sheet").getByRole("button", { name: "다음 문제" }).click();
     await page.locator(".topbar h1", { hasText: "2 / 10" }).waitFor();
-    await page.locator(".feedback").waitFor({ state: "detached" });
+    await page.locator(".result-bar").waitFor({ state: "detached" });
+    check((await page.locator(".sheet").count()) === 0, "팝업의 다음 문제로 넘어가면 팝업이 닫힘");
     const secondStem = await stem();
     await page.locator(".choice").first().click();
-    await page.locator(".feedback").waitFor();
+    await page.locator(".result-bar").waitFor();
     const answeredChoices = await page.locator(".choice").allTextContents();
 
     await page.reload();
-    await page.locator(".feedback").waitFor();
+    await page.locator(".result-bar").waitFor();
     check((await stem()) === secondStem, "앱을 다시 열면 같은 문제(2번, 채점 화면)에서 이어짐");
     check(JSON.stringify(await page.locator(".choice").allTextContents()) === JSON.stringify(answeredChoices), "보기 순서도 그대로 유지");
     check((await page.locator(".topbar h1").textContent()).includes("2 / 10"), "진행 위치 2/10 유지");
@@ -69,7 +82,7 @@ await run("builtin", 4174, async ({ url, page, shot }) => {
     await page.getByText("진행 중인 퀴즈가 있습니다").waitFor();
     await page.getByText("ADsP 1·2·3과목 핵심 정리").click();
     check(await page.getByRole("button", { name: /문항 풀기/ }).isDisabled(), "진행 중에는 새 퀴즈 시작 버튼 비활성");
-    await shot("4-blocked");
+    await shot("5-blocked");
     await page.getByRole("button", { name: "이어 풀기" }).click();
     check((await stem()) === secondStem, "이어 풀기로 복귀");
 
@@ -103,7 +116,7 @@ await run("builtin", 4174, async ({ url, page, shot }) => {
         await page.locator(".figure img").evaluate((img) => img.decode());
         const w = await page.locator(".figure img").evaluate((img) => img.naturalWidth);
         sawImage = w > 0;
-        await shot("5-image");
+        await shot("6-image");
         await page.locator(".figure").click();
         await page.locator(".zoom img").waitFor();
         await page.locator(".zoom").click();

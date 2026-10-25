@@ -3,7 +3,7 @@ import { db } from "./db";
 import type { Question } from "./types";
 
 /** 문제은행 파일을 고치면 올린다. 앱이 켜질 때 기존 풀이 기록은 두고 문제 내용만 갱신한다 */
-export const ADSP_BANK_VERSION = 2;
+export const ADSP_BANK_VERSION = 3;
 export const ADSP_KEY = "adsp";
 
 export const SUBJECT_NAMES: Record<number, string> = {

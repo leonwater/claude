@@ -13,7 +13,7 @@ const weights = new Map(chapters.map((_, i) => [i + 1, questions.filter((q) => q
 
 describe("내장 ADsP 문제은행", () => {
   it("문항 형식이 올바르다", () => {
-    expect(questions.length).toBe(420);
+    expect(questions.length).toBe(518);
     for (const q of questions) {
       expect(q.choices).toHaveLength(4);
       expect(new Set(q.choices).size).toBe(4);
@@ -38,11 +38,12 @@ describe("내장 ADsP 문제은행", () => {
     expect([count(1), count(2), count(3)]).toEqual([10, 10, 30]);
   });
 
-  it("가장 큰 문항 수로 3번 풀면 과목 전체를 거의 다 본다(덜 푼 문제 우선)", () => {
+  it("가장 큰 문항 수로 (문항 수 ÷ 퀴즈 크기)번 풀면 과목 전체를 빠짐없이 본다(덜 푼 문제 우선)", () => {
     const pool = questions.filter((q) => q.subject === 2).map((q) => ({ ...q }));
+    const size = SUBJECT_QUIZ_SIZES[2].at(-1)!;
     const seen = new Set<number>();
-    for (let round = 0; round < 3; round++) {
-      for (const q of buildSubjectQuiz(pool, weights, 2, SUBJECT_QUIZ_SIZES[2].at(-1)!)) {
+    for (let round = 0; round < Math.ceil(pool.length / size); round++) {
+      for (const q of buildSubjectQuiz(pool, weights, 2, size)) {
         seen.add(q.id!);
         const p = pool.find((x) => x.id === q.id)!;
         p.timesSeen += 1;

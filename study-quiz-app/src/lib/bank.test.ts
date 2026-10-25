@@ -30,4 +30,19 @@ describe("내장 문제은행의 용어정리와 선지 설명", () => {
     const none = bank.questions.flatMap((q) => q.choiceInfo.filter((i): i is string[] => !!i && i.length === 1 && i[0] === "PDF에 없는 선지입니다."));
     expect(none.length).toBeGreaterThan(100);
   });
+
+  it("옳은 것 / 옳지 않은 것 문제가 모두 있다", () => {
+    const right = bank.questions.filter((q) => q.stem.endsWith("옳은 것은?"));
+    const wrong = bank.questions.filter((q) => q.stem.endsWith("옳지 않은 것은?"));
+    expect(right.length).toBeGreaterThanOrEqual(40);
+    expect(wrong.length).toBeGreaterThanOrEqual(40);
+    // 문장형 '옳지 않은 것' 문제의 다른 보기(옳은 문장)는 옳은 설명이라고 알려 준다
+    const ox = wrong.filter((q) => q.concept.startsWith("OX "));
+    expect(ox.length).toBeGreaterThan(30);
+    for (const q of ox) {
+      q.choiceInfo.forEach((info, i) => {
+        if (i !== q.answerIndex) expect(info?.[0], q.id).toContain("옳은 설명입니다");
+      });
+    }
+  });
 });

@@ -86,7 +86,7 @@ function pickBalanced(
 /** 과목별 문항 수 선택지. 가장 큰 값은 대략 3번 풀면 그 과목을 한 바퀴 도는 크기 */
 export const SUBJECT_QUIZ_SIZES: Record<number, number[]> = {
   1: [10, 20, 30],
-  2: [10, 20, 26],
+  2: [10, 20, 30],
   3: [10, 25, 50],
   0: [10, 25, 50],
 };

@@ -4,7 +4,7 @@
 
 | 프로젝트 | 위치 | 내용 |
 |---|---|---|
-| 📲 **자료퀴즈 (ADsP 학습 앱)** | [`study-quiz-app/`](study-quiz-app/) | PDF 내용만으로 만든 ADsP 객관식 420문항을 출퇴근길에 푸는 개인용 안드로이드 앱. 과목별 출제, 이어 풀기, 오답노트. APK는 [Releases](../../releases/latest)에서 받습니다 |
+| 📲 **자료퀴즈 (ADsP 학습 앱)** | [`study-quiz-app/`](study-quiz-app/) | PDF 내용만으로 만든 ADsP 객관식 518문항을 출퇴근길에 푸는 개인용 안드로이드 앱. 과목별 출제, 이어 풀기, 오답노트. APK는 [Releases](../../releases/latest)에서 받습니다 |
 | ⚽ **압박 트리거 해부도 — Euro 2024** | 이 문서 아래, `src/` `scripts/` `report/` | StatsBomb 오픈데이터로 유로 2024의 압박을 트리거 단위로 분해한 분석 |
 
 - 앱의 초기 기획 문서: [`docs/study-app-pipeline.md`](docs/study-app-pipeline.md)
