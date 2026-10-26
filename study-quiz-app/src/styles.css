@@ -151,9 +151,16 @@ cite { color: var(--muted); font-style: normal; }
 .right-answer { font-weight: 700; color: var(--good); }
 .label { display: inline-block; font-size: 12px; font-weight: 700; padding: 1px 6px; border-radius: 6px; background: var(--accent-soft); color: var(--accent); margin-right: 4px; }
 
-.picked { padding: 12px 14px; border-radius: 12px; background: var(--bad-soft); border: 1px solid var(--bad); display: flex; flex-direction: column; gap: 6px; }
-.picked-title { font-weight: 700; color: var(--bad); }
-.picked p { font-size: 14px; word-break: keep-all; }
+.choice-notes h3 { margin: 0 0 8px; font-size: 14px; color: var(--muted); }
+.choice-notes ol { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.choice-notes li { padding: 10px 12px; border-radius: 12px; border: 1px solid var(--line); background: var(--surface); display: flex; flex-direction: column; gap: 6px; }
+.choice-notes li.correct { border-color: var(--good); }
+.choice-notes li.picked:not(.correct) { border-color: var(--bad); background: var(--bad-soft); }
+.choice-notes p { margin: 0; font-size: 14px; word-break: keep-all; }
+.choice-note-title { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-weight: 700; word-break: keep-all; }
+.tag { font-size: 11px; font-weight: 700; padding: 1px 6px; border-radius: 6px; }
+.tag.good { color: var(--good); border: 1px solid var(--good); }
+.tag.bad { color: var(--bad); border: 1px solid var(--bad); }
 .glossary { margin-top: 4px; padding: 12px 14px; border-radius: 12px; background: var(--bg); border: 1px solid var(--line); }
 .glossary h3 { margin: 0 0 8px; font-size: 14px; color: var(--muted); }
 .glossary dl { margin: 0; display: flex; flex-direction: column; gap: 8px; }

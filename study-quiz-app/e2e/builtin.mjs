@@ -44,17 +44,22 @@ await run("builtin", 4174, async ({ url, page, shot }) => {
     await page.getByRole("button", { name: "풀이 보기" }).click();
     await page.locator(".sheet").waitFor();
     const fb = await page.locator(".sheet .feedback").textContent();
-    check(fb.includes("틀렸습니다") && fb.includes("정답:") && fb.includes("해설"), "풀이 팝업에 정답과 해설 표시");
-    const picked = await page.locator(".sheet .picked").textContent();
-    check(picked.includes("내가 고른 선지") && picked.includes(pickedText), `오답 시 내가 고른 선지(${pickedText}) 정보 표시`);
-    check((await page.locator(".sheet .picked p").count()) >= 1, "내가 고른 선지에 대한 설명 문장 있음");
+    check(fb.includes("틀렸습니다") && fb.includes("정답:"), "풀이 팝업에 결과와 정답 표시");
+    const notes = page.locator(".sheet .choice-notes li");
+    check((await notes.count()) === 4, "선택지 4개 모두 풀이 표시");
+    const allExplained = await notes.evaluateAll((lis) => lis.every((li) => li.querySelectorAll("p").length >= 1));
+    check(allExplained, "모든 선택지에 설명 문장 있음");
+    const picked = await page.locator(".sheet .choice-notes li.picked").textContent();
+    check(picked.includes("내가 고름") && picked.includes(pickedText), `내가 고른 선지(${pickedText}) 표시와 설명`);
+    const right = page.locator(".sheet .choice-notes li.correct");
+    check((await right.count()) === 1 && (await right.locator("blockquote").count()) === 1, "정답 선지에 해설과 PDF 근거 표시");
     check((await page.locator(".sheet .glossary dt").count()) >= 1, "풀이에 용어정리 표시");
     const inOrder = await page.evaluate(() => {
       const f = document.querySelector(".sheet");
-      const parts = ["strong", ".picked", ".right-answer", "blockquote", ".glossary", ".sheet-foot .primary"].map((sel) => f.querySelector(sel));
+      const parts = ["strong", ".right-answer", ".choice-notes", ".glossary", ".sheet-foot .primary"].map((sel) => f.querySelector(sel));
       return parts.every((el, i) => i === 0 || !!(parts[i - 1].compareDocumentPosition(el) & Node.DOCUMENT_POSITION_FOLLOWING));
     });
-    check(inOrder, "풀이 순서: 결과 → 내가 고른 선지 → 정답 → 근거 → 용어정리(맨 밑) → 다음 버튼");
+    check(inOrder, "풀이 순서: 결과 → 정답 → 선택지별 풀이 → 용어정리(맨 밑) → 다음 버튼");
     await shot("4-sheet");
     // 휴대폰 뒤로 가기는 팝업만 닫는다
     await page.goBack();

@@ -119,8 +119,6 @@ export function Quiz({ sessionId, back, home, go }: { sessionId: number; back: (
   const answer = session.answers.length > session.index ? session.answers[session.index] : undefined;
   const answered = answer !== undefined;
   const correctDisplay = order.indexOf(q.answerIndex);
-  // 내가 고른 보기(화면 번호)를 원래 보기 번호로 바꿔 그 보기의 설명을 찾는다
-  const pickedInfo = answered && !answer.correct ? q.choiceInfo?.[order[answer.chosen]] : undefined;
   const nextLabel = session.index + 1 < session.questionIds.length ? "다음 문제" : "결과 보기";
 
   const choose = async (displayIdx: number) => {
@@ -190,30 +188,43 @@ export function Quiz({ sessionId, back, home, go }: { sessionId: number; back: (
             </div>
             <div className={`feedback sheet-body ${answer.correct ? "good" : "bad"}`}>
               <strong>{answer.correct ? "정답입니다" : "틀렸습니다"}</strong>
-              {!answer.correct && (
-                <div className="picked">
-                  <div className="picked-title">
-                    내가 고른 선지 · {NUMBERS[answer.chosen]} {q.choices[order[answer.chosen]]}
-                  </div>
-                  {pickedInfo?.length ? (
-                    pickedInfo.map((line) => <p key={line}>{line}</p>)
-                  ) : (
-                    <p className="muted">이 선지에 대한 설명이 없습니다.</p>
-                  )}
-                </div>
-              )}
               <p className="right-answer">
                 정답: {NUMBERS[correctDisplay]} {q.choices[q.answerIndex]}
               </p>
-              {q.explanation && (
-                <p>
-                  <span className="label">해설</span> {q.explanation}
-                </p>
-              )}
-              <blockquote>
-                {q.sourceQuote}
-                {q.sourcePage && <cite> — p.{q.sourcePage}</cite>}
-              </blockquote>
+              <section className="choice-notes" aria-label="선택지별 풀이">
+                <h3>선택지별 풀이</h3>
+                <ol>
+                  {order.map((orig, displayIdx) => {
+                    const isAnswer = orig === q.answerIndex;
+                    const isPicked = displayIdx === answer.chosen;
+                    const info = q.choiceInfo?.[orig];
+                    return (
+                      <li key={orig} className={`${isAnswer ? "correct" : ""} ${isPicked ? "picked" : ""}`}>
+                        <div className="choice-note-title">
+                          <span>
+                            {NUMBERS[displayIdx]} {q.choices[orig]}
+                          </span>
+                          {isAnswer && <span className="tag good">정답</span>}
+                          {isPicked && <span className={`tag ${isAnswer ? "good" : "bad"}`}>내가 고름</span>}
+                        </div>
+                        {isAnswer ? (
+                          <>
+                            {q.explanation && <p>{q.explanation}</p>}
+                            <blockquote>
+                              {q.sourceQuote}
+                              {q.sourcePage && <cite> — p.{q.sourcePage}</cite>}
+                            </blockquote>
+                          </>
+                        ) : info?.length ? (
+                          info.map((line) => <p key={line}>{line}</p>)
+                        ) : (
+                          <p className="muted">이 선지에 대한 설명이 없습니다.</p>
+                        )}
+                      </li>
+                    );
+                  })}
+                </ol>
+              </section>
               {note && note.lastSeenAt >= session.startedAt && (
                 <p className="small">
                   {note.graduatedAt
