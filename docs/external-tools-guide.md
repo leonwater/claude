@@ -8,10 +8,54 @@
 - **터미널은 PowerShell** 기준이다. 아래 명령은 한 줄로 쓰고, 줄바꿈용 `\` 는 쓰지 않는다.
 - **설치는 모두 전역**(모든 프로젝트에서 사용) 기준이다.
   - 스킬은 `%USERPROFILE%\.claude\skills\` 에 들어간다 (PowerShell 에서는 `~\.claude\skills\`).
-  - `/plugin install` 은 기본 범위가 사용자 전체라서 옵션이 필요 없다.
+  - 플러그인은 `/plugin` 슬래시 명령 대신 **PowerShell 에서 `claude plugin ...`** 으로 설치한다 (기본 범위 `user` = 전체 프로젝트, 옵션 불필요).
+  - 플러그인 설치 후에는 **Claude Code 를 새로 시작**해야 적용된다.
   - `npx skills add` 는 `-g`(또는 `--global`)를 빼면 현재 폴더에만 설치되니 꼭 붙인다.
 - **미리 설치해 둘 것**: Git, Node.js (22 이상 권장 — hyperframes 요구), Python 3.10 이상(graphify·ui-ux-pro-max).
 - Windows 에서는 `python3` 대신 `python` 을 쓴다 (ui-ux-pro-max `CLAUDE.md` 명시).
+
+## 한 번에 설치 (복사 → PowerShell 붙여넣기)
+
+`/plugin` 은 Claude Code 안에서만 되므로, 아래는 **일반 PowerShell** 에서 실행하는 `claude plugin ...` 형식이다. 이미 설치된 항목은 오류가 나도 다음 줄로 넘어가면 된다.
+
+**방법 1 — 스크립트 한 번 실행** (저장소 루트에서)
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\install_all.ps1
+```
+
+**방법 2 — 아래 블록을 통째로 붙여넣기**
+```powershell
+# 플러그인 (전역)
+claude plugin marketplace add anthropics/claude-plugins-official
+claude plugin install frontend-design@claude-plugins-official
+claude plugin marketplace add heygen-com/hyperframes
+claude plugin install hyperframes@hyperframes
+claude plugin marketplace add nextlevelbuilder/ui-ux-pro-max-skill
+claude plugin install ui-ux-pro-max@ui-ux-pro-max-skill
+claude plugin marketplace add nutlope/hallmark
+claude plugin install hallmark@hallmark
+claude plugin marketplace add DietrichGebert/ponytail
+claude plugin install ponytail@ponytail
+claude plugin marketplace add ruvnet/ruflo
+claude plugin install ruflo-core@ruflo
+claude plugin install ruflo-console@ruflo
+
+# 독립 스킬 (전역)
+npx -y skills add https://github.com/cloudflare/security-audit-skill -s security-audit -g -a claude-code -y --copy
+npx -y skills add emilkowalski/skills -s emil-design-eng -g -a claude-code -y --copy
+npx -y skills add vercel-labs/agent-skills -s web-design-guidelines -g -a claude-code -y --copy
+
+# graphify
+uv tool install graphifyy
+graphify install
+```
+- 끝나면 **Claude Code 를 새로 시작**한다. `claude plugin list` 로 설치 목록을 확인한다.
+- `claude plugin install` 의 기본 범위는 `user`(전체 프로젝트)다 (`claude plugin install --help` 로 확인). `claude plugin marketplace add` 도 기본이 `user`.
+- `npx skills add` 옵션은 `npx skills add --help` 기준: `-s` 스킬 지정, `-g` 전역, `-a` 에이전트 지정, `-y` 확인 생략, `--copy` 심볼릭 링크 대신 복사(Windows 에서 링크 권한 문제 회피용으로 추가한 것).
+- 스크립트·블록에서 **일부러 뺀 것**: `ruflo-mods`(샌드박스 없이 계정 권한으로 실행되니 코드 확인 후 `claude plugin install ruflo-mods@ruflo`), opencode·ComfyUI·hyperframes Studio 앱(일반 프로그램이라 아래 각 항목의 설치 방법 사용), `ui-ux-pro-max-cli`(플러그인으로 대체).
+- 이 스크립트와 `claude plugin ...` 명령은 Windows 에서 직접 실행해 보지 못했다 (이 작업 환경은 리눅스이고 설치 실행이 막혀 있음). 명령 형식은 `claude plugin --help`·`npx skills add --help` 출력으로 확인했다.
+
+---
 
 | # | 도구 | 한 줄 요약 | Windows 필요 환경 |
 |---|------|-----------|-------------------|
@@ -203,14 +247,13 @@ npx hyperframes add data-chart   # 카탈로그 블록 추가
 Claude Code·Codex 위에 에이전트 스웜·메모리·훅을 얹는 하네스.
 
 **경로 A — Claude Code 플러그인 (전역 설치는 이 방법, 작업공간에 파일 안 생김)**
-```text
-/plugin marketplace add ruvnet/ruflo
-/plugin install ruflo-core@ruflo
-/plugin install ruflo-console@ruflo
-/plugin install ruflo-mods@ruflo
-/reload-plugins
-/ruflo
+```powershell
+claude plugin marketplace add ruvnet/ruflo
+claude plugin install ruflo-core@ruflo
+claude plugin install ruflo-console@ruflo
+claude plugin install ruflo-mods@ruflo
 ```
+설치 후 Claude Code 를 새로 시작하고 `/ruflo` 로 연다.
 - core = 기반 도구 + MCP 서버, console = 에이전트 조종석, mods = 라우팅·정책.
 - mods 는 계정 권한으로 샌드박스 없이 실행되므로 설치 전 코드 확인 권장 (Claude Code 2.1.287 이상).
 
@@ -232,11 +275,12 @@ claude mcp add --scope user claude-flow -- npx ruflo@latest mcp start
 
 Anthropic 이 관리하는 Claude Code 플러그인 마켓플레이스. `plugins\`(공식), `external_plugins\`(파트너·커뮤니티).
 
-**사용** (Claude Code 안에서, 기본 범위가 사용자 전체라 전역 설치됨)
+**사용** (PowerShell, 기본 범위가 사용자 전체라 전역 설치됨)
+```powershell
+claude plugin install {plugin-name}@claude-plugins-official
+claude plugin list                  # 설치된 플러그인 확인
 ```
-/plugin install {plugin-name}@claude-plugins-official
-/plugin   → Discover 에서 탐색
-```
+- 탐색은 Claude Code 안의 `/plugin` → Discover 에서 하거나, 저장소 `plugins\`·`external_plugins\` 폴더 이름을 보고 고른다.
 - 공식 플러그인 예: `code-review`, `commit-commands`, `feature-dev`, `frontend-design`, `pr-review-toolkit`, `skill-creator`, `security-guidance`, 각 언어 LSP 등.
 - 외부 플러그인 예: `github`, `gitlab`, `linear`, `playwright`, `context7`, `serena`, `terraform` 등.
 - 설치 전 신뢰 여부 확인 필요 (Anthropic 이 외부 MCP 서버 내용을 보증하지 않음).
@@ -248,8 +292,8 @@ Anthropic 이 관리하는 Claude Code 플러그인 마켓플레이스. `plugins
 `claude-plugins-official\plugins\frontend-design` 에 포함되어 별도 다운로드가 필요 없다.
 
 **설치** (사용자 전체)
-```
-/plugin install frontend-design@claude-plugins-official
+```powershell
+claude plugin install frontend-design@claude-plugins-official
 ```
 **사용** — 프론트엔드 작업 요청 시 자동 적용.
 ```
@@ -272,10 +316,10 @@ npm install -g ui-ux-pro-max-cli
 uipro init --ai claude --global   # %USERPROFILE%\.claude\skills\ 에 설치
 uipro update --global             # 전역 스킬 파일 갱신
 ```
-```
+```powershell
 # 또는 Claude Code 마켓플레이스 (사용자 전체)
-/plugin marketplace add nextlevelbuilder/ui-ux-pro-max-skill
-/plugin install ui-ux-pro-max@ui-ux-pro-max-skill
+claude plugin marketplace add nextlevelbuilder/ui-ux-pro-max-skill
+claude plugin install ui-ux-pro-max@ui-ux-pro-max-skill
 ```
 - `--global` 을 빼면 현재 프로젝트에만 설치된다.
 - 구버전 `uipro-cli` 는 사용하지 말 것. 검색 스크립트에 Python 3.x 필요 (표준 라이브러리만 사용, 네트워크 호출 없음).
@@ -306,7 +350,12 @@ npx skills add nutlope/hallmark -g --agent claude-code      # 전역, Claude Cod
 npx skills add nutlope/hallmark -g                          # 전역, 지원하는 모든 하네스
 npm i -g puppeteer-core                                      # 브라우저 검사용 (Chrome 필요)
 ```
-또는 Claude Code 플러그인(사용자 전체): `/plugin marketplace add nutlope/hallmark` → `/plugin install hallmark@hallmark` (`/hallmark:hallmark` 로 호출).
+또는 Claude Code 플러그인(사용자 전체):
+```powershell
+claude plugin marketplace add nutlope/hallmark
+claude plugin install hallmark@hallmark
+```
+플러그인으로 설치하면 `/hallmark:hallmark` 로 호출한다.
 
 **사용**
 ```
@@ -371,15 +420,13 @@ check my site against best practices
 
 "할 말은 없고 코드는 한 줄"이 콘셉트인 스킬. 새로 짜기 전에 기존 코드·표준 라이브러리·플랫폼 기능을 먼저 쓰게 하고, 검증·에러 처리·보안·접근성은 절대 줄이지 않는다. 위험한 로직(분기·루프·파서·돈·보안)에는 작은 테스트를 남긴다. README 의 자체 벤치마크: 코드 -53%, 시간 -41%, 비용 -26%, 토큰 -45%.
 
-**설치** (Claude Code — 두 줄을 **각각 따로** 입력해야 한다)
-```
-/plugin marketplace add DietrichGebert/ponytail
-```
-```
-/plugin install ponytail@ponytail
+**설치** (PowerShell — README 는 슬래시 명령을 두 번에 나눠 입력하라고 하며, 아래도 한 줄씩 실행한다)
+```powershell
+claude plugin marketplace add DietrichGebert/ponytail
+claude plugin install ponytail@ponytail
 ```
 - 플러그인은 Node.js 훅 2개를 쓰므로 `node` 가 PATH 에 있어야 한다. 없으면 스킬은 동작하지만 훅 호출마다 무해한 `node: command not found` 오류가 뜬다.
-- Claude Code 데스크톱 앱은 Code 탭에서 같은 명령을 입력하거나 **+** → **Plugins** → **Add plugin**.
+- Claude Code 데스크톱 앱은 Code 탭에서 **+** → **Plugins** → **Add plugin** 으로도 설치할 수 있다 (README).
 - 플러그인 대신 스킬만 전역 설치: `npx skills add DietrichGebert/ponytail --global` (스킬 6개 복사. 항상 켜진 규칙은 `AGENTS.md` 를 추가하거나 플러그인을 써야 함. `--skill '*'` 로 전부 선택).
 - 공식 출처는 GitHub `DietrichGebert/ponytail` 과 npm `@dietrichgebert/ponytail` 뿐이다. `.exe`/`.dll` 이 들어 있는 사본은 공식이 아니다 (README 경고).
 
@@ -398,7 +445,7 @@ check my site against best practices
 - 기본 강도 설정(선택): 환경변수 `PONYTAIL_DEFAULT_MODE`(`lite`/`full`/`ultra`/`off`) 또는 `%APPDATA%\ponytail\config.json` 의 `defaultMode` 필드. 기본값은 `full`.
 - 밴드·보드 데이터는 기본적으로 내 컴퓨터(`~/.config/ponytail/band/`)에만 저장된다. Windows 의 정확한 하위 경로는 README 에 따로 명시되어 있지 않다 (설정 파일만 `%APPDATA%\ponytail\`).
 - 서브에이전트에도 규칙이 주입된다. 특정 에이전트 종류에서 빼려면 `PONYTAIL_SUBAGENT_MATCHER` 환경변수에 정규식을 지정.
-- 제거: `/plugin remove ponytail`
+- 제거: `claude plugin uninstall ponytail` (README 는 `/plugin remove ponytail`)
 
 ---
 
