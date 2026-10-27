@@ -22,6 +22,7 @@ REPOS=(
   Nutlope/hallmark
   emilkowalski/skills
   vercel-labs/agent-skills             # web-design-guidelines 포함
+  DietrichGebert/ponytail
 )
 
 for repo in "${REPOS[@]}"; do
