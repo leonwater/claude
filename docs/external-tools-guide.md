@@ -3,6 +3,11 @@
 각 저장소의 공식 README(2026-10-27 기준 최신 커밋)에 적힌 내용만 옮겼다.
 저장소는 `bash scripts/clone_external.sh` 로 `external/` 아래에 내려받는다 (git 추적 제외).
 
+**설치는 모두 전역(모든 저장소에서 사용) 기준이다.**
+- 스킬은 `~/.claude/skills/` 에 들어가 Claude Code 의 모든 프로젝트에서 쓸 수 있다.
+- `/plugin install` 은 기본 범위가 사용자 전체라서 옵션이 필요 없다.
+- `npx skills add` 는 `-g`(또는 `--global`)를 빼면 현재 저장소에만 설치되니 꼭 붙인다.
+
 | # | 도구 | 한 줄 요약 | 필요 환경 |
 |---|------|-----------|-----------|
 | 1 | security-audit-skill | 에이전트를 보안 감사자로 만드는 스킬 | Node.js, 병렬 서브에이전트 지원 에이전트 |
@@ -24,10 +29,8 @@
 
 코드베이스를 6단계(정찰 → 커버리지 기반 탐색 → 후보 검증 → 구조화 출력 → 독립 재검증 → 보고서)로 감사한다.
 
-**설치** ([Skills CLI](https://skills.sh))
+**설치** ([Skills CLI](https://skills.sh), 전역)
 ```bash
-npx skills add https://github.com/cloudflare/security-audit-skill --skill security-audit
-# 사용자 전역 설치
 npx skills add https://github.com/cloudflare/security-audit-skill --skill security-audit --global
 ```
 
@@ -51,10 +54,10 @@ do a security review, output to ~/audits/my-project
 **설치** — PyPI 패키지명은 `graphifyy`(y 두 개), 명령어는 `graphify`.
 ```bash
 uv tool install graphifyy      # 또는 pipx install graphifyy
-graphify install               # 사용 중인 어시스턴트를 감지해 스킬 등록
-graphify install --project     # 현재 저장소에만 설치
+graphify install               # 어시스턴트를 감지해 사용자 프로필에 스킬 등록 (전역, 기본값)
 ```
-다른 에이전트: `--platform codex | opencode | gemini | copilot ...`, Cursor 는 `graphify cursor install`.
+- `--project` 를 붙이면 현재 저장소에만 설치되므로 붙이지 않는다.
+- 다른 에이전트: `--platform codex | opencode | gemini | copilot ...`, Cursor 는 `graphify cursor install`.
 
 **사용** (어시스턴트 안에서)
 ```
@@ -68,7 +71,7 @@ graphify install --project     # 현재 저장소에만 설치
 - 결과: `graphify-out/graph.html`(브라우저 시각화), `GRAPH_REPORT.md`(요약), `graph.json`(전체 그래프).
 - CLI 직접 질의: `graphify query / path / explain`. 종료 코드 0=답, 3=이름 모호, 4=노드 없음.
 - 커밋 시 자동 재빌드: `graphify hook install`.
-- 항상 그래프를 쓰게 하기: `graphify claude install` 등.
+- 항상 그래프를 쓰게 하기: 프로젝트마다 `graphify claude install` 등을 한 번 실행 (그 프로젝트에 설정 파일을 쓰는 방식).
 - 제거: `graphify uninstall` (`--purge` 로 `graphify-out/` 까지 삭제).
 - 선택 기능은 extras 로 설치: `uv tool install "graphifyy[pdf]"`, `[video]`, `[mcp]`, `[all]` 등.
 - Codex 에서는 `/graphify` 대신 `$graphify`.
@@ -105,14 +108,13 @@ HTML·CSS·미디어·애니메이션을 결정적(deterministic) MP4 로 렌더
 
 **AI 에이전트로 쓰기**
 ```bash
-# Claude Code 플러그인
+# Claude Code 플러그인 (사용자 전체에 설치)
 claude plugin marketplace add heygen-com/hyperframes
 claude plugin install hyperframes@hyperframes
 # 이후 /hyperframes:hyperframes 로 호출
 
-# 독립 스킬 설치 (OpenCode 등) — 에이전트/비대화형은 아래가 권장
-npx hyperframes skills update        # 코어 스킬 4개 설치
-npx skills add heygen-com/hyperframes
+# 또는 독립 스킬로 전역 설치 (OpenCode 등도 동일) — 코어 스킬 4개
+npx hyperframes skills update
 ```
 프롬프트 예: `Using /hyperframes, create a 10-second product intro with a fade-in title, a background video, and subtle background music.`
 
@@ -166,7 +168,7 @@ npx hyperframes add data-chart   # 카탈로그 블록 추가
 
 Claude Code·Codex 위에 에이전트 스웜·메모리·훅을 얹는 하네스.
 
-**경로 A — Claude Code 플러그인 (가벼움, 작업공간에 파일 안 생김)**
+**경로 A — Claude Code 플러그인 (전역 설치는 이 방법, 작업공간에 파일 안 생김)**
 ```text
 /plugin marketplace add ruvnet/ruflo
 /plugin install ruflo-core@ruflo
@@ -180,11 +182,12 @@ Claude Code·Codex 위에 에이전트 스웜·메모리·훅을 얹는 하네�
 
 **경로 B — CLI 전체 설치 (에이전트·훅·데몬·MCP 전부)**
 ```bash
-npx ruflo@latest init wizard          # 대화형 설정 (모든 OS)
-npx ruflo@latest init                 # 비대화형
-npm install -g ruflo@latest
-claude mcp add claude-flow -- npx ruflo@latest mcp start   # MCP 서버로 등록
+npm install -g ruflo@latest                                               # CLI 전역 설치
+claude mcp add --scope user claude-flow -- npx ruflo@latest mcp start     # MCP 서버를 모든 프로젝트에 등록
+npx ruflo@latest init wizard                                              # 프로젝트마다 실행
 ```
+- `claude mcp add` 는 `--scope user` 를 빼면 현재 프로젝트에만 등록된다.
+- `init` 은 실행한 프로젝트에 `.claude/`, `.claude-flow/`, `CLAUDE.md` 를 만드는 방식이라 전역 설치가 없다. 훅·에이전트까지 쓰려면 프로젝트마다 한 번 실행한다.
 - 설치 후엔 Claude Code 를 평소처럼 쓰면 훅이 작업 라우팅·학습을 자동 처리.
 - 상세: 저장소 `docs/USERGUIDE.md`.
 
@@ -194,7 +197,7 @@ claude mcp add claude-flow -- npx ruflo@latest mcp start   # MCP 서버로 등�
 
 Anthropic 이 관리하는 Claude Code 플러그인 마켓플레이스. `plugins/`(공식), `external_plugins/`(파트너·커뮤니티).
 
-**사용** (Claude Code 안에서)
+**사용** (Claude Code 안에서, 기본 범위가 사용자 전체라 전역 설치됨)
 ```
 /plugin install {plugin-name}@claude-plugins-official
 /plugin   → Discover 에서 탐색
@@ -209,7 +212,7 @@ Anthropic 이 관리하는 Claude Code 플러그인 마켓플레이스. `plugins
 
 `claude-plugins-official/plugins/frontend-design` 에 이미 포함되어 별도 다운로드 생략.
 
-**설치**
+**설치** (사용자 전체)
 ```
 /plugin install frontend-design@claude-plugins-official
 ```
@@ -228,18 +231,18 @@ Anthropic 이 관리하는 Claude Code 플러그인 마켓플레이스. `plugins
 제품 유형에 맞춰 패턴·스타일·색·타이포·효과·피해야 할 패턴·체크리스트를 한 번에 생성.
 
 **설치**
+```bash
+# CLI (README 권장) — 패키지명 ui-ux-pro-max-cli, 명령어 uipro
+npm install -g ui-ux-pro-max-cli
+uipro init --ai claude --global   # ~/.claude/skills/ 에 설치
+uipro update --global             # 전역 스킬 파일 갱신
 ```
-# Claude Code 마켓플레이스
+```
+# 또는 Claude Code 마켓플레이스 (사용자 전체)
 /plugin marketplace add nextlevelbuilder/ui-ux-pro-max-skill
 /plugin install ui-ux-pro-max@ui-ux-pro-max-skill
 ```
-```bash
-# CLI (권장) — 패키지명 ui-ux-pro-max-cli, 명령어 uipro
-npm install -g ui-ux-pro-max-cli
-cd /path/to/your/project
-uipro init --ai claude            # cursor, codex, opencode, gemini ... / all
-uipro init --ai claude --global   # ~/.claude/skills/ 에 설치
-```
+- `--global` 을 빼면 현재 프로젝트에만 설치된다.
 - 구버전 `uipro-cli` 는 사용하지 말 것. 검색 스크립트에 Python 3.x 필요.
 
 **사용** — Claude Code 에선 UI 요청 시 자동 활성화.
@@ -247,12 +250,12 @@ uipro init --ai claude --global   # ~/.claude/skills/ 에 설치
 Build a landing page for my SaaS product
 Create a dashboard for healthcare analytics
 ```
-디자인 시스템 직접 생성:
+디자인 시스템 직접 생성 (전역 설치라 스크립트는 `~/.claude/skills/` 아래에 있음):
 ```bash
-python3 .claude/skills/ui-ux-pro-max/scripts/search.py "beauty spa wellness" --design-system -p "Serenity Spa"
-python3 .claude/skills/ui-ux-pro-max/scripts/search.py "fintech banking" --design-system -f markdown
-python3 .claude/skills/ui-ux-pro-max/scripts/search.py "elegant serif" --domain typography
-python3 .claude/skills/ui-ux-pro-max/scripts/search.py "form validation" --stack react
+python3 ~/.claude/skills/ui-ux-pro-max/scripts/search.py "beauty spa wellness" --design-system -p "Serenity Spa"
+python3 ~/.claude/skills/ui-ux-pro-max/scripts/search.py "fintech banking" --design-system -f markdown
+python3 ~/.claude/skills/ui-ux-pro-max/scripts/search.py "elegant serif" --domain typography
+python3 ~/.claude/skills/ui-ux-pro-max/scripts/search.py "form validation" --stack react
 ```
 
 ---
@@ -263,11 +266,11 @@ python3 .claude/skills/ui-ux-pro-max/scripts/search.py "form validation" --stack
 
 **설치** (Node 18+)
 ```bash
-npx skills add nutlope/hallmark -g                          # 전역
-npx skills add nutlope/hallmark -g --agent claude-code      # 특정 하네스만
+npx skills add nutlope/hallmark -g --agent claude-code      # 전역, Claude Code 용 (~/.claude/skills/hallmark)
+npx skills add nutlope/hallmark -g                          # 전역, 지원하는 모든 하네스
 npm i -g puppeteer-core                                      # 브라우저 검사용 (Chrome 필요)
 ```
-Claude Code 플러그인: `/plugin marketplace add nutlope/hallmark` → `/plugin install hallmark@hallmark` (`/hallmark:hallmark` 로 호출).
+또는 Claude Code 플러그인(사용자 전체): `/plugin marketplace add nutlope/hallmark` → `/plugin install hallmark@hallmark` (`/hallmark:hallmark` 로 호출).
 
 **사용**
 ```
@@ -288,7 +291,7 @@ Emil Kowalski(Vercel·Linear 출신)의 UI 폴리싱·애니메이션 판단 기
 
 **설치**
 ```bash
-npx skills@latest add emilkowalski/skills
+npx skills@latest add emilkowalski/skills -g
 ```
 **사용**
 - 처음 호출하면 준비 메시지만 내고 질문을 기다림.
@@ -308,9 +311,9 @@ Vercel 의 Web Interface Guidelines(100+ 규칙)로 UI 코드를 감사. 코드 
 
 **설치**
 ```bash
-npx skills add vercel-labs/agent-skills --skill web-design-guidelines
-# 저장소 전체 스킬 설치
-npx skills add vercel-labs/agent-skills
+npx skills add vercel-labs/agent-skills --skill web-design-guidelines -g
+# 저장소 전체 스킬 전역 설치
+npx skills add vercel-labs/agent-skills -g
 ```
 **사용**
 ```
