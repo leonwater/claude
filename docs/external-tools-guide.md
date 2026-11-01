@@ -18,6 +18,30 @@
 
 `/plugin` 은 Claude Code 안에서만 되므로, 아래는 **일반 PowerShell** 에서 실행하는 `claude plugin ...` 형식이다. 이미 설치된 항목은 오류가 나도 다음 줄로 넘어가면 된다.
 
+**복사용 명령 표** (한 줄씩 PowerShell 에 붙여넣기. 플러그인은 먼저 해당 마켓플레이스를 등록해야 한다)
+
+| 구분 | 도구 | 명령 |
+|---|---|---|
+| 마켓플레이스 | claude-plugins-official | `claude plugin marketplace add anthropics/claude-plugins-official` |
+| 플러그인 | frontend-design | `claude plugin install frontend-design@claude-plugins-official` |
+| 플러그인 | context7 | `claude plugin install context7@claude-plugins-official` |
+| 플러그인 | code-review | `claude plugin install code-review@claude-plugins-official` |
+| 플러그인 | superpowers | `claude plugin install superpowers@claude-plugins-official` |
+| 마켓플레이스 | hyperframes | `claude plugin marketplace add heygen-com/hyperframes` |
+| 플러그인 | hyperframes | `claude plugin install hyperframes@hyperframes` |
+| 마켓플레이스 | ui-ux-pro-max | `claude plugin marketplace add nextlevelbuilder/ui-ux-pro-max-skill` |
+| 플러그인 | ui-ux-pro-max | `claude plugin install ui-ux-pro-max@ui-ux-pro-max-skill` |
+| 마켓플레이스 | hallmark | `claude plugin marketplace add nutlope/hallmark` |
+| 플러그인 | hallmark | `claude plugin install hallmark@hallmark` |
+| 마켓플레이스 | ponytail | `claude plugin marketplace add DietrichGebert/ponytail` |
+| 플러그인 | ponytail | `claude plugin install ponytail@ponytail` |
+| 마켓플레이스 | rea | `claude plugin marketplace add morluto/rea` |
+| 플러그인 | rea | `claude plugin install rea@rea` |
+| 스킬 | security-audit | `npx -y skills add https://github.com/cloudflare/security-audit-skill -s security-audit -g -a claude-code -y --copy` |
+| 스킬 | emil-design-eng | `npx -y skills add emilkowalski/skills -s emil-design-eng -g -a claude-code -y --copy` |
+| 스킬 | web-design-guidelines | `npx -y skills add vercel-labs/agent-skills -s web-design-guidelines -g -a claude-code -y --copy` |
+| CLI | graphify | `uv tool install graphifyy` 후 `graphify install` |
+
 **방법 1 — 스크립트 한 번 실행** (저장소 루트에서)
 ```powershell
 powershell -ExecutionPolicy Bypass -File scripts\install_all.ps1
@@ -36,6 +60,8 @@ claude plugin marketplace add nutlope/hallmark
 claude plugin install hallmark@hallmark
 claude plugin marketplace add DietrichGebert/ponytail
 claude plugin install ponytail@ponytail
+claude plugin install context7@claude-plugins-official
+claude plugin install code-review@claude-plugins-official
 claude plugin install superpowers@claude-plugins-official
 claude plugin marketplace add morluto/rea
 claude plugin install rea@rea

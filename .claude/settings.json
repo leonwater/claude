@@ -44,6 +44,8 @@
     "hallmark@hallmark": true,
     "ponytail@ponytail": true,
     "superpowers@claude-plugins-official": true,
-    "rea@rea": true
+    "rea@rea": true,
+    "context7@claude-plugins-official": true,
+    "code-review@claude-plugins-official": true
   }
 }

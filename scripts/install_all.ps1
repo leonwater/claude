@@ -23,6 +23,8 @@ Run "marketplace: hallmark"               { claude plugin marketplace add nutlop
 Run "plugin: hallmark"                    { claude plugin install hallmark@hallmark }
 Run "marketplace: ponytail"               { claude plugin marketplace add DietrichGebert/ponytail }
 Run "plugin: ponytail"                    { claude plugin install ponytail@ponytail }
+Run "plugin: context7"                  { claude plugin install context7@claude-plugins-official }
+Run "plugin: code-review"                { claude plugin install code-review@claude-plugins-official }
 Run "plugin: superpowers"                { claude plugin install superpowers@claude-plugins-official }
 Run "marketplace: rea"                    { claude plugin marketplace add morluto/rea }
 Run "plugin: rea"                         { claude plugin install rea@rea }
