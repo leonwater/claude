@@ -36,9 +36,9 @@ claude plugin marketplace add nutlope/hallmark
 claude plugin install hallmark@hallmark
 claude plugin marketplace add DietrichGebert/ponytail
 claude plugin install ponytail@ponytail
-claude plugin marketplace add ruvnet/ruflo
-claude plugin install ruflo-core@ruflo
-claude plugin install ruflo-console@ruflo
+claude plugin install superpowers@claude-plugins-official
+claude plugin marketplace add morluto/rea
+claude plugin install rea@rea
 
 # 독립 스킬 (전역)
 npx -y skills add https://github.com/cloudflare/security-audit-skill -s security-audit -g -a claude-code -y --copy
@@ -52,7 +52,7 @@ graphify install
 - 끝나면 **Claude Code 를 새로 시작**한다. `claude plugin list` 로 설치 목록을 확인한다.
 - `claude plugin install` 의 기본 범위는 `user`(전체 프로젝트)다 (`claude plugin install --help` 로 확인). `claude plugin marketplace add` 도 기본이 `user`.
 - `npx skills add` 옵션은 `npx skills add --help` 기준: `-s` 스킬 지정, `-g` 전역, `-a` 에이전트 지정, `-y` 확인 생략, `--copy` 심볼릭 링크 대신 복사(Windows 에서 링크 권한 문제 회피용으로 추가한 것).
-- 스크립트·블록에서 **일부러 뺀 것**: `ruflo-mods`(샌드박스 없이 계정 권한으로 실행되니 코드 확인 후 `claude plugin install ruflo-mods@ruflo`), opencode·ComfyUI·hyperframes Studio 앱(일반 프로그램이라 아래 각 항목의 설치 방법 사용), `ui-ux-pro-max-cli`(플러그인으로 대체).
+- 스크립트·블록에서 **일부러 뺀 것**: ruflo(요청으로 제외), opencode·ComfyUI·hyperframes Studio 앱(일반 프로그램이라 아래 각 항목의 설치 방법 사용), `ui-ux-pro-max-cli`(플러그인으로 대체).
 - 이 스크립트와 `claude plugin ...` 명령은 Windows 에서 직접 실행해 보지 못했다 (이 작업 환경은 리눅스이고 설치 실행이 막혀 있음). 명령 형식은 `claude plugin --help`·`npx skills add --help` 출력으로 확인했다.
 
 ---
@@ -64,7 +64,7 @@ graphify install
 | 3 | opencode | 오픈소스 AI 코딩 에이전트 | WSL 권장 (네이티브도 가능) |
 | 4 | hyperframes | HTML → MP4 영상 렌더링 | 앱은 설치만, CLI 는 Node.js 22+ 와 FFmpeg |
 | 5 | ComfyUI | 노드 그래프 기반 이미지·영상·3D·오디오 생성 | 데스크톱 앱 또는 포터블, GPU 권장 |
-| 6 | ruflo | Claude Code·Codex 용 멀티 에이전트 하네스 | Node.js |
+| 6 | superpowers | 설계 → 계획 → TDD → 리뷰까지 강제하는 개발 방법론 스킬 모음 | Claude Code |
 | 7 | claude-plugins-official | Anthropic 공식 Claude Code 플러그인 디렉터리 | Claude Code |
 | 8 | frontend-design | 주제에 맞는 디자인 방향 설정 | Claude Code (7번에 포함) |
 | 9 | ui-ux-pro-max | 색·폰트·패턴을 디자인 시스템으로 생성 | Python 3.x |
@@ -72,6 +72,7 @@ graphify install
 | 11 | emil-design-eng | 애니메이션 곡선·속도·디테일 다듬기 | Node.js (npx) |
 | 12 | web-design-guidelines | 접근성·사용성 규칙 점검 | Node.js (npx) |
 | 13 | ponytail | 새 코드를 덜 쓰고 기존 코드를 재사용하게 하는 스킬 | Node.js (훅이 사용) |
+| 14 | rea | 바이너리·앱·웹의 동작을 에이전트로 역분석하는 MCP/CLI | Node.js 22.23.4+ 등, 네이티브 분석은 Ghidra 등 별도 |
 
 ---
 
@@ -242,32 +243,25 @@ npx hyperframes add data-chart   # 카탈로그 블록 추가
 
 ---
 
-## 6. ruflo (ruvnet, 구 Claude Flow)
+## 6. superpowers (obra)
 
-Claude Code·Codex 위에 에이전트 스웜·메모리·훅을 얹는 하네스.
+코딩 에이전트용 개발 방법론. 만들기 전에 의도를 먼저 묻고(brainstorming) → 설계 승인 → 2~5분 단위 구현 계획 → 서브에이전트가 작업별로 구현·리뷰 → 브랜치 마무리 순으로 진행한다. 스킬이 자동으로 발동하므로 별도 조작이 필요 없다 (README).
 
-**경로 A — Claude Code 플러그인 (전역 설치는 이 방법, 작업공간에 파일 안 생김)**
+**설치** (README 의 Claude Code 항목, 공식 마켓플레이스에 포함됨 — `marketplace.json` 에서 확인)
 ```powershell
-claude plugin marketplace add ruvnet/ruflo
-claude plugin install ruflo-core@ruflo
-claude plugin install ruflo-console@ruflo
-claude plugin install ruflo-mods@ruflo
+claude plugin install superpowers@claude-plugins-official
 ```
-설치 후 Claude Code 를 새로 시작하고 `/ruflo` 로 연다.
-- core = 기반 도구 + MCP 서버, console = 에이전트 조종석, mods = 라우팅·정책.
-- mods 는 계정 권한으로 샌드박스 없이 실행되므로 설치 전 코드 확인 권장 (Claude Code 2.1.287 이상).
+- 먼저 `claude plugin marketplace add anthropics/claude-plugins-official` 가 되어 있어야 한다 (8번 참고).
+- README 의 다른 방법(작성자 마켓플레이스): `claude plugin marketplace add obra/superpowers-marketplace` → `claude plugin install superpowers@superpowers-marketplace`
+- 하네스마다 따로 설치해야 한다 (Claude Code, Codex, Cursor, Gemini CLI 등).
 
-**경로 B — CLI 전체 설치 (에이전트·훅·데몬·MCP 전부)**
-```powershell
-npm install -g ruflo@latest
-npx ruflo@latest init wizard
-claude mcp add --scope user claude-flow -- npx ruflo@latest mcp start
-```
-- ⚠️ README 의 `curl ... | bash` 한 줄 설치는 POSIX 셸(Git-Bash, WSL)용이다. 네이티브 PowerShell·cmd 에서는 `npx ruflo@latest init wizard` 를 쓴다 (`'bash' is not recognized` 오류의 해결책으로 README 가 안내).
-- `claude mcp add` 는 `--scope user` 를 빼면 현재 프로젝트에만 등록된다 (Claude Code 동작, ruflo README 에는 이 옵션이 없음). 네이티브 Windows 에서 `npx` 기반 MCP 가 실행되지 않으면 별도 처리가 필요할 수 있으나, ruflo README 에는 Windows 전용 MCP 명령이 없어 확인하지 못했다.
-- `init` 은 실행한 프로젝트에 `.claude\`, `.claude-flow\`, `CLAUDE.md` 를 만드는 방식이라 전역 설치가 없다. 훅·에이전트까지 쓰려면 프로젝트마다 한 번 실행한다.
-- 설치 후엔 Claude Code 를 평소처럼 쓰면 훅이 작업 라우팅·학습을 자동 처리.
-- 상세: 저장소 `docs\USERGUIDE.md`.
+**사용** — 설치 후 코딩 작업을 요청하면 자동 적용.
+- 기본 흐름: brainstorming → using-git-worktrees → writing-plans → subagent-driven-development 또는 executing-plans → test-driven-development → requesting-code-review → finishing-a-development-branch.
+- 에이전트는 작업 전에 관련 스킬이 있는지 항상 확인한다 ("제안이 아니라 필수 워크플로").
+- TDD 는 RED-GREEN-REFACTOR 를 강제하며, 테스트보다 먼저 쓴 코드는 삭제한다고 적혀 있다.
+- 엉뚱하게 동작하면 "figure out what went wrong with superpowers in this session" 이라고 요청 → `diagnosing-superpowers` 스킬 실행.
+- 포함 스킬: brainstorming, writing-plans, executing-plans, dispatching-parallel-agents, requesting/receiving-code-review, using-git-worktrees, finishing-a-development-branch, subagent-driven-development, test-driven-development, systematic-debugging, verification-before-completion, diagnosing-superpowers, writing-skills, using-superpowers.
+- ⚠️ 모든 작업에 설계 질문과 TDD 를 강제하므로 작은 수정에는 번거로울 수 있다. ponytail(코드 최소화)과 함께 쓸 때 동작이 겹치는지는 확인하지 못했다.
 
 ---
 
@@ -449,6 +443,51 @@ claude plugin install ponytail@ponytail
 
 ---
 
+## 14. rea — Reverse Engineer Anything (morluto)
+
+"별이 가장 많은 리버스 엔지니어링 도구"로 요청하신 후보다. 에이전트가 MCP 로 네이티브 바이너리·Electron/JS 앱·.NET·APK·웹사이트를 로컬에서 분석하고, 결론마다 근거와 한계를 함께 돌려준다 (README).
+
+⚠️ **별 개수는 확인하지 못했다.** 이 환경에서는 GitHub API 접근이 막혀 있고, 웹 검색에 나온 수치(약 23만)는 블로그 한 곳의 주장이라 신뢰하지 않는다. 직접 [github.com/morluto/rea](https://github.com/morluto/rea) 에서 확인하고, "리버스 엔지니어링 전반"에서 별이 가장 많은 도구는 다를 수 있다(다른 도구를 원하면 알려 달라).
+
+⚠️ **공식 출처만 사용**: README 가 `github.com/morluto/rea`, `rea.tools`, npm `rea-agents` 만 공식이라고 경고한다. 이름이 비슷한 저장소·복사된 README 는 공식이 아니다.
+
+**설치** (Node.js 22.x ≥ 22.23.4, 24.x ≥ 24.22.1 또는 26.12.1+ 필요 — README)
+```powershell
+# A. Claude Code 플러그인 (docs/installation.md 의 플러그인 항목)
+claude plugin marketplace add morluto/rea
+claude plugin install rea@rea
+
+# B. 또는 setup 마법사 (에이전트 선택 → 변경 검토·승인, 기존 설정은 백업)
+npx rea-agents setup
+npm install --global rea-agents      # rea 명령을 계속 쓰려면
+```
+- **A 와 B 중 하나만** 쓴다. 둘 다 쓰면 `rea` 서버가 두 개 생긴다 (문서 명시). 일괄 설치 스크립트는 A 를 사용한다.
+- 플러그인은 `rea setup` 을 실행하지 않으므로 분석 엔진(Ghidra 등) 설정은 별도다.
+- 설치 후 Claude Code 를 새로 시작한다.
+
+**사용**
+```text
+Understand how search works in the Notes app, show me the evidence, and build a similar feature for my project.
+```
+```powershell
+npx -y rea-agents@latest analyze-javascript-application C:\absolute\path\to\app --json   # JS/Electron 앱 (ASAR 포함)
+rea --help
+rea update                      # npm 전역 설치 시 업데이트
+rea doctor --json               # 환경 점검
+```
+- 엔진 없이 되는 정적 분석: JS/Electron, .NET, Go, Rust, PE 임포트·인증서, APK 서명, Godot PCK, 모델 파일(GGUF/safetensors) 등. 웹사이트 분석은 Chrome 계열 브라우저 필요.
+- **Windows 네이티브 바이너리 분석**: Ghidra 또는 IDA 등이 필요하다. `rea setup` 은 Ghidra·Java·Python 을 설치하지 않으며, Windows 의 Hopper 자동 설치는 지원하지 않는다. Windows Ghidra 는 "experimental P0" 로 x86/x86-64/ARM64 PE 읽기 전용만 지원한다. 설정 예(PowerShell):
+  ```powershell
+  $env:GHIDRA_INSTALL_DIR = "C:\tools\ghidra_12.1.4_PUBLIC"
+  $env:JAVA_HOME = "C:\Program Files\Java\jdk-21"
+  rea doctor --json
+  ```
+- 분석은 로컬에서 실행되며, 런타임 캡처는 선택한 대상을 내 사용자 권한으로 실행한다.
+- **적법한 용도만**: 저장소 `DISCLAIMER.md` 는 보안 연구, 악성코드·사고 분석, 상호운용성, 직접 소유·허가받은 소프트웨어 분석 등을 허용하고, DRM·라이선스·안티치트 우회, 게임 치트, 허가 없는 인증 우회, 상용 소프트웨어 복제는 지원하지 않는다고 밝힌다. 분석 대상의 라이선스와 관할 법을 먼저 확인할 것.
+- 문서: [rea.tools](https://rea.tools/), 저장소 `docs/installation.md`, `docs/cli.md`.
+
+---
+
 ## 디자인 스킬 추천 순서
 
 1. **frontend-design** 로 방향 설정 →
@@ -458,3 +497,28 @@ claude plugin install ponytail@ponytail
 5. **web-design-guidelines** 로 접근성·사용성 최종 점검
 
 ponytail 은 디자인과 별개로, 코드 작성·리뷰 전반에 항상 켜 두는 용도다.
+
+---
+
+## 추가하면 좋을 것 (제안)
+
+모두 이미 받은 `claude-plugins-official` 의 `marketplace.json` 설명에 있는 것만 골랐다. 설치는 `claude plugin install <이름>@claude-plugins-official` (전역).
+
+| 우선순위 | 플러그인 | 이유 (marketplace 설명) |
+|---|---|---|
+| 높음 | `context7` | 최신 라이브러리 문서를 조회하는 MCP (Upstash 호스팅 서버에 연결). ui-ux-pro-max·hyperframes 같은 프레임워크 코딩에 유용 |
+| 높음 | `playwright` | 브라우저 자동화·E2E 테스트 MCP (Microsoft). hallmark·web-design-guidelines 로 만든 화면을 실제로 열어 확인할 때 보완 |
+| 높음 | `code-review` | PR 을 여러 전문 에이전트로 리뷰하고 신뢰도 점수로 오탐을 거름 |
+| 중간 | `commit-commands` | 커밋·푸시·PR 생성 워크플로 명령 |
+| 중간 | `security-guidance` | 편집 시 패턴 경고, 종료 시 diff 리뷰 (security-audit 스킬은 전체 감사용, 이쪽은 평소 작성 코드 점검용) |
+| 중간 | `code-simplifier` | 최근 수정한 코드를 동작은 유지한 채 정리 |
+| 중간 | `claude-md-management` | CLAUDE.md 품질 점검·학습 내용 반영 |
+| 선택 | `feature-dev`, `pr-review-toolkit` | superpowers 와 기능이 겹칠 수 있어 하나만 쓰는 편이 낫다 |
+| 선택 | `typescript-lsp`, `pyright-lsp` | 쓰는 언어에 맞춰 코드 인텔리전스 추가 |
+| 선택 | `skill-creator` | 스킬 만들기·성능 측정 |
+| 선택 | `session-report` | 토큰·비용이 큰 프롬프트를 HTML 로 시각화 (ponytail 의 절감 효과 확인용) |
+
+**겹치거나 충돌할 수 있는 조합**
+- `superpowers`(모든 작업에 설계·TDD 강제) ↔ `ponytail`(최소 코드): 함께 쓸 때 동작이 겹치는지는 확인하지 못했다. 불편하면 둘 중 하나만 켠다.
+- `security-audit`(스킬) ↔ `claude-security`·`security-guidance`(플러그인): 용도가 비슷하니 필요한 쪽만 쓴다.
+- `rea` 는 플러그인 방식과 `rea setup` 방식을 동시에 쓰지 않는다.

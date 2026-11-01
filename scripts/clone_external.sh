@@ -16,7 +16,8 @@ REPOS=(
   anomalyco/opencode
   heygen-com/hyperframes
   Comfy-Org/ComfyUI
-  ruvnet/ruflo
+  obra/superpowers
+  morluto/rea
   anthropics/claude-plugins-official   # frontend-design 플러그인 포함
   nextlevelbuilder/ui-ux-pro-max-skill
   Nutlope/hallmark

@@ -23,11 +23,9 @@ Run "marketplace: hallmark"               { claude plugin marketplace add nutlop
 Run "plugin: hallmark"                    { claude plugin install hallmark@hallmark }
 Run "marketplace: ponytail"               { claude plugin marketplace add DietrichGebert/ponytail }
 Run "plugin: ponytail"                    { claude plugin install ponytail@ponytail }
-Run "marketplace: ruflo"                  { claude plugin marketplace add ruvnet/ruflo }
-Run "plugin: ruflo-core"                  { claude plugin install ruflo-core@ruflo }
-Run "plugin: ruflo-console"               { claude plugin install ruflo-console@ruflo }
-# ruflo-mods 는 샌드박스 없이 계정 권한으로 실행되므로 코드를 확인한 뒤 직접 설치한다:
-#   claude plugin install ruflo-mods@ruflo
+Run "plugin: superpowers"                { claude plugin install superpowers@claude-plugins-official }
+Run "marketplace: rea"                    { claude plugin marketplace add morluto/rea }
+Run "plugin: rea"                         { claude plugin install rea@rea }
 
 # --- 독립 스킬 (-g 전역, -a claude-code, -y 확인 생략, --copy 심볼릭 링크 대신 복사) ---
 Run "skill: security-audit"       { npx -y skills add https://github.com/cloudflare/security-audit-skill -s security-audit -g -a claude-code -y --copy }
