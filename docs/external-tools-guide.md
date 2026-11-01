@@ -502,23 +502,88 @@ ponytail 은 디자인과 별개로, 코드 작성·리뷰 전반에 항상 켜 
 
 ## 추가하면 좋을 것 (제안)
 
-모두 이미 받은 `claude-plugins-official` 의 `marketplace.json` 설명에 있는 것만 골랐다. 설치는 `claude plugin install <이름>@claude-plugins-official` (전역).
+모두 이미 받은 `claude-plugins-official` 저장소의 README·플러그인 파일에 적힌 내용만 정리했다. 설치는 PowerShell 에서 `claude plugin install <이름>@claude-plugins-official` (전역, 8번의 마켓플레이스 등록이 먼저 필요). 설치 후 Claude Code 를 새로 시작한다.
 
-| 우선순위 | 플러그인 | 이유 (marketplace 설명) |
-|---|---|---|
-| 높음 | `context7` | 최신 라이브러리 문서를 조회하는 MCP (Upstash 호스팅 서버에 연결). ui-ux-pro-max·hyperframes 같은 프레임워크 코딩에 유용 |
-| 높음 | `playwright` | 브라우저 자동화·E2E 테스트 MCP (Microsoft). hallmark·web-design-guidelines 로 만든 화면을 실제로 열어 확인할 때 보완 |
-| 높음 | `code-review` | PR 을 여러 전문 에이전트로 리뷰하고 신뢰도 점수로 오탐을 거름 |
-| 중간 | `commit-commands` | 커밋·푸시·PR 생성 워크플로 명령 |
-| 중간 | `security-guidance` | 편집 시 패턴 경고, 종료 시 diff 리뷰 (security-audit 스킬은 전체 감사용, 이쪽은 평소 작성 코드 점검용) |
-| 중간 | `code-simplifier` | 최근 수정한 코드를 동작은 유지한 채 정리 |
-| 중간 | `claude-md-management` | CLAUDE.md 품질 점검·학습 내용 반영 |
-| 선택 | `feature-dev`, `pr-review-toolkit` | superpowers 와 기능이 겹칠 수 있어 하나만 쓰는 편이 낫다 |
-| 선택 | `typescript-lsp`, `pyright-lsp` | 쓰는 언어에 맞춰 코드 인텔리전스 추가 |
-| 선택 | `skill-creator` | 스킬 만들기·성능 측정 |
-| 선택 | `session-report` | 토큰·비용이 큰 프롬프트를 HTML 로 시각화 (ponytail 의 절감 효과 확인용) |
+### 우선순위 높음
 
-**겹치거나 충돌할 수 있는 조합**
-- `superpowers`(모든 작업에 설계·TDD 강제) ↔ `ponytail`(최소 코드): 함께 쓸 때 동작이 겹치는지는 확인하지 못했다. 불편하면 둘 중 하나만 켠다.
-- `security-audit`(스킬) ↔ `claude-security`·`security-guidance`(플러그인): 용도가 비슷하니 필요한 쪽만 쓴다.
+**1) context7 — 최신 문서 조회 MCP**
+- 문제: AI 가 오래된 학습 데이터로 낡은·존재하지 않는 API 를 쓰는 것을 막는다. 소스 저장소의 현재 문서와 코드 예제를 가져온다.
+- 구성: Context7 의 호스팅 서버(`https://mcp.context7.com/mcp`)에 연결하는 원격 MCP. 로컬 Node/npm 불필요.
+- 도구 2개: `resolve-library-id`(라이브러리 검색 → `/vercel/next.js` 같은 ID 와 버전), `query-docs`(해당 라이브러리 문서를 질문과의 관련도 순으로 반환).
+- 사용: 코딩 요청에서 "Next.js 최신 문서 기준으로" 처럼 라이브러리를 언급하면 에이전트가 호출한다.
+- API 키는 선택. 없으면 익명 공용 한도를 공유한다. 내 플랜을 쓰려면 환경변수 `CONTEXT7_API_KEY` 를 설정하고 Claude Code 를 재시작 (README 는 `export` 예시만 있다. Windows 에서는 `setx CONTEXT7_API_KEY "키"` 가 일반적인 방법이나 README 에는 없다).
+- 주의: 질문 내용이 외부 서비스(Context7)로 전송된다.
+- 설치: `claude plugin install context7@claude-plugins-official`
+
+**2) playwright — 브라우저 자동화 MCP (Microsoft)**
+- 기능: 웹 페이지 조작, 스크린샷, 폼 입력, E2E 테스트.
+- 구성: `npx @playwright/mcp@latest` 를 실행하는 MCP (파일 `.mcp.json` 에서 확인). Node.js 가 필요하다.
+- 활용: hallmark·ui-ux-pro-max·web-design-guidelines 로 만든 화면을 실제 브라우저로 열어 확인·캡처.
+- 브라우저 바이너리 설치 여부는 해당 파일에 안내가 없어 확인하지 못했다. 처음 실행 때 오류가 나면 메시지를 따른다.
+- 설치: `claude plugin install playwright@claude-plugins-official`
+
+**3) code-review — 다중 에이전트 PR 리뷰**
+- 명령: `/code-review` (PR 브랜치에서 실행).
+- 동작: 닫힘·초안·사소한·이미 리뷰한 PR 은 건너뛰고, 4개 에이전트가 병렬로 검토한다 — CLAUDE.md 준수 2개, 명백한 버그 1개, git blame·이력 기반 문제 1개.
+- 각 이슈에 0~100 신뢰도를 매겨 **80 미만은 버리고**, 80 이상만 PR 댓글로 남긴다 (없으면 댓글 안 남김).
+- 걸러내는 것: 기존부터 있던 문제, 린터가 잡는 것, 사소한 지적, 린트 무시 주석이 달린 코드.
+- 팁: CLAUDE.md 가 구체적일수록 준수 검사가 정확하다.
+- 설치: `claude plugin install code-review@claude-plugins-official`
+
+### 우선순위 중간
+
+**4) commit-commands — 커밋·PR 자동화**
+- `/commit`: 변경 사항 분석 → 저장소의 기존 커밋 메시지 스타일에 맞춰 초안 작성 → 파일 스테이징 → 커밋. `.env`, `credentials.json` 같은 비밀 파일은 커밋하지 않도록 한다.
+- `/commit-push-pr`: main 이면 새 브랜치 생성 → 커밋 → push → `gh pr create` 로 PR 생성 → URL 안내. 브랜치의 모든 커밋을 보고 요약·테스트 계획이 담긴 설명을 쓴다.
+- `/clean_gone`: 원격에서 삭제된([gone]) 로컬 브랜치와 연결된 워크트리를 정리.
+- 요구: `/commit-push-pr` 는 GitHub CLI(`gh`) 설치·인증과 `origin` 원격이 필요하다 (Windows: `winget install GitHub.cli` — 이 ID 는 제가 아는 값이며 README 에는 없다).
+
+**5) security-guidance — 평소 작성하는 코드의 보안 점검 (3겹)**
+1. 패턴 경고: Edit/Write 시 위험 패턴 약 25개(`yaml.load`, `pickle.load`, 날것의 `innerHTML`, 하드코딩된 비밀 등)를 즉시 알림. 자격 증명 불필요.
+2. diff 리뷰: Claude 가 한 턴을 끝낼 때 diff 를 LLM(기본 최신 Opus)에 보내고, 심각도 높은 발견을 Claude 에게 돌려줘 사용자가 보기 전에 고치게 한다.
+3. 커밋 리뷰: `git commit` 시 에이전트가 관련 파일을 읽어 데이터 흐름을 추적 — 여러 파일에 걸친 IDOR, 인증 우회, SSRF 등을 잡는다.
+- 요구: Claude Code ≥ 2.1.144, PATH 에 Python 3.8+ (`python`/`py -3` 가능).
+- 비용·프라이버시: 2·3단계는 LLM 호출이라 사용량이 늘고 diff 가 모델 제공자에게 전송된다. 자격 증명이 없으면 1단계만 동작한다.
+- 끄기: `SECURITY_GUIDANCE_DISABLE=1`(전체), `ENABLE_CODE_SECURITY_REVIEW=0`(LLM 리뷰 전체), `ENABLE_PATTERN_RULES=0`(패턴 경고), `ENABLE_STOP_REVIEW=0`(턴 종료 리뷰만).
+- 설치: `claude plugin install security-guidance@claude-plugins-official`
+
+**6) code-simplifier — 코드 정리 에이전트**
+- 방금 수정한 코드를 대상으로, **동작은 그대로 두고** 가독성·일관성·유지보수성을 높인다. 지시하지 않으면 최근 수정분만 본다. 지나치게 압축된 코드보다 명시적인 코드를 우선한다.
+- 사용: 구현 후 "code-simplifier 로 정리해줘" 처럼 요청.
+- 설치: `claude plugin install code-simplifier@claude-plugins-official`
+
+**7) claude-md-management — CLAUDE.md 관리**
+- `claude-md-improver`(스킬): 현재 코드베이스와 CLAUDE.md 가 어긋났는지 점검하고 품질 점수·수정안을 제시. 예: "audit my CLAUDE.md files", "check if my CLAUDE.md is up to date".
+- `/revise-claude-md`(명령): 세션에서 알게 된 내용을 CLAUDE.md 에 반영. 세션 종료 시 사용.
+- 설치: `claude plugin install claude-md-management@claude-plugins-official`
+
+### 선택
+
+**8) feature-dev — 7단계 기능 개발 워크플로**
+- `/feature-dev <설명>`: 요구 파악 → 코드베이스 탐색(`code-explorer` 병렬) → 질문으로 모호함 해소 → 아키텍처 설계(`code-architect`, 여러 접근안) → 구현 → 품질 리뷰(`code-reviewer`) → 요약.
+- ⚠️ superpowers 와 목적이 겹친다. 하나만 쓰는 편이 낫다.
+
+**9) pr-review-toolkit — 6개 리뷰 전문 에이전트**
+- `comment-analyzer`(주석 정확성·낡은 주석), `pr-test-analyzer`(테스트 커버리지의 질·누락), `silent-failure-hunter`(삼켜진 오류·부적절한 폴백), `type-design-analyzer`(타입 캡슐화·불변식 1~10점), `code-reviewer`(지침 준수), `code-simplifier`(단순화). 명령은 `review-pr`.
+- ⚠️ code-review 와 일부 겹친다. 에이전트별로 깊게 보고 싶을 때만.
+
+**10) typescript-lsp / pyright-lsp — 언어 서버(코드 인텔리전스)**
+- 정의로 이동·참조 찾기·오류 검사를 제공. 플러그인과 별개로 서버를 직접 설치해야 한다.
+  - TypeScript/JavaScript(`.ts .tsx .js .jsx .mts .cts .mjs .cjs`): `npm install -g typescript-language-server typescript`
+  - Python(`.py .pyi`): `npm install -g pyright` (또는 `pip install pyright`, `pipx install pyright`)
+- 설치: `claude plugin install typescript-lsp@claude-plugins-official`, `claude plugin install pyright-lsp@claude-plugins-official`
+
+**11) skill-creator — 스킬 제작·개선·측정**
+- 새 스킬 작성, 기존 스킬 개선, 평가(evals) 실행, 분산 분석 벤치마크, 트리거 정확도를 높이는 설명문 최적화.
+- 설치: `claude plugin install skill-creator@claude-plugins-official`
+
+**12) session-report — 사용량 HTML 리포트**
+- `~/.claude/projects` 의 대화 기록을 분석해 토큰·캐시 효율·서브에이전트·스킬·비용이 큰 프롬프트를 담은 HTML 파일을 현재 폴더에 만든다. 기본은 최근 7일이고 `24h`, `30d`, `all` 로 범위를 바꾼다. Node.js 필요. ponytail 의 절감 효과를 확인하는 데 쓸 수 있다.
+- 설치: `claude plugin install session-report@claude-plugins-official`
+
+### 겹치거나 충돌할 수 있는 조합
+- `superpowers`(설계·TDD 강제) ↔ `ponytail`(최소 코드): 함께 쓸 때 동작이 겹치는지는 확인하지 못했다. 불편하면 둘 중 하나만 켠다.
+- `superpowers` ↔ `feature-dev`: 둘 다 단계형 개발 워크플로다.
+- `code-review` ↔ `pr-review-toolkit`: 둘 다 PR 리뷰다.
+- `security-audit`(스킬, 전체 감사) ↔ `security-guidance`(플러그인, 평소 점검): 용도가 달라 같이 써도 된다.
 - `rea` 는 플러그인 방식과 `rea setup` 방식을 동시에 쓰지 않는다.
