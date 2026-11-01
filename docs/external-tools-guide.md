@@ -112,6 +112,56 @@ powershell -ExecutionPolicy Bypass -File scripts\install_all.ps1
 - **[제안]** hallmark 는 시작할 때 프로젝트의 고정된 `design.md`(폰트·팔레트)를 읽는다고 README 에 적혀 있다. ui-ux-pro-max 가 만든 시스템을 `design.md` 로 저장해 두면 3 단계가 그 기준을 따를 가능성이 있다 (직접 확인하지 못했다).
 - 4·5 는 만든 뒤 점검하는 단계라 마지막에 한 번씩만 돌린다.
 
+### A-2. 기존 UI 수정하기 — 진단 먼저, 수정은 그다음
+
+새로 만드는 것이 아니므로 **수정 없이 현황을 진단하는 단계**를 먼저 둔다.
+
+**공통 첫 단계 (수정 없음)**
+| 도구 | 하는 일 | 입력 예 |
+|---|---|---|
+| web-design-guidelines | 접근성·포커스·폼·성능 등 빠진 곳을 `file:line` 으로 보고 | `/web-design-guidelines src/**` |
+| hallmark `audit` | 코드를 수정하지 않고 AI 티 나는 구성만 점검 | `/hallmark:hallmark audit ./src/app` |
+- 결과를 파일로 저장해 두면 수정 후 비교 기준이 된다. **[제안]**
+- 앱이 크면 먼저 `/graphify .` 로 구조를 파악하고 `query`/`path` 로 해당 컴포넌트와 연결 관계를 찾는다.
+
+**경우 1 — 일부만 다듬기 (색·간격·티 나는 부분)**
+1. web-design-guidelines + hallmark `audit` 으로 진단
+2. hallmark `polish` 모드 (README: `polish` 는 티 나는 부분만 고친다)
+3. 필요한 곳에 emil-design-eng (예: `이 컴포넌트 애니메이션 리뷰해줘`)
+4. web-design-guidelines 로 재점검
+
+**경우 2 — 전체 리스타일 (분위기는 바꾸고 기능은 유지)**
+| 순서 | 도구 | 하는 일 |
+|---|---|---|
+| 1 | 진단 | 위의 공통 첫 단계 |
+| 2 | frontend-design | 목표 방향 정하기 (설명: 새로 만들 때뿐 아니라 기존 UI 를 바꿀 때도 사용) |
+| 3 | ui-ux-pro-max | 목표 스타일에 맞는 색·폰트 시스템을 뽑아 **기존 토큰에 옮기기** |
+| 4 | hallmark `redesign` | 내용·연결은 유지하고 시스템과 레이아웃을 바꾸기 |
+| 5 | emil-design-eng | 모션 다듬기 |
+| 6 | web-design-guidelines | 재점검 |
+| 7 | code-review | PR 을 올린 뒤 `/code-review` |
+
+- **3단계 (ui-ux-pro-max)**: README 에 기존 앱 테마 변경용 프롬프트와 체크리스트(감사 → 매핑 → 이전 → 검증)가 있다. 핵심은 다음과 같다.
+  - 프레임워크·라우트·컴포넌트·기존 테마 토큰을 먼저 조사한다.
+  - 컴포넌트 구조와 동작은 유지한다.
+  - 새 테마 체계를 만들지 말고 기존 의미 토큰(`background`, `primary`, `border` 등)을 갱신한다.
+  - 하드코딩된 스타일은 컴포넌트 하나씩 교체한다.
+  - 매 묶음마다 대비·키보드 포커스·반응형·라이트/다크를 확인한다.
+  - README 는 검색 결과가 앱을 자동으로 고쳐주지는 않는다고 밝힌다.
+- **4단계 (hallmark)**: README 는 "이미 있는 디자인은 이름을 지정해야 건드린다"고 적고 있다.
+  - 호출: `/hallmark:hallmark redesign ./src/app`
+  - `keep the layout` 을 붙이면 스타일만 바꾸고, 안 붙이면 레이아웃까지 바꾼다.
+  - 작업 전에 모든 링크·필드·핸들러·제목을 기록하고, 하나라도 빠지면 실패로 처리하며, 마지막에 전후 비교를 보여준다.
+
+**경우 3 — 기능 변경이 함께 있을 때**
+- 위 순서 앞에 **superpowers** 를 둔다. 설계 → 계획 → TDD → 작업별 리뷰가 자동으로 진행되고, 디자인 도구는 그 구현 단계 안에서 쓴다. 라이브러리 API 는 context7 이 최신 문서로 보조한다.
+
+**주의**
+- frontend-design·ui-ux-pro-max·hallmark 는 모두 방향을 잡는 도구라 겹친다. **[제안]** 방향 확정은 2·3단계에서 하고, hallmark 는 진단(`audit`)과 마무리(`polish`/`redesign`)에 쓴다.
+- 위 순서의 연결(진단 결과 저장, 2→3→4 순서)은 제 판단이다. 각 도구의 동작은 README 기준이지만 이 조합을 실제로 돌려 보지는 못했다.
+- hallmark 의 브라우저 린트는 `puppeteer-core` + Chrome 이 있어야 한다. 없으면 정적 검사만 실행된다.
+- 단계마다 커밋해 두면 되돌리기 쉽다. **[제안]**
+
 ### B. 기능 개발 — superpowers 중심
 
 | 순서 | 도구 | 하는 일 |
@@ -146,6 +196,7 @@ powershell -ExecutionPolicy Bypass -File scripts\install_all.ps1
 | 하고 싶은 일 | 사용 순서 |
 |---|---|
 | 새 UI 디자인 | frontend-design → ui-ux-pro-max → hallmark → emil-design-eng → web-design-guidelines |
+| 기존 UI 수정 | 진단(web-design-guidelines + hallmark `audit`) → frontend-design → ui-ux-pro-max → hallmark `redesign`/`polish` → emil-design-eng → web-design-guidelines → code-review |
 | 기능 개발 | (graphify) → superpowers (+ context7, ponytail) → code-review → security-audit |
 | 코드베이스 파악 | graphify → security-audit/ponytail-audit |
 | 앱 역분석 후 구현 | rea → superpowers |
