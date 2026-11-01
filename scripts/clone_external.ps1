@@ -12,9 +12,7 @@ New-Item -ItemType Directory -Force -Path $Dest | Out-Null
 $Repos = @(
   "cloudflare/security-audit-skill",
   "Graphify-Labs/graphify",
-  "anomalyco/opencode",
   "heygen-com/hyperframes",
-  "Comfy-Org/ComfyUI",
   "obra/superpowers",
   "morluto/rea",
   "anthropics/claude-plugins-official",   # frontend-design 플러그인 포함
